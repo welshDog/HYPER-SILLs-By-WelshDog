@@ -7,11 +7,11 @@ Master tracking list for every skill in the vault.
 > - 📝 **CATALOGUED** = source pattern identified in another repo, **file not yet extracted** to this vault
 
 > Last Hunt: 20 May 2026 — 86 repos scanned 🐕💨
-> Last Updated: 21 May 2026 — **index reconciled with disk truth** ✅ (was claiming 66 rescued; actual = **35 real files + 37 catalogued-but-not-extracted**)
+> Last Updated: 21 May 2026 — **Bible deep raid: HS-077 → HS-088 (+12 skills)** 🔥📖 · vault now 47 rescued + 37 catalogued
 
 ---
 
-## ✅ RESCUED SKILLS (file present on disk, 35 total)
+## ✅ RESCUED SKILLS (file present on disk, 47 total)
 
 | ID | Skill Name | File | Source Repo | Category |
 |---|---|---|---|---|
@@ -50,6 +50,18 @@ Master tracking list for every skill in the vault.
 | HS-074 | API Standards (FastAPI Agent Pattern) 🚀 | [`dev/FASTAPI_AGENT_API_STANDARDS_v1.md`](dev/FASTAPI_AGENT_API_STANDARDS_v1.md) | HyperCode-V2.4 (Bible) | `dev/` |
 | HS-075 | Agent Decision Framework Matrix 🎯 | [`agents/AGENT_DECISION_FRAMEWORK_MATRIX_v1.md`](agents/AGENT_DECISION_FRAMEWORK_MATRIX_v1.md) | HyperCode-V2.4 (Bible §10) | `agents/` |
 | HS-076 | Pre-Commit Testing Checklist ✅ | [`dev/PRE_COMMIT_TESTING_CHECKLIST_v1.md`](dev/PRE_COMMIT_TESTING_CHECKLIST_v1.md) | HyperCode-V2.4 (Bible §9) | `dev/` |
+| HS-077 | User Agency Approval Gate Pattern 🛑 | [`agents/USER_AGENCY_APPROVAL_GATE_v1.md`](agents/USER_AGENCY_APPROVAL_GATE_v1.md) | HyperCode-V2.4 (Bible §1 P1 + §6 R5) | `agents/` |
+| HS-078 | Context Retention / Anti-Interrupt Pattern 🧠 | [`agents/CONTEXT_RETENTION_ANTI_INTERRUPT_v1.md`](agents/CONTEXT_RETENTION_ANTI_INTERRUPT_v1.md) | HyperCode-V2.4 (Bible §1 P2) | `agents/` |
+| HS-079 | Specialist Agent Role Definitions 👥 | [`agents/SPECIALIST_AGENT_ROLES_v1.md`](agents/SPECIALIST_AGENT_ROLES_v1.md) | HyperCode-V2.4 (Bible §2) | `agents/` |
+| HS-080 | Universal Agent Tools API 🧰 | [`agents/UNIVERSAL_AGENT_TOOLS_API_v1.md`](agents/UNIVERSAL_AGENT_TOOLS_API_v1.md) | HyperCode-V2.4 (Bible §3) | `agents/` |
+| HS-081 | MCP Server + Agent Registration Pattern 🔌 | [`dev/MCP_SERVER_AGENT_REGISTRATION_v1.md`](dev/MCP_SERVER_AGENT_REGISTRATION_v1.md) | HyperCode-V2.4 (Bible §3) | `dev/` |
+| HS-082 | Context Key Naming Convention + Value Schema 🏷️ | [`dev/CONTEXT_KEY_NAMING_CONVENTION_v1.md`](dev/CONTEXT_KEY_NAMING_CONVENTION_v1.md) | HyperCode-V2.4 (Bible §4 + §7) | `dev/` |
+| HS-083 | Agent Communication Patterns (Req-Res, Stream, Error) 📡 | [`agents/AGENT_COMMUNICATION_PATTERNS_v1.md`](agents/AGENT_COMMUNICATION_PATTERNS_v1.md) | HyperCode-V2.4 (Bible §4) | `agents/` |
+| HS-084 | Code Style Standards (Python + TS/React) 📐 | [`dev/CODE_STYLE_STANDARDS_v1.md`](dev/CODE_STYLE_STANDARDS_v1.md) | HyperCode-V2.4 (Bible §5) | `dev/` |
+| HS-085 | 5 Mandatory Agent Guardrails 🚧 | [`agents/FIVE_MANDATORY_GUARDRAILS_v1.md`](agents/FIVE_MANDATORY_GUARDRAILS_v1.md) | HyperCode-V2.4 (Bible §6) | `agents/` |
+| HS-086 | Test Pyramid (4 Levels) 🔺 | [`dev/TEST_PYRAMID_FOUR_LEVELS_v1.md`](dev/TEST_PYRAMID_FOUR_LEVELS_v1.md) | HyperCode-V2.4 (Bible §9) | `dev/` |
+| HS-087 | Agent Decision Tree (Quick Ref Flowchart) 🌳 | [`agents/AGENT_DECISION_TREE_FLOWCHART_v1.md`](agents/AGENT_DECISION_TREE_FLOWCHART_v1.md) | HyperCode-V2.4 (Bible Quick Ref) | `agents/` |
+| HS-088 | Agent Final Self-Audit (8-Point Checklist) ✅ | [`agents/AGENT_FINAL_SELF_AUDIT_v1.md`](agents/AGENT_FINAL_SELF_AUDIT_v1.md) | HyperCode-V2.4 (Bible Final Checklist) | `agents/` |
 
 ---
 
@@ -203,7 +215,7 @@ Master tracking list for every skill in the vault.
 
 | Source Repo | Skill Candidates | Vault Folder | Rescued? |
 |---|---|---|---|
-| [HyperCode-V2.4](https://github.com/welshDog/HyperCode-V2.4) | Agent orchestration, ND dev prompts, swarm patterns, Web3 | `agents/` `dev/` `hypercode/` `web3/` | ⚡ RAIDING — HS-067→076 done from Bible; HS-030→066 catalogued, files still need writing |
+| [HyperCode-V2.4](https://github.com/welshDog/HyperCode-V2.4) | Agent orchestration, ND dev prompts, swarm patterns, Web3 | `agents/` `dev/` `hypercode/` `web3/` | ⚡ RAIDING — HS-067→088 done from Bible (22 skills!); HS-030→066 catalogued, files still need writing |
 | [HyperAgent-SDK](https://github.com/welshDog/HyperAgent-SDK) | HS-022 → HS-029 rescued ✅ — docs/ templates/ still inside | `dev/` `agents/` | ⚡ PARTIAL — more inside |
 | [BROski-Obsidian-Brain-for-HyperFocus-z0ne](https://github.com/welshDog/BROski-Obsidian-Brain-for-HyperFocus-z0ne) | HS-009 → HS-021 rescued ✅ | `agents/` `broski/` | ⚡ PARTIAL — more inside |
 | [GitHub-Hyper-Agent-BROski](https://github.com/welshDog/GitHub-Hyper-Agent-BROski) | GitHub automation, PR/issue management skill | `agents/` `dev/` | 🔍 Hunting |
@@ -260,11 +272,11 @@ Master tracking list for every skill in the vault.
 |---|---|
 | Total Repos Scanned | 86 |
 | Skill Candidates Found | 100+ |
-| ✅ **Rescued (file on disk)** | **35** (HS-001, HS-006→029, HS-067→076) |
+| ✅ **Rescued (file on disk)** | **47** (HS-001, HS-006→029, HS-067→088) |
 | 📝 **Catalogued (no file yet)** | **37** (HS-030 → HS-066) |
 | 🔨 In Progress | 4 (HS-002, HS-003, HS-004, HS-005) |
 | 🔍 Still To Raid | 20+ repos + Bible deep-cuts + 35 agent subdirs |
-| 🏆 Best Night | 20 May 2026 — 35 real skills rescued + Bible cracked open 🔥 |
+| 🏆 Best Raid | 21 May 2026 — Bible deep-raid HS-077→088 (+12 skills in one run) 🔥📖 |
 
 ---
 
@@ -272,8 +284,8 @@ Master tracking list for every skill in the vault.
 
 | Category | Rescued | Catalogued (no file yet) |
 |---|---|---|
-| `agents/` | HS-006 · HS-007 · HS-008 · HS-009 · HS-011 · HS-013 · HS-016 · HS-017 · HS-018 · HS-019 · HS-020 · HS-021 · HS-028 · HS-067 · HS-068 · HS-070 · HS-071 · HS-072 · HS-073 · HS-075 → **20 skills** | HS-038 · HS-040 · HS-041 · HS-042 · HS-043 · HS-044 · HS-045 · HS-050 |
-| `dev/` | HS-014 · HS-022 · HS-023 · HS-024 · HS-025 · HS-026 · HS-027 · HS-029 · HS-074 · HS-076 → **10 skills** | HS-048 · HS-049 · HS-051 · HS-060 · HS-061 · HS-062 · HS-063 · HS-064 |
+| `agents/` | HS-006 · HS-007 · HS-008 · HS-009 · HS-011 · HS-013 · HS-016 · HS-017 · HS-018 · HS-019 · HS-020 · HS-021 · HS-028 · HS-067 · HS-068 · HS-070 · HS-071 · HS-072 · HS-073 · HS-075 · HS-077 · HS-078 · HS-079 · HS-080 · HS-083 · HS-085 · HS-087 · HS-088 → **28 skills** | HS-038 · HS-040 · HS-041 · HS-042 · HS-043 · HS-044 · HS-045 · HS-050 |
+| `dev/` | HS-014 · HS-022 · HS-023 · HS-024 · HS-025 · HS-026 · HS-027 · HS-029 · HS-074 · HS-076 · HS-081 · HS-082 · HS-084 · HS-086 → **14 skills** | HS-048 · HS-049 · HS-051 · HS-060 · HS-061 · HS-062 · HS-063 · HS-064 |
 | `broski/` | HS-010 · HS-012 · HS-015 · HS-069 → **4 skills** | HS-034 · HS-036 |
 | `youtube/` | HS-001 → **1 skill** | — |
 | `hypercode/` *(folder doesn't exist)* | **0 skills** | HS-030 · HS-031 · HS-032 · HS-033 · HS-035 · HS-037 · HS-039 · HS-046 · HS-047 · HS-059 · HS-065 · HS-066 |

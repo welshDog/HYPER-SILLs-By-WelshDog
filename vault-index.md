@@ -7,11 +7,14 @@ Use this to track: what's live, what's being built, and what's been rescued from
 
 ---
 
-## ✅ LIVE SKILLS
+## ✅ RESCUED SKILLS (Live in Vault)
 
-| ID | Skill Name | Folder | Description | Status |
+| ID | Skill Name | File | Source Repo | Status |
 |---|---|---|---|---|
-| HS-001 | YT Analytics Debugger | `youtube/` | Debug YouTube video performance like a dev | ✅ Live |
+| HS-001 | YT Analytics Debugger | `youtube/` | Original | ✅ Live |
+| HS-006 | GOD Mode Hyperflow | [`agents/GOD_MODE_HYPERFLOW_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/agents/GOD_MODE_HYPERFLOW_v1.md) | GOD-Agent-Mode | ✅ Rescued |
+| HS-007 | HyperGraph Node Skill | [`agents/HYPERGRAPH_NODE_SKILL_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/agents/HYPERGRAPH_NODE_SKILL_v1.md) | GOD-Agent-Mode | ✅ Rescued |
+| HS-008 | Hyperfocus Agent Swarm Core | [`agents/HYPERFOCUS_AGENT_SWARM_CORE_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/agents/HYPERFOCUS_AGENT_SWARM_CORE_v1.md) | Hyperfocus-Global-Impact-Skills | ✅ Rescued 👑 |
 
 ---
 
@@ -36,9 +39,9 @@ Use this to track: what's live, what's being built, and what's been rescued from
 |---|---|---|---|
 | [HyperCode-V2.4](https://github.com/welshDog/HyperCode-V2.4) | Agent orchestration, ND dev prompts, swarm patterns | `agents/` `dev/` | 🔍 Hunting |
 | [HyperAgent-SDK](https://github.com/welshDog/HyperAgent-SDK) | Agent interface spec, deploy-anywhere skill | `agents/` | 🔍 Hunting |
-| [BROski-Obsidian-Brain-for-HyperFocus-z0ne](https://github.com/welshDog/BROski-Obsidian-Brain-for-HyperFocus-z0ne) | Brain agent prompts, knowledge management | `agents/` `broski/` | 🔍 Hunting |
+| [BROski-Obsidian-Brain-for-HyperFocus-z0ne](https://github.com/welshDog/BROski-Obsidian-Brain-for-HyperFocus-z0ne) | Brain agent prompts, knowledge management | `agents/` `broski/` | 🚨 RAIDING NOW |
 | [GitHub-Hyper-Agent-BROski](https://github.com/welshDog/GitHub-Hyper-Agent-BROski) | GitHub automation, PR/issue management skill | `agents/` `dev/` | 🔍 Hunting |
-| [Hyperfocus-Global-Impact-Skills](https://github.com/welshDog/Hyperfocus-Global-Impact-Skills) | Already named SKILLS — immediate rescue candidates | `agents/` `broski/` | 🔍 Hunting |
+| [Hyperfocus-Global-Impact-Skills](https://github.com/welshDog/Hyperfocus-Global-Impact-Skills) | Agent Swarm Core (HS-008) + ND tools still inside | `agents/` `broski/` | ⚡ PARTIAL — more gold inside |
 
 ### 🥈 TIER 2 — Strong Skill Material
 
@@ -51,7 +54,6 @@ Use this to track: what's live, what's being built, and what's been rescued from
 | [Hyper-Vibe-Coding-Course](https://github.com/welshDog/Hyper-Vibe-Coding-Course) | Tutorial structure + gamified course design | `content/` `dev/` | 🔍 Hunting |
 | [HYPERFOCUS-UNIFIED-EMPIRE](https://github.com/welshDog/HYPERFOCUS-UNIFIED-EMPIRE) | System orchestration prompts, unified AI patterns | `agents/` | 🔍 Hunting |
 | [HYPERFOCUSzon.COM-Dreamer-Platform](https://github.com/welshDog/HYPERFOCUSzon.COM-Dreamer-Platform) | BROski Empire Portal — AI workflow prompts | `broski/` `agents/` | 🔍 Hunting |
-| [HYPERFOCUS-UNIFIED-EMPIRE](https://github.com/welshDog/HYPERFOCUS-UNIFIED-EMPIRE) | Unified AI ecosystem patterns | `agents/` | 🔍 Hunting |
 | [hypercode-research](https://github.com/welshDog/hypercode-research) | Living research DB — auto-agent research skill | `agents/` `dev/` | 🔍 Hunting |
 
 ### 🥉 TIER 3 — Hidden Gems
@@ -59,7 +61,6 @@ Use this to track: what's live, what's being built, and what's been rescued from
 | Source Repo | Skill Candidates | Vault Folder | Rescued? |
 |---|---|---|---|
 | [OMEGA-ENGINE-HYPERFOCUS-COMMAND-CENTER](https://github.com/welshDog/OMEGA-ENGINE-HYPERFOCUS-COMMAND-CENTER) | Command center logic, orchestration patterns | `agents/` | 🔍 Hunting |
-| [GOD-Agent-Mode](https://github.com/welshDog/GOD-Agent-Mode) *(archived)* | GOD mode agent prompts — rescue before gone! | `agents/` | 🔍 Hunting |
 | [-HYPERFOCUS-ZONE-Omega-Vault-](https://github.com/welshDog/-HYPERFOCUS-ZONE-Omega-Vault-) | Vault artifacts and constructs | `broski/` | 🔍 Hunting |
 | [hyperfocus-neurodivergent-HYPER-tool](https://github.com/welshDog/hyperfocus-neurodivergent-HYPER-tool) | ND-focused tool prompts | `dev/` `broski/` | 🔍 Hunting |
 | [-ULTIMATE-ADHD-BRAIN-ARCADE-](https://github.com/welshDog/-ULTIMATE-ADHD-BRAIN-ARCADE-) | ADHD brain training patterns | `broski/` | 🔍 Hunting |
@@ -77,9 +78,8 @@ Use this to track: what's live, what's being built, and what's been rescued from
 | Source Repo | Notes | Priority |
 |---|---|---|
 | [HyperCode-V2.0](https://github.com/welshDog/HyperCode-V2.0) *(archived)* | Living cognitive AI system — agent patterns inside | 🔥 HIGH |
-| [GOD-Agent-Mode](https://github.com/welshDog/GOD-Agent-Mode) *(archived)* | GOD mode agent prompts | 🔥 HIGH |
+| [GOD-Agent-Mode](https://github.com/welshDog/GOD-Agent-Mode) *(archived)* | HS-006 + HS-007 rescued ✅ — check hyper-agents/ folder still | ✅ PARTIAL |
 | [HYPERcode-V2](https://github.com/welshDog/HYPERcode-V2) *(archived)* | Early HyperCode — foundational patterns | 🟡 MED |
-| [HtperCode-IDE](https://github.com/welshDog/HtperCode-IDE) *(archived)* | IDE experiments | 🟡 MED |
 | [BROski-system](https://github.com/welshDog/BROski-system) *(archived)* | Early BROski system base | 🟡 MED |
 | [Hyper-Agents-Crew](https://github.com/welshDog/Hyper-Agents-Crew) *(archived)* | Agent crew patterns | 🟡 MED |
 | [hyperflow-editor](https://github.com/welshDog/hyperflow-editor) *(archived)* | Editor workflow experiments | 🟢 LOW |
@@ -94,9 +94,9 @@ Use this to track: what's live, what's being built, and what's been rescued from
 |---|---|
 | Total Repos Scanned | 86 |
 | Skill Candidates Found | 30+ |
-| Live Skills | 1 |
-| In Progress | 4 |
-| Awaiting Rescue | 25+ |
+| ✅ Rescued Skills | **4** (HS-001, HS-006, HS-007, HS-008) |
+| 🔨 In Progress | 4 |
+| 🔍 Still To Raid | 23+ repos |
 
 ---
 

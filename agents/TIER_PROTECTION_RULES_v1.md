@@ -1,4 +1,4 @@
-# HS-104 — Tier Protection Rules (Hardcoded + Configurable + Self) 🛡️
+# HS-104 — 🛡️ THE THREE WALLS — Tier Protection Rules (Hardcoded + Configurable + Self)
 
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/throttle-agent/HYPER-AGENT-BIBLE.md`

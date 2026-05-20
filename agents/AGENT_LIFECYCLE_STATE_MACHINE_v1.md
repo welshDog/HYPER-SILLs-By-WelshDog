@@ -1,4 +1,4 @@
-# HS-100 — Agent Lifecycle State Machine (BIRTH → DEATH) 🔄
+# HS-100 — 🔄 CRADLE-TO-GRAVE — Agent Lifecycle State Machine (BIRTH → DEATH)
 
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/throttle-agent/HYPER-AGENT-BIBLE.md`

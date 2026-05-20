@@ -1,4 +1,4 @@
-# HS-092 — Agent Contract Test Suite 🧪
+# HS-092 — 🧪 CONTRACT FORGE — Agent Contract Test Suite
 
 **Category:** `dev/`
 **Source:** HyperCode-V2.4 — `agents/🧬 The Full Confirmed Hyper Agent Roster` §4

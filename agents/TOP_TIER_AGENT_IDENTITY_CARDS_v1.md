@@ -1,4 +1,4 @@
-# HS-091 — Top-Tier Agent Identity Cards 🪪
+# HS-091 — 🪪 THE FOUNDING SIX — Top-Tier Agent Identity Cards
 
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/🧬 The Full Confirmed Hyper Agent Roster` §2 + `agents/🦅 HYPER AGENT LIFE PLANS — MASTER ARCHITECTURE` §2

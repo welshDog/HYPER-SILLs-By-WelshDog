@@ -1,4 +1,4 @@
-# HS-102 — Predictive Trend via Linear Regression 📈
+# HS-102 — 📈 SLOPE ORACLE — Predictive Trend via Linear Regression
 
 **Category:** `dev/`
 **Source:** HyperCode-V2.4 — `agents/throttle-agent/HYPER-AGENT-BIBLE.md`

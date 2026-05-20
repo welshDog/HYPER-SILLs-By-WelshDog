@@ -1,4 +1,4 @@
-# HS-103 — Healer Circuit-Breaker Protocol 🤝
+# HS-103 — 🤝 HEALER'S CHORUS — Healer Circuit-Breaker Protocol
 
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/throttle-agent/HYPER-AGENT-BIBLE.md`

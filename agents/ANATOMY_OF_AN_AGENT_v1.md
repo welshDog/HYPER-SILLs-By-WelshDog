@@ -1,4 +1,4 @@
-# HS-099 — Anatomy of an Agent (6 Organs) 🧬
+# HS-099 — 🧬 SIX-ORGAN HEART — Anatomy of an Agent
 
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/throttle-agent/HYPER-AGENT-BIBLE.md`

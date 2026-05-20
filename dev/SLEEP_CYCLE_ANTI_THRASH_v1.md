@@ -1,4 +1,4 @@
-# HS-101 — Sleep Cycle + 5-Minute Anti-Thrash Hold 😴
+# HS-101 — 😴 DREAM GUARD — Sleep Cycle + 5-Minute Anti-Thrash Hold
 
 **Category:** `dev/`
 **Source:** HyperCode-V2.4 — `agents/throttle-agent/HYPER-AGENT-BIBLE.md`

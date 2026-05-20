@@ -1,4 +1,4 @@
-# HS-098 — The 6 Laws of Agents 🏛️
+# HS-098 — 🏛️ THE SACRED SIX — The 6 Laws of Agents
 
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/throttle-agent/HYPER-AGENT-BIBLE.md`

@@ -1,4 +1,4 @@
-# HS-093 — Nightly Continuous Learning Loop 🌙
+# HS-093 — 🌙 NIGHT TENDER — Nightly Continuous Learning Loop
 
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/🧬 The Full Confirmed Hyper Agent Roster` §5

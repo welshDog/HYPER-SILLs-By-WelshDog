@@ -1,4 +1,4 @@
-# HS-085 — 5 Mandatory Agent Guardrails 🚧
+# HS-085 — 🚧 THE FIVE WARDS — 5 Mandatory Agent Guardrails
 
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §6

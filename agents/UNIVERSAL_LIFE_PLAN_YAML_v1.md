@@ -1,4 +1,4 @@
-# HS-090 — Universal Life Plan YAML v2.0 Template 📜
+# HS-090 — 📜 SOUL SCROLL — Universal Life Plan YAML v2.0 Template
 
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/🧬 The Full Confirmed Hyper Agent Roster` §1

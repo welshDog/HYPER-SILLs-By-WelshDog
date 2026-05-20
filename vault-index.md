@@ -7,8 +7,8 @@ Master tracking list for every skill in the vault.
 > - 📝 **CATALOGUED** = source pattern identified in another repo, **file not yet extracted** to this vault
 
 > Last Hunt: 20 May 2026 — 86 repos scanned 🐕💨
-> Last Updated: 21 May 2026 — **Hero Pilot: HS-108 → HS-113 rebranded with Marvel-style names** 🦸 · vault still 72 rescued + 37 catalogued
-> *🔱 REALITY ANCHOR · 🐕 GREP HOUND · ⚔️ TRIM LORD · 🚩 TRUTH FLAGGER · 🕸️ WEB WEAVER · ⚒️ FETCH FORGE — the six disciplines now have hero names. Rest of vault TBD if pilot lands well.*
+> Last Updated: 21 May 2026 — **The Iconic 12 rebranded with hero names** 🦸✨ · vault still 72 rescued + 37 catalogued
+> *Pilot (6) + Vault Classics (12) = **18 heroes**: 🔱 REALITY ANCHOR · 🐕 GREP HOUND · ⚔️ TRIM LORD · 🚩 TRUTH FLAGGER · 🕸️ WEB WEAVER · ⚒️ FETCH FORGE · 🚧 THE FIVE WARDS · 📜 SOUL SCROLL · 🪪 THE FOUNDING SIX · 🧪 CONTRACT FORGE · 🌙 NIGHT TENDER · 🏛️ THE SACRED SIX · 🧬 SIX-ORGAN HEART · 🔄 CRADLE-TO-GRAVE · 😴 DREAM GUARD · 📈 SLOPE ORACLE · 🤝 HEALER'S CHORUS · 🛡️ THE THREE WALLS*
 
 ---
 
@@ -59,26 +59,26 @@ Master tracking list for every skill in the vault.
 | HS-082 | Context Key Naming Convention + Value Schema 🏷️ | [`dev/CONTEXT_KEY_NAMING_CONVENTION_v1.md`](dev/CONTEXT_KEY_NAMING_CONVENTION_v1.md) | HyperCode-V2.4 (Bible §4 + §7) | `dev/` |
 | HS-083 | Agent Communication Patterns (Req-Res, Stream, Error) 📡 | [`agents/AGENT_COMMUNICATION_PATTERNS_v1.md`](agents/AGENT_COMMUNICATION_PATTERNS_v1.md) | HyperCode-V2.4 (Bible §4) | `agents/` |
 | HS-084 | Code Style Standards (Python + TS/React) 📐 | [`dev/CODE_STYLE_STANDARDS_v1.md`](dev/CODE_STYLE_STANDARDS_v1.md) | HyperCode-V2.4 (Bible §5) | `dev/` |
-| HS-085 | 5 Mandatory Agent Guardrails 🚧 | [`agents/FIVE_MANDATORY_GUARDRAILS_v1.md`](agents/FIVE_MANDATORY_GUARDRAILS_v1.md) | HyperCode-V2.4 (Bible §6) | `agents/` |
+| HS-085 | 🚧 **THE FIVE WARDS** — 5 Mandatory Agent Guardrails | [`agents/FIVE_MANDATORY_GUARDRAILS_v1.md`](agents/FIVE_MANDATORY_GUARDRAILS_v1.md) | HyperCode-V2.4 (Bible §6) | `agents/` |
 | HS-086 | Test Pyramid (4 Levels) 🔺 | [`dev/TEST_PYRAMID_FOUR_LEVELS_v1.md`](dev/TEST_PYRAMID_FOUR_LEVELS_v1.md) | HyperCode-V2.4 (Bible §9) | `dev/` |
 | HS-087 | Agent Decision Tree (Quick Ref Flowchart) 🌳 | [`agents/AGENT_DECISION_TREE_FLOWCHART_v1.md`](agents/AGENT_DECISION_TREE_FLOWCHART_v1.md) | HyperCode-V2.4 (Bible Quick Ref) | `agents/` |
 | HS-088 | Agent Final Self-Audit (8-Point Checklist) ✅ | [`agents/AGENT_FINAL_SELF_AUDIT_v1.md`](agents/AGENT_FINAL_SELF_AUDIT_v1.md) | HyperCode-V2.4 (Bible Final Checklist) | `agents/` |
 | HS-089 | Hyper Agent Roster (22 Confirmed + 5 Expansion) 🗺️ | [`agents/HYPER_AGENT_ROSTER_v1.md`](agents/HYPER_AGENT_ROSTER_v1.md) | HyperCode-V2.4 (🧬 Roster) | `agents/` |
-| HS-090 | Universal Life Plan YAML v2.0 Template 📜 | [`agents/UNIVERSAL_LIFE_PLAN_YAML_v1.md`](agents/UNIVERSAL_LIFE_PLAN_YAML_v1.md) | HyperCode-V2.4 (🧬 Roster §1) | `agents/` |
-| HS-091 | Top-Tier Agent Identity Cards 🪪 *(v1.1 — +AutoEvo)* | [`agents/TOP_TIER_AGENT_IDENTITY_CARDS_v1.md`](agents/TOP_TIER_AGENT_IDENTITY_CARDS_v1.md) | HyperCode-V2.4 (🧬 Roster §2 + 🦅 Life Plans Master §2) | `agents/` |
-| HS-092 | Agent Contract Test Suite 🧪 | [`dev/AGENT_CONTRACT_TEST_SUITE_v1.md`](dev/AGENT_CONTRACT_TEST_SUITE_v1.md) | HyperCode-V2.4 (🧬 Roster §4) | `dev/` |
-| HS-093 | Nightly Continuous Learning Loop 🌙 | [`agents/NIGHTLY_LEARNING_LOOP_v1.md`](agents/NIGHTLY_LEARNING_LOOP_v1.md) | HyperCode-V2.4 (🧬 Roster §5) | `agents/` |
+| HS-090 | 📜 **SOUL SCROLL** — Universal Life Plan YAML v2.0 Template | [`agents/UNIVERSAL_LIFE_PLAN_YAML_v1.md`](agents/UNIVERSAL_LIFE_PLAN_YAML_v1.md) | HyperCode-V2.4 (🧬 Roster §1) | `agents/` |
+| HS-091 | 🪪 **THE FOUNDING SIX** — Top-Tier Agent Identity Cards *(v1.1 — +AutoEvo)* | [`agents/TOP_TIER_AGENT_IDENTITY_CARDS_v1.md`](agents/TOP_TIER_AGENT_IDENTITY_CARDS_v1.md) | HyperCode-V2.4 (🧬 Roster §2 + 🦅 Life Plans Master §2) | `agents/` |
+| HS-092 | 🧪 **CONTRACT FORGE** — Agent Contract Test Suite | [`dev/AGENT_CONTRACT_TEST_SUITE_v1.md`](dev/AGENT_CONTRACT_TEST_SUITE_v1.md) | HyperCode-V2.4 (🧬 Roster §4) | `dev/` |
+| HS-093 | 🌙 **NIGHT TENDER** — Nightly Continuous Learning Loop | [`agents/NIGHTLY_LEARNING_LOOP_v1.md`](agents/NIGHTLY_LEARNING_LOOP_v1.md) | HyperCode-V2.4 (🧬 Roster §5) | `agents/` |
 | HS-094 | 6-Sprint Production Roadmap (with KPI Gates) 🚀 | [`dev/SIX_SPRINT_PRODUCTION_ROADMAP_v1.md`](dev/SIX_SPRINT_PRODUCTION_ROADMAP_v1.md) | HyperCode-V2.4 (🧬 Roster §3) | `dev/` |
 | HS-095 | Governance Ledger Entry Schema 📒 | [`dev/GOVERNANCE_LEDGER_ENTRY_SCHEMA_v1.md`](dev/GOVERNANCE_LEDGER_ENTRY_SCHEMA_v1.md) | HyperCode-V2.4 (🧬 Roster §6) | `dev/` |
 | HS-096 | 4-Phase / 8-Sprint Production Roadmap (Alt Cadence) 🗓️ | [`dev/FOUR_PHASE_EIGHT_SPRINT_ROADMAP_v1.md`](dev/FOUR_PHASE_EIGHT_SPRINT_ROADMAP_v1.md) | HyperCode-V2.4 (🦅 Life Plans Master §3) | `dev/` |
 | HS-097 | Hyper Agent Dependency Graph (8-Agent Worked Example) 🕸️ | [`agents/HYPER_AGENT_DEPENDENCY_GRAPH_v1.md`](agents/HYPER_AGENT_DEPENDENCY_GRAPH_v1.md) | HyperCode-V2.4 (🦅 Life Plans Master §1) | `agents/` |
-| HS-098 | The 6 Laws of Agents 🏛️ | [`agents/SIX_LAWS_OF_AGENTS_v1.md`](agents/SIX_LAWS_OF_AGENTS_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `agents/` |
-| HS-099 | Anatomy of an Agent (6 Organs) 🧬 | [`agents/ANATOMY_OF_AN_AGENT_v1.md`](agents/ANATOMY_OF_AN_AGENT_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `agents/` |
-| HS-100 | Agent Lifecycle State Machine (BIRTH → DEATH) 🔄 | [`agents/AGENT_LIFECYCLE_STATE_MACHINE_v1.md`](agents/AGENT_LIFECYCLE_STATE_MACHINE_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `agents/` |
-| HS-101 | Sleep Cycle + 5-Minute Anti-Thrash Hold 😴 | [`dev/SLEEP_CYCLE_ANTI_THRASH_v1.md`](dev/SLEEP_CYCLE_ANTI_THRASH_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `dev/` |
-| HS-102 | Predictive Trend via Linear Regression 📈 | [`dev/PREDICTIVE_TREND_LINEAR_REGRESSION_v1.md`](dev/PREDICTIVE_TREND_LINEAR_REGRESSION_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `dev/` |
-| HS-103 | Healer Circuit-Breaker Protocol 🤝 | [`agents/HEALER_CIRCUIT_BREAKER_PROTOCOL_v1.md`](agents/HEALER_CIRCUIT_BREAKER_PROTOCOL_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `agents/` |
-| HS-104 | Tier Protection Rules (Hardcoded + Configurable + Self) 🛡️ | [`agents/TIER_PROTECTION_RULES_v1.md`](agents/TIER_PROTECTION_RULES_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `agents/` |
+| HS-098 | 🏛️ **THE SACRED SIX** — The 6 Laws of Agents | [`agents/SIX_LAWS_OF_AGENTS_v1.md`](agents/SIX_LAWS_OF_AGENTS_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `agents/` |
+| HS-099 | 🧬 **SIX-ORGAN HEART** — Anatomy of an Agent | [`agents/ANATOMY_OF_AN_AGENT_v1.md`](agents/ANATOMY_OF_AN_AGENT_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `agents/` |
+| HS-100 | 🔄 **CRADLE-TO-GRAVE** — Agent Lifecycle State Machine (BIRTH → DEATH) | [`agents/AGENT_LIFECYCLE_STATE_MACHINE_v1.md`](agents/AGENT_LIFECYCLE_STATE_MACHINE_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `agents/` |
+| HS-101 | 😴 **DREAM GUARD** — Sleep Cycle + 5-Minute Anti-Thrash Hold | [`dev/SLEEP_CYCLE_ANTI_THRASH_v1.md`](dev/SLEEP_CYCLE_ANTI_THRASH_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `dev/` |
+| HS-102 | 📈 **SLOPE ORACLE** — Predictive Trend via Linear Regression | [`dev/PREDICTIVE_TREND_LINEAR_REGRESSION_v1.md`](dev/PREDICTIVE_TREND_LINEAR_REGRESSION_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `dev/` |
+| HS-103 | 🤝 **HEALER'S CHORUS** — Healer Circuit-Breaker Protocol | [`agents/HEALER_CIRCUIT_BREAKER_PROTOCOL_v1.md`](agents/HEALER_CIRCUIT_BREAKER_PROTOCOL_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `agents/` |
+| HS-104 | 🛡️ **THE THREE WALLS** — Tier Protection Rules (Hardcoded + Configurable + Self) | [`agents/TIER_PROTECTION_RULES_v1.md`](agents/TIER_PROTECTION_RULES_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `agents/` |
 | HS-105 | Core Agent Metrics Contract (5 Mandatory) 📊 | [`dev/CORE_AGENT_METRICS_CONTRACT_v1.md`](dev/CORE_AGENT_METRICS_CONTRACT_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `dev/` |
 | HS-106 | New Agent Build Checklist (10-Point) 🌱 | [`dev/NEW_AGENT_BUILD_CHECKLIST_v1.md`](dev/NEW_AGENT_BUILD_CHECKLIST_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `dev/` |
 | HS-107 | Agent Ranks + Self-Naming Protocol + The Creed 🏆 | [`broski/AGENT_RANKS_NAMING_CREED_v1.md`](broski/AGENT_RANKS_NAMING_CREED_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `broski/` |

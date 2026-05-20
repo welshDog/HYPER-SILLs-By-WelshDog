@@ -7,11 +7,12 @@ Master tracking list for every skill in the vault.
 > - 📝 **CATALOGUED** = source pattern identified in another repo, **file not yet extracted** to this vault
 
 > Last Hunt: 20 May 2026 — 86 repos scanned 🐕💨
-> Last Updated: 21 May 2026 — **Roster raid: HS-089 → HS-095 (+7 skills)** 🗺️🧬 · vault now **54 rescued** + 37 catalogued
+> Last Updated: 21 May 2026 — **Life Plans Master raid: HS-096 + HS-097 (+2 skills + HS-091 v1.1)** 🦅 · vault now **56 rescued** + 37 catalogued
+> *Note: Life Plans Master was largely a v1.0 predecessor of the Roster doc — most patterns already covered by HS-089→095, hence the lean raid.*
 
 ---
 
-## ✅ RESCUED SKILLS (file present on disk, 54 total)
+## ✅ RESCUED SKILLS (file present on disk, 56 total)
 
 | ID | Skill Name | File | Source Repo | Category |
 |---|---|---|---|---|
@@ -64,11 +65,13 @@ Master tracking list for every skill in the vault.
 | HS-088 | Agent Final Self-Audit (8-Point Checklist) ✅ | [`agents/AGENT_FINAL_SELF_AUDIT_v1.md`](agents/AGENT_FINAL_SELF_AUDIT_v1.md) | HyperCode-V2.4 (Bible Final Checklist) | `agents/` |
 | HS-089 | Hyper Agent Roster (22 Confirmed + 5 Expansion) 🗺️ | [`agents/HYPER_AGENT_ROSTER_v1.md`](agents/HYPER_AGENT_ROSTER_v1.md) | HyperCode-V2.4 (🧬 Roster) | `agents/` |
 | HS-090 | Universal Life Plan YAML v2.0 Template 📜 | [`agents/UNIVERSAL_LIFE_PLAN_YAML_v1.md`](agents/UNIVERSAL_LIFE_PLAN_YAML_v1.md) | HyperCode-V2.4 (🧬 Roster §1) | `agents/` |
-| HS-091 | Top-Tier Agent Identity Cards 🪪 | [`agents/TOP_TIER_AGENT_IDENTITY_CARDS_v1.md`](agents/TOP_TIER_AGENT_IDENTITY_CARDS_v1.md) | HyperCode-V2.4 (🧬 Roster §2) | `agents/` |
+| HS-091 | Top-Tier Agent Identity Cards 🪪 *(v1.1 — +AutoEvo)* | [`agents/TOP_TIER_AGENT_IDENTITY_CARDS_v1.md`](agents/TOP_TIER_AGENT_IDENTITY_CARDS_v1.md) | HyperCode-V2.4 (🧬 Roster §2 + 🦅 Life Plans Master §2) | `agents/` |
 | HS-092 | Agent Contract Test Suite 🧪 | [`dev/AGENT_CONTRACT_TEST_SUITE_v1.md`](dev/AGENT_CONTRACT_TEST_SUITE_v1.md) | HyperCode-V2.4 (🧬 Roster §4) | `dev/` |
 | HS-093 | Nightly Continuous Learning Loop 🌙 | [`agents/NIGHTLY_LEARNING_LOOP_v1.md`](agents/NIGHTLY_LEARNING_LOOP_v1.md) | HyperCode-V2.4 (🧬 Roster §5) | `agents/` |
 | HS-094 | 6-Sprint Production Roadmap (with KPI Gates) 🚀 | [`dev/SIX_SPRINT_PRODUCTION_ROADMAP_v1.md`](dev/SIX_SPRINT_PRODUCTION_ROADMAP_v1.md) | HyperCode-V2.4 (🧬 Roster §3) | `dev/` |
 | HS-095 | Governance Ledger Entry Schema 📒 | [`dev/GOVERNANCE_LEDGER_ENTRY_SCHEMA_v1.md`](dev/GOVERNANCE_LEDGER_ENTRY_SCHEMA_v1.md) | HyperCode-V2.4 (🧬 Roster §6) | `dev/` |
+| HS-096 | 4-Phase / 8-Sprint Production Roadmap (Alt Cadence) 🗓️ | [`dev/FOUR_PHASE_EIGHT_SPRINT_ROADMAP_v1.md`](dev/FOUR_PHASE_EIGHT_SPRINT_ROADMAP_v1.md) | HyperCode-V2.4 (🦅 Life Plans Master §3) | `dev/` |
+| HS-097 | Hyper Agent Dependency Graph (8-Agent Worked Example) 🕸️ | [`agents/HYPER_AGENT_DEPENDENCY_GRAPH_v1.md`](agents/HYPER_AGENT_DEPENDENCY_GRAPH_v1.md) | HyperCode-V2.4 (🦅 Life Plans Master §1) | `agents/` |
 
 ---
 
@@ -148,7 +151,7 @@ Master tracking list for every skill in the vault.
 |---|---|---|---|
 | [`HYPER-AGENT-BIBLE.md`](https://github.com/welshDog/HyperCode-V2.4/blob/main/agents/HYPER-AGENT-BIBLE.md) | **49KB** | 🔥🔥🔥 | Crown jewel — HS-067 → HS-076 already extracted from this, more inside |
 | ~~[`🧬 The Full Confirmed Hyper Agent Roster`](https://github.com/welshDog/HyperCode-V2.4/blob/main/agents/%F0%9F%A7%AC%20The%20Full%20Confirmed%20Hyper%20Agent%20Roster)~~ | 21KB | ✅ RAIDED | HS-089 → HS-095 extracted (was typo'd as 🧦, actually 🧬) |
-| [`🦅 HYPER AGENT LIFE PLANS — MASTER ARCHITECTURE`](https://github.com/welshDog/HyperCode-V2.4/blob/main/agents/%F0%9F%A6%85%20HYPER%20AGENT%20LIFE%20PLANS%20%E2%80%94%20MASTER%20ARCHITECTURE) | 15KB | 🔥🔥 | Architecture master plan |
+| ~~[`🦅 HYPER AGENT LIFE PLANS — MASTER ARCHITECTURE`](https://github.com/welshDog/HyperCode-V2.4/blob/main/agents/%F0%9F%A6%85%20HYPER%20AGENT%20LIFE%20PLANS%20%E2%80%94%20MASTER%20ARCHITECTURE)~~ | 15KB | ✅ RAIDED (lean) | HS-096 + HS-097 extracted; rest was v1.0 of Roster doc (already in HS-089→095) |
 | [`README.md`](https://github.com/welshDog/HyperCode-V2.4/blob/main/agents/README.md) | 12KB | 🔥🔥 | Agents overview |
 | [`this is the Hyper Agent.md`](https://github.com/welshDog/HyperCode-V2.4/blob/main/agents/this%20is%20the%20Hyper%20Agent.md) | 11KB | 🔥🔥 | Agent identity doc |
 | [`⚡ The Concrete Quick-Win Stack`](https://github.com/welshDog/HyperCode-V2.4/blob/main/agents/%E2%9A%A1%20The%20Concrete%20Quick-Win%20Stack) | 8.5KB | 🔥 | Quick wins playbook |
@@ -222,7 +225,7 @@ Master tracking list for every skill in the vault.
 
 | Source Repo | Skill Candidates | Vault Folder | Rescued? |
 |---|---|---|---|
-| [HyperCode-V2.4](https://github.com/welshDog/HyperCode-V2.4) | Agent orchestration, ND dev prompts, swarm patterns, Web3 | `agents/` `dev/` `hypercode/` `web3/` | ⚡ RAIDING — HS-067→095 done (29 skills from Bible + Roster!); HS-030→066 catalogued, files still need writing |
+| [HyperCode-V2.4](https://github.com/welshDog/HyperCode-V2.4) | Agent orchestration, ND dev prompts, swarm patterns, Web3 | `agents/` `dev/` `hypercode/` `web3/` | ⚡ RAIDING — HS-067→097 done (31 skills from Bible + Roster + Life Plans Master!); HS-030→066 catalogued, files still need writing |
 | [HyperAgent-SDK](https://github.com/welshDog/HyperAgent-SDK) | HS-022 → HS-029 rescued ✅ — docs/ templates/ still inside | `dev/` `agents/` | ⚡ PARTIAL — more inside |
 | [BROski-Obsidian-Brain-for-HyperFocus-z0ne](https://github.com/welshDog/BROski-Obsidian-Brain-for-HyperFocus-z0ne) | HS-009 → HS-021 rescued ✅ | `agents/` `broski/` | ⚡ PARTIAL — more inside |
 | [GitHub-Hyper-Agent-BROski](https://github.com/welshDog/GitHub-Hyper-Agent-BROski) | GitHub automation, PR/issue management skill | `agents/` `dev/` | 🔍 Hunting |
@@ -279,10 +282,10 @@ Master tracking list for every skill in the vault.
 |---|---|
 | Total Repos Scanned | 86 |
 | Skill Candidates Found | 100+ |
-| ✅ **Rescued (file on disk)** | **54** (HS-001, HS-006→029, HS-067→095) |
+| ✅ **Rescued (file on disk)** | **56** (HS-001, HS-006→029, HS-067→097) |
 | 📝 **Catalogued (no file yet)** | **37** (HS-030 → HS-066) |
 | 🔨 In Progress | 4 (HS-002, HS-003, HS-004, HS-005) |
-| 🔍 Still To Raid | 20+ repos + 3 Bible-tier docs + 35 agent subdirs (each has its own HYPER-AGENT-BIBLE.md!) |
+| 🔍 Still To Raid | 20+ repos + 2 priority Bible-tier docs + 9 specialist HYPER-AGENT-BIBLE.md (one per specialist subdir!) |
 | 🏆 Best Raid | 21 May 2026 — Bible deep-raid HS-077→088 (+12 skills in one run) 🔥📖 |
 
 ---
@@ -291,8 +294,8 @@ Master tracking list for every skill in the vault.
 
 | Category | Rescued | Catalogued (no file yet) |
 |---|---|---|
-| `agents/` | HS-006 · HS-007 · HS-008 · HS-009 · HS-011 · HS-013 · HS-016 · HS-017 · HS-018 · HS-019 · HS-020 · HS-021 · HS-028 · HS-067 · HS-068 · HS-070 · HS-071 · HS-072 · HS-073 · HS-075 · HS-077 · HS-078 · HS-079 · HS-080 · HS-083 · HS-085 · HS-087 · HS-088 · HS-089 · HS-090 · HS-091 · HS-093 → **32 skills** | HS-038 · HS-040 · HS-041 · HS-042 · HS-043 · HS-044 · HS-045 · HS-050 |
-| `dev/` | HS-014 · HS-022 · HS-023 · HS-024 · HS-025 · HS-026 · HS-027 · HS-029 · HS-074 · HS-076 · HS-081 · HS-082 · HS-084 · HS-086 · HS-092 · HS-094 · HS-095 → **17 skills** | HS-048 · HS-049 · HS-051 · HS-060 · HS-061 · HS-062 · HS-063 · HS-064 |
+| `agents/` | HS-006 · HS-007 · HS-008 · HS-009 · HS-011 · HS-013 · HS-016 · HS-017 · HS-018 · HS-019 · HS-020 · HS-021 · HS-028 · HS-067 · HS-068 · HS-070 · HS-071 · HS-072 · HS-073 · HS-075 · HS-077 · HS-078 · HS-079 · HS-080 · HS-083 · HS-085 · HS-087 · HS-088 · HS-089 · HS-090 · HS-091 · HS-093 · HS-097 → **33 skills** | HS-038 · HS-040 · HS-041 · HS-042 · HS-043 · HS-044 · HS-045 · HS-050 |
+| `dev/` | HS-014 · HS-022 · HS-023 · HS-024 · HS-025 · HS-026 · HS-027 · HS-029 · HS-074 · HS-076 · HS-081 · HS-082 · HS-084 · HS-086 · HS-092 · HS-094 · HS-095 · HS-096 → **18 skills** | HS-048 · HS-049 · HS-051 · HS-060 · HS-061 · HS-062 · HS-063 · HS-064 |
 | `broski/` | HS-010 · HS-012 · HS-015 · HS-069 → **4 skills** | HS-034 · HS-036 |
 | `youtube/` | HS-001 → **1 skill** | — |
 | `hypercode/` *(folder doesn't exist)* | **0 skills** | HS-030 · HS-031 · HS-032 · HS-033 · HS-035 · HS-037 · HS-039 · HS-046 · HS-047 · HS-059 · HS-065 · HS-066 |

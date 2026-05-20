@@ -1,16 +1,16 @@
 # HS-091 — Top-Tier Agent Identity Cards 🪪
 
 **Category:** `agents/`
-**Source:** HyperCode-V2.4 — `agents/🧬 The Full Confirmed Hyper Agent Roster` §2
-**Version:** v1
+**Source:** HyperCode-V2.4 — `agents/🧬 The Full Confirmed Hyper Agent Roster` §2 + `agents/🦅 HYPER AGENT LIFE PLANS — MASTER ARCHITECTURE` §2
+**Version:** v1.1 *(2026-05-21 — added AutoEvo card from Master Architecture)*
 
 ---
 
 ## 🤔 What It Does
 
-The five **load-bearing** agents in the HyperCode ecosystem — the ones without which the swarm collapses. Each card captures purpose, hard-stops, evolution path, and special invariants you cannot break.
+The six **load-bearing** agents in the HyperCode ecosystem — the ones without which the swarm collapses. Each card captures purpose, hard-stops, evolution path, and special invariants you cannot break.
 
-> Distinct from [[HS-079]] (the worker specialist crew). These are the *infrastructure* agents: meta, memory, healing, routing, security. Each has invariants that override standard role rules.
+> Distinct from [[HS-079]] (the worker specialist crew). These are the *infrastructure* agents: meta, memory, healing, routing, security, **deploy pipeline**. Each has invariants that override standard role rules.
 
 ---
 
@@ -82,6 +82,22 @@ The five **load-bearing** agents in the HyperCode ecosystem — the ones without
 
 ---
 
+## 🛠️ AutoEvo / DevOps Engineer
+
+| Field | Value |
+|---|---|
+| **Path** | `agents/05-devops-engineer` |
+| **Codename** | `AutoEvo` |
+| **Port** | 8083 |
+| **Purpose** | CI/CD, container health, autonomous self-upgrade pipelines (blue-green deploys) |
+| **Special power** | Can trigger **blue-green deploys without human input** |
+| **Hard-stop** | Must log every auto-deploy to the governance ledger ([[HS-095]]) |
+| **Evolution path** | `scheduled_deployer → event_driven_deployer → predictive_pre-emptive_deployer` |
+
+**Invariant:** AutoEvo is the **only** agent that can write to a production deploy manifest *other than Agent X*. The difference: Agent X writes manifests for *agents themselves*, AutoEvo writes manifests for the *CI/CD pipeline + service rollouts*. Healer ([[#🩺 Healer Agent]]) depends on AutoEvo for its deploy lifecycle — see the dependency graph in [[HS-097]].
+
+---
+
 ## 🚦 Quick "Which Top-Tier Do I Talk To?" Picker
 
 | Situation | Talk to |
@@ -91,6 +107,7 @@ The five **load-bearing** agents in the HyperCode ecosystem — the ones without
 | Container keeps falling over | 🩺 Healer |
 | Need agent A to do work via agent B | 🎭 Crew Orchestrator |
 | Suspect a credential leak / OWASP issue | 🔐 Security |
+| Need a blue-green deploy / CI pipeline change | 🛠️ AutoEvo |
 
 ---
 
@@ -99,4 +116,6 @@ The five **load-bearing** agents in the HyperCode ecosystem — the ones without
 - [[HS-089]] Hyper Agent Roster — full 22-agent map
 - [[HS-079]] Specialist Agent Role Definitions — the worker crew (6)
 - [[HS-090]] Universal Life Plan YAML — schema each of these implements
+- [[HS-097]] Hyper Agent Dependency Graph — wiring between these 6
+- [[HS-095]] Governance Ledger Entry Schema — AutoEvo's mandatory audit trail
 - [[HS-077]] User Agency Approval Gate — what Healer's kill-protection escalates to

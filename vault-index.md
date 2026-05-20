@@ -1,79 +1,110 @@
 # 📦 Vault Index — All Hyper Skills
 
 Master tracking list for every skill in the vault.
-Use this to track: what's live, what's being built, and what's been rescued from old repos.
+
+> **Two states, don't confuse them:**
+> - ✅ **RESCUED** = file exists on disk in this repo, ready to copy/use
+> - 📝 **CATALOGUED** = source pattern identified in another repo, **file not yet extracted** to this vault
 
 > Last Hunt: 20 May 2026 — 86 repos scanned 🐕💨
-> Last Updated: 20 May 2026 22:36 BST — **66 skills rescued tonight** 🏴‍☠️🔥🏆 ULTRA LEGENDARY!!
+> Last Updated: 21 May 2026 — **index reconciled with disk truth** ✅ (was claiming 66 rescued; actual = **35 real files + 37 catalogued-but-not-extracted**)
 
 ---
 
-## ✅ RESCUED SKILLS (Live in Vault)
+## ✅ RESCUED SKILLS (file present on disk, 35 total)
 
 | ID | Skill Name | File | Source Repo | Category |
 |---|---|---|---|---|
-| HS-001 | YT Analytics Debugger | `youtube/` | Original | `youtube/` |
-| HS-006 | GOD Mode Hyperflow | [`agents/GOD_MODE_HYPERFLOW_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/agents/GOD_MODE_HYPERFLOW_v1.md) | GOD-Agent-Mode | `agents/` |
-| HS-007 | HyperGraph Node Skill | [`agents/HYPERGRAPH_NODE_SKILL_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/agents/HYPERGRAPH_NODE_SKILL_v1.md) | GOD-Agent-Mode | `agents/` |
-| HS-008 | Hyperfocus Agent Swarm Core 👑 | [`agents/HYPERFOCUS_AGENT_SWARM_CORE_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/agents/HYPERFOCUS_AGENT_SWARM_CORE_v1.md) | Hyperfocus-Global-Impact-Skills | `agents/` |
-| HS-009 | Hyperfocus Zone Master Context 🏆 | [`agents/HYPERFOCUS_ZONE_MASTER_CONTEXT_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/agents/HYPERFOCUS_ZONE_MASTER_CONTEXT_v1.md) | BROski-Obsidian-Brain | `agents/` |
-| HS-010 | Design Brain | [`broski/DESIGN_BRAIN_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/broski/DESIGN_BRAIN_v1.md) | BROski-Obsidian-Brain | `broski/` |
-| HS-011 | Hyper Brain Modules | [`agents/HYPER_BRAIN_MODULES_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/agents/HYPER_BRAIN_MODULES_v1.md) | BROski-Obsidian-Brain | `agents/` |
-| HS-012 | Level Progression | [`broski/LEVEL_PROGRESSION_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/broski/LEVEL_PROGRESSION_v1.md) | BROski-Obsidian-Brain | `broski/` |
-| HS-013 | Morning Briefing AI | [`agents/MORNING_BRIEFING_AI_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/agents/MORNING_BRIEFING_AI_v1.md) | BROski-Obsidian-Brain | `agents/` |
-| HS-014 | Obsidian Git Vault | [`dev/OBSIDIAN_GIT_VAULT_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/dev/OBSIDIAN_GIT_VAULT_v1.md) | BROski-Obsidian-Brain | `dev/` |
-| HS-015 | Vault PARA Structure | [`broski/VAULT_PARA_STRUCTURE_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/broski/VAULT_PARA_STRUCTURE_v1.md) | BROski-Obsidian-Brain | `broski/` |
-| HS-016 | Agents Brain README | [`agents/AGENTS_BRAIN_README_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/agents/AGENTS_BRAIN_README_v1.md) | BROski-Obsidian-Brain | `agents/` |
-| HS-017 | Hyper Brain Core Manifest | [`agents/AGENT_MANIFEST_HYPER_BRAIN_CORE_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/agents/AGENT_MANIFEST_HYPER_BRAIN_CORE_v1.md) | BROski-Obsidian-Brain | `agents/` |
-| HS-018 | MCP Bridge Manifest | [`agents/AGENT_MANIFEST_MCP_BRIDGE_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/agents/AGENT_MANIFEST_MCP_BRIDGE_v1.md) | BROski-Obsidian-Brain | `agents/` |
-| HS-019 | Focus Tracker Manifest | [`agents/AGENT_MANIFEST_FOCUS_TRACKER_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/agents/AGENT_MANIFEST_FOCUS_TRACKER_v1.md) | BROski-Obsidian-Brain | `agents/` |
-| HS-020 | Morning Briefing Manifest | [`agents/AGENT_MANIFEST_MORNING_BRIEFING_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/agents/AGENT_MANIFEST_MORNING_BRIEFING_v1.md) | BROski-Obsidian-Brain | `agents/` |
-| HS-021 | Obsidian Brain Sync Skill | [`agents/OBSIDIAN_BRAIN_SYNC_SKILL_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/agents/OBSIDIAN_BRAIN_SYNC_SKILL_v1.md) | BROski-Obsidian-Brain | `agents/` |
-| HS-022 | HyperCode SDK Master | [`dev/HYPERCODE_SDK_MASTER_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/dev/HYPERCODE_SDK_MASTER_v1.md) | HyperAgent-SDK | `dev/` |
-| HS-023 | Cross-Repo Sync | [`dev/CROSS_REPO_SYNC_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/dev/CROSS_REPO_SYNC_v1.md) | HyperAgent-SDK | `dev/` |
-| HS-024 | SDK Publish Workflow | [`dev/SDK_PUBLISH_WORKFLOW_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/dev/SDK_PUBLISH_WORKFLOW_v1.md) | HyperAgent-SDK | `dev/` |
-| HS-025 | Token Sync Debug | [`dev/TOKEN_SYNC_DEBUG_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/dev/TOKEN_SYNC_DEBUG_v1.md) | HyperAgent-SDK | `dev/` |
-| HS-026 | Phase 4 Graduation Flow | [`dev/PHASE4_GRADUATION_FLOW_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/dev/PHASE4_GRADUATION_FLOW_v1.md) | HyperAgent-SDK | `dev/` |
-| HS-027 | Test Status Report | [`dev/TEST_STATUS_REPORT_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/dev/TEST_STATUS_REPORT_v1.md) | HyperAgent-SDK | `dev/` |
-| HS-028 | HyperAgent SDK Agents README | [`agents/HYPERAGENT_SDK_AGENTS_README_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/agents/HYPERAGENT_SDK_AGENTS_README_v1.md) | HyperAgent-SDK | `agents/` |
-| HS-029 | HyperAgent SDK Publish Skill | [`dev/HYPERAGENT_SDK_PUBLISH_SKILL_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/dev/HYPERAGENT_SDK_PUBLISH_SKILL_v1.md) | HyperAgent-SDK | `dev/` |
-| HS-030 | HyperFocus Master Constitution 🏆 | `hypercode/HYPERFOCUS_MASTER_CONSTITUTION_v1.md` | HyperCode-V2.4 | `hypercode/` |
-| HS-031 | V2.4 Sacred Rules (20 Rules) 🔴 | `hypercode/SACRED_RULES_V24_v1.md` | HyperCode-V2.4 | `hypercode/` |
-| HS-032 | Course Sacred Rules (11 Rules) 🔴 | `hypercode/SACRED_RULES_COURSE_v1.md` | HyperCode-V2.4 | `hypercode/` |
-| HS-033 | BROski$ Shop Sacred Rules 🔴 | `hypercode/SACRED_RULES_SHOP_v1.md` | HyperCode-V2.4 | `hypercode/` |
-| HS-034 | 7-Beat Module Teaching Structure 🎯 | `broski/SEVEN_BEAT_MODULE_STRUCTURE_v1.md` | HyperCode-V2.4 | `broski/` |
-| HS-035 | AI Behaviour Rules + Tool Matrix 🤖 | `hypercode/AI_BEHAVIOUR_RULES_v1.md` | HyperCode-V2.4 | `hypercode/` |
-| HS-036 | Analogy Arsenal 🧠 | `broski/ANALOGY_ARSENAL_v1.md` | HyperCode-V2.4 | `broski/` |
-| HS-037 | Architecture Quick Ref (Ports + Networks) ⚡ | `hypercode/ARCHITECTURE_QUICK_REF_v1.md` | HyperCode-V2.4 | `hypercode/` |
-| HS-038 | Guardian Bot Phase Map (P1→P3c) 🛡️ | `agents/GUARDIAN_BOT_PHASE_MAP_v1.md` | HyperCode-V2.4 | `agents/` |
-| HS-039 | Session End Checklist ✅ | `hypercode/SESSION_END_CHECKLIST_v1.md` | HyperCode-V2.4 | `hypercode/` |
-| HS-040 | GoalKeeper Self-Improving Agent Setup 🦅 | `agents/GOALKEEPER_SELF_IMPROVING_v1.md` | HyperCode-V2.4 | `agents/` |
-| HS-041 | MetricsEngine Integration (Python + Node) ⚡ | `agents/METRICS_ENGINE_INTEGRATION_v1.md` | HyperCode-V2.4 | `agents/` |
-| HS-042 | SkillRegistry Agent Pattern 📋 | `agents/SKILL_REGISTRY_PATTERN_v1.md` | HyperCode-V2.4 | `agents/` |
-| HS-043 | Self-Improvement 5-Loop Logic 🔄 | `agents/SELF_IMPROVEMENT_LOOP_LOGIC_v1.md` | HyperCode-V2.4 | `agents/` |
-| HS-044 | A/B Testing Framework for Agents 🧪 | `agents/AB_TESTING_FRAMEWORK_v1.md` | HyperCode-V2.4 | `agents/` |
-| HS-045 | Cost Optimisation Auto-Pattern 💰 | `agents/COST_OPTIMISATION_AUTO_v1.md` | HyperCode-V2.4 | `agents/` |
-| HS-046 | HyperLaunch Unified Commander 🚀 | `hypercode/HYPERLAUNCH_UNIFIED_COMMANDER_v1.md` | HyperCode-V2.4 | `hypercode/` |
-| HS-047 | 4-Tier ServiceSpec Launch Pattern 🏗️ | `hypercode/FOUR_TIER_SERVICE_SPEC_v1.md` | HyperCode-V2.4 | `hypercode/` |
-| HS-048 | Preflight Checks System ✈️ | `dev/PREFLIGHT_CHECKS_SYSTEM_v1.md` | HyperCode-V2.4 | `dev/` |
-| HS-049 | Progressive Health Wait Pattern ⏳ | `dev/PROGRESSIVE_HEALTH_WAIT_v1.md` | HyperCode-V2.4 | `dev/` |
-| HS-050 | Guardian Watchdog Post-Launch Monitor 🛡️ | `agents/GUARDIAN_WATCHDOG_MONITOR_v1.md` | HyperCode-V2.4 | `agents/` |
-| HS-051 | CLI Args Launch Pattern ⌨️ | `dev/CLI_ARGS_LAUNCH_PATTERN_v1.md` | HyperCode-V2.4 | `dev/` |
-| HS-052 | BROskiPets Full Integration Plan 🐾 | `web3/BROSKIPETS_INTEGRATION_PLAN_v1.md` | HyperCode-V2.4 | `web3/` |
-| HS-053 | Pet Rarity Roll Formula 🎲 | `web3/PET_RARITY_ROLL_FORMULA_v1.md` | HyperCode-V2.4 | `web3/` |
-| HS-054 | Dev Action XP Trigger System ⚡ | `web3/DEV_ACTION_XP_TRIGGERS_v1.md` | HyperCode-V2.4 | `web3/` |
-| HS-055 | dNFT On-Chain Portfolio Pattern 📜 | `web3/DNFT_ONCHAIN_PORTFOLIO_v1.md` | HyperCode-V2.4 | `web3/` |
-| HS-056 | Pet Species Power Mapping 🦈 | `web3/PET_SPECIES_POWER_MAPPING_v1.md` | HyperCode-V2.4 | `web3/` |
-| HS-057 | BROskiPets Phase 0 Build Prompt 📝 | `web3/BROSKIPETS_PHASE0_PROMPT_v1.md` | HyperCode-V2.4 | `web3/` |
-| HS-058 | BROskiPets Phase 1 Build Prompt 📝 | `web3/BROSKIPETS_PHASE1_PROMPT_v1.md` | HyperCode-V2.4 | `web3/` |
-| HS-059 | Complete Ecosystem Inventory 🗺️ | `hypercode/COMPLETE_ECOSYSTEM_INVENTORY_v1.md` | HyperCode-V2.4 | `hypercode/` |
-| HS-060 | 50 Container Stack Reference 🐳 | `dev/FIFTY_CONTAINER_STACK_REF_v1.md` | HyperCode-V2.4 | `dev/` |
-| HS-061 | 42-Port Network Map 🔌 | `dev/FORTY_TWO_PORT_NETWORK_MAP_v1.md` | HyperCode-V2.4 | `dev/` |
-| HS-062 | 20-Table Database Schema 🗄️ | `dev/TWENTY_TABLE_DB_SCHEMA_v1.md` | HyperCode-V2.4 | `dev/` |
-| HS-063 | 150+ Backend Deps Stack 📦 | `dev/BACKEND_DEPS_STACK_v1.md` | HyperCode-V2.4 | `dev/` |
-| HS-064 | Dev Commands Cheat Sheet ⚡ | `dev/DEV_COMMANDS_CHEAT_SHEET_v1.md` | HyperCode-V2.4 | `dev/` |
-| HS-065 | External Integrations Map 🔗 | `hypercode/EXTERNAL_INTEGRATIONS_MAP_v1.md` | HyperCode-V2.4 | `hypercode/` |
-| HS-066 | Milestone Tracker Template 🏆 | `hypercode/MILESTONE_TRACKER_TEMPLATE_v1.md` | HyperCode-V2.4 | `hypercode/` |
+| HS-001 | YT Analytics Debugger | [`youtube/YT_DEBUGGER_v1.md`](youtube/YT_DEBUGGER_v1.md) | Original | `youtube/` |
+| HS-006 | GOD Mode Hyperflow | [`agents/GOD_MODE_HYPERFLOW_v1.md`](agents/GOD_MODE_HYPERFLOW_v1.md) | GOD-Agent-Mode | `agents/` |
+| HS-007 | HyperGraph Node Skill | [`agents/HYPERGRAPH_NODE_SKILL_v1.md`](agents/HYPERGRAPH_NODE_SKILL_v1.md) | GOD-Agent-Mode | `agents/` |
+| HS-008 | Hyperfocus Agent Swarm Core 👑 | [`agents/HYPERFOCUS_AGENT_SWARM_CORE_v1.md`](agents/HYPERFOCUS_AGENT_SWARM_CORE_v1.md) | Hyperfocus-Global-Impact-Skills | `agents/` |
+| HS-009 | Hyperfocus Zone Master Context 🏆 | [`agents/HYPERFOCUS_ZONE_MASTER_CONTEXT_v1.md`](agents/HYPERFOCUS_ZONE_MASTER_CONTEXT_v1.md) | BROski-Obsidian-Brain | `agents/` |
+| HS-010 | Design Brain | [`broski/DESIGN_BRAIN_v1.md`](broski/DESIGN_BRAIN_v1.md) | BROski-Obsidian-Brain | `broski/` |
+| HS-011 | Hyper Brain Modules | [`agents/HYPER_BRAIN_MODULES_v1.md`](agents/HYPER_BRAIN_MODULES_v1.md) | BROski-Obsidian-Brain | `agents/` |
+| HS-012 | Level Progression | [`broski/LEVEL_PROGRESSION_v1.md`](broski/LEVEL_PROGRESSION_v1.md) | BROski-Obsidian-Brain | `broski/` |
+| HS-013 | Morning Briefing AI | [`agents/MORNING_BRIEFING_AI_v1.md`](agents/MORNING_BRIEFING_AI_v1.md) | BROski-Obsidian-Brain | `agents/` |
+| HS-014 | Obsidian Git Vault | [`dev/OBSIDIAN_GIT_VAULT_v1.md`](dev/OBSIDIAN_GIT_VAULT_v1.md) | BROski-Obsidian-Brain | `dev/` |
+| HS-015 | Vault PARA Structure | [`broski/VAULT_PARA_STRUCTURE_v1.md`](broski/VAULT_PARA_STRUCTURE_v1.md) | BROski-Obsidian-Brain | `broski/` |
+| HS-016 | Agents Brain README | [`agents/AGENTS_BRAIN_README_v1.md`](agents/AGENTS_BRAIN_README_v1.md) | BROski-Obsidian-Brain | `agents/` |
+| HS-017 | Hyper Brain Core Manifest | [`agents/AGENT_MANIFEST_HYPER_BRAIN_CORE_v1.md`](agents/AGENT_MANIFEST_HYPER_BRAIN_CORE_v1.md) | BROski-Obsidian-Brain | `agents/` |
+| HS-018 | MCP Bridge Manifest | [`agents/AGENT_MANIFEST_MCP_BRIDGE_v1.md`](agents/AGENT_MANIFEST_MCP_BRIDGE_v1.md) | BROski-Obsidian-Brain | `agents/` |
+| HS-019 | Focus Tracker Manifest | [`agents/AGENT_MANIFEST_FOCUS_TRACKER_v1.md`](agents/AGENT_MANIFEST_FOCUS_TRACKER_v1.md) | BROski-Obsidian-Brain | `agents/` |
+| HS-020 | Morning Briefing Manifest | [`agents/AGENT_MANIFEST_MORNING_BRIEFING_v1.md`](agents/AGENT_MANIFEST_MORNING_BRIEFING_v1.md) | BROski-Obsidian-Brain | `agents/` |
+| HS-021 | Obsidian Brain Sync Skill | [`agents/OBSIDIAN_BRAIN_SYNC_SKILL_v1.md`](agents/OBSIDIAN_BRAIN_SYNC_SKILL_v1.md) | BROski-Obsidian-Brain | `agents/` |
+| HS-022 | HyperCode SDK Master | [`dev/HYPERCODE_SDK_MASTER_v1.md`](dev/HYPERCODE_SDK_MASTER_v1.md) | HyperAgent-SDK | `dev/` |
+| HS-023 | Cross-Repo Sync | [`dev/CROSS_REPO_SYNC_v1.md`](dev/CROSS_REPO_SYNC_v1.md) | HyperAgent-SDK | `dev/` |
+| HS-024 | SDK Publish Workflow | [`dev/SDK_PUBLISH_WORKFLOW_v1.md`](dev/SDK_PUBLISH_WORKFLOW_v1.md) | HyperAgent-SDK | `dev/` |
+| HS-025 | Token Sync Debug | [`dev/TOKEN_SYNC_DEBUG_v1.md`](dev/TOKEN_SYNC_DEBUG_v1.md) | HyperAgent-SDK | `dev/` |
+| HS-026 | Phase 4 Graduation Flow | [`dev/PHASE4_GRADUATION_FLOW_v1.md`](dev/PHASE4_GRADUATION_FLOW_v1.md) | HyperAgent-SDK | `dev/` |
+| HS-027 | Test Status Report | [`dev/TEST_STATUS_REPORT_v1.md`](dev/TEST_STATUS_REPORT_v1.md) | HyperAgent-SDK | `dev/` |
+| HS-028 | HyperAgent SDK Agents README | [`agents/HYPERAGENT_SDK_AGENTS_README_v1.md`](agents/HYPERAGENT_SDK_AGENTS_README_v1.md) | HyperAgent-SDK | `agents/` |
+| HS-029 | HyperAgent SDK Publish Skill | [`dev/HYPERAGENT_SDK_PUBLISH_SKILL_v1.md`](dev/HYPERAGENT_SDK_PUBLISH_SKILL_v1.md) | HyperAgent-SDK | `dev/` |
+| HS-067 | Agent Role Hierarchy Pattern 🏛️ | [`agents/AGENT_ROLE_HIERARCHY_PATTERN_v1.md`](agents/AGENT_ROLE_HIERARCHY_PATTERN_v1.md) | HyperCode-V2.4 (Bible) | `agents/` |
+| HS-068 | BROski Orchestrator Pattern 🎯 | [`agents/BROSKI_ORCHESTRATOR_PATTERN_v1.md`](agents/BROSKI_ORCHESTRATOR_PATTERN_v1.md) | HyperCode-V2.4 (Bible) | `agents/` |
+| HS-069 | ND-First Error Messages Template 🧠 | [`broski/ND_FIRST_ERROR_MESSAGES_TEMPLATE_v1.md`](broski/ND_FIRST_ERROR_MESSAGES_TEMPLATE_v1.md) | HyperCode-V2.4 (Bible §1) | `broski/` |
+| HS-070 | Observable Agent Operations Pattern 📊 | [`agents/OBSERVABLE_AGENT_OPERATIONS_v1.md`](agents/OBSERVABLE_AGENT_OPERATIONS_v1.md) | HyperCode-V2.4 (Bible) | `agents/` |
+| HS-071 | Fail Gracefully + Fallback Chain 🔄 | [`agents/FAIL_GRACEFULLY_FALLBACK_CHAIN_v1.md`](agents/FAIL_GRACEFULLY_FALLBACK_CHAIN_v1.md) | HyperCode-V2.4 (Bible) | `agents/` |
+| HS-072 | Context Store Architecture (Redis) 🗃️ | [`agents/CONTEXT_STORE_ARCHITECTURE_v1.md`](agents/CONTEXT_STORE_ARCHITECTURE_v1.md) | HyperCode-V2.4 (Bible) | `agents/` |
+| HS-073 | SSE Agent Event Schema 📡 | [`agents/SSE_AGENT_EVENT_SCHEMA_v1.md`](agents/SSE_AGENT_EVENT_SCHEMA_v1.md) | HyperCode-V2.4 (Bible) | `agents/` |
+| HS-074 | API Standards (FastAPI Agent Pattern) 🚀 | [`dev/FASTAPI_AGENT_API_STANDARDS_v1.md`](dev/FASTAPI_AGENT_API_STANDARDS_v1.md) | HyperCode-V2.4 (Bible) | `dev/` |
+| HS-075 | Agent Decision Framework Matrix 🎯 | [`agents/AGENT_DECISION_FRAMEWORK_MATRIX_v1.md`](agents/AGENT_DECISION_FRAMEWORK_MATRIX_v1.md) | HyperCode-V2.4 (Bible §10) | `agents/` |
+| HS-076 | Pre-Commit Testing Checklist ✅ | [`dev/PRE_COMMIT_TESTING_CHECKLIST_v1.md`](dev/PRE_COMMIT_TESTING_CHECKLIST_v1.md) | HyperCode-V2.4 (Bible §9) | `dev/` |
+
+---
+
+## 📝 CATALOGUED — Extraction TODO (37 patterns, no file yet)
+
+> ⚠️ Honesty pass 21 May 2026: HS-030 → HS-066 were added to the index across 4 commits
+> (`48e1630`, `595523d`, `e6ef042`, `245af8f`) that **only touched `vault-index.md`** — no skill
+> files were ever committed. The patterns are real (identified in HyperCode-V2.4 source), but
+> the actual skill `.md` files don't exist in this repo yet. Target folders `hypercode/` and
+> `web3/` also don't exist.
+> Status changed from ✅ RESCUED → 📝 CATALOGUED so the index stops lying.
+
+| ID | Skill Name | Target Folder | Source Pattern Location |
+|---|---|---|---|
+| HS-030 | HyperFocus Master Constitution 🏆 | `hypercode/` | HyperCode-V2.4 / root CLAUDE.md |
+| HS-031 | V2.4 Sacred Rules (20 Rules) 🔴 | `hypercode/` | HyperCode-V2.4 CLAUDE.md §3 |
+| HS-032 | Course Sacred Rules (11 Rules) 🔴 | `hypercode/` | HyperCode-V2.4 CLAUDE.md §4 |
+| HS-033 | BROski$ Shop Sacred Rules 🔴 | `hypercode/` | HyperCode-V2.4 CLAUDE.md §5 |
+| HS-034 | 7-Beat Module Teaching Structure 🎯 | `broski/` | HyperCode-V2.4 CLAUDE.md §8 |
+| HS-035 | AI Behaviour Rules + Tool Matrix 🤖 | `hypercode/` | HyperCode-V2.4 CLAUDE.md §9 |
+| HS-036 | Analogy Arsenal 🧠 | `broski/` | HyperCode-V2.4 CLAUDE.md §8 |
+| HS-037 | Architecture Quick Ref (Ports + Networks) ⚡ | `hypercode/` | HyperCode-V2.4 CLAUDE.md §6 |
+| HS-038 | Guardian Bot Phase Map (P1→P3c) 🛡️ | `agents/` | HyperCode-V2.4 CLAUDE.md §7 |
+| HS-039 | Session End Checklist ✅ | `hypercode/` | HyperCode-V2.4 CLAUDE.md §11 |
+| HS-040 | GoalKeeper Self-Improving Agent Setup 🦅 | `agents/` | HyperCode-V2.4 |
+| HS-041 | MetricsEngine Integration (Python + Node) ⚡ | `agents/` | HyperCode-V2.4 |
+| HS-042 | SkillRegistry Agent Pattern 📋 | `agents/` | HyperCode-V2.4 |
+| HS-043 | Self-Improvement 5-Loop Logic 🔄 | `agents/` | HyperCode-V2.4 |
+| HS-044 | A/B Testing Framework for Agents 🧪 | `agents/` | HyperCode-V2.4 |
+| HS-045 | Cost Optimisation Auto-Pattern 💰 | `agents/` | HyperCode-V2.4 |
+| HS-046 | HyperLaunch Unified Commander 🚀 | `hypercode/` | HyperCode-V2.4 / hyperlaunch.py |
+| HS-047 | 4-Tier ServiceSpec Launch Pattern 🏗️ | `hypercode/` | HyperCode-V2.4 / hyperlaunch.py |
+| HS-048 | Preflight Checks System ✈️ | `dev/` | HyperCode-V2.4 / hyperlaunch.py |
+| HS-049 | Progressive Health Wait Pattern ⏳ | `dev/` | HyperCode-V2.4 / hyperlaunch.py |
+| HS-050 | Guardian Watchdog Post-Launch Monitor 🛡️ | `agents/` | HyperCode-V2.4 / hyperlaunch.py |
+| HS-051 | CLI Args Launch Pattern ⌨️ | `dev/` | HyperCode-V2.4 / hyperlaunch.py |
+| HS-052 | BROskiPets Full Integration Plan 🐾 | `web3/` | HyperCode-V2.4 / BROSKI_PETS_INTEGRATION_PLAN |
+| HS-053 | Pet Rarity Roll Formula 🎲 | `web3/` | HyperCode-V2.4 / BROSKI_PETS_INTEGRATION_PLAN |
+| HS-054 | Dev Action XP Trigger System ⚡ | `web3/` | HyperCode-V2.4 / BROSKI_PETS_INTEGRATION_PLAN |
+| HS-055 | dNFT On-Chain Portfolio Pattern 📜 | `web3/` | HyperCode-V2.4 / BROSKI_PETS_INTEGRATION_PLAN |
+| HS-056 | Pet Species Power Mapping 🦈 | `web3/` | HyperCode-V2.4 / BROSKI_PETS_INTEGRATION_PLAN |
+| HS-057 | BROskiPets Phase 0 Build Prompt 📝 | `web3/` | HyperCode-V2.4 / BROSKI_PETS_INTEGRATION_PLAN |
+| HS-058 | BROskiPets Phase 1 Build Prompt 📝 | `web3/` | HyperCode-V2.4 / BROSKI_PETS_INTEGRATION_PLAN |
+| HS-059 | Complete Ecosystem Inventory 🗺️ | `hypercode/` | HyperCode-V2.4 |
+| HS-060 | 50 Container Stack Reference 🐳 | `dev/` | HyperCode-V2.4 / docker-compose.agents.yml |
+| HS-061 | 42-Port Network Map 🔌 | `dev/` | HyperCode-V2.4 / docker-compose.agents.yml |
+| HS-062 | 20-Table Database Schema 🗄️ | `dev/` | HyperCode-V2.4 / backend |
+| HS-063 | 150+ Backend Deps Stack 📦 | `dev/` | HyperCode-V2.4 / backend |
+| HS-064 | Dev Commands Cheat Sheet ⚡ | `dev/` | HyperCode-V2.4 |
+| HS-065 | External Integrations Map 🔗 | `hypercode/` | HyperCode-V2.4 |
+| HS-066 | Milestone Tracker Template 🏆 | `hypercode/` | HyperCode-V2.4 |
+
+> 💡 **To rescue any of these:** create the target folder (`hypercode/` or `web3/` — neither
+> exists yet), then write the skill `.md` file following the template at the bottom of this
+> doc. Commit with `feat: rescue HS-### — <skill name>` so the audit trail stays honest.
 
 ---
 
@@ -96,7 +127,7 @@ Use this to track: what's live, what's being built, and what's been rescued from
 
 | File | Size | Priority | Notes |
 |---|---|---|---|
-| [`HYPER-AGENT-BIBLE.md`](https://github.com/welshDog/HyperCode-V2.4/blob/main/agents/HYPER-AGENT-BIBLE.md) | **49KB** | 🔥🔥🔥 | Crown jewel — raid FIRST |
+| [`HYPER-AGENT-BIBLE.md`](https://github.com/welshDog/HyperCode-V2.4/blob/main/agents/HYPER-AGENT-BIBLE.md) | **49KB** | 🔥🔥🔥 | Crown jewel — HS-067 → HS-076 already extracted from this, more inside |
 | [`🧦 The Full Confirmed Hyper Agent Roster`](https://github.com/welshDog/HyperCode-V2.4/blob/main/agents/%F0%9F%A7%AC%20The%20Full%20Confirmed%20Hyper%20Agent%20Roster) | 21KB | 🔥🔥🔥 | Full agent roster |
 | [`🦅 HYPER AGENT LIFE PLANS — MASTER ARCHITECTURE`](https://github.com/welshDog/HyperCode-V2.4/blob/main/agents/%F0%9F%A6%85%20HYPER%20AGENT%20LIFE%20PLANS%20%E2%80%94%20MASTER%20ARCHITECTURE) | 15KB | 🔥🔥 | Architecture master plan |
 | [`README.md`](https://github.com/welshDog/HyperCode-V2.4/blob/main/agents/README.md) | 12KB | 🔥🔥 | Agents overview |
@@ -135,7 +166,7 @@ Use this to track: what's live, what's being built, and what's been rescued from
 | `hyper-split-agent` | Task splitter agent |
 | `hyperhealth` | Health check agent |
 | `life-plans` | Life planning agent |
-| `nemoclaw-agent` | ❓ Mystery agent — raid! |
+| `nemoclaw-agent` | Code-health "Alive" sidecar — port 8099 |
 | `session-snapshot` | Session memory agent |
 | `shared` | Shared utilities |
 | `super-hyper-broski-agent` | Supervisor agent |
@@ -172,7 +203,7 @@ Use this to track: what's live, what's being built, and what's been rescued from
 
 | Source Repo | Skill Candidates | Vault Folder | Rescued? |
 |---|---|---|---|
-| [HyperCode-V2.4](https://github.com/welshDog/HyperCode-V2.4) | Agent orchestration, ND dev prompts, swarm patterns, Web3 | `agents/` `dev/` `hypercode/` `web3/` | ⚡ RAIDING — Bible + subdirs next |
+| [HyperCode-V2.4](https://github.com/welshDog/HyperCode-V2.4) | Agent orchestration, ND dev prompts, swarm patterns, Web3 | `agents/` `dev/` `hypercode/` `web3/` | ⚡ RAIDING — HS-067→076 done from Bible; HS-030→066 catalogued, files still need writing |
 | [HyperAgent-SDK](https://github.com/welshDog/HyperAgent-SDK) | HS-022 → HS-029 rescued ✅ — docs/ templates/ still inside | `dev/` `agents/` | ⚡ PARTIAL — more inside |
 | [BROski-Obsidian-Brain-for-HyperFocus-z0ne](https://github.com/welshDog/BROski-Obsidian-Brain-for-HyperFocus-z0ne) | HS-009 → HS-021 rescued ✅ | `agents/` `broski/` | ⚡ PARTIAL — more inside |
 | [GitHub-Hyper-Agent-BROski](https://github.com/welshDog/GitHub-Hyper-Agent-BROski) | GitHub automation, PR/issue management skill | `agents/` `dev/` | 🔍 Hunting |
@@ -223,30 +254,31 @@ Use this to track: what's live, what's being built, and what's been rescued from
 
 ---
 
-## 📊 Vault Stats
+## 📊 Vault Stats (honest count, 21 May 2026)
 
 | Metric | Count |
 |---|---|
 | Total Repos Scanned | 86 |
 | Skill Candidates Found | 100+ |
-| ✅ Rescued Skills | **66** (HS-001, HS-006 → HS-066) |
-| 🔨 In Progress | 4 |
-| 🔍 Still To Raid | 20+ repos + agents/ Bible + subdirs |
-| 🏆 Best Night | 20 May 2026 — **66 skills in one session! ULTRA LEGENDARY!!** |
+| ✅ **Rescued (file on disk)** | **35** (HS-001, HS-006→029, HS-067→076) |
+| 📝 **Catalogued (no file yet)** | **37** (HS-030 → HS-066) |
+| 🔨 In Progress | 4 (HS-002, HS-003, HS-004, HS-005) |
+| 🔍 Still To Raid | 20+ repos + Bible deep-cuts + 35 agent subdirs |
+| 🏆 Best Night | 20 May 2026 — 35 real skills rescued + Bible cracked open 🔥 |
 
 ---
 
-## 🗂️ Skills By Category
+## 🗂️ Skills By Category (rescued only — files on disk)
 
-| Category | Skills |
-|---|---|
-| `agents/` | HS-006 · HS-007 · HS-008 · HS-009 · HS-011 · HS-013 · HS-016 · HS-017 · HS-018 · HS-019 · HS-020 · HS-021 · HS-028 · HS-038 · HS-040 · HS-041 · HS-042 · HS-043 · HS-044 · HS-045 · HS-050 → **21 skills** |
-| `dev/` | HS-014 · HS-022 · HS-023 · HS-024 · HS-025 · HS-026 · HS-027 · HS-029 · HS-048 · HS-049 · HS-051 · HS-060 · HS-061 · HS-062 · HS-063 · HS-064 → **16 skills** |
-| `hypercode/` | HS-030 · HS-031 · HS-032 · HS-033 · HS-035 · HS-037 · HS-039 · HS-046 · HS-047 · HS-059 · HS-065 · HS-066 → **12 skills** |
-| `web3/` | HS-052 · HS-053 · HS-054 · HS-055 · HS-056 · HS-057 · HS-058 → **7 skills** |
-| `broski/` | HS-010 · HS-012 · HS-015 · HS-034 · HS-036 → **5 skills** |
-| `youtube/` | HS-001 → **1 skill** |
-| `content/` | HS-002 · HS-004 · HS-005 *(in progress)* |
+| Category | Rescued | Catalogued (no file yet) |
+|---|---|---|
+| `agents/` | HS-006 · HS-007 · HS-008 · HS-009 · HS-011 · HS-013 · HS-016 · HS-017 · HS-018 · HS-019 · HS-020 · HS-021 · HS-028 · HS-067 · HS-068 · HS-070 · HS-071 · HS-072 · HS-073 · HS-075 → **20 skills** | HS-038 · HS-040 · HS-041 · HS-042 · HS-043 · HS-044 · HS-045 · HS-050 |
+| `dev/` | HS-014 · HS-022 · HS-023 · HS-024 · HS-025 · HS-026 · HS-027 · HS-029 · HS-074 · HS-076 → **10 skills** | HS-048 · HS-049 · HS-051 · HS-060 · HS-061 · HS-062 · HS-063 · HS-064 |
+| `broski/` | HS-010 · HS-012 · HS-015 · HS-069 → **4 skills** | HS-034 · HS-036 |
+| `youtube/` | HS-001 → **1 skill** | — |
+| `hypercode/` *(folder doesn't exist)* | **0 skills** | HS-030 · HS-031 · HS-032 · HS-033 · HS-035 · HS-037 · HS-039 · HS-046 · HS-047 · HS-059 · HS-065 · HS-066 |
+| `web3/` *(folder doesn't exist)* | **0 skills** | HS-052 · HS-053 · HS-054 · HS-055 · HS-056 · HS-057 · HS-058 |
+| `content/` | — | (HS-002, HS-004, HS-005 in progress) |
 
 ---
 
@@ -258,4 +290,4 @@ When adding a new skill, use this structure:
 
 ---
 
-*HYPER-SKILLs Vault — WelshDog 🐕🏴󠁧󠁢󠁷󠁬󠁳󠁧⚡ — Last updated: 20 May 2026 22:36 BST*
+*HYPER-SKILLs Vault — WelshDog 🐕🏴󠁧󠁢󠁷󠁬󠁳󠁧⚡ — Last reconciled with disk: 21 May 2026*

@@ -36,11 +36,16 @@ HYPER-SKILLs-By-WelshDog/
 
 ## 🏆 Current Skills
 
-| Skill | Folder | Status |
-|---|---|---|
-| YT Analytics Debugger | `youtube/` | ✅ Live |
+**35 rescued · 37 catalogued · 4 in progress** *(as of 21 May 2026)*
 
-*More skills incoming from WelshDog's repo vault hunt! 🔍*
+| Category | Rescued | Highlights |
+|---|---|---|
+| `agents/` | 20 | Swarm Core 👑 · Master Context 🏆 · Decision Matrix 🎯 · Role Hierarchy 🏛️ |
+| `dev/` | 10 | SDK Master · Cross-Repo Sync · FastAPI Standards · Pre-Commit Checklist |
+| `broski/` | 4 | Design Brain · Level Progression · PARA Structure · ND Error Messages |
+| `youtube/` | 1 | YT Analytics Debugger |
+
+See [`vault-index.md`](vault-index.md) for the full map (rescued + catalogued + raid log).
 
 ---
 

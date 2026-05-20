@@ -4,7 +4,7 @@ Master tracking list for every skill in the vault.
 Use this to track: what's live, what's being built, and what's been rescued from old repos.
 
 > Last Hunt: 20 May 2026 — 86 repos scanned 🐕💨
-> Last Updated: 20 May 2026 22:21 BST — **45 skills rescued tonight** 🏴‍☠️🔥🏆 ULTRA LEGENDARY!!
+> Last Updated: 20 May 2026 22:25 BST — **51 skills rescued tonight** 🏴‍☠️🔥🏆 ULTRA LEGENDARY!!
 
 ---
 
@@ -53,6 +53,12 @@ Use this to track: what's live, what's being built, and what's been rescued from
 | HS-043 | Self-Improvement 5-Loop Logic 🔄 | `agents/SELF_IMPROVEMENT_LOOP_LOGIC_v1.md` | HyperCode-V2.4 | `agents/` |
 | HS-044 | A/B Testing Framework for Agents 🧪 | `agents/AB_TESTING_FRAMEWORK_v1.md` | HyperCode-V2.4 | `agents/` |
 | HS-045 | Cost Optimisation Auto-Pattern 💰 | `agents/COST_OPTIMISATION_AUTO_v1.md` | HyperCode-V2.4 | `agents/` |
+| HS-046 | HyperLaunch Unified Commander 🚀 | `hypercode/HYPERLAUNCH_UNIFIED_COMMANDER_v1.md` | HyperCode-V2.4 | `hypercode/` |
+| HS-047 | 4-Tier ServiceSpec Launch Pattern 🏗️ | `hypercode/FOUR_TIER_SERVICE_SPEC_v1.md` | HyperCode-V2.4 | `hypercode/` |
+| HS-048 | Preflight Checks System ✈️ | `dev/PREFLIGHT_CHECKS_SYSTEM_v1.md` | HyperCode-V2.4 | `dev/` |
+| HS-049 | Progressive Health Wait Pattern ⏳ | `dev/PROGRESSIVE_HEALTH_WAIT_v1.md` | HyperCode-V2.4 | `dev/` |
+| HS-050 | Guardian Watchdog Post-Launch Monitor 🛡️ | `agents/GUARDIAN_WATCHDOG_MONITOR_v1.md` | HyperCode-V2.4 | `agents/` |
+| HS-051 | CLI Args Launch Pattern ⌨️ | `dev/CLI_ARGS_LAUNCH_PATTERN_v1.md` | HyperCode-V2.4 | `dev/` |
 
 ---
 
@@ -69,20 +75,17 @@ Use this to track: what's live, what's being built, and what's been rescued from
 
 ## ⚡ STILL TO RAID — HyperCode-V2.4
 
-This repo has LOADS more gold untouched:
-
 | Location | Skill Candidates |
 |---|---|
-| `hyperlaunch.py` | 34KB launch orchestrator — epic DevOps skill |
-| `BROSKI_PETS_INTEGRATION_PLAN.md` | 17KB BROskiPets Web3 integration plan |
-| `COMPLETE_ECOSYSTEM_INVENTORY.md` | 16KB full ecosystem map |
-| `agents/` folder | Individual agent scripts + patterns |
-| `docker-compose.agents.yml` | 42KB — mega agents orchestration config |
-| `backend/` folder | FastAPI backend patterns |
-| `discord-bot/` folder | Discord bot cog system |
-| `mcp/` folder | MCP gateway setup |
-| `quantum-compiler/` folder | Mystery folder — likely advanced patterns |
-| `broski-command-centre.html` | 65KB dashboard — skill-worthy UI patterns |
+| `BROSKI_PETS_INTEGRATION_PLAN.md` | 17KB BROskiPets Web3 integration plan 🐾 |
+| `COMPLETE_ECOSYSTEM_INVENTORY.md` | 16KB full ecosystem map 🗺️ |
+| `agents/` folder | Individual agent scripts + patterns 🤖 |
+| `docker-compose.agents.yml` | 42KB — mega agents orchestration config 🐳 |
+| `backend/` folder | FastAPI backend patterns 🐍 |
+| `discord-bot/` folder | Discord bot cog system 🤖 |
+| `mcp/` folder | MCP gateway setup 🔌 |
+| `quantum-compiler/` folder | Mystery folder ⚛️ |
+| `broski-command-centre.html` | 65KB dashboard — skill-worthy UI patterns 📊 |
 
 ## ⚡ STILL TO RAID — HyperAgent-SDK
 
@@ -104,8 +107,8 @@ This repo has LOADS more gold untouched:
 | Source Repo | Skill Candidates | Vault Folder | Rescued? |
 |---|---|---|---|
 | [HyperCode-V2.4](https://github.com/welshDog/HyperCode-V2.4) | Agent orchestration, ND dev prompts, swarm patterns | `agents/` `dev/` `hypercode/` | ⚡ RAIDING — more inside |
-| [HyperAgent-SDK](https://github.com/welshDog/HyperAgent-SDK) | HS-022 → HS-029 rescued ✅ — docs/ templates/ CLAUDE_CONTEXT still inside | `dev/` `agents/` | ⚡ PARTIAL — more inside |
-| [BROski-Obsidian-Brain-for-HyperFocus-z0ne](https://github.com/welshDog/BROski-Obsidian-Brain-for-HyperFocus-z0ne) | HS-009 → HS-021 rescued ✅ — HYPERFOCUS_ZONE/ still inside | `agents/` `broski/` | ⚡ PARTIAL — more inside |
+| [HyperAgent-SDK](https://github.com/welshDog/HyperAgent-SDK) | HS-022 → HS-029 rescued ✅ — docs/ templates/ still inside | `dev/` `agents/` | ⚡ PARTIAL — more inside |
+| [BROski-Obsidian-Brain-for-HyperFocus-z0ne](https://github.com/welshDog/BROski-Obsidian-Brain-for-HyperFocus-z0ne) | HS-009 → HS-021 rescued ✅ | `agents/` `broski/` | ⚡ PARTIAL — more inside |
 | [GitHub-Hyper-Agent-BROski](https://github.com/welshDog/GitHub-Hyper-Agent-BROski) | GitHub automation, PR/issue management skill | `agents/` `dev/` | 🔍 Hunting |
 | [Hyperfocus-Global-Impact-Skills](https://github.com/welshDog/Hyperfocus-Global-Impact-Skills) | HS-008 rescued ✅ — ND tools still inside | `agents/` `broski/` | ⚡ PARTIAL — more inside |
 
@@ -159,11 +162,11 @@ This repo has LOADS more gold untouched:
 | Metric | Count |
 |---|---|
 | Total Repos Scanned | 86 |
-| Skill Candidates Found | 60+ |
-| ✅ Rescued Skills | **45** (HS-001, HS-006 → HS-045) |
+| Skill Candidates Found | 70+ |
+| ✅ Rescued Skills | **51** (HS-001, HS-006 → HS-051) |
 | 🔨 In Progress | 4 |
 | 🔍 Still To Raid | 20+ repos |
-| 🏆 Best Night | 20 May 2026 — **45 skills in one session! ULTRA LEGENDARY!!** |
+| 🏆 Best Night | 20 May 2026 — **51 skills in one session! ULTRA LEGENDARY!!** |
 
 ---
 
@@ -171,10 +174,10 @@ This repo has LOADS more gold untouched:
 
 | Category | Skills |
 |---|---|
-| `agents/` | HS-006 · HS-007 · HS-008 · HS-009 · HS-011 · HS-013 · HS-016 · HS-017 · HS-018 · HS-019 · HS-020 · HS-021 · HS-028 · HS-038 · HS-040 · HS-041 · HS-042 · HS-043 · HS-044 · HS-045 → **20 skills** |
-| `dev/` | HS-014 · HS-022 · HS-023 · HS-024 · HS-025 · HS-026 · HS-027 · HS-029 → **8 skills** |
+| `agents/` | HS-006 · HS-007 · HS-008 · HS-009 · HS-011 · HS-013 · HS-016 · HS-017 · HS-018 · HS-019 · HS-020 · HS-021 · HS-028 · HS-038 · HS-040 · HS-041 · HS-042 · HS-043 · HS-044 · HS-045 · HS-050 → **21 skills** |
+| `dev/` | HS-014 · HS-022 · HS-023 · HS-024 · HS-025 · HS-026 · HS-027 · HS-029 · HS-048 · HS-049 · HS-051 → **11 skills** |
 | `broski/` | HS-010 · HS-012 · HS-015 · HS-034 · HS-036 → **5 skills** |
-| `hypercode/` | HS-030 · HS-031 · HS-032 · HS-033 · HS-035 · HS-037 · HS-039 → **7 skills** |
+| `hypercode/` | HS-030 · HS-031 · HS-032 · HS-033 · HS-035 · HS-037 · HS-039 · HS-046 · HS-047 → **9 skills** |
 | `youtube/` | HS-001 → **1 skill** |
 | `content/` | HS-002 · HS-004 · HS-005 *(in progress)* |
 
@@ -188,4 +191,4 @@ When adding a new skill, use this structure:
 
 ---
 
-*HYPER-SKILLs Vault — WelshDog 🐕🏴󠁧󠁢󠁷󠁬󠁳󠁥⚡ — Last updated: 20 May 2026 22:21 BST*
+*HYPER-SKILLs Vault — WelshDog 🐕🏴󠁧󠁢󠁷󠁬󠁳󠁧⚡ — Last updated: 20 May 2026 22:25 BST*

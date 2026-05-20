@@ -36,12 +36,12 @@ HYPER-SKILLs-By-WelshDog/
 
 ## 🏆 Current Skills
 
-**66 rescued · 37 catalogued · 4 in progress** *(as of 21 May 2026 — Bible + Roster + Life Plans Master + Throttle-Agent Bible raids 🔥📖🗺️🦅🛡️)*
+**72 rescued · 37 catalogued · 4 in progress** *(as of 21 May 2026 — 4 raids + Claude's Favourites 🔥📖🗺️🦅🛡️💎)*
 
 | Category | Rescued | Highlights |
 |---|---|---|
-| `agents/` | 38 | 6 Laws 🏛️ · Anatomy (6 organs) 🧬 · Lifecycle (BIRTH→DEATH) 🔄 · Tier Protection 🛡️ · Healer Protocol 🤝 |
-| `dev/` | 22 | Anti-Thrash Sleep 😴 · Predictive Trend 📈 · Metrics Contract 📊 · Build Checklist 🌱 · Contract Tests 🧪 |
+| `agents/` | 39 | 6 Laws 🏛️ · Anatomy (6 organs) 🧬 · Lifecycle (BIRTH→DEATH) 🔄 · Tier Protection 🛡️ · **Surface Contradictions 🚩** |
+| `dev/` | 27 | Anti-Thrash Sleep 😴 · Predictive Trend 📈 · Metrics Contract 📊 · **Truth Audit 📋 · Lean Raid ⚖️ · Wikilink Graph 🕸️** |
 | `broski/` | 5 | Design Brain · Level Progression · PARA · ND Errors · Ranks + Naming + Creed 🏆 |
 | `youtube/` | 1 | YT Analytics Debugger |
 

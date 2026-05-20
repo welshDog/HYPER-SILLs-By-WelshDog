@@ -7,12 +7,12 @@ Master tracking list for every skill in the vault.
 > - 📝 **CATALOGUED** = source pattern identified in another repo, **file not yet extracted** to this vault
 
 > Last Hunt: 20 May 2026 — 86 repos scanned 🐕💨
-> Last Updated: 21 May 2026 — **Throttle-Agent Bible raid: HS-098 → HS-107 (+10 skills)** 🛡️📖 · vault now **66 rescued** + 37 catalogued
-> *Truth disclosure: 11 of 12 specialist HYPER-AGENT-BIBLE.md files are **0-byte placeholder stubs** — only `throttle-agent/HYPER-AGENT-BIBLE.md` was ever filled in (10.4 KB). See raid table below for the empty list.*
+> Last Updated: 21 May 2026 — **Claude's Favourites: HS-108 → HS-113 (+6 original skills)** 💎 · vault now **72 rescued** + 37 catalogued
+> *Six disciplines distilled from the session itself — Truth-vs-Claim audit, Cross-Reference Before Writing, Lean Raid, Surface Contradictions, Wikilink Knowledge Graph, Parallel Git Workflow Survival. Not raided — synthesised.*
 
 ---
 
-## ✅ RESCUED SKILLS (file present on disk, 66 total)
+## ✅ RESCUED SKILLS (file present on disk, 72 total)
 
 | ID | Skill Name | File | Source Repo | Category |
 |---|---|---|---|---|
@@ -82,6 +82,12 @@ Master tracking list for every skill in the vault.
 | HS-105 | Core Agent Metrics Contract (5 Mandatory) 📊 | [`dev/CORE_AGENT_METRICS_CONTRACT_v1.md`](dev/CORE_AGENT_METRICS_CONTRACT_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `dev/` |
 | HS-106 | New Agent Build Checklist (10-Point) 🌱 | [`dev/NEW_AGENT_BUILD_CHECKLIST_v1.md`](dev/NEW_AGENT_BUILD_CHECKLIST_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `dev/` |
 | HS-107 | Agent Ranks + Self-Naming Protocol + The Creed 🏆 | [`broski/AGENT_RANKS_NAMING_CREED_v1.md`](broski/AGENT_RANKS_NAMING_CREED_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `broski/` |
+| HS-108 | Truth-vs-Claim Audit Pattern 📋 | [`dev/TRUTH_VS_CLAIM_AUDIT_v1.md`](dev/TRUTH_VS_CLAIM_AUDIT_v1.md) | Original — session synthesis | `dev/` |
+| HS-109 | Cross-Reference Before You Write 🔍 | [`dev/CROSS_REFERENCE_BEFORE_WRITING_v1.md`](dev/CROSS_REFERENCE_BEFORE_WRITING_v1.md) | Original — session synthesis | `dev/` |
+| HS-110 | Lean Raid Discipline (Anti-Inflation) ⚖️ | [`dev/LEAN_RAID_DISCIPLINE_v1.md`](dev/LEAN_RAID_DISCIPLINE_v1.md) | Original — session synthesis | `dev/` |
+| HS-111 | Surface Contradictions, Don't Pick Sides 🚩 | [`agents/SURFACE_CONTRADICTIONS_DONT_PICK_SIDES_v1.md`](agents/SURFACE_CONTRADICTIONS_DONT_PICK_SIDES_v1.md) | Original — distilled from HFZ CLAUDE.md communication rules | `agents/` |
+| HS-112 | Wikilink Knowledge Graph for Docs 🕸️ | [`dev/WIKILINK_KNOWLEDGE_GRAPH_v1.md`](dev/WIKILINK_KNOWLEDGE_GRAPH_v1.md) | Original — vault convention from HS-067 onwards | `dev/` |
+| HS-113 | Parallel Git Workflow Survival Guide 🤝 | [`dev/PARALLEL_GIT_WORKFLOW_SURVIVAL_v1.md`](dev/PARALLEL_GIT_WORKFLOW_SURVIVAL_v1.md) | Original — from Lyndz's parallel-workflow memory | `dev/` |
 
 ---
 
@@ -313,12 +319,13 @@ The vault-index previously implied 9+ specialist Bibles were rich raid targets. 
 |---|---|
 | Total Repos Scanned | 86 |
 | Skill Candidates Found | 100+ |
-| ✅ **Rescued (file on disk)** | **66** (HS-001, HS-006→029, HS-067→107) |
+| ✅ **Rescued (file on disk)** | **72** (HS-001, HS-006→029, HS-067→113) |
 | 📝 **Catalogued (no file yet)** | **37** (HS-030 → HS-066) |
 | 🔨 In Progress | 4 (HS-002, HS-003, HS-004, HS-005) |
-| 🔍 Still To Raid | 20+ repos + 2 priority Bible-tier docs (`agents/README.md`, `this is the Hyper Agent.md`) + the Quick-Win Stack |
+| 🔍 Still To Raid | 20+ repos + 2 priority Bible-tier docs + the Quick-Win Stack |
 | 🏆 Best Raid | 21 May 2026 — Bible deep-raid HS-077→088 (+12 skills in one run) 🔥📖 |
 | 🥈 Runner-Up | 21 May 2026 — Throttle-Agent Bible HS-098→107 (+10 skills, 8 universal patterns from a "specialist" Bible) 🛡️📖 |
+| 💎 Original Synthesis | 21 May 2026 — Claude's Favourites HS-108→113 (+6 session-distilled disciplines, not raided) |
 
 ---
 
@@ -326,8 +333,8 @@ The vault-index previously implied 9+ specialist Bibles were rich raid targets. 
 
 | Category | Rescued | Catalogued (no file yet) |
 |---|---|---|
-| `agents/` | HS-006 · HS-007 · HS-008 · HS-009 · HS-011 · HS-013 · HS-016 · HS-017 · HS-018 · HS-019 · HS-020 · HS-021 · HS-028 · HS-067 · HS-068 · HS-070 · HS-071 · HS-072 · HS-073 · HS-075 · HS-077 · HS-078 · HS-079 · HS-080 · HS-083 · HS-085 · HS-087 · HS-088 · HS-089 · HS-090 · HS-091 · HS-093 · HS-097 · HS-098 · HS-099 · HS-100 · HS-103 · HS-104 → **38 skills** | HS-038 · HS-040 · HS-041 · HS-042 · HS-043 · HS-044 · HS-045 · HS-050 |
-| `dev/` | HS-014 · HS-022 · HS-023 · HS-024 · HS-025 · HS-026 · HS-027 · HS-029 · HS-074 · HS-076 · HS-081 · HS-082 · HS-084 · HS-086 · HS-092 · HS-094 · HS-095 · HS-096 · HS-101 · HS-102 · HS-105 · HS-106 → **22 skills** | HS-048 · HS-049 · HS-051 · HS-060 · HS-061 · HS-062 · HS-063 · HS-064 |
+| `agents/` | HS-006 · HS-007 · HS-008 · HS-009 · HS-011 · HS-013 · HS-016 · HS-017 · HS-018 · HS-019 · HS-020 · HS-021 · HS-028 · HS-067 · HS-068 · HS-070 · HS-071 · HS-072 · HS-073 · HS-075 · HS-077 · HS-078 · HS-079 · HS-080 · HS-083 · HS-085 · HS-087 · HS-088 · HS-089 · HS-090 · HS-091 · HS-093 · HS-097 · HS-098 · HS-099 · HS-100 · HS-103 · HS-104 · HS-111 → **39 skills** | HS-038 · HS-040 · HS-041 · HS-042 · HS-043 · HS-044 · HS-045 · HS-050 |
+| `dev/` | HS-014 · HS-022 · HS-023 · HS-024 · HS-025 · HS-026 · HS-027 · HS-029 · HS-074 · HS-076 · HS-081 · HS-082 · HS-084 · HS-086 · HS-092 · HS-094 · HS-095 · HS-096 · HS-101 · HS-102 · HS-105 · HS-106 · HS-108 · HS-109 · HS-110 · HS-112 · HS-113 → **27 skills** | HS-048 · HS-049 · HS-051 · HS-060 · HS-061 · HS-062 · HS-063 · HS-064 |
 | `broski/` | HS-010 · HS-012 · HS-015 · HS-069 · HS-107 → **5 skills** | HS-034 · HS-036 |
 | `youtube/` | HS-001 → **1 skill** | — |
 | `hypercode/` *(folder doesn't exist)* | **0 skills** | HS-030 · HS-031 · HS-032 · HS-033 · HS-035 · HS-037 · HS-039 · HS-046 · HS-047 · HS-059 · HS-065 · HS-066 |

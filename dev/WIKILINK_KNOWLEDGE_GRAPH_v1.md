@@ -1,4 +1,4 @@
-# HS-112 — Wikilink Knowledge Graph for Docs 🕸️
+# HS-112 — 🕸️ WEB WEAVER — Wikilink Knowledge Graph for Docs
 
 **Category:** `dev/`
 **Source:** Original — the convention used throughout the HYPER-SILLs vault (every skill from HS-067 onwards uses `[[HS-###]]` cross-links)

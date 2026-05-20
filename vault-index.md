@@ -7,8 +7,8 @@ Master tracking list for every skill in the vault.
 > - 📝 **CATALOGUED** = source pattern identified in another repo, **file not yet extracted** to this vault
 
 > Last Hunt: 20 May 2026 — 86 repos scanned 🐕💨
-> Last Updated: 21 May 2026 — **Claude's Favourites: HS-108 → HS-113 (+6 original skills)** 💎 · vault now **72 rescued** + 37 catalogued
-> *Six disciplines distilled from the session itself — Truth-vs-Claim audit, Cross-Reference Before Writing, Lean Raid, Surface Contradictions, Wikilink Knowledge Graph, Parallel Git Workflow Survival. Not raided — synthesised.*
+> Last Updated: 21 May 2026 — **Hero Pilot: HS-108 → HS-113 rebranded with Marvel-style names** 🦸 · vault still 72 rescued + 37 catalogued
+> *🔱 REALITY ANCHOR · 🐕 GREP HOUND · ⚔️ TRIM LORD · 🚩 TRUTH FLAGGER · 🕸️ WEB WEAVER · ⚒️ FETCH FORGE — the six disciplines now have hero names. Rest of vault TBD if pilot lands well.*
 
 ---
 
@@ -82,12 +82,12 @@ Master tracking list for every skill in the vault.
 | HS-105 | Core Agent Metrics Contract (5 Mandatory) 📊 | [`dev/CORE_AGENT_METRICS_CONTRACT_v1.md`](dev/CORE_AGENT_METRICS_CONTRACT_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `dev/` |
 | HS-106 | New Agent Build Checklist (10-Point) 🌱 | [`dev/NEW_AGENT_BUILD_CHECKLIST_v1.md`](dev/NEW_AGENT_BUILD_CHECKLIST_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `dev/` |
 | HS-107 | Agent Ranks + Self-Naming Protocol + The Creed 🏆 | [`broski/AGENT_RANKS_NAMING_CREED_v1.md`](broski/AGENT_RANKS_NAMING_CREED_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `broski/` |
-| HS-108 | Truth-vs-Claim Audit Pattern 📋 | [`dev/TRUTH_VS_CLAIM_AUDIT_v1.md`](dev/TRUTH_VS_CLAIM_AUDIT_v1.md) | Original — session synthesis | `dev/` |
-| HS-109 | Cross-Reference Before You Write 🔍 | [`dev/CROSS_REFERENCE_BEFORE_WRITING_v1.md`](dev/CROSS_REFERENCE_BEFORE_WRITING_v1.md) | Original — session synthesis | `dev/` |
-| HS-110 | Lean Raid Discipline (Anti-Inflation) ⚖️ | [`dev/LEAN_RAID_DISCIPLINE_v1.md`](dev/LEAN_RAID_DISCIPLINE_v1.md) | Original — session synthesis | `dev/` |
-| HS-111 | Surface Contradictions, Don't Pick Sides 🚩 | [`agents/SURFACE_CONTRADICTIONS_DONT_PICK_SIDES_v1.md`](agents/SURFACE_CONTRADICTIONS_DONT_PICK_SIDES_v1.md) | Original — distilled from HFZ CLAUDE.md communication rules | `agents/` |
-| HS-112 | Wikilink Knowledge Graph for Docs 🕸️ | [`dev/WIKILINK_KNOWLEDGE_GRAPH_v1.md`](dev/WIKILINK_KNOWLEDGE_GRAPH_v1.md) | Original — vault convention from HS-067 onwards | `dev/` |
-| HS-113 | Parallel Git Workflow Survival Guide 🤝 | [`dev/PARALLEL_GIT_WORKFLOW_SURVIVAL_v1.md`](dev/PARALLEL_GIT_WORKFLOW_SURVIVAL_v1.md) | Original — from Lyndz's parallel-workflow memory | `dev/` |
+| HS-108 | 🔱 **REALITY ANCHOR** — Truth-vs-Claim Audit Pattern | [`dev/TRUTH_VS_CLAIM_AUDIT_v1.md`](dev/TRUTH_VS_CLAIM_AUDIT_v1.md) | Original — session synthesis | `dev/` |
+| HS-109 | 🐕 **GREP HOUND** — Cross-Reference Before You Write | [`dev/CROSS_REFERENCE_BEFORE_WRITING_v1.md`](dev/CROSS_REFERENCE_BEFORE_WRITING_v1.md) | Original — session synthesis | `dev/` |
+| HS-110 | ⚔️ **TRIM LORD** — Lean Raid Discipline (Anti-Inflation) | [`dev/LEAN_RAID_DISCIPLINE_v1.md`](dev/LEAN_RAID_DISCIPLINE_v1.md) | Original — session synthesis | `dev/` |
+| HS-111 | 🚩 **TRUTH FLAGGER** — Surface Contradictions, Don't Pick Sides | [`agents/SURFACE_CONTRADICTIONS_DONT_PICK_SIDES_v1.md`](agents/SURFACE_CONTRADICTIONS_DONT_PICK_SIDES_v1.md) | Original — distilled from HFZ CLAUDE.md communication rules | `agents/` |
+| HS-112 | 🕸️ **WEB WEAVER** — Wikilink Knowledge Graph for Docs | [`dev/WIKILINK_KNOWLEDGE_GRAPH_v1.md`](dev/WIKILINK_KNOWLEDGE_GRAPH_v1.md) | Original — vault convention from HS-067 onwards | `dev/` |
+| HS-113 | ⚒️ **FETCH FORGE** — Parallel Git Workflow Survival Guide | [`dev/PARALLEL_GIT_WORKFLOW_SURVIVAL_v1.md`](dev/PARALLEL_GIT_WORKFLOW_SURVIVAL_v1.md) | Original — from Lyndz's parallel-workflow memory | `dev/` |
 
 ---
 

@@ -1,4 +1,4 @@
-# HS-110 — Lean Raid Discipline (Anti-Inflation) ⚖️
+# HS-110 — ⚔️ TRIM LORD — Lean Raid Discipline (Anti-Inflation)
 
 **Category:** `dev/`
 **Source:** Original — coined during 2026-05-21 Life Plans Master raid (extracted 2 skills from a 354-line doc by declaring 6 sections as duplicates of existing skills)

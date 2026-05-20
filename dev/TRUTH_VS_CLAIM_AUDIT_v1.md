@@ -1,4 +1,4 @@
-# HS-108 — Truth-vs-Claim Audit Pattern 📋
+# HS-108 — 🔱 REALITY ANCHOR — Truth-vs-Claim Audit Pattern
 
 **Category:** `dev/`
 **Source:** Original — distilled from 2026-05-21 raid lessons (phantom commits in HYPER-SILLs vault-index, container count drift across CLAUDE.md files, empty Bible stubs)

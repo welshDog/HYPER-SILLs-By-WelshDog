@@ -1,4 +1,4 @@
-# HS-113 — Parallel Git Workflow Survival Guide 🤝
+# HS-113 — ⚒️ FETCH FORGE — Parallel Git Workflow Survival Guide
 
 **Category:** `dev/`
 **Source:** Original — from Lyndz's parallel-workflow memory (`verify-roadmap-against-main.md`) + 2026-05-21 raid commits where every push needed a pre-fetch + diverge check

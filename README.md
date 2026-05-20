@@ -36,12 +36,12 @@ HYPER-SKILLs-By-WelshDog/
 
 ## 🏆 Current Skills
 
-**72 rescued · 37 catalogued · 4 in progress** *(as of 21 May 2026 — 4 raids + Claude's Favourites 🔥📖🗺️🦅🛡️💎)*
+**72 rescued · 37 catalogued · 4 in progress** *(as of 21 May 2026 — 4 raids + Claude's Favourites + Hero Pilot 🦸)*
 
 | Category | Rescued | Highlights |
 |---|---|---|
-| `agents/` | 39 | 6 Laws 🏛️ · Anatomy (6 organs) 🧬 · Lifecycle (BIRTH→DEATH) 🔄 · Tier Protection 🛡️ · **Surface Contradictions 🚩** |
-| `dev/` | 27 | Anti-Thrash Sleep 😴 · Predictive Trend 📈 · Metrics Contract 📊 · **Truth Audit 📋 · Lean Raid ⚖️ · Wikilink Graph 🕸️** |
+| `agents/` | 39 | 6 Laws 🏛️ · Anatomy (6 organs) 🧬 · Lifecycle (BIRTH→DEATH) 🔄 · Tier Protection 🛡️ · 🚩 **TRUTH FLAGGER** |
+| `dev/` | 27 | Anti-Thrash Sleep 😴 · Predictive Trend 📈 · 🔱 **REALITY ANCHOR** · ⚔️ **TRIM LORD** · 🕸️ **WEB WEAVER** · 🐕 **GREP HOUND** · ⚒️ **FETCH FORGE** |
 | `broski/` | 5 | Design Brain · Level Progression · PARA · ND Errors · Ranks + Naming + Creed 🏆 |
 | `youtube/` | 1 | YT Analytics Debugger |
 

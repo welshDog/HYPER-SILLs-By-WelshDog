@@ -1,4 +1,4 @@
-# HS-111 — Surface Contradictions, Don't Pick Sides 🚩
+# HS-111 — 🚩 TRUTH FLAGGER — Surface Contradictions, Don't Pick Sides
 
 **Category:** `agents/`
 **Source:** Original — distilled from HyperFocus z0ne CLAUDE.md communication rules + 2026-05-21 raid contradictions (container count: 48 vs 32 vs 30 across three docs)

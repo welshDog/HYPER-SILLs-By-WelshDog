@@ -1,4 +1,4 @@
-# HS-109 — Cross-Reference Before You Write 🔍
+# HS-109 — 🐕 GREP HOUND — Cross-Reference Before You Write
 
 **Category:** `dev/`
 **Source:** Original — distilled from 2026-05-21 raid sessions (avoided ~12 duplicate skills across Bible / Roster / Life Plans Master / throttle-agent raids)

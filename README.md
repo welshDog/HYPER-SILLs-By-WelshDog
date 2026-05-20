@@ -36,12 +36,12 @@ HYPER-SKILLs-By-WelshDog/
 
 ## 🏆 Current Skills
 
-**47 rescued · 37 catalogued · 4 in progress** *(as of 21 May 2026 — Bible deep-raid 🔥📖)*
+**54 rescued · 37 catalogued · 4 in progress** *(as of 21 May 2026 — Bible + Roster raids 🔥📖🗺️)*
 
 | Category | Rescued | Highlights |
 |---|---|---|
-| `agents/` | 28 | Swarm Core 👑 · Specialist Roles · Decision Tree 🌳 · 5 Guardrails 🚧 · Final Audit ✅ |
-| `dev/` | 14 | SDK Master · MCP Registration 🔌 · Code Style 📐 · Test Pyramid 🔺 |
+| `agents/` | 32 | Roster (22 agents) 🗺️ · Life Plan YAML 📜 · Top-Tier Cards 🪪 · Nightly Loop 🌙 |
+| `dev/` | 17 | Contract Tests 🧪 · 6-Sprint Roadmap 🚀 · Governance Ledger 📒 · Code Style 📐 |
 | `broski/` | 4 | Design Brain · Level Progression · PARA Structure · ND Error Messages |
 | `youtube/` | 1 | YT Analytics Debugger |
 

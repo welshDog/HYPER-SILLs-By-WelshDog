@@ -36,13 +36,13 @@ HYPER-SKILLs-By-WelshDog/
 
 ## 🏆 Current Skills
 
-**56 rescued · 37 catalogued · 4 in progress** *(as of 21 May 2026 — Bible + Roster + Life Plans Master raids 🔥📖🗺️🦅)*
+**66 rescued · 37 catalogued · 4 in progress** *(as of 21 May 2026 — Bible + Roster + Life Plans Master + Throttle-Agent Bible raids 🔥📖🗺️🦅🛡️)*
 
 | Category | Rescued | Highlights |
 |---|---|---|
-| `agents/` | 33 | Roster (22 agents) 🗺️ · Life Plan YAML 📜 · Top-Tier Cards 🪪 · Dependency Graph 🕸️ · Nightly Loop 🌙 |
-| `dev/` | 18 | Contract Tests 🧪 · 6-Sprint + 8-Sprint Roadmaps 🚀🗓️ · Governance Ledger 📒 · Code Style 📐 |
-| `broski/` | 4 | Design Brain · Level Progression · PARA Structure · ND Error Messages |
+| `agents/` | 38 | 6 Laws 🏛️ · Anatomy (6 organs) 🧬 · Lifecycle (BIRTH→DEATH) 🔄 · Tier Protection 🛡️ · Healer Protocol 🤝 |
+| `dev/` | 22 | Anti-Thrash Sleep 😴 · Predictive Trend 📈 · Metrics Contract 📊 · Build Checklist 🌱 · Contract Tests 🧪 |
+| `broski/` | 5 | Design Brain · Level Progression · PARA · ND Errors · Ranks + Naming + Creed 🏆 |
 | `youtube/` | 1 | YT Analytics Debugger |
 
 See [`vault-index.md`](vault-index.md) for the full map (rescued + catalogued + raid log).

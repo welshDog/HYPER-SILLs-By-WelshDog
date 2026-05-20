@@ -4,7 +4,7 @@ Master tracking list for every skill in the vault.
 Use this to track: what's live, what's being built, and what's been rescued from old repos.
 
 > Last Hunt: 20 May 2026 — 86 repos scanned 🐕💨
-> Last Updated: 20 May 2026 22:32 BST — **58 skills rescued tonight** 🏴‍☠️🔥🏆 ULTRA LEGENDARY!!
+> Last Updated: 20 May 2026 22:36 BST — **66 skills rescued tonight** 🏴‍☠️🔥🏆 ULTRA LEGENDARY!!
 
 ---
 
@@ -66,6 +66,14 @@ Use this to track: what's live, what's being built, and what's been rescued from
 | HS-056 | Pet Species Power Mapping 🦈 | `web3/PET_SPECIES_POWER_MAPPING_v1.md` | HyperCode-V2.4 | `web3/` |
 | HS-057 | BROskiPets Phase 0 Build Prompt 📝 | `web3/BROSKIPETS_PHASE0_PROMPT_v1.md` | HyperCode-V2.4 | `web3/` |
 | HS-058 | BROskiPets Phase 1 Build Prompt 📝 | `web3/BROSKIPETS_PHASE1_PROMPT_v1.md` | HyperCode-V2.4 | `web3/` |
+| HS-059 | Complete Ecosystem Inventory 🗺️ | `hypercode/COMPLETE_ECOSYSTEM_INVENTORY_v1.md` | HyperCode-V2.4 | `hypercode/` |
+| HS-060 | 50 Container Stack Reference 🐳 | `dev/FIFTY_CONTAINER_STACK_REF_v1.md` | HyperCode-V2.4 | `dev/` |
+| HS-061 | 42-Port Network Map 🔌 | `dev/FORTY_TWO_PORT_NETWORK_MAP_v1.md` | HyperCode-V2.4 | `dev/` |
+| HS-062 | 20-Table Database Schema 🗄️ | `dev/TWENTY_TABLE_DB_SCHEMA_v1.md` | HyperCode-V2.4 | `dev/` |
+| HS-063 | 150+ Backend Deps Stack 📦 | `dev/BACKEND_DEPS_STACK_v1.md` | HyperCode-V2.4 | `dev/` |
+| HS-064 | Dev Commands Cheat Sheet ⚡ | `dev/DEV_COMMANDS_CHEAT_SHEET_v1.md` | HyperCode-V2.4 | `dev/` |
+| HS-065 | External Integrations Map 🔗 | `hypercode/EXTERNAL_INTEGRATIONS_MAP_v1.md` | HyperCode-V2.4 | `hypercode/` |
+| HS-066 | Milestone Tracker Template 🏆 | `hypercode/MILESTONE_TRACKER_TEMPLATE_v1.md` | HyperCode-V2.4 | `hypercode/` |
 
 ---
 
@@ -80,12 +88,64 @@ Use this to track: what's live, what's being built, and what's been rescued from
 
 ---
 
-## ⚡ STILL TO RAID — HyperCode-V2.4
+## ⚡ STILL TO RAID — HyperCode-V2.4 `agents/` Directory
+
+> 🖥️ Scanned: 20 May 2026 22:36 BST
+
+### 🔥 PRIORITY FILES (raid next!)
+
+| File | Size | Priority | Notes |
+|---|---|---|---|
+| [`HYPER-AGENT-BIBLE.md`](https://github.com/welshDog/HyperCode-V2.4/blob/main/agents/HYPER-AGENT-BIBLE.md) | **49KB** | 🔥🔥🔥 | Crown jewel — raid FIRST |
+| [`🧦 The Full Confirmed Hyper Agent Roster`](https://github.com/welshDog/HyperCode-V2.4/blob/main/agents/%F0%9F%A7%AC%20The%20Full%20Confirmed%20Hyper%20Agent%20Roster) | 21KB | 🔥🔥🔥 | Full agent roster |
+| [`🦅 HYPER AGENT LIFE PLANS — MASTER ARCHITECTURE`](https://github.com/welshDog/HyperCode-V2.4/blob/main/agents/%F0%9F%A6%85%20HYPER%20AGENT%20LIFE%20PLANS%20%E2%80%94%20MASTER%20ARCHITECTURE) | 15KB | 🔥🔥 | Architecture master plan |
+| [`README.md`](https://github.com/welshDog/HyperCode-V2.4/blob/main/agents/README.md) | 12KB | 🔥🔥 | Agents overview |
+| [`this is the Hyper Agent.md`](https://github.com/welshDog/HyperCode-V2.4/blob/main/agents/this%20is%20the%20Hyper%20Agent.md) | 11KB | 🔥🔥 | Agent identity doc |
+| [`⚡ The Concrete Quick-Win Stack`](https://github.com/welshDog/HyperCode-V2.4/blob/main/agents/%E2%9A%A1%20The%20Concrete%20Quick-Win%20Stack) | 8.5KB | 🔥 | Quick wins playbook |
+| [`Dockerfile.base`](https://github.com/welshDog/HyperCode-V2.4/blob/main/agents/Dockerfile.base) | 2.2KB | 🔥 | Shared Docker base pattern |
+
+### 📁 AGENT SUBDIRECTORIES (35 total)
+
+| Directory | Notes |
+|---|---|
+| `01-frontend-specialist` | Specialist agent |
+| `02-backend-specialist` | Specialist agent |
+| `03-database-architect` | Specialist agent |
+| `04-qa-engineer` | Specialist agent |
+| `05-devops-engineer` | Specialist agent |
+| `06-security-engineer` | Specialist agent |
+| `07-system-architect` | Specialist agent |
+| `08-project-strategist` | Specialist agent |
+| `09-tips-tricks-writer` | Content agent |
+| `agent-factory` | Agent spawner pattern |
+| `agent-x` | Meta-architect 👑 |
+| `architect` | System design agent |
+| `base-agent` | Base class pattern |
+| `broski-bot` | Discord bot agent |
+| `broski-pets-bridge` | BROskiPets API bridge |
+| `business` | Business logic agent |
+| `coder` | Code generation agent |
+| `coderabbit-webhook` | PR review webhook |
+| `crew-orchestrator` | Mission orchestrator |
+| `dashboard` | Dashboard agent |
+| `goal_keeper` | Goal tracking agent |
+| `healer` | Self-healing agent |
+| `hyper-agents` | Core hyper agents |
+| `hyper-auto-assistant` | Auto-assistant agent |
+| `hyper-split-agent` | Task splitter agent |
+| `hyperhealth` | Health check agent |
+| `life-plans` | Life planning agent |
+| `nemoclaw-agent` | ❓ Mystery agent — raid! |
+| `session-snapshot` | Session memory agent |
+| `shared` | Shared utilities |
+| `super-hyper-broski-agent` | Supervisor agent |
+| `test-agent` | Test harness agent |
+| `throttle-agent` | Rate limiting agent |
+
+## ⚡ STILL TO RAID — HyperCode-V2.4 (Other)
 
 | Location | Skill Candidates |
 |---|---|
-| `COMPLETE_ECOSYSTEM_INVENTORY.md` | 16KB full ecosystem map 🗺️ |
-| `agents/` folder | Individual agent scripts + patterns 🤖 |
 | `docker-compose.agents.yml` | 42KB — mega agents orchestration config 🐳 |
 | `backend/` folder | FastAPI backend patterns 🐍 |
 | `discord-bot/` folder | Discord bot cog system 🤖 |
@@ -112,7 +172,7 @@ Use this to track: what's live, what's being built, and what's been rescued from
 
 | Source Repo | Skill Candidates | Vault Folder | Rescued? |
 |---|---|---|---|
-| [HyperCode-V2.4](https://github.com/welshDog/HyperCode-V2.4) | Agent orchestration, ND dev prompts, swarm patterns, Web3 | `agents/` `dev/` `hypercode/` `web3/` | ⚡ RAIDING — more inside |
+| [HyperCode-V2.4](https://github.com/welshDog/HyperCode-V2.4) | Agent orchestration, ND dev prompts, swarm patterns, Web3 | `agents/` `dev/` `hypercode/` `web3/` | ⚡ RAIDING — Bible + subdirs next |
 | [HyperAgent-SDK](https://github.com/welshDog/HyperAgent-SDK) | HS-022 → HS-029 rescued ✅ — docs/ templates/ still inside | `dev/` `agents/` | ⚡ PARTIAL — more inside |
 | [BROski-Obsidian-Brain-for-HyperFocus-z0ne](https://github.com/welshDog/BROski-Obsidian-Brain-for-HyperFocus-z0ne) | HS-009 → HS-021 rescued ✅ | `agents/` `broski/` | ⚡ PARTIAL — more inside |
 | [GitHub-Hyper-Agent-BROski](https://github.com/welshDog/GitHub-Hyper-Agent-BROski) | GitHub automation, PR/issue management skill | `agents/` `dev/` | 🔍 Hunting |
@@ -168,11 +228,11 @@ Use this to track: what's live, what's being built, and what's been rescued from
 | Metric | Count |
 |---|---|
 | Total Repos Scanned | 86 |
-| Skill Candidates Found | 70+ |
-| ✅ Rescued Skills | **58** (HS-001, HS-006 → HS-058) |
+| Skill Candidates Found | 100+ |
+| ✅ Rescued Skills | **66** (HS-001, HS-006 → HS-066) |
 | 🔨 In Progress | 4 |
-| 🔍 Still To Raid | 20+ repos |
-| 🏆 Best Night | 20 May 2026 — **58 skills in one session! ULTRA LEGENDARY!!** |
+| 🔍 Still To Raid | 20+ repos + agents/ Bible + subdirs |
+| 🏆 Best Night | 20 May 2026 — **66 skills in one session! ULTRA LEGENDARY!!** |
 
 ---
 
@@ -181,10 +241,10 @@ Use this to track: what's live, what's being built, and what's been rescued from
 | Category | Skills |
 |---|---|
 | `agents/` | HS-006 · HS-007 · HS-008 · HS-009 · HS-011 · HS-013 · HS-016 · HS-017 · HS-018 · HS-019 · HS-020 · HS-021 · HS-028 · HS-038 · HS-040 · HS-041 · HS-042 · HS-043 · HS-044 · HS-045 · HS-050 → **21 skills** |
-| `dev/` | HS-014 · HS-022 · HS-023 · HS-024 · HS-025 · HS-026 · HS-027 · HS-029 · HS-048 · HS-049 · HS-051 → **11 skills** |
-| `broski/` | HS-010 · HS-012 · HS-015 · HS-034 · HS-036 → **5 skills** |
-| `hypercode/` | HS-030 · HS-031 · HS-032 · HS-033 · HS-035 · HS-037 · HS-039 · HS-046 · HS-047 → **9 skills** |
+| `dev/` | HS-014 · HS-022 · HS-023 · HS-024 · HS-025 · HS-026 · HS-027 · HS-029 · HS-048 · HS-049 · HS-051 · HS-060 · HS-061 · HS-062 · HS-063 · HS-064 → **16 skills** |
+| `hypercode/` | HS-030 · HS-031 · HS-032 · HS-033 · HS-035 · HS-037 · HS-039 · HS-046 · HS-047 · HS-059 · HS-065 · HS-066 → **12 skills** |
 | `web3/` | HS-052 · HS-053 · HS-054 · HS-055 · HS-056 · HS-057 · HS-058 → **7 skills** |
+| `broski/` | HS-010 · HS-012 · HS-015 · HS-034 · HS-036 → **5 skills** |
 | `youtube/` | HS-001 → **1 skill** |
 | `content/` | HS-002 · HS-004 · HS-005 *(in progress)* |
 
@@ -198,4 +258,4 @@ When adding a new skill, use this structure:
 
 ---
 
-*HYPER-SKILLs Vault — WelshDog 🐕🏴󠁧󠁢󠁷󠁬󠁳󠁧⚡ — Last updated: 20 May 2026 22:32 BST*
+*HYPER-SKILLs Vault — WelshDog 🐕🏴󠁧󠁢󠁷󠁬󠁳󠁧⚡ — Last updated: 20 May 2026 22:36 BST*

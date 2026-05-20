@@ -4,7 +4,7 @@ Master tracking list for every skill in the vault.
 Use this to track: what's live, what's being built, and what's been rescued from old repos.
 
 > Last Hunt: 20 May 2026 — 86 repos scanned 🐕💨
-> Last Updated: 20 May 2026 22:16 BST — **29 skills rescued tonight** 🏴‍☠️🔥🏆
+> Last Updated: 20 May 2026 22:21 BST — **45 skills rescued tonight** 🏴‍☠️🔥🏆 ULTRA LEGENDARY!!
 
 ---
 
@@ -37,6 +37,22 @@ Use this to track: what's live, what's being built, and what's been rescued from
 | HS-027 | Test Status Report | [`dev/TEST_STATUS_REPORT_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/dev/TEST_STATUS_REPORT_v1.md) | HyperAgent-SDK | `dev/` |
 | HS-028 | HyperAgent SDK Agents README | [`agents/HYPERAGENT_SDK_AGENTS_README_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/agents/HYPERAGENT_SDK_AGENTS_README_v1.md) | HyperAgent-SDK | `agents/` |
 | HS-029 | HyperAgent SDK Publish Skill | [`dev/HYPERAGENT_SDK_PUBLISH_SKILL_v1.md`](https://github.com/welshDog/HYPER-SILLs-By-WelshDog/blob/main/dev/HYPERAGENT_SDK_PUBLISH_SKILL_v1.md) | HyperAgent-SDK | `dev/` |
+| HS-030 | HyperFocus Master Constitution 🏆 | `hypercode/HYPERFOCUS_MASTER_CONSTITUTION_v1.md` | HyperCode-V2.4 | `hypercode/` |
+| HS-031 | V2.4 Sacred Rules (20 Rules) 🔴 | `hypercode/SACRED_RULES_V24_v1.md` | HyperCode-V2.4 | `hypercode/` |
+| HS-032 | Course Sacred Rules (11 Rules) 🔴 | `hypercode/SACRED_RULES_COURSE_v1.md` | HyperCode-V2.4 | `hypercode/` |
+| HS-033 | BROski$ Shop Sacred Rules 🔴 | `hypercode/SACRED_RULES_SHOP_v1.md` | HyperCode-V2.4 | `hypercode/` |
+| HS-034 | 7-Beat Module Teaching Structure 🎯 | `broski/SEVEN_BEAT_MODULE_STRUCTURE_v1.md` | HyperCode-V2.4 | `broski/` |
+| HS-035 | AI Behaviour Rules + Tool Matrix 🤖 | `hypercode/AI_BEHAVIOUR_RULES_v1.md` | HyperCode-V2.4 | `hypercode/` |
+| HS-036 | Analogy Arsenal 🧠 | `broski/ANALOGY_ARSENAL_v1.md` | HyperCode-V2.4 | `broski/` |
+| HS-037 | Architecture Quick Ref (Ports + Networks) ⚡ | `hypercode/ARCHITECTURE_QUICK_REF_v1.md` | HyperCode-V2.4 | `hypercode/` |
+| HS-038 | Guardian Bot Phase Map (P1→P3c) 🛡️ | `agents/GUARDIAN_BOT_PHASE_MAP_v1.md` | HyperCode-V2.4 | `agents/` |
+| HS-039 | Session End Checklist ✅ | `hypercode/SESSION_END_CHECKLIST_v1.md` | HyperCode-V2.4 | `hypercode/` |
+| HS-040 | GoalKeeper Self-Improving Agent Setup 🦅 | `agents/GOALKEEPER_SELF_IMPROVING_v1.md` | HyperCode-V2.4 | `agents/` |
+| HS-041 | MetricsEngine Integration (Python + Node) ⚡ | `agents/METRICS_ENGINE_INTEGRATION_v1.md` | HyperCode-V2.4 | `agents/` |
+| HS-042 | SkillRegistry Agent Pattern 📋 | `agents/SKILL_REGISTRY_PATTERN_v1.md` | HyperCode-V2.4 | `agents/` |
+| HS-043 | Self-Improvement 5-Loop Logic 🔄 | `agents/SELF_IMPROVEMENT_LOOP_LOGIC_v1.md` | HyperCode-V2.4 | `agents/` |
+| HS-044 | A/B Testing Framework for Agents 🧪 | `agents/AB_TESTING_FRAMEWORK_v1.md` | HyperCode-V2.4 | `agents/` |
+| HS-045 | Cost Optimisation Auto-Pattern 💰 | `agents/COST_OPTIMISATION_AUTO_v1.md` | HyperCode-V2.4 | `agents/` |
 
 ---
 
@@ -51,20 +67,31 @@ Use this to track: what's live, what's being built, and what's been rescued from
 
 ---
 
-## ⚡ STILL TO RAID — HyperAgent-SDK
+## ⚡ STILL TO RAID — HyperCode-V2.4
 
-This repo has more gold untouched:
+This repo has LOADS more gold untouched:
 
 | Location | Skill Candidates |
 |---|---|
-| `docs/` folder | Full SDK documentation — likely structured skill gold |
-| `templates/` folder | 4 starter templates (python, node, typescript, mcp) |
-| `CLAUDE_CONTEXT.md` | 9.7KB context snapshot — current sprint state |
-| `CLAUDE.md` | Master brain file |
+| `hyperlaunch.py` | 34KB launch orchestrator — epic DevOps skill |
+| `BROSKI_PETS_INTEGRATION_PLAN.md` | 17KB BROskiPets Web3 integration plan |
+| `COMPLETE_ECOSYSTEM_INVENTORY.md` | 16KB full ecosystem map |
+| `agents/` folder | Individual agent scripts + patterns |
+| `docker-compose.agents.yml` | 42KB — mega agents orchestration config |
+| `backend/` folder | FastAPI backend patterns |
+| `discord-bot/` folder | Discord bot cog system |
+| `mcp/` folder | MCP gateway setup |
+| `quantum-compiler/` folder | Mystery folder — likely advanced patterns |
+| `broski-command-centre.html` | 65KB dashboard — skill-worthy UI patterns |
+
+## ⚡ STILL TO RAID — HyperAgent-SDK
+
+| Location | Skill Candidates |
+|---|---|
+| `docs/` folder | Full SDK documentation |
+| `templates/` folder | 4 starter templates |
+| `CLAUDE_CONTEXT.md` | 9.7KB context snapshot |
 | `hyper-agent-spec.json` | The canonical agent manifest schema bible |
-| `AGENT_SYNC_NOTES.md` | Cross-repo sync notes + breaking change log |
-| `.agents/skills/` | (checked ✅) |
-| `.Claude/skills/` | (checked ✅) |
 
 ---
 
@@ -76,7 +103,7 @@ This repo has more gold untouched:
 
 | Source Repo | Skill Candidates | Vault Folder | Rescued? |
 |---|---|---|---|
-| [HyperCode-V2.4](https://github.com/welshDog/HyperCode-V2.4) | Agent orchestration, ND dev prompts, swarm patterns | `agents/` `dev/` | 🔍 Hunting |
+| [HyperCode-V2.4](https://github.com/welshDog/HyperCode-V2.4) | Agent orchestration, ND dev prompts, swarm patterns | `agents/` `dev/` `hypercode/` | ⚡ RAIDING — more inside |
 | [HyperAgent-SDK](https://github.com/welshDog/HyperAgent-SDK) | HS-022 → HS-029 rescued ✅ — docs/ templates/ CLAUDE_CONTEXT still inside | `dev/` `agents/` | ⚡ PARTIAL — more inside |
 | [BROski-Obsidian-Brain-for-HyperFocus-z0ne](https://github.com/welshDog/BROski-Obsidian-Brain-for-HyperFocus-z0ne) | HS-009 → HS-021 rescued ✅ — HYPERFOCUS_ZONE/ still inside | `agents/` `broski/` | ⚡ PARTIAL — more inside |
 | [GitHub-Hyper-Agent-BROski](https://github.com/welshDog/GitHub-Hyper-Agent-BROski) | GitHub automation, PR/issue management skill | `agents/` `dev/` | 🔍 Hunting |
@@ -132,11 +159,11 @@ This repo has more gold untouched:
 | Metric | Count |
 |---|---|
 | Total Repos Scanned | 86 |
-| Skill Candidates Found | 40+ |
-| ✅ Rescued Skills | **29** (HS-001, HS-006 → HS-029) |
+| Skill Candidates Found | 60+ |
+| ✅ Rescued Skills | **45** (HS-001, HS-006 → HS-045) |
 | 🔨 In Progress | 4 |
 | 🔍 Still To Raid | 20+ repos |
-| 🏆 Best Night | 20 May 2026 — **29 skills in one session! LEGENDARY!!** |
+| 🏆 Best Night | 20 May 2026 — **45 skills in one session! ULTRA LEGENDARY!!** |
 
 ---
 
@@ -144,9 +171,10 @@ This repo has more gold untouched:
 
 | Category | Skills |
 |---|---|
-| `agents/` | HS-006 · HS-007 · HS-008 · HS-009 · HS-011 · HS-013 · HS-016 · HS-017 · HS-018 · HS-019 · HS-020 · HS-021 · HS-028 → **13 skills** |
+| `agents/` | HS-006 · HS-007 · HS-008 · HS-009 · HS-011 · HS-013 · HS-016 · HS-017 · HS-018 · HS-019 · HS-020 · HS-021 · HS-028 · HS-038 · HS-040 · HS-041 · HS-042 · HS-043 · HS-044 · HS-045 → **20 skills** |
 | `dev/` | HS-014 · HS-022 · HS-023 · HS-024 · HS-025 · HS-026 · HS-027 · HS-029 → **8 skills** |
-| `broski/` | HS-010 · HS-012 · HS-015 → **3 skills** |
+| `broski/` | HS-010 · HS-012 · HS-015 · HS-034 · HS-036 → **5 skills** |
+| `hypercode/` | HS-030 · HS-031 · HS-032 · HS-033 · HS-035 · HS-037 · HS-039 → **7 skills** |
 | `youtube/` | HS-001 → **1 skill** |
 | `content/` | HS-002 · HS-004 · HS-005 *(in progress)* |
 
@@ -160,4 +188,4 @@ When adding a new skill, use this structure:
 
 ---
 
-*HYPER-SKILLs Vault — WelshDog 🐕🏴󠁧󠁢󠁷󠁬󠁳󠁥⚡ — Last updated: 20 May 2026 22:16 BST*
+*HYPER-SKILLs Vault — WelshDog 🐕🏴󠁧󠁢󠁷󠁬󠁳󠁥⚡ — Last updated: 20 May 2026 22:21 BST*

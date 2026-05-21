@@ -1,4 +1,4 @@
-# HS-106 — New Agent Build Checklist (10-Point) 🌱
+# HS-106 — 🌱 THE BIRTH RITE — New Agent Build Checklist (10-Point)
 
 **Category:** `dev/`
 **Source:** HyperCode-V2.4 — `agents/throttle-agent/HYPER-AGENT-BIBLE.md`

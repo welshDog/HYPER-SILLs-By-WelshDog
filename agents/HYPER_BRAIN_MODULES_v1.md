@@ -1,4 +1,4 @@
-# 🧠 Hyper Skill: HYPER_BRAIN_MODULES_v1
+# HS-011 — 🧩 MIND BLOCKS — Hyper Brain Modules
 **Category:** Agents / Brain API  
 **Version:** 1.0  
 **Rescued From:** [BROski-Obsidian-Brain](https://github.com/welshDog/BROski-Obsidian-Brain-for-HyperFocus-z0ne) — `.claude/skills/hyper-brain-modules/SKILL.md`

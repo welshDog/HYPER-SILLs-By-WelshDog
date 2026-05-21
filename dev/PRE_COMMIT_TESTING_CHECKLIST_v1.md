@@ -1,4 +1,4 @@
-# HS-076 — Pre-Commit Testing Checklist ✅
+# HS-076 — ✅ THE GATEKEEPER — Pre-Commit Testing Checklist
 
 **Category:** `dev/`  
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §9  

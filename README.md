@@ -36,14 +36,16 @@ HYPER-SKILLs-By-WelshDog/
 
 ## 🏆 Current Skills
 
-**72 rescued · 37 catalogued · 4 in progress** *(as of 21 May 2026 — 4 raids + Claude's Favourites + Hero Rebrand: The Iconic 18 🦸)*
+**72 rescued · 37 catalogued · 4 in progress** *(as of 21 May 2026 — 4 raids + Claude's Favourites + FULL HERO REBRAND 🦸✨)*
+
+> **Every skill is a hero.** All 72 rescued skills carry Marvel-style hero names — power baked into the title.
 
 | Category | Rescued | Hero Highlights |
 |---|---|---|
-| `agents/` | 39 | 🏛️ **THE SACRED SIX** · 🧬 **SIX-ORGAN HEART** · 🔄 **CRADLE-TO-GRAVE** · 🛡️ **THE THREE WALLS** · 🤝 **HEALER'S CHORUS** · 🚧 **THE FIVE WARDS** · 📜 **SOUL SCROLL** · 🪪 **THE FOUNDING SIX** · 🌙 **NIGHT TENDER** · 🚩 **TRUTH FLAGGER** |
-| `dev/` | 27 | 😴 **DREAM GUARD** · 📈 **SLOPE ORACLE** · 🧪 **CONTRACT FORGE** · 🔱 **REALITY ANCHOR** · 🐕 **GREP HOUND** · ⚔️ **TRIM LORD** · 🕸️ **WEB WEAVER** · ⚒️ **FETCH FORGE** |
-| `broski/` | 5 | Design Brain · Level Progression · PARA · ND Errors · Ranks + Naming + Creed 🏆 |
-| `youtube/` | 1 | YT Analytics Debugger |
+| `agents/` | 39 | 🏛️ **THE SACRED SIX** · 🧬 **SIX-ORGAN HEART** · 🐝 **SWARM CROWN** · 🏆 **THE GRAND CODEX** · 👑 **THE THRONE LADDER** · 👁️ **THE ALL-SEEING** · 🛡️ **THE THREE WALLS** · 🤝 **HEALER'S CHORUS** · 🚩 **TRUTH FLAGGER** |
+| `dev/` | 27 | 😴 **DREAM GUARD** · 📈 **SLOPE ORACLE** · 🧪 **CONTRACT FORGE** · 🔱 **REALITY ANCHOR** · 🐕 **GREP HOUND** · ⚔️ **TRIM LORD** · 🕸️ **WEB WEAVER** · ⚒️ **FETCH FORGE** · 📦 **SDK SOVEREIGN** |
+| `broski/` | 5 | 🎨 **THE AESTHETE** · 🪜 **THE ASCENT** · 🗂️ **THE FOUR DRAWERS** · 💚 **MERCY MESSAGE** · 🏆 **THE RANK & THE NAME** |
+| `youtube/` | 1 | 📊 **SIGNAL HUNTER** |
 
 See [`vault-index.md`](vault-index.md) for the full map (rescued + catalogued + raid log).
 

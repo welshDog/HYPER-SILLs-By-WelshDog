@@ -1,4 +1,4 @@
-# HS-067 — Agent Role Hierarchy Pattern 🏛️
+# HS-067 — 👑 THE THRONE LADDER — Agent Role Hierarchy Pattern
 
 **Category:** `agents/`  
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §2  

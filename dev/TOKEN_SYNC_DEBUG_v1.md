@@ -1,4 +1,4 @@
-# 🔧 Hyper Skill: TOKEN_SYNC_DEBUG_v1
+# HS-025 — 🪙 COIN MENDER — Token Sync Debug
 **Category:** Dev / Debugging
 **Rescued From:** [HyperAgent-SDK](https://github.com/welshDog/HyperAgent-SDK) — `.Claude/skills/token-sync-debug/SKILL.md`
 

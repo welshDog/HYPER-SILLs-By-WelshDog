@@ -1,4 +1,4 @@
-# HS-086 — Test Pyramid (4 Levels) 🔺
+# HS-086 — 🔺 THE FOUR TIERS — Test Pyramid (4 Levels)
 
 **Category:** `dev/`
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §9

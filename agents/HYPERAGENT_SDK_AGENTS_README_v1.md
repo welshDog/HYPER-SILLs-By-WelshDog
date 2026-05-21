@@ -1,4 +1,4 @@
-# 🧠 Hyper Skill: HYPERAGENT_SDK_AGENTS_README_v1
+# HS-028 — 📖 SDK PRIMER — HyperAgent SDK Agents README
 **Category:** Agents / SDK Architecture
 **Rescued From:** [HyperAgent-SDK](https://github.com/welshDog/HyperAgent-SDK) — `.agents/AGENTS.md`
 

@@ -1,4 +1,4 @@
-# 🌅 Agent Manifest: MORNING_BRIEFING
+# HS-020 — 🌄 HERALD'S SCROLL — Morning Briefing Manifest
 **Category:** Agents / Daily Automation
 **Version:** 1.0.0
 **Runtime:** Python

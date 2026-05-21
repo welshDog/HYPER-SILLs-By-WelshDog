@@ -1,4 +1,4 @@
-# 🔄 Hyper Skill: OBSIDIAN_BRAIN_SYNC_v1
+# HS-021 — 🔄 VAULT SYNC — Obsidian Brain Sync Skill
 **Category:** Agents / Brain Maintenance
 **Version:** 1.0
 **Rescued From:** [BROski-Obsidian-Brain](https://github.com/welshDog/BROski-Obsidian-Brain-for-HyperFocus-z0ne) — `.agents/skills/obsidian-brain-sync/SKILL.md`

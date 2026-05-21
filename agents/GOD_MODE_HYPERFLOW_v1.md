@@ -1,4 +1,4 @@
-# 🧠⚡ Hyper Skill: GOD_MODE_HYPERFLOW_v1
+# HS-006 — ⚡ GODFLOW — GOD Mode Hyperflow
 **Category:** Agents / Workflow  
 **Version:** 1.0  
 **Author:** WelshDog  

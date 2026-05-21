@@ -1,4 +1,4 @@
-# HS-073 — SSE Agent Event Schema 📡
+# HS-073 — 📡 PULSE STREAM — SSE Agent Event Schema
 
 **Category:** `agents/`  
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §4  

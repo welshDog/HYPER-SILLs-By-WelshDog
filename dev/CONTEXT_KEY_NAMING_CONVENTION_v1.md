@@ -1,4 +1,4 @@
-# HS-082 — Context Key Naming Convention + Value Schema 🏷️
+# HS-082 — 🏷️ THE NAMING LAW — Context Key Naming Convention + Value Schema
 
 **Category:** `dev/`
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §4 + §7

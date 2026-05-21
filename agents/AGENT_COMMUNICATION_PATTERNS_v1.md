@@ -1,4 +1,4 @@
-# HS-083 — Agent Communication Patterns (Req-Res, Stream, Error) 📡
+# HS-083 — 🗣️ THE THREE VOICES — Agent Communication Patterns (Req-Res, Stream, Error)
 
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §4

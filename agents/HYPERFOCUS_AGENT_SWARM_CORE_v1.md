@@ -1,4 +1,4 @@
-# 🧠⚡ Hyper Skill: HYPERFOCUS_AGENT_SWARM_CORE_v1
+# HS-008 — 🐝 SWARM CROWN — Hyperfocus Agent Swarm Core
 **Category:** Agents / Orchestration  
 **Version:** 1.0  
 **Author:** WelshDog  

@@ -1,4 +1,4 @@
-# HS-078 — Context Retention / Anti-Interrupt Pattern 🧠
+# HS-078 — 🌊 FLOW KEEPER — Context Retention / Anti-Interrupt Pattern
 
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §1 Principle 2

@@ -1,4 +1,4 @@
-# HS-089 — Hyper Agent Roster (22 Confirmed + 5 Expansion) 🗺️
+# HS-089 — 🗺️ THE GRAND ROSTER — Hyper Agent Roster (22 Confirmed + 5 Expansion)
 
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/🧬 The Full Confirmed Hyper Agent Roster`

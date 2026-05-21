@@ -1,4 +1,4 @@
-# HS-094 — 6-Sprint Production Roadmap (with KPI Gates) 🚀
+# HS-094 — 🚀 THE SIX-SPRINT MARCH — 6-Sprint Production Roadmap (with KPI Gates)
 
 **Category:** `dev/`
 **Source:** HyperCode-V2.4 — `agents/🧬 The Full Confirmed Hyper Agent Roster` §3

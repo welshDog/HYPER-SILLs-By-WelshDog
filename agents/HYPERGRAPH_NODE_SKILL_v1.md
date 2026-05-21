@@ -1,4 +1,4 @@
-# 🕸️⚡ Hyper Skill: HYPERGRAPH_NODE_SKILL_v1
+# HS-007 — 🔗 NODE SMITH — HyperGraph Node Skill
 **Category:** Agents / Dev Architecture  
 **Version:** 1.0  
 **Author:** WelshDog  

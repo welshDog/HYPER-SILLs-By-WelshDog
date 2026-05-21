@@ -1,4 +1,4 @@
-# 🧠⚡ Hyper Skill: HYPERFOCUS_ZONE_MASTER_CONTEXT_v1
+# HS-009 — 🏆 THE GRAND CODEX — Hyperfocus Zone Master Context
 **Category:** Agents / Master Context  
 **Version:** 1.0  
 **Author:** WelshDog (Lyndz Williams)  

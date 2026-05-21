@@ -1,4 +1,4 @@
-# HS-079 — Specialist Agent Role Definitions 👥
+# HS-079 — 👥 THE CREW CHARTER — Specialist Agent Role Definitions
 
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §2

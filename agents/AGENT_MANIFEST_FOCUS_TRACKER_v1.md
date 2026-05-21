@@ -1,4 +1,4 @@
-# 🎯 Agent Manifest: FOCUS_TRACKER
+# HS-019 — 🦅 FOCUS HAWK — Focus Tracker Manifest
 **Category:** Agents / ADHD Tools
 **Version:** 1.0.0
 **Runtime:** Python

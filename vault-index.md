@@ -7,8 +7,8 @@ Master tracking list for every skill in the vault.
 > - 📝 **CATALOGUED** = source pattern identified in another repo, **file not yet extracted** to this vault
 
 > Last Hunt: 20 May 2026 — 86 repos scanned 🐕💨
-> Last Updated: 21 May 2026 — **The Iconic 12 rebranded with hero names** 🦸✨ · vault still 72 rescued + 37 catalogued
-> *Pilot (6) + Vault Classics (12) = **18 heroes**: 🔱 REALITY ANCHOR · 🐕 GREP HOUND · ⚔️ TRIM LORD · 🚩 TRUTH FLAGGER · 🕸️ WEB WEAVER · ⚒️ FETCH FORGE · 🚧 THE FIVE WARDS · 📜 SOUL SCROLL · 🪪 THE FOUNDING SIX · 🧪 CONTRACT FORGE · 🌙 NIGHT TENDER · 🏛️ THE SACRED SIX · 🧬 SIX-ORGAN HEART · 🔄 CRADLE-TO-GRAVE · 😴 DREAM GUARD · 📈 SLOPE ORACLE · 🤝 HEALER'S CHORUS · 🛡️ THE THREE WALLS*
+> Last Updated: 21 May 2026 — **FULL HERO REBRAND COMPLETE** 🦸✨ · all **72 rescued skills** now carry Marvel-style hero names · 37 catalogued
+> *Every skill is a hero. Header convention standardised across the whole vault: `# HS-### — 🎯 HERO NAME — Descriptive Title`. The 25 legacy `Hyper Skill:` headers were migrated to match.*
 
 ---
 
@@ -16,62 +16,62 @@ Master tracking list for every skill in the vault.
 
 | ID | Skill Name | File | Source Repo | Category |
 |---|---|---|---|---|
-| HS-001 | YT Analytics Debugger | [`youtube/YT_DEBUGGER_v1.md`](youtube/YT_DEBUGGER_v1.md) | Original | `youtube/` |
-| HS-006 | GOD Mode Hyperflow | [`agents/GOD_MODE_HYPERFLOW_v1.md`](agents/GOD_MODE_HYPERFLOW_v1.md) | GOD-Agent-Mode | `agents/` |
-| HS-007 | HyperGraph Node Skill | [`agents/HYPERGRAPH_NODE_SKILL_v1.md`](agents/HYPERGRAPH_NODE_SKILL_v1.md) | GOD-Agent-Mode | `agents/` |
-| HS-008 | Hyperfocus Agent Swarm Core 👑 | [`agents/HYPERFOCUS_AGENT_SWARM_CORE_v1.md`](agents/HYPERFOCUS_AGENT_SWARM_CORE_v1.md) | Hyperfocus-Global-Impact-Skills | `agents/` |
-| HS-009 | Hyperfocus Zone Master Context 🏆 | [`agents/HYPERFOCUS_ZONE_MASTER_CONTEXT_v1.md`](agents/HYPERFOCUS_ZONE_MASTER_CONTEXT_v1.md) | BROski-Obsidian-Brain | `agents/` |
-| HS-010 | Design Brain | [`broski/DESIGN_BRAIN_v1.md`](broski/DESIGN_BRAIN_v1.md) | BROski-Obsidian-Brain | `broski/` |
-| HS-011 | Hyper Brain Modules | [`agents/HYPER_BRAIN_MODULES_v1.md`](agents/HYPER_BRAIN_MODULES_v1.md) | BROski-Obsidian-Brain | `agents/` |
-| HS-012 | Level Progression | [`broski/LEVEL_PROGRESSION_v1.md`](broski/LEVEL_PROGRESSION_v1.md) | BROski-Obsidian-Brain | `broski/` |
-| HS-013 | Morning Briefing AI | [`agents/MORNING_BRIEFING_AI_v1.md`](agents/MORNING_BRIEFING_AI_v1.md) | BROski-Obsidian-Brain | `agents/` |
-| HS-014 | Obsidian Git Vault | [`dev/OBSIDIAN_GIT_VAULT_v1.md`](dev/OBSIDIAN_GIT_VAULT_v1.md) | BROski-Obsidian-Brain | `dev/` |
-| HS-015 | Vault PARA Structure | [`broski/VAULT_PARA_STRUCTURE_v1.md`](broski/VAULT_PARA_STRUCTURE_v1.md) | BROski-Obsidian-Brain | `broski/` |
-| HS-016 | Agents Brain README | [`agents/AGENTS_BRAIN_README_v1.md`](agents/AGENTS_BRAIN_README_v1.md) | BROski-Obsidian-Brain | `agents/` |
-| HS-017 | Hyper Brain Core Manifest | [`agents/AGENT_MANIFEST_HYPER_BRAIN_CORE_v1.md`](agents/AGENT_MANIFEST_HYPER_BRAIN_CORE_v1.md) | BROski-Obsidian-Brain | `agents/` |
-| HS-018 | MCP Bridge Manifest | [`agents/AGENT_MANIFEST_MCP_BRIDGE_v1.md`](agents/AGENT_MANIFEST_MCP_BRIDGE_v1.md) | BROski-Obsidian-Brain | `agents/` |
-| HS-019 | Focus Tracker Manifest | [`agents/AGENT_MANIFEST_FOCUS_TRACKER_v1.md`](agents/AGENT_MANIFEST_FOCUS_TRACKER_v1.md) | BROski-Obsidian-Brain | `agents/` |
-| HS-020 | Morning Briefing Manifest | [`agents/AGENT_MANIFEST_MORNING_BRIEFING_v1.md`](agents/AGENT_MANIFEST_MORNING_BRIEFING_v1.md) | BROski-Obsidian-Brain | `agents/` |
-| HS-021 | Obsidian Brain Sync Skill | [`agents/OBSIDIAN_BRAIN_SYNC_SKILL_v1.md`](agents/OBSIDIAN_BRAIN_SYNC_SKILL_v1.md) | BROski-Obsidian-Brain | `agents/` |
-| HS-022 | HyperCode SDK Master | [`dev/HYPERCODE_SDK_MASTER_v1.md`](dev/HYPERCODE_SDK_MASTER_v1.md) | HyperAgent-SDK | `dev/` |
-| HS-023 | Cross-Repo Sync | [`dev/CROSS_REPO_SYNC_v1.md`](dev/CROSS_REPO_SYNC_v1.md) | HyperAgent-SDK | `dev/` |
-| HS-024 | SDK Publish Workflow | [`dev/SDK_PUBLISH_WORKFLOW_v1.md`](dev/SDK_PUBLISH_WORKFLOW_v1.md) | HyperAgent-SDK | `dev/` |
-| HS-025 | Token Sync Debug | [`dev/TOKEN_SYNC_DEBUG_v1.md`](dev/TOKEN_SYNC_DEBUG_v1.md) | HyperAgent-SDK | `dev/` |
-| HS-026 | Phase 4 Graduation Flow | [`dev/PHASE4_GRADUATION_FLOW_v1.md`](dev/PHASE4_GRADUATION_FLOW_v1.md) | HyperAgent-SDK | `dev/` |
-| HS-027 | Test Status Report | [`dev/TEST_STATUS_REPORT_v1.md`](dev/TEST_STATUS_REPORT_v1.md) | HyperAgent-SDK | `dev/` |
-| HS-028 | HyperAgent SDK Agents README | [`agents/HYPERAGENT_SDK_AGENTS_README_v1.md`](agents/HYPERAGENT_SDK_AGENTS_README_v1.md) | HyperAgent-SDK | `agents/` |
-| HS-029 | HyperAgent SDK Publish Skill | [`dev/HYPERAGENT_SDK_PUBLISH_SKILL_v1.md`](dev/HYPERAGENT_SDK_PUBLISH_SKILL_v1.md) | HyperAgent-SDK | `dev/` |
-| HS-067 | Agent Role Hierarchy Pattern 🏛️ | [`agents/AGENT_ROLE_HIERARCHY_PATTERN_v1.md`](agents/AGENT_ROLE_HIERARCHY_PATTERN_v1.md) | HyperCode-V2.4 (Bible) | `agents/` |
-| HS-068 | BROski Orchestrator Pattern 🎯 | [`agents/BROSKI_ORCHESTRATOR_PATTERN_v1.md`](agents/BROSKI_ORCHESTRATOR_PATTERN_v1.md) | HyperCode-V2.4 (Bible) | `agents/` |
-| HS-069 | ND-First Error Messages Template 🧠 | [`broski/ND_FIRST_ERROR_MESSAGES_TEMPLATE_v1.md`](broski/ND_FIRST_ERROR_MESSAGES_TEMPLATE_v1.md) | HyperCode-V2.4 (Bible §1) | `broski/` |
-| HS-070 | Observable Agent Operations Pattern 📊 | [`agents/OBSERVABLE_AGENT_OPERATIONS_v1.md`](agents/OBSERVABLE_AGENT_OPERATIONS_v1.md) | HyperCode-V2.4 (Bible) | `agents/` |
-| HS-071 | Fail Gracefully + Fallback Chain 🔄 | [`agents/FAIL_GRACEFULLY_FALLBACK_CHAIN_v1.md`](agents/FAIL_GRACEFULLY_FALLBACK_CHAIN_v1.md) | HyperCode-V2.4 (Bible) | `agents/` |
-| HS-072 | Context Store Architecture (Redis) 🗃️ | [`agents/CONTEXT_STORE_ARCHITECTURE_v1.md`](agents/CONTEXT_STORE_ARCHITECTURE_v1.md) | HyperCode-V2.4 (Bible) | `agents/` |
-| HS-073 | SSE Agent Event Schema 📡 | [`agents/SSE_AGENT_EVENT_SCHEMA_v1.md`](agents/SSE_AGENT_EVENT_SCHEMA_v1.md) | HyperCode-V2.4 (Bible) | `agents/` |
-| HS-074 | API Standards (FastAPI Agent Pattern) 🚀 | [`dev/FASTAPI_AGENT_API_STANDARDS_v1.md`](dev/FASTAPI_AGENT_API_STANDARDS_v1.md) | HyperCode-V2.4 (Bible) | `dev/` |
-| HS-075 | Agent Decision Framework Matrix 🎯 | [`agents/AGENT_DECISION_FRAMEWORK_MATRIX_v1.md`](agents/AGENT_DECISION_FRAMEWORK_MATRIX_v1.md) | HyperCode-V2.4 (Bible §10) | `agents/` |
-| HS-076 | Pre-Commit Testing Checklist ✅ | [`dev/PRE_COMMIT_TESTING_CHECKLIST_v1.md`](dev/PRE_COMMIT_TESTING_CHECKLIST_v1.md) | HyperCode-V2.4 (Bible §9) | `dev/` |
-| HS-077 | User Agency Approval Gate Pattern 🛑 | [`agents/USER_AGENCY_APPROVAL_GATE_v1.md`](agents/USER_AGENCY_APPROVAL_GATE_v1.md) | HyperCode-V2.4 (Bible §1 P1 + §6 R5) | `agents/` |
-| HS-078 | Context Retention / Anti-Interrupt Pattern 🧠 | [`agents/CONTEXT_RETENTION_ANTI_INTERRUPT_v1.md`](agents/CONTEXT_RETENTION_ANTI_INTERRUPT_v1.md) | HyperCode-V2.4 (Bible §1 P2) | `agents/` |
-| HS-079 | Specialist Agent Role Definitions 👥 | [`agents/SPECIALIST_AGENT_ROLES_v1.md`](agents/SPECIALIST_AGENT_ROLES_v1.md) | HyperCode-V2.4 (Bible §2) | `agents/` |
-| HS-080 | Universal Agent Tools API 🧰 | [`agents/UNIVERSAL_AGENT_TOOLS_API_v1.md`](agents/UNIVERSAL_AGENT_TOOLS_API_v1.md) | HyperCode-V2.4 (Bible §3) | `agents/` |
-| HS-081 | MCP Server + Agent Registration Pattern 🔌 | [`dev/MCP_SERVER_AGENT_REGISTRATION_v1.md`](dev/MCP_SERVER_AGENT_REGISTRATION_v1.md) | HyperCode-V2.4 (Bible §3) | `dev/` |
-| HS-082 | Context Key Naming Convention + Value Schema 🏷️ | [`dev/CONTEXT_KEY_NAMING_CONVENTION_v1.md`](dev/CONTEXT_KEY_NAMING_CONVENTION_v1.md) | HyperCode-V2.4 (Bible §4 + §7) | `dev/` |
-| HS-083 | Agent Communication Patterns (Req-Res, Stream, Error) 📡 | [`agents/AGENT_COMMUNICATION_PATTERNS_v1.md`](agents/AGENT_COMMUNICATION_PATTERNS_v1.md) | HyperCode-V2.4 (Bible §4) | `agents/` |
-| HS-084 | Code Style Standards (Python + TS/React) 📐 | [`dev/CODE_STYLE_STANDARDS_v1.md`](dev/CODE_STYLE_STANDARDS_v1.md) | HyperCode-V2.4 (Bible §5) | `dev/` |
+| HS-001 | 📊 **SIGNAL HUNTER** — YT Analytics Debugger | [`youtube/YT_DEBUGGER_v1.md`](youtube/YT_DEBUGGER_v1.md) | Original | `youtube/` |
+| HS-006 | ⚡ **GODFLOW** — GOD Mode Hyperflow | [`agents/GOD_MODE_HYPERFLOW_v1.md`](agents/GOD_MODE_HYPERFLOW_v1.md) | GOD-Agent-Mode | `agents/` |
+| HS-007 | 🔗 **NODE SMITH** — HyperGraph Node Skill | [`agents/HYPERGRAPH_NODE_SKILL_v1.md`](agents/HYPERGRAPH_NODE_SKILL_v1.md) | GOD-Agent-Mode | `agents/` |
+| HS-008 | 🐝 **SWARM CROWN** — Hyperfocus Agent Swarm Core | [`agents/HYPERFOCUS_AGENT_SWARM_CORE_v1.md`](agents/HYPERFOCUS_AGENT_SWARM_CORE_v1.md) | Hyperfocus-Global-Impact-Skills | `agents/` |
+| HS-009 | 🏆 **THE GRAND CODEX** — Hyperfocus Zone Master Context | [`agents/HYPERFOCUS_ZONE_MASTER_CONTEXT_v1.md`](agents/HYPERFOCUS_ZONE_MASTER_CONTEXT_v1.md) | BROski-Obsidian-Brain | `agents/` |
+| HS-010 | 🎨 **THE AESTHETE** — Design Brain | [`broski/DESIGN_BRAIN_v1.md`](broski/DESIGN_BRAIN_v1.md) | BROski-Obsidian-Brain | `broski/` |
+| HS-011 | 🧩 **MIND BLOCKS** — Hyper Brain Modules | [`agents/HYPER_BRAIN_MODULES_v1.md`](agents/HYPER_BRAIN_MODULES_v1.md) | BROski-Obsidian-Brain | `agents/` |
+| HS-012 | 🪜 **THE ASCENT** — Level Progression | [`broski/LEVEL_PROGRESSION_v1.md`](broski/LEVEL_PROGRESSION_v1.md) | BROski-Obsidian-Brain | `broski/` |
+| HS-013 | 🌅 **DAWN HERALD** — Morning Briefing AI | [`agents/MORNING_BRIEFING_AI_v1.md`](agents/MORNING_BRIEFING_AI_v1.md) | BROski-Obsidian-Brain | `agents/` |
+| HS-014 | 🔮 **VAULT KEEPER** — Obsidian Git Vault | [`dev/OBSIDIAN_GIT_VAULT_v1.md`](dev/OBSIDIAN_GIT_VAULT_v1.md) | BROski-Obsidian-Brain | `dev/` |
+| HS-015 | 🗂️ **THE FOUR DRAWERS** — Vault PARA Structure | [`broski/VAULT_PARA_STRUCTURE_v1.md`](broski/VAULT_PARA_STRUCTURE_v1.md) | BROski-Obsidian-Brain | `broski/` |
+| HS-016 | 📖 **BRAIN PRIMER** — Agents Brain README | [`agents/AGENTS_BRAIN_README_v1.md`](agents/AGENTS_BRAIN_README_v1.md) | BROski-Obsidian-Brain | `agents/` |
+| HS-017 | 🧠 **MIND CORE** — Hyper Brain Core Manifest | [`agents/AGENT_MANIFEST_HYPER_BRAIN_CORE_v1.md`](agents/AGENT_MANIFEST_HYPER_BRAIN_CORE_v1.md) | BROski-Obsidian-Brain | `agents/` |
+| HS-018 | 🌉 **BRIDGE KEEPER** — MCP Bridge Manifest | [`agents/AGENT_MANIFEST_MCP_BRIDGE_v1.md`](agents/AGENT_MANIFEST_MCP_BRIDGE_v1.md) | BROski-Obsidian-Brain | `agents/` |
+| HS-019 | 🦅 **FOCUS HAWK** — Focus Tracker Manifest | [`agents/AGENT_MANIFEST_FOCUS_TRACKER_v1.md`](agents/AGENT_MANIFEST_FOCUS_TRACKER_v1.md) | BROski-Obsidian-Brain | `agents/` |
+| HS-020 | 🌄 **HERALD'S SCROLL** — Morning Briefing Manifest | [`agents/AGENT_MANIFEST_MORNING_BRIEFING_v1.md`](agents/AGENT_MANIFEST_MORNING_BRIEFING_v1.md) | BROski-Obsidian-Brain | `agents/` |
+| HS-021 | 🔄 **VAULT SYNC** — Obsidian Brain Sync Skill | [`agents/OBSIDIAN_BRAIN_SYNC_SKILL_v1.md`](agents/OBSIDIAN_BRAIN_SYNC_SKILL_v1.md) | BROski-Obsidian-Brain | `agents/` |
+| HS-022 | 📦 **SDK SOVEREIGN** — HyperCode SDK Master | [`dev/HYPERCODE_SDK_MASTER_v1.md`](dev/HYPERCODE_SDK_MASTER_v1.md) | HyperAgent-SDK | `dev/` |
+| HS-023 | 🔗 **REPO BRIDGE** — Cross-Repo Sync | [`dev/CROSS_REPO_SYNC_v1.md`](dev/CROSS_REPO_SYNC_v1.md) | HyperAgent-SDK | `dev/` |
+| HS-024 | 🚀 **PUBLISH RITE** — SDK Publish Workflow | [`dev/SDK_PUBLISH_WORKFLOW_v1.md`](dev/SDK_PUBLISH_WORKFLOW_v1.md) | HyperAgent-SDK | `dev/` |
+| HS-025 | 🪙 **COIN MENDER** — Token Sync Debug | [`dev/TOKEN_SYNC_DEBUG_v1.md`](dev/TOKEN_SYNC_DEBUG_v1.md) | HyperAgent-SDK | `dev/` |
+| HS-026 | 🎓 **GRADUATION GATE** — Phase 4 Graduation Flow | [`dev/PHASE4_GRADUATION_FLOW_v1.md`](dev/PHASE4_GRADUATION_FLOW_v1.md) | HyperAgent-SDK | `dev/` |
+| HS-027 | 📋 **TEST HERALD** — Test Status Report | [`dev/TEST_STATUS_REPORT_v1.md`](dev/TEST_STATUS_REPORT_v1.md) | HyperAgent-SDK | `dev/` |
+| HS-028 | 📖 **SDK PRIMER** — HyperAgent SDK Agents README | [`agents/HYPERAGENT_SDK_AGENTS_README_v1.md`](agents/HYPERAGENT_SDK_AGENTS_README_v1.md) | HyperAgent-SDK | `agents/` |
+| HS-029 | 📮 **PUBLISH FORGE** — HyperAgent SDK Publish Skill | [`dev/HYPERAGENT_SDK_PUBLISH_SKILL_v1.md`](dev/HYPERAGENT_SDK_PUBLISH_SKILL_v1.md) | HyperAgent-SDK | `dev/` |
+| HS-067 | 👑 **THE THRONE LADDER** — Agent Role Hierarchy Pattern | [`agents/AGENT_ROLE_HIERARCHY_PATTERN_v1.md`](agents/AGENT_ROLE_HIERARCHY_PATTERN_v1.md) | HyperCode-V2.4 (Bible) | `agents/` |
+| HS-068 | 🎭 **THE CONDUCTOR** — BROski Orchestrator Pattern | [`agents/BROSKI_ORCHESTRATOR_PATTERN_v1.md`](agents/BROSKI_ORCHESTRATOR_PATTERN_v1.md) | HyperCode-V2.4 (Bible) | `agents/` |
+| HS-069 | 💚 **MERCY MESSAGE** — ND-First Error Messages Template | [`broski/ND_FIRST_ERROR_MESSAGES_TEMPLATE_v1.md`](broski/ND_FIRST_ERROR_MESSAGES_TEMPLATE_v1.md) | HyperCode-V2.4 (Bible §1) | `broski/` |
+| HS-070 | 👁️ **THE ALL-SEEING** — Observable Agent Operations Pattern | [`agents/OBSERVABLE_AGENT_OPERATIONS_v1.md`](agents/OBSERVABLE_AGENT_OPERATIONS_v1.md) | HyperCode-V2.4 (Bible) | `agents/` |
+| HS-071 | 🪂 **SOFT LANDING** — Fail Gracefully + Fallback Chain | [`agents/FAIL_GRACEFULLY_FALLBACK_CHAIN_v1.md`](agents/FAIL_GRACEFULLY_FALLBACK_CHAIN_v1.md) | HyperCode-V2.4 (Bible) | `agents/` |
+| HS-072 | 🗃️ **THE MEMORY VAULT** — Context Store Architecture (Redis) | [`agents/CONTEXT_STORE_ARCHITECTURE_v1.md`](agents/CONTEXT_STORE_ARCHITECTURE_v1.md) | HyperCode-V2.4 (Bible) | `agents/` |
+| HS-073 | 📡 **PULSE STREAM** — SSE Agent Event Schema | [`agents/SSE_AGENT_EVENT_SCHEMA_v1.md`](agents/SSE_AGENT_EVENT_SCHEMA_v1.md) | HyperCode-V2.4 (Bible) | `agents/` |
+| HS-074 | 🚀 **THE API CODEX** — API Standards (FastAPI Agent Pattern) | [`dev/FASTAPI_AGENT_API_STANDARDS_v1.md`](dev/FASTAPI_AGENT_API_STANDARDS_v1.md) | HyperCode-V2.4 (Bible) | `dev/` |
+| HS-075 | 🎯 **THE CHOICE MATRIX** — Agent Decision Framework Matrix | [`agents/AGENT_DECISION_FRAMEWORK_MATRIX_v1.md`](agents/AGENT_DECISION_FRAMEWORK_MATRIX_v1.md) | HyperCode-V2.4 (Bible §10) | `agents/` |
+| HS-076 | ✅ **THE GATEKEEPER** — Pre-Commit Testing Checklist | [`dev/PRE_COMMIT_TESTING_CHECKLIST_v1.md`](dev/PRE_COMMIT_TESTING_CHECKLIST_v1.md) | HyperCode-V2.4 (Bible §9) | `dev/` |
+| HS-077 | 🛑 **CONSENT GUARDIAN** — User Agency Approval Gate Pattern | [`agents/USER_AGENCY_APPROVAL_GATE_v1.md`](agents/USER_AGENCY_APPROVAL_GATE_v1.md) | HyperCode-V2.4 (Bible §1 P1 + §6 R5) | `agents/` |
+| HS-078 | 🌊 **FLOW KEEPER** — Context Retention / Anti-Interrupt Pattern | [`agents/CONTEXT_RETENTION_ANTI_INTERRUPT_v1.md`](agents/CONTEXT_RETENTION_ANTI_INTERRUPT_v1.md) | HyperCode-V2.4 (Bible §1 P2) | `agents/` |
+| HS-079 | 👥 **THE CREW CHARTER** — Specialist Agent Role Definitions | [`agents/SPECIALIST_AGENT_ROLES_v1.md`](agents/SPECIALIST_AGENT_ROLES_v1.md) | HyperCode-V2.4 (Bible §2) | `agents/` |
+| HS-080 | 🧰 **THE TOOL BELT** — Universal Agent Tools API | [`agents/UNIVERSAL_AGENT_TOOLS_API_v1.md`](agents/UNIVERSAL_AGENT_TOOLS_API_v1.md) | HyperCode-V2.4 (Bible §3) | `agents/` |
+| HS-081 | 🔌 **PORTAL FORGE** — MCP Server + Agent Registration Pattern | [`dev/MCP_SERVER_AGENT_REGISTRATION_v1.md`](dev/MCP_SERVER_AGENT_REGISTRATION_v1.md) | HyperCode-V2.4 (Bible §3) | `dev/` |
+| HS-082 | 🏷️ **THE NAMING LAW** — Context Key Naming Convention + Value Schema | [`dev/CONTEXT_KEY_NAMING_CONVENTION_v1.md`](dev/CONTEXT_KEY_NAMING_CONVENTION_v1.md) | HyperCode-V2.4 (Bible §4 + §7) | `dev/` |
+| HS-083 | 🗣️ **THE THREE VOICES** — Agent Communication Patterns (Req-Res, Stream, Error) | [`agents/AGENT_COMMUNICATION_PATTERNS_v1.md`](agents/AGENT_COMMUNICATION_PATTERNS_v1.md) | HyperCode-V2.4 (Bible §4) | `agents/` |
+| HS-084 | 📐 **THE STYLE CODEX** — Code Style Standards (Python + TS/React) | [`dev/CODE_STYLE_STANDARDS_v1.md`](dev/CODE_STYLE_STANDARDS_v1.md) | HyperCode-V2.4 (Bible §5) | `dev/` |
 | HS-085 | 🚧 **THE FIVE WARDS** — 5 Mandatory Agent Guardrails | [`agents/FIVE_MANDATORY_GUARDRAILS_v1.md`](agents/FIVE_MANDATORY_GUARDRAILS_v1.md) | HyperCode-V2.4 (Bible §6) | `agents/` |
-| HS-086 | Test Pyramid (4 Levels) 🔺 | [`dev/TEST_PYRAMID_FOUR_LEVELS_v1.md`](dev/TEST_PYRAMID_FOUR_LEVELS_v1.md) | HyperCode-V2.4 (Bible §9) | `dev/` |
-| HS-087 | Agent Decision Tree (Quick Ref Flowchart) 🌳 | [`agents/AGENT_DECISION_TREE_FLOWCHART_v1.md`](agents/AGENT_DECISION_TREE_FLOWCHART_v1.md) | HyperCode-V2.4 (Bible Quick Ref) | `agents/` |
-| HS-088 | Agent Final Self-Audit (8-Point Checklist) ✅ | [`agents/AGENT_FINAL_SELF_AUDIT_v1.md`](agents/AGENT_FINAL_SELF_AUDIT_v1.md) | HyperCode-V2.4 (Bible Final Checklist) | `agents/` |
-| HS-089 | Hyper Agent Roster (22 Confirmed + 5 Expansion) 🗺️ | [`agents/HYPER_AGENT_ROSTER_v1.md`](agents/HYPER_AGENT_ROSTER_v1.md) | HyperCode-V2.4 (🧬 Roster) | `agents/` |
+| HS-086 | 🔺 **THE FOUR TIERS** — Test Pyramid (4 Levels) | [`dev/TEST_PYRAMID_FOUR_LEVELS_v1.md`](dev/TEST_PYRAMID_FOUR_LEVELS_v1.md) | HyperCode-V2.4 (Bible §9) | `dev/` |
+| HS-087 | 🌳 **THE BRANCHING PATH** — Agent Decision Tree (Quick Ref Flowchart) | [`agents/AGENT_DECISION_TREE_FLOWCHART_v1.md`](agents/AGENT_DECISION_TREE_FLOWCHART_v1.md) | HyperCode-V2.4 (Bible Quick Ref) | `agents/` |
+| HS-088 | 🪞 **THE MIRROR OATH** — Agent Final Self-Audit (8-Point Checklist) | [`agents/AGENT_FINAL_SELF_AUDIT_v1.md`](agents/AGENT_FINAL_SELF_AUDIT_v1.md) | HyperCode-V2.4 (Bible Final Checklist) | `agents/` |
+| HS-089 | 🗺️ **THE GRAND ROSTER** — Hyper Agent Roster (22 Confirmed + 5 Expansion) | [`agents/HYPER_AGENT_ROSTER_v1.md`](agents/HYPER_AGENT_ROSTER_v1.md) | HyperCode-V2.4 (🧬 Roster) | `agents/` |
 | HS-090 | 📜 **SOUL SCROLL** — Universal Life Plan YAML v2.0 Template | [`agents/UNIVERSAL_LIFE_PLAN_YAML_v1.md`](agents/UNIVERSAL_LIFE_PLAN_YAML_v1.md) | HyperCode-V2.4 (🧬 Roster §1) | `agents/` |
 | HS-091 | 🪪 **THE FOUNDING SIX** — Top-Tier Agent Identity Cards *(v1.1 — +AutoEvo)* | [`agents/TOP_TIER_AGENT_IDENTITY_CARDS_v1.md`](agents/TOP_TIER_AGENT_IDENTITY_CARDS_v1.md) | HyperCode-V2.4 (🧬 Roster §2 + 🦅 Life Plans Master §2) | `agents/` |
 | HS-092 | 🧪 **CONTRACT FORGE** — Agent Contract Test Suite | [`dev/AGENT_CONTRACT_TEST_SUITE_v1.md`](dev/AGENT_CONTRACT_TEST_SUITE_v1.md) | HyperCode-V2.4 (🧬 Roster §4) | `dev/` |
 | HS-093 | 🌙 **NIGHT TENDER** — Nightly Continuous Learning Loop | [`agents/NIGHTLY_LEARNING_LOOP_v1.md`](agents/NIGHTLY_LEARNING_LOOP_v1.md) | HyperCode-V2.4 (🧬 Roster §5) | `agents/` |
-| HS-094 | 6-Sprint Production Roadmap (with KPI Gates) 🚀 | [`dev/SIX_SPRINT_PRODUCTION_ROADMAP_v1.md`](dev/SIX_SPRINT_PRODUCTION_ROADMAP_v1.md) | HyperCode-V2.4 (🧬 Roster §3) | `dev/` |
-| HS-095 | Governance Ledger Entry Schema 📒 | [`dev/GOVERNANCE_LEDGER_ENTRY_SCHEMA_v1.md`](dev/GOVERNANCE_LEDGER_ENTRY_SCHEMA_v1.md) | HyperCode-V2.4 (🧬 Roster §6) | `dev/` |
-| HS-096 | 4-Phase / 8-Sprint Production Roadmap (Alt Cadence) 🗓️ | [`dev/FOUR_PHASE_EIGHT_SPRINT_ROADMAP_v1.md`](dev/FOUR_PHASE_EIGHT_SPRINT_ROADMAP_v1.md) | HyperCode-V2.4 (🦅 Life Plans Master §3) | `dev/` |
-| HS-097 | Hyper Agent Dependency Graph (8-Agent Worked Example) 🕸️ | [`agents/HYPER_AGENT_DEPENDENCY_GRAPH_v1.md`](agents/HYPER_AGENT_DEPENDENCY_GRAPH_v1.md) | HyperCode-V2.4 (🦅 Life Plans Master §1) | `agents/` |
+| HS-094 | 🚀 **THE SIX-SPRINT MARCH** — 6-Sprint Production Roadmap (with KPI Gates) | [`dev/SIX_SPRINT_PRODUCTION_ROADMAP_v1.md`](dev/SIX_SPRINT_PRODUCTION_ROADMAP_v1.md) | HyperCode-V2.4 (🧬 Roster §3) | `dev/` |
+| HS-095 | 📒 **THE LEDGER LAW** — Governance Ledger Entry Schema | [`dev/GOVERNANCE_LEDGER_ENTRY_SCHEMA_v1.md`](dev/GOVERNANCE_LEDGER_ENTRY_SCHEMA_v1.md) | HyperCode-V2.4 (🧬 Roster §6) | `dev/` |
+| HS-096 | 🗓️ **THE LONG MARCH** — 4-Phase / 8-Sprint Production Roadmap (Alt Cadence) | [`dev/FOUR_PHASE_EIGHT_SPRINT_ROADMAP_v1.md`](dev/FOUR_PHASE_EIGHT_SPRINT_ROADMAP_v1.md) | HyperCode-V2.4 (🦅 Life Plans Master §3) | `dev/` |
+| HS-097 | 🕸️ **THE WEB OF NEEDS** — Hyper Agent Dependency Graph (8-Agent Worked Example) | [`agents/HYPER_AGENT_DEPENDENCY_GRAPH_v1.md`](agents/HYPER_AGENT_DEPENDENCY_GRAPH_v1.md) | HyperCode-V2.4 (🦅 Life Plans Master §1) | `agents/` |
 | HS-098 | 🏛️ **THE SACRED SIX** — The 6 Laws of Agents | [`agents/SIX_LAWS_OF_AGENTS_v1.md`](agents/SIX_LAWS_OF_AGENTS_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `agents/` |
 | HS-099 | 🧬 **SIX-ORGAN HEART** — Anatomy of an Agent | [`agents/ANATOMY_OF_AN_AGENT_v1.md`](agents/ANATOMY_OF_AN_AGENT_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `agents/` |
 | HS-100 | 🔄 **CRADLE-TO-GRAVE** — Agent Lifecycle State Machine (BIRTH → DEATH) | [`agents/AGENT_LIFECYCLE_STATE_MACHINE_v1.md`](agents/AGENT_LIFECYCLE_STATE_MACHINE_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `agents/` |
@@ -79,9 +79,9 @@ Master tracking list for every skill in the vault.
 | HS-102 | 📈 **SLOPE ORACLE** — Predictive Trend via Linear Regression | [`dev/PREDICTIVE_TREND_LINEAR_REGRESSION_v1.md`](dev/PREDICTIVE_TREND_LINEAR_REGRESSION_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `dev/` |
 | HS-103 | 🤝 **HEALER'S CHORUS** — Healer Circuit-Breaker Protocol | [`agents/HEALER_CIRCUIT_BREAKER_PROTOCOL_v1.md`](agents/HEALER_CIRCUIT_BREAKER_PROTOCOL_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `agents/` |
 | HS-104 | 🛡️ **THE THREE WALLS** — Tier Protection Rules (Hardcoded + Configurable + Self) | [`agents/TIER_PROTECTION_RULES_v1.md`](agents/TIER_PROTECTION_RULES_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `agents/` |
-| HS-105 | Core Agent Metrics Contract (5 Mandatory) 📊 | [`dev/CORE_AGENT_METRICS_CONTRACT_v1.md`](dev/CORE_AGENT_METRICS_CONTRACT_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `dev/` |
-| HS-106 | New Agent Build Checklist (10-Point) 🌱 | [`dev/NEW_AGENT_BUILD_CHECKLIST_v1.md`](dev/NEW_AGENT_BUILD_CHECKLIST_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `dev/` |
-| HS-107 | Agent Ranks + Self-Naming Protocol + The Creed 🏆 | [`broski/AGENT_RANKS_NAMING_CREED_v1.md`](broski/AGENT_RANKS_NAMING_CREED_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `broski/` |
+| HS-105 | 📊 **THE METRICS OATH** — Core Agent Metrics Contract (5 Mandatory) | [`dev/CORE_AGENT_METRICS_CONTRACT_v1.md`](dev/CORE_AGENT_METRICS_CONTRACT_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `dev/` |
+| HS-106 | 🌱 **THE BIRTH RITE** — New Agent Build Checklist (10-Point) | [`dev/NEW_AGENT_BUILD_CHECKLIST_v1.md`](dev/NEW_AGENT_BUILD_CHECKLIST_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `dev/` |
+| HS-107 | 🏆 **THE RANK & THE NAME** — Agent Ranks + Self-Naming Protocol + The Creed | [`broski/AGENT_RANKS_NAMING_CREED_v1.md`](broski/AGENT_RANKS_NAMING_CREED_v1.md) | HyperCode-V2.4 (throttle-agent Bible) | `broski/` |
 | HS-108 | 🔱 **REALITY ANCHOR** — Truth-vs-Claim Audit Pattern | [`dev/TRUTH_VS_CLAIM_AUDIT_v1.md`](dev/TRUTH_VS_CLAIM_AUDIT_v1.md) | Original — session synthesis | `dev/` |
 | HS-109 | 🐕 **GREP HOUND** — Cross-Reference Before You Write | [`dev/CROSS_REFERENCE_BEFORE_WRITING_v1.md`](dev/CROSS_REFERENCE_BEFORE_WRITING_v1.md) | Original — session synthesis | `dev/` |
 | HS-110 | ⚔️ **TRIM LORD** — Lean Raid Discipline (Anti-Inflation) | [`dev/LEAN_RAID_DISCIPLINE_v1.md`](dev/LEAN_RAID_DISCIPLINE_v1.md) | Original — session synthesis | `dev/` |

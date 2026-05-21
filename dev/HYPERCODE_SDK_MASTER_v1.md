@@ -1,4 +1,4 @@
-# ⚙️ Hyper Skill: HYPERCODE_SDK_MASTER_v1
+# HS-022 — 📦 SDK SOVEREIGN — HyperCode SDK Master
 **Category:** Dev / SDK Operations
 **Version:** 0.3.0
 **npm package:** `@w3lshdog/hyper-agent`

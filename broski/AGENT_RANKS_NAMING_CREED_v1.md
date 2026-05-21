@@ -1,4 +1,4 @@
-# HS-107 — Agent Ranks + Self-Naming Protocol + The Creed 🏆
+# HS-107 — 🏆 THE RANK & THE NAME — Agent Ranks + Self-Naming Protocol + The Creed
 
 **Category:** `broski/`
 **Source:** HyperCode-V2.4 — `agents/throttle-agent/HYPER-AGENT-BIBLE.md`

@@ -1,4 +1,4 @@
-# 🌅 Hyper Skill: MORNING_BRIEFING_AI_v1
+# HS-013 — 🌅 DAWN HERALD — Morning Briefing AI
 **Category:** Agents / Brain Modules  
 **Version:** 1.0  
 **Rescued From:** [BROski-Obsidian-Brain](https://github.com/welshDog/BROski-Obsidian-Brain-for-HyperFocus-z0ne) — `.claude/skills/morning-briefing-ai/SKILL.md`

@@ -1,4 +1,4 @@
-# HS-088 — Agent Final Self-Audit (8-Point Checklist) ✅
+# HS-088 — 🪞 THE MIRROR OATH — Agent Final Self-Audit (8-Point Checklist)
 
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` (Final Checklist)

@@ -1,4 +1,4 @@
-# 🌉 Agent Manifest: MCP_BRIDGE
+# HS-018 — 🌉 BRIDGE KEEPER — MCP Bridge Manifest
 **Category:** Agents / MCP-Compatible
 **Version:** 1.0.0
 **Runtime:** Python

@@ -1,4 +1,4 @@
-# HS-087 — Agent Decision Tree (Quick Ref Flowchart) 🌳
+# HS-087 — 🌳 THE BRANCHING PATH — Agent Decision Tree (Quick Ref Flowchart)
 
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` (Quick Reference)

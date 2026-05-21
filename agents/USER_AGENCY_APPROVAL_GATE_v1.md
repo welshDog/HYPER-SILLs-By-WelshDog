@@ -1,4 +1,4 @@
-# HS-077 — User Agency Approval Gate Pattern 🛑
+# HS-077 — 🛑 CONSENT GUARDIAN — User Agency Approval Gate Pattern
 
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §1 Principle 1 + §6 Rule 5

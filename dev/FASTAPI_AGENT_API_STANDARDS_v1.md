@@ -1,4 +1,4 @@
-# HS-074 — API Standards (FastAPI Agent Pattern) 🚀
+# HS-074 — 🚀 THE API CODEX — API Standards (FastAPI Agent Pattern)
 
 **Category:** `dev/`  
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §3 + §5  

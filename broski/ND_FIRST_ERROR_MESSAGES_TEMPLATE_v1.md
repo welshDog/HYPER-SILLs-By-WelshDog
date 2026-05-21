@@ -1,4 +1,4 @@
-# HS-069 — ND-First Error Messages Template 🧠
+# HS-069 — 💚 MERCY MESSAGE — ND-First Error Messages Template
 
 **Category:** `broski/`  
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §1 Principle 3  

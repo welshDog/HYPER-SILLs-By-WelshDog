@@ -1,4 +1,4 @@
-# HS-072 — Context Store Architecture (Redis) 🗃️
+# HS-072 — 🗃️ THE MEMORY VAULT — Context Store Architecture (Redis)
 
 **Category:** `agents/`  
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §7  

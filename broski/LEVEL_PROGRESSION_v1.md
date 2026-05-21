@@ -1,4 +1,4 @@
-# 🎮 Hyper Skill: LEVEL_PROGRESSION_v1
+# HS-012 — 🪜 THE ASCENT — Level Progression
 **Category:** Broski / Gamification  
 **Version:** 1.0  
 **Rescued From:** [BROski-Obsidian-Brain](https://github.com/welshDog/BROski-Obsidian-Brain-for-HyperFocus-z0ne) — `.claude/skills/level-progression/SKILL.md`

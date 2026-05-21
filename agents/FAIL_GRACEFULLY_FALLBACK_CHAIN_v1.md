@@ -1,4 +1,4 @@
-# HS-071 — Fail Gracefully + Fallback Chain 🔄
+# HS-071 — 🪂 SOFT LANDING — Fail Gracefully + Fallback Chain
 
 **Category:** `agents/`  
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §1 Principle 5 + §6  

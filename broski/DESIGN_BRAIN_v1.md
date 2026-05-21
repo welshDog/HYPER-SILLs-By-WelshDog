@@ -1,4 +1,4 @@
-# 🎨 Hyper Skill: DESIGN_BRAIN_v1
+# HS-010 — 🎨 THE AESTHETE — Design Brain
 **Category:** Broski / Design  
 **Version:** 1.0  
 **Rescued From:** [BROski-Obsidian-Brain](https://github.com/welshDog/BROski-Obsidian-Brain-for-HyperFocus-z0ne) — `.claude/skills/design-brain/SKILL.md`

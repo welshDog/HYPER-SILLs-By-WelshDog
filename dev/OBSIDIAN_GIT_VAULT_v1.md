@@ -1,4 +1,4 @@
-# 🔒 Hyper Skill: OBSIDIAN_GIT_VAULT_v1
+# HS-014 — 🔮 VAULT KEEPER — Obsidian Git Vault
 **Category:** Dev / Infrastructure  
 **Version:** 1.0  
 **Rescued From:** [BROski-Obsidian-Brain](https://github.com/welshDog/BROski-Obsidian-Brain-for-HyperFocus-z0ne) — `.claude/skills/obsidian-git-vault/SKILL.md`

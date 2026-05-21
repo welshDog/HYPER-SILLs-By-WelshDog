@@ -1,4 +1,4 @@
-# HS-105 — Core Agent Metrics Contract (5 Mandatory) 📊
+# HS-105 — 📊 THE METRICS OATH — Core Agent Metrics Contract (5 Mandatory)
 
 **Category:** `dev/`
 **Source:** HyperCode-V2.4 — `agents/throttle-agent/HYPER-AGENT-BIBLE.md`

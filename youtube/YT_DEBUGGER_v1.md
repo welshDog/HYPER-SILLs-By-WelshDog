@@ -1,4 +1,4 @@
-# 🎯 Hyper Skill: YT_DEBUGGER_v1
+# HS-001 — 📊 SIGNAL HUNTER — YT Analytics Debugger
 **Category:** YouTube Strategy  
 **Version:** 1.0  
 **Author:** WelshDog  

@@ -1,4 +1,4 @@
-# HS-075 — Agent Decision Framework Matrix 🎯
+# HS-075 — 🎯 THE CHOICE MATRIX — Agent Decision Framework Matrix
 
 **Category:** `agents/`  
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §10  

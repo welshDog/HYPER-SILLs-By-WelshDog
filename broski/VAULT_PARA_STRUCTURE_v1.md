@@ -1,4 +1,4 @@
-# 📁 Hyper Skill: VAULT_PARA_STRUCTURE_v1
+# HS-015 — 🗂️ THE FOUR DRAWERS — Vault PARA Structure
 **Category:** Broski / Knowledge Management  
 **Version:** 1.0  
 **Rescued From:** [BROski-Obsidian-Brain](https://github.com/welshDog/BROski-Obsidian-Brain-for-HyperFocus-z0ne) — `.claude/skills/vault-para-structure/SKILL.md`

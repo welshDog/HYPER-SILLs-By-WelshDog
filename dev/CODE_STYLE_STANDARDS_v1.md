@@ -1,4 +1,4 @@
-# HS-084 — Code Style Standards (Python + TS/React) 📐
+# HS-084 — 📐 THE STYLE CODEX — Code Style Standards (Python + TS/React)
 
 **Category:** `dev/`
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §5

@@ -1,4 +1,4 @@
-# HS-070 — Observable Agent Operations Pattern 📊
+# HS-070 — 👁️ THE ALL-SEEING — Observable Agent Operations Pattern
 
 **Category:** `agents/`  
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §1 Principle 4 + §4  

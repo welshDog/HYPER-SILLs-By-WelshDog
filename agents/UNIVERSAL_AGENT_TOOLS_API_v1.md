@@ -1,4 +1,4 @@
-# HS-080 — Universal Agent Tools API 🧰
+# HS-080 — 🧰 THE TOOL BELT — Universal Agent Tools API
 
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §3

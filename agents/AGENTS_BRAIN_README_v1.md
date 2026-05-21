@@ -1,4 +1,4 @@
-# 🧠 Hyper Skill: AGENTS_BRAIN_README_v1
+# HS-016 — 📖 BRAIN PRIMER — Agents Brain README
 **Category:** Agents / Brain Architecture
 **Version:** 1.0
 **Rescued From:** [BROski-Obsidian-Brain](https://github.com/welshDog/BROski-Obsidian-Brain-for-HyperFocus-z0ne) — `.agents/AGENTS.md`

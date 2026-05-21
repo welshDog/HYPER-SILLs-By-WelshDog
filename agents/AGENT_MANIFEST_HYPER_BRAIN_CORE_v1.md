@@ -1,4 +1,4 @@
-# 🧠 Agent Manifest: HYPER_BRAIN_CORE
+# HS-017 — 🧠 MIND CORE — Hyper Brain Core Manifest
 **Category:** Agents / MCP-Compatible
 **Version:** 1.0.0
 **Runtime:** Python

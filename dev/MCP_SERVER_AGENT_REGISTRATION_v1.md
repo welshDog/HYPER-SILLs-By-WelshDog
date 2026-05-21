@@ -1,4 +1,4 @@
-# HS-081 — MCP Server + Agent Registration Pattern 🔌
+# HS-081 — 🔌 PORTAL FORGE — MCP Server + Agent Registration Pattern
 
 **Category:** `dev/`
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §3

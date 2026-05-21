@@ -1,4 +1,4 @@
-# HS-096 — 4-Phase / 8-Sprint Production Roadmap (Alternative Cadence) 🗓️
+# HS-096 — 🗓️ THE LONG MARCH — 4-Phase / 8-Sprint Production Roadmap (Alternative Cadence)
 
 **Category:** `dev/`
 **Source:** HyperCode-V2.4 — `agents/🦅 HYPER AGENT LIFE PLANS — MASTER ARCHITECTURE` §3

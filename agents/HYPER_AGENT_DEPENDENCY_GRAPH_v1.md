@@ -1,4 +1,4 @@
-# HS-097 — Hyper Agent Dependency Graph (Worked Example, 8 Codenames) 🕸️
+# HS-097 — 🕸️ THE WEB OF NEEDS — Hyper Agent Dependency Graph (Worked Example, 8 Codenames)
 
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/🦅 HYPER AGENT LIFE PLANS — MASTER ARCHITECTURE` §1 (collaboration_matrix)

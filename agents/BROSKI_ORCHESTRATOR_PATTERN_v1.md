@@ -1,4 +1,4 @@
-# HS-068 — BROski Orchestrator Pattern 🎯
+# HS-068 — 🎭 THE CONDUCTOR — BROski Orchestrator Pattern
 
 **Category:** `agents/`  
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §2  

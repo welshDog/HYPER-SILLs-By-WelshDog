@@ -1,4 +1,4 @@
-# 🎓 Hyper Skill: PHASE4_GRADUATION_FLOW_v1
+# HS-026 — 🎓 GRADUATION GATE — Phase 4 Graduation Flow
 **Category:** Dev / Graduation Pipeline
 **Rescued From:** [HyperAgent-SDK](https://github.com/welshDog/HyperAgent-SDK) — `.Claude/skills/phase-4-graduation/SKILL.md`
 

@@ -1,0 +1,41 @@
+name: 🔍 Skill Vault Linter
+
+on:
+  push:
+    paths:
+      - 'agents/**'
+      - 'content/**'
+      - 'dev/**'
+      - 'youtube/**'
+      - 'broski/**'
+  pull_request:
+    paths:
+      - 'agents/**'
+      - 'content/**'
+      - 'dev/**'
+      - 'youtube/**'
+      - 'broski/**'
+
+jobs:
+  lint-skills:
+    name: Lint Skill Files
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run Skill Linter
+        run: python scripts/skill_linter.py
+
+      - name: Upload lint report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lint-report
+          path: lint_report.txt

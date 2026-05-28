@@ -1,52 +1,55 @@
 # HS-033 — 🔴 BROSKI SHOP SACRED RULES — BROski$ Shop Sacred Rules
 
-## What it Does
-Sacred rules specifically for the BROski$ token economy and Shop Fulfillment system. Protects the money path and prevents double-spend or silent failures.
-
-## When To Use
-- Before touching ShopPage.tsx, shop-purchase edge function, or award_tokens()
-- When debugging token balance issues
-- When adding new shop items or tier discounts
-
-## THE RULES
-```
-BROski$ SHOP SACRED RULES:
-
-✔ award_tokens() — ALWAYS pass a stable p_source_id
-  → Ledger dedup: partial unique (user_id, reason, source_id)
-  → Without it: tokens awarded multiple times silently
-
-✔ Tier discounts are server-enforced
-  → 0% / 5% / 10% / 15% by tier
-  → Source of truth: supabase/functions/shop-purchase/
-  → Client UI shows discount — server ALWAYS recalculates
-
-✔ Buy-confirm + auto-refund pattern
-  → Every purchase = confirm modal before deduct
-  → Failed fulfillment = auto-refund to wallet
-  → NEVER deduct without confirm
-
-✔ Shop Fulfillment v2 categories all deliver
-  → Every category must have a delivery surface
-  → Test all categories in E2E before deploy
-
-✔ Stripe webhook — rate-limit EXEMPT always
-  → NEVER add rate limiting to Stripe webhook endpoint
-  → Webhook secret stored in .env only
-
-✔ VITE_STRIPE_PAYMENT_LINK_URL must be set
-  → Set in .env.local AND Vercel env vars
-  → Empty = broken checkout flow
-
-✔ Token economy uses BROski$ (not ETH, not SOL)
-  → BROski$ = in-platform currency
-  → Web3 mint is separate (BROskiPets only)
-```
-
-## Related Skills
-- HS-025 COIN MENDER Token Sync Debug
-- HS-054 Dev Action XP Trigger System
-- HS-032 Course Sacred Rules
+> *"The shop handles real BROski$ tokens. These rules protect the token economy."*
 
 ---
-*Source: HyperCode-V2.4 CLAUDE.md §6 | Category: hypercode/*
+
+## 🎯 What It Does
+Sacred rules specifically for the BROski$ Shop and token economy. Prevents double-spending, dedup failures, and unsecured discounts.
+
+## 🌍 Why It Exists
+The BROski$ token economy is the gamification backbone. A bug here breaks trust with real students.
+
+## ⚙️ How To Use
+1. Paste when working on ShopPage, award_tokens, or any BROski$ flow
+2. AI respects token economy integrity rules automatically
+
+---
+
+## 📋 THE PROMPT
+
+```
+You are working on the BROski$ Shop and token economy. Apply ALL rules:
+
+✔ award_tokens() — ALWAYS pass a stable p_source_id
+   Ledger dedup = partial unique (user_id, reason, source_id)
+   Missing source_id = duplicate awards possible
+✔ Tier discounts — 0/5/10/15% — enforced server-side in supabase/functions/shop-purchase/
+   NEVER client-side only
+✔ Shop Fulfillment v2 — every category delivers · buy-confirm + server auto-refund
+✔ Token awards — ALWAYS go through Core API (One Door pattern)
+   NEVER award tokens directly from the frontend
+✔ BROski$ balance — source of truth is Supabase, NOT local state
+✔ NEVER merge Supabase ↔ V2.4 schemas — separate systems
+✔ Stripe webhook — rate-limit EXEMPT always
+
+Current shop state:
+- Fulfillment v2 BUILT (deploy + E2E pending)
+- Tier discounts: 0% (no role) / 5% (student) / 10% (graduate) / 15% (BROski)
+- Auto-refund on failed fulfillment: active
+
+[INPUT: describe the shop/token task]
+```
+
+---
+
+## ✅ Example
+**Input:** "Award 100 tokens when user completes module 3"
+**Output:** AI generates `award_tokens(user_id, 100, 'module_complete', source_id='module_3_complete')` with dedup key — never duplicates.
+
+## 🔗 Related Skills
+- HS-032 — Course Sacred Rules
+- HS-025 — COIN MENDER (Token Sync Debug)
+
+---
+*HYPER-SKILLs Vault — welshDog 🐕🏴󠁧󠁢󠁷󠁬󠁳󠁧⚡*

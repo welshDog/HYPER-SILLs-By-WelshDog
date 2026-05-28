@@ -1,64 +1,58 @@
 # HS-036 — 🧠 ANALOGY ARSENAL — Analogy Arsenal
 
-## What it Does
-A ready-to-use bank of real-world analogies for explaining technical concepts to ND learners. Each analogy maps a complex tech concept to something instantly graspable.
-
-## When To Use
-- Writing course modules (Beat 1 STOP + Beat 2 WHY)
-- Explaining tech concepts to non-technical users
-- Unsticking a learner who's confused by jargon
-
-## THE ANALOGIES
-```
-ANALOGY ARSENAL — Tech → Real World:
-
-API
-  → "A waiter at a restaurant. You (client) ask for food (data).
-     The waiter (API) goes to the kitchen (server) and brings it back.
-     You never go to the kitchen yourself."
-
-Docker Container
-  → "A lunchbox. Everything your app needs — food (code), cutlery
-     (dependencies), napkin (config) — packed together.
-     Works the same whether you open it at home or the office."
-
-Agent Swarm
-  → "A kitchen brigade. Head chef (orchestrator) assigns tasks.
-     Sous chef (specialist agent) handles sauces.
-     Pastry chef handles desserts. They don't step on each other."
-
-Redis Cache
-  → "Post-it note on your monitor. Faster than opening the filing
-     cabinet (database) every time. But if the power goes out, it's gone."
-
-Webhook
-  → "A doorbell. Instead of you checking if someone arrived every
-     5 minutes (polling), they just ring the bell (webhook) when they're there."
-
-Migration
-  → "Renovating a house while people live in it.
-     You change the structure (schema) without kicking everyone out."
-
-Context Window
-  → "Short-term memory. An AI can only hold so much in its head
-     at once. Beyond the window = forgotten."
-
-SSE (Server-Sent Events)
-  → "A radio broadcast. Server talks, client listens.
-     One-way stream. No back-and-forth needed."
-
-Circuit Breaker
-  → "A fuse box. If one circuit (service) overloads,
-     the fuse trips to protect everything else."
-
-Vault (Obsidian)
-  → "A second brain filing cabinet. PARA = Projects / Areas /
-     Resources / Archive. Everything has a drawer."
-```
-
-## Related Skills
-- HS-034 SEVEN BEAT MODULE Structure
-- HS-069 MERCY MESSAGE ND-First Error Messages
+> *"Complex tech explained in 10 words or less. ADHD-brain approved."*
 
 ---
-*Source: HyperCode-V2.4 CLAUDE.md §8 | Category: broski/*
+
+## 🎯 What It Does
+A bank of battle-tested analogies for explaining complex tech concepts to neurodivergent learners. Each analogy unlocks instant understanding without jargon.
+
+## 🌍 Why It Exists
+ADHD + Dyslexic brains need a pattern match before they can absorb detail. The right analogy = 10x faster learning.
+
+## ⚙️ How To Use
+1. Paste when writing course content, docs, or explaining tech to Lyndz
+2. Pick the right analogy from the bank
+3. Lead with the analogy BEFORE the technical explanation
+
+---
+
+## 📋 THE PROMPT
+
+```
+Explain [TECH CONCEPT] to a neurodivergent learner using an analogy from this bank.
+Lead with the analogy. Then give the technical explanation in 3 sentences max.
+
+ANALOGY BANK:
+
+Docker containers     → Lunchboxes. Each has everything it needs. Won't spill into others.
+FastAPI routes        → The menu at a restaurant. Each item = one thing you can order.
+Redis cache           → Post-it note on your monitor. Fast to read, gone after a while.
+PostgreSQL database   → Filing cabinet. Organised, searchable, stays forever.
+Webhooks              → Someone texting you when something happens. You don't have to keep asking.
+Agent swarm           → Football team. Each player has a role. Coach (orchestrator) calls the plays.
+Docker networks       → Different floors in a building. Some can talk to each other, some can't.
+Migrations            → Renovating a house while people live in it. One careful room at a time.
+JWT tokens            → A wristband at a festival. Proves you paid. No need to show your ticket again.
+Environment variables → Secrets in a locked drawer. The app knows where the drawer is.
+Prometheus            → A doctor taking your system's vitals every 15 seconds.
+Grafana               → The heart monitor screen the doctor watches.
+Circuit breakers      → The fuse box. When one thing overloads, it trips before burning the house down.
+SSE (Server-Sent Events) → A live radio broadcast. Server talks, client listens. No back-and-forth.
+RLS (Row Level Security) → A bouncer for each row of data. You only see what you're allowed to see.
+
+[INPUT: TECH CONCEPT to explain]
+```
+
+---
+
+## ✅ Example
+**Input:** "Explain Prometheus monitoring"
+**Output:** "Think of Prometheus as a doctor taking your system's vitals every 15 seconds. It scrapes metrics from all your containers and stores them. If something spikes, Grafana (the heart monitor screen) shows you the moment it happened."
+
+## 🔗 Related Skills
+- HS-034 — BEAT ARCHITECT (7-Beat Module Structure)
+- HS-069 — MERCY MESSAGE (ND-First Error Messages)
+
+---
+*HYPER-SKILLs Vault — welshDog 🐕🏴󠁧󠁢󠁷󠁬󠁳󠁧⚡*

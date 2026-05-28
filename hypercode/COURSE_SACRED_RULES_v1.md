@@ -1,60 +1,55 @@
 # HS-032 — 🔴 COURSE SACRED RULES — Course Sacred Rules (11 Rules)
 
-## What it Does
-11 load-bearing rules for Hyper-Vibe-Coding-Course. Every single one has caused a production incident if broken. Don't skip them.
-
-## When To Use
-- Before ANY commit to Hyper-Vibe-Coding-Course
-- When touching Supabase migrations, Web3, auth, or build config
-- Onboarding any AI to course work
-
-## THE RULES
-```
-COURSE SACRED RULES — load-bearing gotchas:
-
-✔ NEVER `supabase db push`
-  → local migration filenames desynced from remote schema_migrations
-  → Deploy via Supabase MCP apply_migration ONLY
-
-✔ Web3 lazy + /pets ONLY
-  → NEVER import wagmi/rainbowkit globally / in funnel / in main.tsx
-  → Re-bloats cold load ~900 kB (reverts Sprint 2)
-  → Only 4 files use wagmi — keep it that way
-
-✔ NEVER `--no-verify`
-  → husky + lint-staged catches real ESLint errors
-  → react-hooks/set-state-in-effect is an ERROR (derive or useRef)
-
-✔ NO orange in UI
-  → sacred HFZ brand rule (master palette only)
-
-✔ Three chrome systems
-  → funnel TopNav · course Navbar · VibeLabShell
-  → No global shell. Funnel pages skip Layout.
-
-✔ award_tokens() — ALWAYS pass a stable p_source_id
-  → ledger dedup = partial unique (user_id, reason, source_id)
-
-✔ Pets.tsx @ts-nocheck — pre-existing, non-blocking, money-path. Don't chase it.
-
-✔ Course dev (repo root) — npm run dev:frontend NOT npm run dev
-
-✔ NEVER curl-poll prod
-  → trips Vercel Attack Challenge Mode (403 X-Vercel-Mitigated)
-  → Deploy-truth = Vercel MCP get_deployment
-
-✔ Playwright IS installed — npm run test:e2e
-  → Use it instead of "human must test"
-
-✔ Parallel git workflow
-  → ALWAYS git fetch + check origin/main before pushing
-  → NEVER force-push
-```
-
-## Related Skills
-- HS-031 V2.4 Sacred Rules
-- HS-076 THE GATEKEEPER Pre-Commit Testing Checklist
-- HS-113 FETCH FORGE Parallel Git Workflow
+> *"The 11 commandments of the Hyper-Vibe-Coding-Course. Paste before every course session."*
 
 ---
-*Source: HyperCode-V2.4 CLAUDE.md §6b | Category: hypercode/*
+
+## 🎯 What It Does
+The 11 load-bearing rules for Hyper-Vibe-Coding-Course. Prevents the most expensive mistakes — db schema desyncs, web3 bundle bloat, broken auth, and false "it's down" alerts.
+
+## 🌍 Why It Exists
+These rules protect a live production course with real students and real payments. Each rule is a scar from a real incident.
+
+## ⚙️ How To Use
+1. Paste at the start of any course / HyperLabs session
+2. AI treats these as hard stops — not guidelines
+
+---
+
+## 📋 THE PROMPT
+
+```
+You are working on Hyper-Vibe-Coding-Course (Vite+React — NOT Next.js). Apply ALL rules:
+
+✔ NEVER `supabase db push` — migrations desynced from remote schema_migrations.
+   Deploy via Supabase MCP apply_migration ONLY
+✔ Web3 lazy + /pets ONLY — NEVER import wagmi/rainbowkit globally or in main.tsx
+   (4 files use wagmi — keep it that way. Global import = +900kB cold load)
+✔ NEVER --no-verify — husky+lint-staged catches real ESLint errors
+   react-hooks/set-state-in-effect is an ERROR (derive or useRef)
+✔ NO orange in UI — sacred HFZ brand rule (master palette only)
+✔ Three chrome systems — funnel TopNav · course Navbar · VibeLabShell
+   No global shell. Funnel pages skip Layout.
+✔ award_tokens() — ALWAYS pass stable p_source_id (ledger dedup)
+✔ Pets.tsx @ts-nocheck — pre-existing, non-blocking. Don't chase it.
+✔ Course dev command — npm run dev:frontend NOT npm run dev
+✔ NEVER curl-poll prod — trips Vercel Attack Challenge Mode (403)
+   Deploy truth = Vercel MCP get_deployment
+✔ Playwright IS installed — npm run test:e2e. Use it instead of "human must test"
+✔ Parallel git workflow — ALWAYS git fetch before pushing. NEVER force-push.
+
+[INPUT: describe the course task]
+```
+
+---
+
+## ✅ Example
+**Input:** "Push the latest migration to production"
+**Output:** AI flags: "SACRED RULE: Never `supabase db push` — use Supabase MCP apply_migration instead."
+
+## 🔗 Related Skills
+- HS-031 — V2.4 Sacred Rules
+- HS-030 — HyperFocus Master Constitution
+
+---
+*HYPER-SKILLs Vault — welshDog 🐕🏴󠁧󠁢󠁷󠁬󠁳󠁧⚡*

@@ -1,79 +1,84 @@
-# HS-051 — ⌨️ CLI ARGS LAUNCH — CLI Args Launch Pattern
+# HS-051 — ⌨️ CLI COMMANDER — CLI Args Launch Pattern
 
-## What it Does
-Standard CLI argument pattern for V2.4 launch scripts. Enables profile selection, tier targeting, dry-run mode, and verbose output from the command line.
+> *"Flags first. No flag = safe default. Every option is explicit and documented."*
 
-## When To Use
-- Building any launch or management script for V2.4
-- Adding CLI controls to an existing Python script
-- Designing operator-friendly tooling
+---
 
-## THE PATTERN
+## 🎯 What It Does
+The standard CLI argument pattern used across HyperFocus scripts. Argparse-based, with safe defaults, explicit flags, and built-in help text.
+
+## 🌍 Why It Exists
+Inconsistent CLI interfaces across scripts create confusion. This pattern makes every HyperFocus script feel like the same tool.
+
+## ⚙️ How To Use
+1. Use as the base template for any new Python CLI script
+2. Add your flags following the pattern below
+3. Always include `--dry-run` for destructive operations
+
+---
+
+## 📋 THE PROMPT
+
+```
+Create CLI args for script: [SCRIPT_NAME]
+Purpose: [SCRIPT_PURPOSE]
+
 ```python
 import argparse
-import sys
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description='🚀 HyperCode Launch Commander',
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""
-Examples:
-  python hyperlaunch.py                          # Full stack launch
-  python hyperlaunch.py --profile discord        # Include bot
-  python hyperlaunch.py --tier 2                 # Core only (tiers 1-2)
-  python hyperlaunch.py --dry-run                # Show plan, don’t launch
-  python hyperlaunch.py --skip-preflight         # Skip env check (not recommended)
-  python hyperlaunch.py --verbose                # Show all health check attempts
-"""
+        description='[SCRIPT_PURPOSE]',
+        formatter_class=argparse.RawDescriptionHelpFormatter
     )
 
-    parser.add_argument(
-        '--profile', '-p',
-        choices=['discord', 'brain', 'nemoclaw', 'full'],
-        help='Docker compose profile to activate'
-    )
-    parser.add_argument(
-        '--tier', '-t',
-        type=int, choices=[1, 2, 3, 4], default=4,
-        help='Launch up to this tier (default: all tiers)'
-    )
-    parser.add_argument(
-        '--dry-run', action='store_true',
-        help='Show launch plan without executing'
-    )
-    parser.add_argument(
-        '--skip-preflight', action='store_true',
-        help='Skip env preflight check (NOT recommended)'
-    )
-    parser.add_argument(
-        '--verbose', '-v', action='store_true',
-        help='Verbose health check output'
-    )
-    parser.add_argument(
-        '--timeout', type=int, default=60,
-        help='Health check timeout per service in seconds (default: 60)'
-    )
+    # Core flags
+    parser.add_argument('--profile', choices=['core', 'discord', 'full', 'nemoclaw'],
+                        default='core', help='Docker compose profile to use (default: core)')
+    parser.add_argument('--verify', action='store_true',
+                        help='Run health verification after launch')
+    parser.add_argument('--dry-run', action='store_true',
+                        help='Print what would happen without doing it')
+    parser.add_argument('--verbose', '-v', action='store_true',
+                        help='Verbose output')
+
+    # Custom flags for [SCRIPT_NAME]
+    # parser.add_argument('--[FLAG]', ...)
 
     return parser.parse_args()
 
-if __name__ == '__main__':
+def main():
     args = parse_args()
 
-    if not args.skip_preflight:
-        run_preflight(args.profile)  # HS-048
-
     if args.dry_run:
-        show_launch_plan(args.tier, args.profile)
-        sys.exit(0)
+        print("[DRY RUN] Would execute: [SCRIPT_PURPOSE]")
+        return
 
-    launch(tier_max=args.tier, profile=args.profile, verbose=args.verbose)
+    if args.verbose:
+        print(f"Profile: {args.profile}")
+        print(f"Verify: {args.verify}")
+
+    # Your script logic here
+    run(profile=args.profile, verify=args.verify)
+
+if __name__ == '__main__':
+    main()
 ```
 
-## Related Skills
-- HS-046 HYPERLAUNCH UNIFIED COMMANDER
-- HS-048 PREFLIGHT CHECKS System
-- HS-064 Dev Commands Cheat Sheet
+HyperFocus CLI conventions:
+- Default = safest option
+- --dry-run on ALL destructive ops
+- --verbose for debug output
+- --profile for environment selection
+- Always print what you're about to do before doing it
+```
 
 ---
-*Source: HyperCode-V2.4 hyperlaunch.py | Category: dev/*
+
+## 🔗 Related Skills
+- HS-046 — LAUNCH SOVEREIGN
+- HS-048 — PREFLIGHT ACE
+- HS-039 — CLOSE PROTOCOL
+
+---
+*HYPER-SKILLs Vault — welshDog 🐕🏴󠁧󠁢󠁷󠁬󠁳󠁧⚡*

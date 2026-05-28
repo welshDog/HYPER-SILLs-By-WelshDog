@@ -1,65 +1,63 @@
-# HS-045 — 💰 COST OPTIMISATION AUTO — Cost Optimisation Auto-Pattern
+# HS-045 — 💰 FRUGAL ENGINE — Cost Optimisation Auto-Pattern
 
-## What it Does
-Automatic cost optimisation pattern for LLM-powered agents. Routes requests to the cheapest model capable of handling the task, with fallback escalation.
-
-## When To Use
-- Building any LLM-powered agent that calls external APIs
-- Reducing OpenAI / Anthropic spend in production
-- Implementing tiered model routing
-
-## THE PATTERN
-```python
-from enum import Enum
-from typing import Optional
-
-class ModelTier(Enum):
-    FAST = 'gpt-4o-mini'       # cheap, fast — simple tasks
-    STANDARD = 'gpt-4o'        # mid — complex reasoning
-    POWER = 'claude-opus-4'    # expensive — last resort
-
-def classify_task_complexity(task: str) -> ModelTier:
-    """Route to cheapest capable model."""
-    word_count = len(task.split())
-    has_code = any(kw in task.lower() for kw in
-                   ['debug', 'refactor', 'architect', 'design'])
-    has_analysis = any(kw in task.lower() for kw in
-                       ['analyse', 'compare', 'evaluate', 'strategy'])
-
-    if has_code or has_analysis:
-        return ModelTier.POWER
-    elif word_count > 200:
-        return ModelTier.STANDARD
-    else:
-        return ModelTier.FAST
-
-async def smart_llm_call(task: str, force_tier: Optional[ModelTier] = None):
-    tier = force_tier or classify_task_complexity(task)
-
-    try:
-        return await call_model(tier.value, task)
-    except RateLimitError:
-        # Escalate on rate limit, not on capability
-        if tier == ModelTier.FAST:
-            return await call_model(ModelTier.STANDARD.value, task)
-        raise
-    except ContextLengthError:
-        # Escalate on context, not on capability
-        return await call_model(ModelTier.POWER.value, task)
-
-# Cost tracking (emit to MetricsEngine HS-041)
-COST_COUNTER = Counter('llm_cost_usd', 'LLM spend', ['model', 'agent'])
-```
-
-## Cost Targets
-- FAST: ~$0.00015 per 1K tokens
-- STANDARD: ~$0.005 per 1K tokens  
-- POWER: ~$0.075 per 1K tokens
-- Default rule: start FAST, escalate only on capability or context failure
-
-## Related Skills
-- HS-041 METRICS ENGINE Integration
-- HS-103 HEALER’S CHORUS Circuit-Breaker Protocol
+> *"The swarm that pays attention to its own bills and tunes itself to spend less."*
 
 ---
-*Source: HyperCode-V2.4 | Category: agents/*
+
+## 🎯 What It Does
+Autonomous cost optimisation pattern for the HyperFocus agent swarm. Monitors LLM token spend, container resource usage, and API costs — then auto-tunes to reduce waste.
+
+## 🌍 Why It Exists
+At scale, unmonitored LLM calls and idle containers drain budget fast. This pattern keeps costs visible and self-correcting.
+
+## ⚙️ How To Use
+1. Paste when building cost monitoring into any agent or the orchestrator
+2. Define `[BUDGET_LIMIT]` and `[ALERT_THRESHOLD]`
+3. Agent self-throttles before hitting the limit
+
+---
+
+## 📋 THE PROMPT
+
+```
+Add cost optimisation to: [AGENT_NAME or SYSTEM]
+Monthly budget limit: [BUDGET_LIMIT]
+Alert threshold: [ALERT_THRESHOLD] (e.g. 80% of budget)
+
+MONITOR THESE COSTS:
+1. LLM token spend (OpenAI/Anthropic API)
+2. Container memory + CPU (Docker stats)
+3. External API calls (Stripe, Supabase, Discord)
+4. Storage growth (Postgres + Redis + Minio)
+
+AUTO-TUNE RULES (in order of severity):
+🟢 Under 50% budget: normal operation
+🟡 50-80% budget: cache aggressive, reduce polling frequency
+🟠 80-95% budget: alert Lyndz via Discord, defer non-critical tasks
+🔴 95%+ budget: throttle all LLM calls, human approval required to continue
+
+COST TRACKING SCHEMA:
+```python
+{
+  'timestamp': datetime,
+  'agent_id': str,
+  'cost_type': 'llm|api|compute|storage',
+  'amount_usd': float,
+  'tokens_used': int,  # LLM only
+  'monthly_total': float
+}
+```
+
+NEVER: auto-cancel running jobs to save cost (data corruption risk)
+ALWAYS: alert before throttling, log every throttle decision
+```
+
+---
+
+## 🔗 Related Skills
+- HS-043 — LOOP MASTER (Self-Improvement 5-Loop)
+- HS-101 — DREAM GUARD (Sleep Cycle + Anti-Thrash)
+- HS-105 — THE METRICS OATH
+
+---
+*HYPER-SKILLs Vault — welshDog 🐕🏴󠁧󠁢󠁷󠁬󠁳󠁧⚡*

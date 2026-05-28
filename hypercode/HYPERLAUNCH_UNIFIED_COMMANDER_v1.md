@@ -1,69 +1,67 @@
-# HS-046 — 🚀 HYPERLAUNCH UNIFIED COMMANDER — HyperLaunch Unified Commander
+# HS-046 — 🚀 LAUNCH SOVEREIGN — HyperLaunch Unified Commander
 
-## What it Does
-The master launch orchestrator for HyperCode V2.4. Manages ordered service startup, dependency resolution, and health verification across all 30+ containers.
-
-## When To Use
-- Starting the full V2.4 stack from scratch
-- Debugging startup order issues between services
-- Building new launch scripts for V2.4
-
-## THE PATTERN
-```python
-# hyperlaunch.py — unified launch commander pattern
-import subprocess
-import time
-import sys
-from dataclasses import dataclass
-from typing import Optional
-
-@dataclass
-class ServiceSpec:
-    name: str
-    profile: Optional[str] = None
-    depends_on: list[str] = None
-    health_url: Optional[str] = None
-    health_timeout: int = 60
-    tier: int = 1  # Launch tier (1=first, 4=last)
-
-# 4-TIER LAUNCH ORDER:
-# Tier 1: Infrastructure (postgres, redis, minio)
-# Tier 2: Core API (hypercode-core)
-# Tier 3: Agents (nemoclaw, crew-orchestrator, etc.)
-# Tier 4: Bots + UI (broski-bot, dashboard)
-
-LAUNCH_SEQUENCE = [
-    ServiceSpec('postgres', tier=1),
-    ServiceSpec('redis', tier=1),
-    ServiceSpec('minio', tier=1),
-    ServiceSpec('hypercode-core', tier=2,
-                depends_on=['postgres','redis'],
-                health_url='http://localhost:8000/health'),
-    ServiceSpec('nemoclaw-agent', tier=3,
-                health_url='http://localhost:8099/health'),
-    ServiceSpec('crew-orchestrator', tier=3,
-                health_url='http://localhost:8081/health'),
-    ServiceSpec('broski-bot', profile='discord', tier=4),
-    ServiceSpec('hypercode-dashboard', tier=4,
-                health_url='http://localhost:8088/health'),
-]
-
-def launch(profile: str = None, tier_max: int = 4):
-    """Launch services in tier order with health verification."""
-    for tier in range(1, tier_max + 1):
-        services = [s for s in LAUNCH_SEQUENCE if s.tier == tier]
-        for svc in services:
-            _start_service(svc)
-        _verify_tier_health(services)
-
-# Run preflight BEFORE launch (see HS-048)
-# python scripts/env_check.py --core --secrets --profile discord
-```
-
-## Related Skills
-- HS-047 4-Tier ServiceSpec Launch Pattern
-- HS-048 PREFLIGHT CHECKS System
-- HS-037 ARCHITECTURE QUICK REF
+> *"One script to launch the entire HyperFocus stack. Preflight to running in one command."*
 
 ---
-*Source: HyperCode-V2.4 hyperlaunch.py | Category: hypercode/*
+
+## 🎯 What It Does
+The HyperLaunch unified launch pattern — a single commander script that handles preflight checks, service ordering, health validation, and post-launch monitoring for the entire V2.4 stack.
+
+## 🌍 Why It Exists
+Launching 30+ containers in the wrong order breaks dependencies. HyperLaunch handles the sequencing, health gates, and fallbacks automatically.
+
+## ⚙️ How To Use
+1. Use as the reference pattern when modifying `hyperlaunch.py`
+2. Paste when building any multi-service launch orchestration
+
+---
+
+## 📋 THE PROMPT
+
+```
+Implement HyperLaunch unified commander pattern for: [STACK or SERVICE_GROUP]
+
+LAUNCH SEQUENCE:
+1. PREFLIGHT — env check, secrets validation, port availability
+2. FOUNDATION — data-net services first (postgres, redis, minio)
+3. CORE — hypercode-core API (depends on foundation)
+4. AGENTS — all agents (depend on core)
+5. OBSERVABILITY — prometheus, grafana, loki, tempo
+6. OPTIONAL PROFILES — discord, nemoclaw, etc.
+
+HEALTH GATE PATTERN (between each stage):
+```python
+def wait_healthy(service: str, url: str, timeout: int = 60):
+    start = time.time()
+    while time.time() - start < timeout:
+        try:
+            r = requests.get(url, timeout=2)
+            if r.status_code == 200:
+                print(f"✅ {service} healthy")
+                return True
+        except:
+            pass
+        time.sleep(2)
+    raise TimeoutError(f"❌ {service} failed health check after {timeout}s")
+```
+
+FALLBACK RULE:
+- Stage fails health gate → rollback that stage, alert + stop
+- NEVER proceed to next stage with unhealthy dependencies
+- ALWAYS log launch result to launch_log table
+
+COMMAND:
+```powershell
+python scripts/hyperlaunch.py --profile discord --verify
+```
+```
+
+---
+
+## 🔗 Related Skills
+- HS-047 — 4-Tier ServiceSpec Launch Pattern
+- HS-048 — Preflight Checks System
+- HS-049 — Progressive Health Wait Pattern
+
+---
+*HYPER-SKILLs Vault — welshDog 🐕🏴󠁧󠁢󠁷󠁬󠁳󠁧⚡*

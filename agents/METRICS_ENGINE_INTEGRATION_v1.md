@@ -1,74 +1,72 @@
-# HS-041 — ⚡ METRICS ENGINE — MetricsEngine Integration (Python + Node)
+# HS-041 — ⚡ METRICS FORGE — MetricsEngine Integration (Python + Node)
 
-## What it Does
-Standard pattern for wiring any agent or service into the HyperFocus MetricsEngine. Covers both Python (FastAPI) and Node.js (HyperAgent SDK) integration patterns.
-
-## When To Use
-- Adding observability to a new agent
-- Wiring Prometheus metrics into a Python service
-- Connecting a Node agent to the metrics stream
-
-## THE PATTERN
-```python
-# PYTHON (FastAPI) — metrics integration pattern
-from prometheus_client import Counter, Histogram, Gauge, start_http_server
-import time
-
-# Standard metric types
-TASK_COUNTER = Counter('agent_tasks_total', 'Total tasks', ['agent', 'status'])
-LATENCY = Histogram('agent_task_duration_seconds', 'Task duration', ['agent'])
-ACTIVE_TASKS = Gauge('agent_active_tasks', 'Active tasks', ['agent'])
-
-# Decorator pattern — wrap any agent method
-def track_task(agent_name: str):
-    def decorator(func):
-        async def wrapper(*args, **kwargs):
-            ACTIVE_TASKS.labels(agent=agent_name).inc()
-            start = time.time()
-            try:
-                result = await func(*args, **kwargs)
-                TASK_COUNTER.labels(agent=agent_name, status='success').inc()
-                return result
-            except Exception as e:
-                TASK_COUNTER.labels(agent=agent_name, status='error').inc()
-                raise
-            finally:
-                LATENCY.labels(agent=agent_name).observe(time.time() - start)
-                ACTIVE_TASKS.labels(agent=agent_name).dec()
-        return wrapper
-    return decorator
-
-# Usage
-@track_task('goalkeeper')
-async def process_goal(goal_id: str): ...
-```
-
-```js
-// NODE (HyperAgent SDK) — metrics integration
-const { HyperAgent } = require('@w3lshdog/hyper-agent');
-
-const agent = new HyperAgent({
-  manifest: require('./manifest.json'),
-  metrics: {
-    enabled: true,
-    endpoint: 'http://localhost:9090',
-    labels: { agent: 'my-agent', version: '1.0.0' }
-  }
-});
-
-// Emit custom metric
-agent.metrics.increment('tasks_completed', { status: 'success' });
-agent.metrics.timing('task_duration_ms', durationMs);
-```
-
-## Sacred Rules
-- Prometheus config: `monitoring/prometheus/prometheus.yml` = ACTIVE (root = STALE)
-- 5 mandatory metrics per agent (see HS-105 THE METRICS OATH)
-
-## Related Skills
-- HS-105 THE METRICS OATH Core Agent Metrics Contract
-- HS-040 GOALKEEPER Self-Improving Agent
-- HS-070 THE ALL-SEEING Observable Agent Operations
+> *"Wire any agent to Prometheus metrics in under 10 minutes."*
 
 ---
-*Source: HyperCode-V2.4 | Category: agents/*
+
+## 🎯 What It Does
+The standard pattern for wiring an agent into the HyperFocus MetricsEngine. Works for both Python (FastAPI) and Node (HyperAgent SDK) agents.
+
+## 🌍 Why It Exists
+Without metrics, agents are black boxes. With this pattern, every agent exposes health, throughput, and error rate to Prometheus + Grafana automatically.
+
+## ⚙️ How To Use
+1. Paste when adding metrics to any new or existing agent
+2. Fill in `[AGENT_NAME]` and `[PORT]`
+3. Prometheus scrapes automatically — no manual config
+
+---
+
+## 📋 THE PROMPT
+
+```
+Add MetricsEngine integration to agent: [AGENT_NAME] on port [PORT]
+
+PYTHON (FastAPI) PATTERN:
+```python
+from prometheus_client import Counter, Histogram, Gauge, generate_latest
+import time
+
+# Standard HyperFocus metrics
+REQUESTS = Counter('agent_requests_total', 'Total requests', ['agent', 'endpoint', 'status'])
+LATENCY = Histogram('agent_request_duration_seconds', 'Request latency', ['agent', 'endpoint'])
+ACTIVE = Gauge('agent_active_tasks', 'Active tasks', ['agent'])
+
+@app.get('/metrics')
+def metrics():
+    return Response(generate_latest(), media_type='text/plain')
+
+@app.middleware('http')
+async def metrics_middleware(request, call_next):
+    start = time.time()
+    response = await call_next(request)
+    LATENCY.labels(agent='[AGENT_NAME]', endpoint=request.url.path).observe(time.time() - start)
+    REQUESTS.labels(agent='[AGENT_NAME]', endpoint=request.url.path, status=response.status_code).inc()
+    return response
+```
+
+NODE (HyperAgent SDK) PATTERN:
+```javascript
+const { MetricsEngine } = require('@w3lshdog/hyper-agent');
+const metrics = new MetricsEngine('[AGENT_NAME]');
+metrics.trackRequest(endpoint, status, durationMs);
+metrics.expose(app, '/metrics'); // Prometheus scrape endpoint
+```
+
+Prometheus config addition (monitoring/prometheus/prometheus.yml):
+```yaml
+  - job_name: '[AGENT_NAME]'
+    static_configs:
+      - targets: ['[AGENT_NAME]:[PORT]']
+```
+```
+
+---
+
+## 🔗 Related Skills
+- HS-070 — THE ALL-SEEING (Observable Agent Operations)
+- HS-105 — THE METRICS OATH
+- HS-037 — GRID MASTER (Architecture Quick Ref)
+
+---
+*HYPER-SKILLs Vault — welshDog 🐕🏴󠁧󠁢󠁷󠁬󠁳󠁧⚡*

@@ -1,70 +1,61 @@
-# HS-042 — 📋 SKILL REGISTRY AGENT — SkillRegistry Agent Pattern
+# HS-042 — 📋 REGISTRY LORD — SkillRegistry Agent Pattern
 
-## What it Does
-Pattern for building an agent that maintains a live registry of all available skills, their versions, and capabilities. Enables dynamic skill discovery and routing in agent swarms.
-
-## When To Use
-- Building agent swarm orchestrators that need to discover skills at runtime
-- Creating a skills marketplace or catalog
-- Dynamic tool routing in multi-agent systems
-
-## THE PATTERN
-```python
-# SkillRegistry Agent — FastAPI pattern
-from fastapi import FastAPI
-from pydantic import BaseModel
-from typing import Optional
-import json
-
-app = FastAPI()
-
-class Skill(BaseModel):
-    id: str           # e.g. "HS-042"
-    name: str         # e.g. "SKILL REGISTRY AGENT"
-    version: str      # e.g. "v1.0"
-    category: str     # agents / dev / broski / hypercode / web3
-    description: str
-    file_path: str
-    tags: list[str]
-    status: str       # rescued / catalogued / in-progress
-
-# In-memory registry (swap for Redis/Postgres in prod)
-registry: dict[str, Skill] = {}
-
-@app.post('/skills')
-async def register_skill(skill: Skill):
-    registry[skill.id] = skill
-    return {'registered': skill.id}
-
-@app.get('/skills')
-async def list_skills(category: Optional[str] = None):
-    if category:
-        return [s for s in registry.values() if s.category == category]
-    return list(registry.values())
-
-@app.get('/skills/{skill_id}')
-async def get_skill(skill_id: str):
-    return registry.get(skill_id)
-
-@app.get('/skills/search/{query}')
-async def search_skills(query: str):
-    q = query.lower()
-    return [s for s in registry.values()
-            if q in s.name.lower() or q in s.description.lower()
-            or any(q in tag for tag in s.tags)]
-
-# Load from skills-registry.json
-@app.on_event('startup')
-async def load_registry():
-    with open('skills-registry.json') as f:
-        data = json.load(f)
-    for skill in data.get('skills', []):
-        registry[skill['id']] = Skill(**skill)
-```
-
-## Related Skills
-- HS-080 THE TOOL BELT Universal Agent Tools API
-- HS-089 THE GRAND ROSTER Hyper Agent Roster
+> *"An agent that knows what every other agent can do — and routes tasks to the right one."*
 
 ---
-*Source: HyperCode-V2.4 | Category: agents/*
+
+## 🎯 What It Does
+The SkillRegistry pattern — a central agent that maintains a live registry of all agent capabilities and routes incoming tasks to the best-matched agent automatically.
+
+## 🌍 Why It Exists
+In a 30+ agent swarm, without a registry, tasks get lost or duplicated. SkillRegistry is the Yellow Pages of the swarm.
+
+## ⚙️ How To Use
+1. Paste when building the orchestrator or adding a new agent to the swarm
+2. Register new agent capabilities using the schema below
+3. Route tasks via the registry — never hardcode agent targets
+
+---
+
+## 📋 THE PROMPT
+
+```
+Implement the SkillRegistry agent pattern for: [CONTEXT]
+
+REGISTRY SCHEMA (per agent):
+```json
+{
+  "agent_id": "[AGENT_NAME]",
+  "capabilities": ["[SKILL_1]", "[SKILL_2]"],
+  "endpoint": "http://[AGENT_NAME]:[PORT]",
+  "health": "/health",
+  "priority": 1,
+  "tags": ["[TAG_1]", "[TAG_2]"]
+}
+```
+
+ROUTING LOGIC:
+1. Receive task with tags: [TASK_TAGS]
+2. Query registry: SELECT agents WHERE capabilities OVERLAP task.tags
+3. Filter: health_check == OK AND priority == highest
+4. Route task to winning agent
+5. Log routing decision to routing_log table
+6. On failure: fallback to next priority agent
+
+SACRED RULES:
+- Registry is READ by all agents, WRITTEN only by orchestrator
+- NEVER hardcode agent URLs in business logic — always resolve via registry
+- Health check before every route — no ghost routing
+
+Output: FastAPI /registry/agents GET + /registry/route POST
+```
+
+---
+
+## 🔗 Related Skills
+- HS-068 — THE CONDUCTOR (Orchestrator Pattern)
+- HS-080 — THE TOOL BELT (Universal Agent Tools API)
+- HS-079 — THE CREW CHARTER (Agent Role Definitions)
+
+---
+*HYPER-SKILLs Vault — welshDog 🐕🏴󠁧󠁢󠁷󠁬󠁳󠁧⚡*

@@ -119,3 +119,9 @@ The six **load-bearing** agents in the HyperCode ecosystem — the ones without 
 - [[HS-097]] Hyper Agent Dependency Graph — wiring between these 6
 - [[HS-095]] Governance Ledger Entry Schema — AutoEvo's mandatory audit trail
 - [[HS-077]] User Agency Approval Gate — what Healer's kill-protection escalates to
+
+## 📋 THE PROMPT
+
+```text
+Use this skill by copying the relevant sections and adapting placeholders to your context.
+```

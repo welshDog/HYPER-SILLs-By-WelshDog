@@ -1,4 +1,6 @@
 # HS-050 — 🛡️ WATCHDOG PRIME — Guardian Watchdog Post-Launch Monitor
+**Category:** agents
+**Version:** 1.0
 
 > *"Launch is just the beginning. Watchdog makes sure it stays up."*
 

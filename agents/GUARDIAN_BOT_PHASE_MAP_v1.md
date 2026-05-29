@@ -1,4 +1,6 @@
 # HS-038 — 🛡️ PHASE WARDEN — Guardian Bot Phase Map (P1→P3c)
+**Category:** agents
+**Version:** 1.0
 
 > *"Server Guardian: the autonomous Discord mod system. Know every phase before touching it."*
 

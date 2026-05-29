@@ -1,4 +1,6 @@
 # HS-039 — ✅ CLOSE PROTOCOL — Session End Checklist
+**Category:** hypercode
+**Version:** 1.0
 
 > *"Nothing is done until it's committed. Nothing is committed until it's verified."*
 

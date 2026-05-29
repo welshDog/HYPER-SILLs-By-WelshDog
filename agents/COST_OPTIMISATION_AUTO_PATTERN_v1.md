@@ -1,4 +1,6 @@
 # HS-045 — 💰 FRUGAL ENGINE — Cost Optimisation Auto-Pattern
+**Category:** agents
+**Version:** 1.0
 
 > *"The swarm that pays attention to its own bills and tunes itself to spend less."*
 

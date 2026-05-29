@@ -1,4 +1,6 @@
 # HS-049 — ⏳ PATIENCE ENGINE — Progressive Health Wait Pattern
+**Category:** dev
+**Version:** 1.0
 
 > *"Wait smart. Not dumb. Exponential backoff with a clear timeout."*
 

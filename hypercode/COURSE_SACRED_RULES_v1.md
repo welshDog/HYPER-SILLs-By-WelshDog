@@ -1,4 +1,6 @@
 # HS-032 — 🔴 COURSE SACRED RULES — Course Sacred Rules (11 Rules)
+**Category:** hypercode
+**Version:** 1.0
 
 > *"The 11 commandments of the Hyper-Vibe-Coding-Course. Paste before every course session."*
 

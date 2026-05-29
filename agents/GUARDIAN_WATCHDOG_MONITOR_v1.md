@@ -1,4 +1,6 @@
 # HS-050 — 🛡️ GUARDIAN WATCHDOG — Guardian Watchdog Post-Launch Monitor
+**Category:** agents
+**Version:** 1.0
 
 ## What it Does
 Post-launch watchdog monitor that continuously verifies all services remain healthy after startup. Triggers alerts and optionally restarts failing services.

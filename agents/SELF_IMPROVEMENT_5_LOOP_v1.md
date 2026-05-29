@@ -1,4 +1,6 @@
 # HS-043 — 🔄 SELF IMPROVEMENT 5-LOOP — Self-Improvement 5-Loop Logic
+**Category:** agents
+**Version:** 1.0
 
 ## What it Does
 The universal 5-step self-improvement loop used by all learning agents in the HyperFocus ecosystem. Every agent that improves over time uses this pattern.

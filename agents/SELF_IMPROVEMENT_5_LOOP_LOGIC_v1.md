@@ -1,4 +1,6 @@
 # HS-043 — 🔄 LOOP MASTER — Self-Improvement 5-Loop Logic
+**Category:** agents
+**Version:** 1.0
 
 > *"The agent doesn't wait to be told to improve. It runs this loop on its own."*
 

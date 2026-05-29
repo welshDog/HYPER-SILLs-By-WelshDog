@@ -1,4 +1,6 @@
 # HS-042 — 📋 REGISTRY LORD — SkillRegistry Agent Pattern
+**Category:** agents
+**Version:** 1.0
 
 > *"An agent that knows what every other agent can do — and routes tasks to the right one."*
 

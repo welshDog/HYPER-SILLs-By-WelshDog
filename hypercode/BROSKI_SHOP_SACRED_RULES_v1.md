@@ -1,4 +1,6 @@
 # HS-033 — 🔴 BROSKI SHOP SACRED RULES — BROski$ Shop Sacred Rules
+**Category:** hypercode
+**Version:** 1.0
 
 > *"The shop handles real BROski$ tokens. These rules protect the token economy."*
 

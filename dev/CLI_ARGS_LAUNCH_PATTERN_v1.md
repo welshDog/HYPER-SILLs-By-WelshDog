@@ -1,4 +1,6 @@
 # HS-051 — ⌨️ CLI COMMANDER — CLI Args Launch Pattern
+**Category:** dev
+**Version:** 1.0
 
 > *"Flags first. No flag = safe default. Every option is explicit and documented."*
 

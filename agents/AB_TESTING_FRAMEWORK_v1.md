@@ -1,4 +1,6 @@
 # HS-044 — 🧪 AB SPLITTER — A/B Testing Framework for Agents
+**Category:** agents
+**Version:** 1.0
 
 > *"Don't guess which agent behaviour is better. Measure it."*
 

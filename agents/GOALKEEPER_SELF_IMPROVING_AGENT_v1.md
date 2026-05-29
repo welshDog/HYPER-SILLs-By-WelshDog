@@ -1,4 +1,6 @@
 # HS-040 — 🦅 GOALKEEPER — GoalKeeper Self-Improving Agent Setup
+**Category:** agents
+**Version:** 1.0
 
 > *"An agent that tracks its own goals, measures its own progress, and improves itself."*
 

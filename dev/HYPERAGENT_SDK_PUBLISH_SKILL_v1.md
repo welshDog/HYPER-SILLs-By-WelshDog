@@ -1,4 +1,6 @@
 # HS-029 — 📮 PUBLISH FORGE — HyperAgent SDK Publish Skill
+**Version:** 1.0
+
 **Category:** Dev / SDK Publishing
 **Rescued From:** [HyperAgent-SDK](https://github.com/welshDog/HyperAgent-SDK) — `.agents/skills/hyperagent-sdk-publish/SKILL.md`
 

@@ -1,4 +1,6 @@
 # HS-035 — 🤖 PROTOCOL PRIME — AI Behaviour Rules + Tool Matrix
+**Category:** hypercode
+**Version:** 1.0
 
 > *"How every AI in the HyperFocus ecosystem must think, decide, and act."*
 

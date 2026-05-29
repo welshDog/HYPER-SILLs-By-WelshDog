@@ -1,4 +1,6 @@
 # HS-047 — 🏗️ TIER FORGE — 4-Tier ServiceSpec Launch Pattern
+**Category:** hypercode
+**Version:** 1.0
 
 > *"Every service has a tier. Tiers have order. Order prevents chaos."*
 

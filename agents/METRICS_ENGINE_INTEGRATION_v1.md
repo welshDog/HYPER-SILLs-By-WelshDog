@@ -1,4 +1,6 @@
 # HS-041 — ⚡ METRICS FORGE — MetricsEngine Integration (Python + Node)
+**Category:** agents
+**Version:** 1.0
 
 > *"Wire any agent to Prometheus metrics in under 10 minutes."*
 

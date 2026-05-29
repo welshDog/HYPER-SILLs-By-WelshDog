@@ -1,4 +1,6 @@
 # HS-044 — 🧪 A/B TESTING FRAMEWORK — A/B Testing Framework for Agents
+**Category:** agents
+**Version:** 1.0
 
 ## What it Does
 Standard A/B testing pattern for comparing two agent behaviours, prompts, or decision paths. Used in the self-improvement loop to safely test changes before committing them.

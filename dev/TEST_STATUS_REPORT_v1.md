@@ -1,4 +1,6 @@
 # HS-027 — 📋 TEST HERALD — Test Status Report
+**Version:** 1.0
+
 **Category:** Dev / Testing
 **Rescued From:** [HyperAgent-SDK](https://github.com/welshDog/HyperAgent-SDK) — `.Claude/skills/test-status-report/SKILL.md`
 

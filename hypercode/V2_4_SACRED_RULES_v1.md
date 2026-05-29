@@ -1,4 +1,6 @@
 # HS-031 — 🔴 V2.4 SACRED RULES — V2.4 Sacred Rules (20 Rules)
+**Category:** hypercode
+**Version:** 1.0
 
 > *"Never debate. Never break. These are the load-bearing walls of HyperCode V2.4."*
 

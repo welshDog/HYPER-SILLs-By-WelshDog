@@ -1,4 +1,6 @@
 # HS-034 — 🎯 BEAT ARCHITECT — 7-Beat Module Teaching Structure
+**Category:** broski
+**Version:** 1.0
 
 > *"Every module is a story. 7 beats = student goes from lost → capable → hungry for more."*
 

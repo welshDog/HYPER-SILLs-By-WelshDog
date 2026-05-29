@@ -1,4 +1,6 @@
 # HS-023 — 🔗 REPO BRIDGE — Cross-Repo Sync
+**Version:** 1.0
+
 **Category:** Dev / Cross-Repo Contracts
 **Rescued From:** [HyperAgent-SDK](https://github.com/welshDog/HyperAgent-SDK) — `.Claude/skills/cross-repo-sync/SKILL.md`
 

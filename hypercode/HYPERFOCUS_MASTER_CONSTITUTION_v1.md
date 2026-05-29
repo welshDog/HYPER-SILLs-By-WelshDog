@@ -1,4 +1,6 @@
 # HS-030 — 🏆 HYPERFOCUS MASTER CONSTITUTION — HyperFocus Master Constitution
+**Category:** hypercode
+**Version:** 1.0
 
 > *"The ecosystem constitution. Read this first. Every word. Every session."*
 

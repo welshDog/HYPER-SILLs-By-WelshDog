@@ -1,4 +1,6 @@
 # HS-024 — 🚀 PUBLISH RITE — SDK Publish Workflow
+**Version:** 1.0
+
 **Category:** Dev / Publishing
 **npm package:** `@w3lshdog/hyper-agent`
 **Rescued From:** [HyperAgent-SDK](https://github.com/welshDog/HyperAgent-SDK) — `.Claude/skills/sdk-publish/SKILL.md`

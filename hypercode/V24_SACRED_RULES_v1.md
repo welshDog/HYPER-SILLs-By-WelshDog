@@ -1,4 +1,6 @@
 # HS-031 — 🔴 V2.4 SACRED RULES — V2.4 Sacred Rules (20 Rules)
+**Category:** hypercode
+**Version:** 1.0
 
 ## What it Does
 20 non-negotiable rules for working inside HyperCode-V2.4. These are load-bearing — break one and you break the stack.

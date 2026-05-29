@@ -1,4 +1,6 @@
 # HS-036 — 🧠 ANALOGY ARSENAL — Analogy Arsenal
+**Category:** broski
+**Version:** 1.0
 
 > *"Complex tech explained in 10 words or less. ADHD-brain approved."*
 

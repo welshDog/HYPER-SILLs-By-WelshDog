@@ -1,4 +1,6 @@
 # HS-046 — 🚀 LAUNCH SOVEREIGN — HyperLaunch Unified Commander
+**Category:** hypercode
+**Version:** 1.0
 
 > *"One script to launch the entire HyperFocus stack. Preflight to running in one command."*
 

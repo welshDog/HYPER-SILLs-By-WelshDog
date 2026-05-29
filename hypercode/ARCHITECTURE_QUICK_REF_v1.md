@@ -1,4 +1,6 @@
 # HS-037 — ⚡ GRID MASTER — Architecture Quick Ref (Ports + Networks)
+**Category:** hypercode
+**Version:** 1.0
 
 > *"The full V2.4 network map in one paste. Never guess a port again."*
 

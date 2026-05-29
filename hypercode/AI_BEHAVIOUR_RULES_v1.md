@@ -1,4 +1,6 @@
 # HS-035 — 🤖 AI BEHAVIOUR RULES — AI Behaviour Rules + Tool Matrix
+**Category:** hypercode
+**Version:** 1.0
 
 ## What it Does
 Defines exactly how AI assistants must behave inside the HyperFocus ecosystem. Covers tool priority, communication style, and what AI can/cannot do autonomously.

@@ -1,4 +1,6 @@
 # HS-028 — 📖 SDK PRIMER — HyperAgent SDK Agents README
+**Version:** 1.0
+
 **Category:** Agents / SDK Architecture
 **Rescued From:** [HyperAgent-SDK](https://github.com/welshDog/HyperAgent-SDK) — `.agents/AGENTS.md`
 

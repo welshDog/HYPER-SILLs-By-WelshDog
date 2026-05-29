@@ -1,4 +1,6 @@
 # HS-048 — ✈️ PREFLIGHT ACE — Preflight Checks System
+**Category:** dev
+**Version:** 1.0
 
 > *"Never launch without running preflight. It's the difference between a clean start and a 2am debug session."*
 

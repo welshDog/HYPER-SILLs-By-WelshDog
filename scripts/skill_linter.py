@@ -10,6 +10,11 @@ import re
 import sys
 from pathlib import Path
 
+try:
+    sys.stdout.reconfigure(encoding="utf-8")
+except Exception:
+    pass
+
 # ── Config ─────────────────────────────────────────────────────────────────
 SKILL_DIRS = ["agents", "content", "dev", "youtube", "broski"]
 EXCLUDED_FILES = {"SKILL_TEMPLATE.md", "README.md"}
@@ -36,17 +41,27 @@ def ok(msg):   print(f"  {GREEN}✅ {msg}{RESET}")
 def fail(msg): print(f"  {RED}❌ {msg}{RESET}")
 def warn(msg): print(f"  {YELLOW}⚠️  {msg}{RESET}")
 
-# ── Core checker ─────────────────────────────────────────────────────────────
-def lint_file(filepath: Path) -> dict:
-    errors   = []
-    warnings = []
+def has_yaml_frontmatter(lines: list[str]) -> bool:
+    first = None
+    for i, line in enumerate(lines[:30]):
+        if line.strip():
+            first = i
+            break
+    if first is None:
+        return False
+    if lines[first].strip() != "---":
+        return False
+    for j in range(first + 1, min(len(lines), first + 31)):
+        if lines[j].strip() == "---":
+            return True
+    return False
 
-    content = filepath.read_text(encoding="utf-8")
-    lines   = content.splitlines()
+def lint_yaml_file(content: str, lines: list[str]) -> dict:
+    errors: list[str] = []
+    warnings: list[str] = []
 
-    # ── Frontmatter block ────────────────────────────────────────────────
     in_fm = False
-    fm_lines = []
+    fm_lines: list[str] = []
     for line in lines:
         if line.strip() == "---":
             if not in_fm:
@@ -66,25 +81,21 @@ def lint_file(filepath: Path) -> dict:
             if field not in fm_text:
                 errors.append(f"Missing frontmatter field: {field}")
 
-        # ID format
         id_match = [l for l in fm_lines if l.startswith("id:")]
         if id_match:
             if not SKILL_ID_PATTERN.match(id_match[0]):
                 errors.append(f"Bad ID format (expected SKILL_NNN): '{id_match[0].strip()}'")
 
-        # Version format
         ver_match = [l for l in fm_lines if l.startswith("version:")]
         if ver_match:
             if not VERSION_PATTERN.match(ver_match[0]):
                 warnings.append(f"Version should be vX.Y format: '{ver_match[0].strip()}'")
 
-        # Date format
         date_match = [l for l in fm_lines if l.startswith("last_updated:")]
         if date_match:
             if not DATE_PATTERN.match(date_match[0]):
                 errors.append(f"last_updated should be YYYY-MM-DD: '{date_match[0].strip()}'")
 
-        # Category validation
         cat_match = [l for l in fm_lines if l.startswith("category:")]
         if cat_match:
             cats = [c.strip() for c in cat_match[0].split(":", 1)[1].split("|")]
@@ -92,37 +103,75 @@ def lint_file(filepath: Path) -> dict:
                 if c and c not in VALID_CATEGORIES:
                     warnings.append(f"Unknown category '{c}' (valid: {', '.join(sorted(VALID_CATEGORIES))})")
 
-        # Difficulty optional but validated if present
         diff_match = [l for l in fm_lines if l.startswith("difficulty:")]
         if diff_match:
             diff = diff_match[0].split(":", 1)[1].strip()
             if diff not in VALID_DIFFICULTIES:
                 warnings.append(f"Unknown difficulty '{diff}' (valid: beginner, intermediate, advanced)")
 
-    # ── Required headings ────────────────────────────────────────────────
     for heading in REQUIRED_HEADINGS:
         if heading not in content:
             errors.append(f"Missing required section: {heading}")
 
-    # ── Prompt block not empty ───────────────────────────────────────────
     prompt_idx = content.find("## 🔮 Prompt Block")
     if prompt_idx != -1:
         after_prompt = content[prompt_idx + len("## 🔮 Prompt Block"):].strip()
         if len(after_prompt) < 30:
             errors.append("Prompt Block section looks empty (less than 30 chars after heading)")
 
-    # ── Example usage not empty ──────────────────────────────────────────
     ex_idx = content.find("## 💡 Example Usage")
     if ex_idx != -1:
         after_ex = content[ex_idx + len("## 💡 Example Usage"):].strip()
         if len(after_ex) < 20:
             warnings.append("Example Usage section looks very short — add a real example")
 
-    # ── File naming convention ────────────────────────────────────────────
-    if not re.match(r"^[A-Z0-9_]+v\d+\.md$", filepath.name):
-        warnings.append(f"File name '{filepath.name}' doesn't match pattern NAME_v1.md")
+    return {"errors": errors, "warnings": warnings}
+
+def lint_legacy_file(content: str, lines: list[str]) -> dict:
+    errors: list[str] = []
+    warnings: list[str] = []
+
+    first_non_empty = None
+    for line in lines:
+        if line.strip():
+            first_non_empty = line.strip()
+            break
+
+    if not first_non_empty or not re.match(r"^#\s+HS-\d{3,}\b", first_non_empty):
+        errors.append("Missing legacy header (expected '# HS-NNN — ...')")
+
+    if "**Category:**" not in content:
+        warnings.append("Missing legacy field: **Category:**")
+
+    if "**Version:**" not in content:
+        warnings.append("Missing legacy field: **Version:**")
+
+    prompt_ok = ("## 🤖 THE PROMPT" in content) or ("## 🔮 Prompt Block" in content)
+    if not prompt_ok:
+        m = re.search(r"(?im)^##\s+.*prompt.*$", content)
+        if m and "```" in content[m.end():]:
+            prompt_ok = True
+
+    if not prompt_ok:
+        if "```" not in content:
+            warnings.append("Legacy file has no code block; consider adding a prompt/code example")
 
     return {"errors": errors, "warnings": warnings}
+
+def lint_file(filepath: Path) -> dict:
+    content = filepath.read_text(encoding="utf-8")
+    lines = content.splitlines()
+
+    if has_yaml_frontmatter(lines):
+        result = lint_yaml_file(content, lines)
+    else:
+        result = lint_legacy_file(content, lines)
+
+    # ── File naming convention ────────────────────────────────────────────
+    if not re.match(r"^[A-Z0-9_]+v\d+\.md$", filepath.name):
+        result["warnings"].append(f"File name '{filepath.name}' doesn't match pattern NAME_v1.md")
+
+    return result
 
 
 # ── Main run ─────────────────────────────────────────────────────────────────

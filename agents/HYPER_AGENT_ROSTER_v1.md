@@ -1,5 +1,31 @@
 # HS-089 — 🗺️ THE GRAND ROSTER — Hyper Agent Roster (22 Confirmed + 5 Expansion)
 
+---
+skill_id: HS-089
+hero_name: "THE GRAND ROSTER"
+emoji: "🗺️"
+version: v1.0
+category: agents
+depends_on:
+  - HS-091  # FOUNDING SIX — deep identity cards for 6 of the 22 agents listed here
+  - HS-098  # SACRED SIX — laws ALL 22 agents obey
+  - HS-099  # SIX-ORGAN HEART — anatomy ALL 22 agents implement
+  - HS-100  # CRADLE-TO-GRAVE — lifecycle ALL 22 agents run
+  - HS-103  # HEALER’S CHORUS — protocol ALL 22 agents use when mutating state
+  - HS-104  # THREE WALLS — tier protection ALL 22 agents respect
+provides:
+  - canonical-agent-roster
+  - agent-lookup-table
+  - swarm-hierarchy-map
+  - expansion-slots
+related:
+  - HS-067  # Agent Role Hierarchy Pattern — manager/worker/validator tiers
+  - HS-079  # Specialist Agent Role Definitions — 6 worker specialists in CAN/CANNOT detail
+  - HS-090  # Universal Life Plan YAML — every agent here inherits this spec
+  - HS-097  # Hyper Agent Dependency Graph — the wiring map for this roster
+graph_notes: "Capstone roster skill — highest consumer in the 10-skill GoS cluster. Depends on all 6 foundation skills. Use as the lookup table when wiring new agent dependencies. All 22 confirmed agents implicitly depend on HS-085, HS-070, HS-105 via the skills they inherit."
+---
+
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/🧬 The Full Confirmed Hyper Agent Roster`
 **Version:** v1
@@ -8,9 +34,9 @@
 
 ## 🤔 What It Does
 
-The canonical map of every confirmed agent in the HyperCode V2.0/V2.4 ecosystem — name, path, role, and the 5 "future agents" earmarked for expansion. Use as the lookup table when wiring a new dependency or asking "do we have an agent that already does X?".
+The canonical map of every confirmed agent in the HyperCode V2.0/V2.4 ecosystem — name, path, role, and the 5 “future agents” earmarked for expansion. Use as the lookup table when wiring a new dependency or asking “do we have an agent that already does X?”.
 
-> Wider scope than [[HS-079]] (6 specialists) — that one's the Bible's worker crew; this is the full repo-wide roster including infra, meta, and business agents.
+> Wider scope than [[HS-079]] (6 specialists) — that one’s the Bible’s worker crew; this is the full repo-wide roster including infra, meta, and business agents.
 
 ---
 
@@ -18,7 +44,7 @@ The canonical map of every confirmed agent in the HyperCode V2.0/V2.4 ecosystem 
 
 | 🤖 Agent | Path | Role |
 |---|---|---|
-| 🦅 Agent X / Architect | `agents/architect` | Meta-architect — spawns + evolves all agents |
+| 🦥 Agent X / Architect | `agents/architect` | Meta-architect — spawns + evolves all agents |
 | 🧠 Brain / Memory | `agents/memory` | Cognitive core + cross-session memory |
 | 🛠️ DevOps Engineer | `agents/05-devops-engineer` | CI/CD + Evolutionary Pipeline |
 | 🩺 Healer | `agents/healer` | Self-healing, crash recovery |
@@ -28,12 +54,12 @@ The canonical map of every confirmed agent in the HyperCode V2.0/V2.4 ecosystem 
 | 🗄️ Database Architect | `agents/03-database-architect` | PostgreSQL schema + migrations |
 | 🧪 QA Engineer | `agents/04-qa-engineer` | Tests, chaos, coverage |
 | 🔐 Security Engineer | `agents/06-security-engineer` | OWASP, secrets, auth |
-| 🏛️ System Architect | `agents/07-system-architect` | Big-picture design decisions |
+| 🏙️ System Architect | `agents/07-system-architect` | Big-picture design decisions |
 | 📋 Project Strategist | `agents/08-project-strategist` | OKR planning + BROski$ gamification |
 | ✍️ Tips Writer | `agents/09-tips-tricks-writer` | Auto-docs, living research paper |
 | 💬 BROski Bot | `agents/broski-bot` | Discord + economy manager |
 | ⚡ Super Hyper BROski | `agents/super-hyper-broski-agent` | Solo rapid-deploy mega-agent |
-| 🐉 NemoClaw | `agents/broski-nemoclaw-agent` *(now `agents/nemoclaw-agent`)* | Wildcard + creative edge cases — code-health "Alive" sidecar, port 8099 |
+| 🐉 NemoClaw | `agents/nemoclaw-agent` | Wildcard + creative edge cases, port 8099 |
 | 🏭 Agent Factory | `agents/agent-factory` | Spawn-on-demand template engine |
 | 🧱 Base Agent | `agents/base-agent` | Universal parent class all agents inherit |
 | 🎛️ Dashboard | `agents/dashboard` | Real-time Next.js Mission Control |
@@ -44,8 +70,6 @@ The canonical map of every confirmed agent in the HyperCode V2.0/V2.4 ecosystem 
 ---
 
 ## 🔮 Future Agents (5 — expansion pack)
-
-Flagged by HyperCode docs as the missing squad members. Build slots reserved.
 
 | 🤖 Agent | Purpose |
 |---|---|
@@ -60,7 +84,7 @@ Flagged by HyperCode docs as the missing squad members. Build slots reserved.
 ## 🪜 Hierarchy Cheat-Sheet
 
 ```
-Meta layer:        Agent X (spawn) ─ Base Agent (inherit) ─ Agent Factory (template)
+Meta layer:        Agent X (spawn) ― Base Agent (inherit) ― Agent Factory (template)
 Coordinator:       Crew Orchestrator
 Memory:            Brain
 Self-healing:      Healer
@@ -78,3 +102,4 @@ Infra:             DevOps · Throttle · Dashboard · Coder
 - [[HS-079]] Specialist Agent Role Definitions — the 6 worker specialists in CAN/CANNOT detail
 - [[HS-090]] Universal Life Plan YAML v2.0 — every agent here inherits this spec
 - [[HS-091]] Top-Tier Agent Identity Cards — deep cards for Agent X, Brain, Healer, Crew Orchestrator, Security
+- [[HS-097]] Hyper Agent Dependency Graph — the wiring map for this roster

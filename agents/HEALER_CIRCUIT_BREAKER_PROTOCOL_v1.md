@@ -1,4 +1,27 @@
-# HS-103 — 🤝 HEALER'S CHORUS — Healer Circuit-Breaker Protocol
+# HS-103 — 🤝 HEALER’S CHORUS — Healer Circuit-Breaker Protocol
+
+---
+skill_id: HS-103
+hero_name: "HEALER'S CHORUS"
+emoji: "🤝"
+version: v1.0
+category: agents
+depends_on:
+  - HS-098  # SACRED SIX — implements Law 3 (COMMUNICATION)
+  - HS-099  # SIX-ORGAN HEART — Voice organ protocol
+  - HS-085  # FIVE WARDS — fail-safe on timeout (Law 4 GRACE)
+  - HS-105  # METRICS OATH — Healer watches agent_up signals
+provides:
+  - healer-circuit-breaker-protocol
+  - ask-before-act-pattern
+  - report-after-action-pattern
+  - healer-client-wrapper
+related:
+  - HS-077  # User Agency Approval Gate — escalation path when circuit is open
+  - HS-091  # Founding Six — Healer agent invariants
+  - HS-095  # Governance Ledger — healer_unreachable events go here
+graph_notes: "Voice organ implementation. Sits above HS-085 (guardrails) and depends on HS-098 (laws). Required by any agent that mutates system state. Consumed by HS-089 (all 22+ roster agents use this protocol)."
+---
 
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/throttle-agent/HYPER-AGENT-BIBLE.md`
@@ -87,7 +110,6 @@ class HealerClient:
                     return r.json().get("ack_id")
                 except (httpx.TimeoutException, httpx.NetworkError):
                     if attempt == 2:
-                        # escalate — silent failure violates Law 3
                         await emit_event({
                             "event": "healer_unreachable",
                             "payload": payload,
@@ -102,7 +124,7 @@ class HealerClient:
 1. **No silent actions.** Every mutation is reported. If Healer is unreachable, log the action and try again — never proceed as if it succeeded.
 2. **Closed = go. Anything else = wait.** Don't try to outsmart the half-open state.
 3. **Healer's word is final.** If the circuit-breaker says open, the only legal action is wait. (Override path = explicit [[HS-077]] approval gate.)
-4. **Self-Healer-check exception.** The Healer agent itself does NOT call its own circuit-breaker (obviously — but worth stating to avoid infinite recursion).
+4. **Self-Healer-check exception.** The Healer agent itself does NOT call its own circuit-breaker.
 5. **`/throttle/state` is one of several reporter endpoints.** Other patterns use `/queue/state`, `/db/state`, etc. — but the shape is the same.
 
 ---
@@ -119,9 +141,9 @@ class HealerClient:
 ## 🚨 Anti-patterns
 
 - **Acting then asking.** "I already paused it, just let me tell Healer after" — no. Ask first. Always.
-- **Caching circuit-breaker state.** State changes mid-cycle; cache for ≤ 1 cycle (one autopilot tick) only.
+- **Caching circuit-breaker state.** State changes mid-cycle; cache for ≤ 1 cycle only.
 - **Treating timeout as `closed`.** Treat as `open`. Fail safe.
-- **Skipping the ack.** No ack = action didn't propagate to Healer's state. Investigate before treating done.
+- **Skipping the ack.** No ack = action didn't propagate to Healer's state.
 
 ---
 

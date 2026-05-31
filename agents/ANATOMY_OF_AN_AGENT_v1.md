@@ -1,122 +1,121 @@
-# HS-099 — 🧬 SIX-ORGAN HEART — Anatomy of an Agent
+# HS-001 — 🦴 ANATOMY OF AN AGENT — The Core Structure Every Agent Needs
 
 ---
-skill_id: HS-099
-hero_name: "SIX-ORGAN HEART"
-emoji: "🧬"
+skill_id: HS-001
+hero_name: "ANATOMY OF AN AGENT"
+emoji: "🦴"
 version: v1.0
 category: agents
 depends_on:
-  - HS-098  # SACRED SIX — laws each organ obeys
-  - HS-085  # FIVE WARDS — guardrails wired into Brain + Shield organs
-  - HS-070  # ALL-SEEING — Eyes organ foundation
-  - HS-105  # METRICS OATH — mandatory Eyes organ contract
+  - none  # Root skill — foundational, no upstream deps
 provides:
-  - agent-anatomy-framework
-  - six-organ-model
-  - anatomy-audit-checklist
+  - agent-structure-pattern
+  - agent-anatomy-reference
+  - agent-build-checklist
 related:
-  - HS-100  # Agent Lifecycle State Machine — Heart organ loop maps to WATCH→DECIDE→ACT→REPORT
-  - HS-101  # Sleep Cycle — Sleep organ in detail
-  - HS-102  # Predictive Trend — Brain organ prediction engine
-  - HS-103  # Healer Circuit-Breaker — Voice organ protocol
-  - HS-104  # Tier Protection Rules — Shield organ config
-  - HS-106  # New Agent Build Checklist — uses this anatomy audit
-graph_notes: "Structural model skill. Integrates outputs of all foundation skills into a 6-organ framework. New agents MUST pass the anatomy audit checklist before shipping."
+  - HS-002  # SIX_LAWS_OF_AGENTS
+  - HS-003  # AGENT_LIFECYCLE_STATE_MACHINE
+  - HS-010  # SPECIALIST_AGENT_ROLES
+graph_notes: "Root node of the agent graph — defines the canonical anatomy every agent in the swarm must implement."
 ---
 
 **Category:** `agents/`
-**Source:** HyperCode-V2.4 — `agents/throttle-agent/HYPER-AGENT-BIBLE.md`
 **Version:** v1
 
 ---
 
 ## 🤔 What It Does
 
-A conceptual decomposition of every HyperCode agent into six **organs**. Use this when designing a new agent — if you can’t name what plays the role of each organ, the agent isn’t complete. Different angle from [[HS-090]] (which is the YAML schema) and [[HS-079]] (which is role boundaries).
+Defines the canonical anatomy of an agent: the required components, structure, and interface every agent in the HyperFocus swarm must have. The foundation everything else builds on.
 
 ---
 
-## 🧠 Brain — Decision Engine
+## 🎯 Purpose
 
-The logic core. Reads signals (RAM %, CPU %, Docker state, business metrics) and decides what to do. Uses **linear regression** for prediction — not just reaction, but anticipation. See [[HS-102]] for the predictive technique.
-
-**Concrete in throttle-agent:** deque of last 30 RAM readings + slope projection.
-
----
-
-## 👁️ Eyes — Observability Layer
-
-15+ Prometheus metrics. JSON-structured logs. Health check endpoints. **The Eyes never sleep.** They watch everything and report honestly.
-
-**Mandatory minimum:** 5 metrics per [[HS-105]] Core Agent Metrics Contract.
+- **Who uses it:** Agent builders, orchestrators, onboarding new AI sessions
+- **When to use it:** First thing you read before building any new agent
+- **What it unlocks:** A consistent, interoperable agent architecture across all 39+ agents
 
 ---
 
-## �afe Heart — Autopilot Loop
+## 📥 Inputs
 
-An async loop that pulses every N seconds (default: 30s). The heartbeat of the agent. **When it stops, the agent is dead.**
-
-```python
-async def autopilot():
-    while not shutdown:
-        await watch()
-        await decide()
-        await act()
-        await report()
-        await asyncio.sleep(POLL_INTERVAL_SECONDS)
-```
-
-Maps to the WATCH → DECIDE → ACT → REPORT phases of [[HS-100]] Agent Lifecycle.
+| Input | Type | Required | Description |
+|---|---|---|---|
+| `agent_name` | `string` | ✅ | Name of the agent being built |
+| `role` | `string` | ✅ | What the agent does |
 
 ---
 
-## 🛡️ Shield — Protection Rules
+## 📤 Output Format
 
-Tiers 1–3 and named containers are ALWAYS protected. **The Shield is hardcoded.** No config can override a protected core. See [[HS-104]] for the full tier definitions.
-
-```python
-if container in PROTECTED_TIERS_1_2_3 or container in PROTECT_CONTAINERS:
-    return  # untouchable
+```json
+{
+  "agent": {
+    "name": "string",
+    "role": "string",
+    "tools": [],
+    "memory": {},
+    "output_format": {}
+  }
+}
 ```
 
 ---
 
-## 🤝 Voice — Healer Integration
+## 🔮 Prompt Block
 
-Agents talk to the Healer Agent before making big moves. Before resuming a paused container: *“Healer, is it safe?”* The Healer holds the circuit breaker. Agents respect it. See [[HS-103]] for the protocol.
+```
+You are an agent architect for the HyperFocus Zone.
 
----
+Build a new agent following the canonical anatomy:
+1. Identity (name, role, tier)
+2. Tools (what it can call)
+3. Memory (what it retains)
+4. Output contract (what it returns)
+5. Guardrails (what it must never do)
 
-## 😴 Sleep Mode — TTL Pause System
-
-When RAM pressure hits, non-critical containers sleep (pause). They auto-wake after 15 minutes (TTL) or when RAM drops below 75%. **Sleep is not death. It’s conservation.** Full pattern in [[HS-101]].
-
----
-
-## ✅ Anatomy Audit (per new agent)
-
-When spawning a new agent, verify all 6 organs exist:
-
-- [ ] **Brain:** named decision function with explicit input/output schema
-- [ ] **Eyes:** `/metrics` endpoint + structured JSON logs
-- [ ] **Heart:** async loop with `POLL_INTERVAL_SECONDS` env var
-- [ ] **Shield:** protected-list constant + self-protection auto-add
-- [ ] **Voice:** Healer client wired with circuit-breaker check
-- [ ] **Sleep:** TTL pause or equivalent rest mechanism (skip only if agent must be always-on)
-
-Missing any organ → not a fully-formed agent.
+Agent to build: [AGENT_NAME]
+Role: [ROLE]
+```
 
 ---
 
-## 🧩 Related Skills
+## 💡 Example Usage
 
-- [[HS-098]] 6 Laws — the laws each organ obeys
-- [[HS-090]] Universal Life Plan YAML — the schema each organ implements
-- [[HS-100]] Agent Lifecycle State Machine — Heart organ loop
-- [[HS-101]] Sleep Cycle + Anti-Thrash — the Sleep organ in detail
-- [[HS-102]] Predictive Trend — the Brain organ’s prediction engine
-- [[HS-103]] Healer Circuit-Breaker Protocol — the Voice organ’s protocol
-- [[HS-104]] Tier Protection Rules — the Shield organ’s config
-- [[HS-105]] Core Agent Metrics Contract — the Eyes organ’s contract
-- [[HS-106]] New Agent Build Checklist — uses this anatomy audit
+```python
+# Load this skill when spinning up a new agent definition
+agent = {
+    "name": "MORNING_BRIEFING",
+    "role": "Delivers daily system status to Discord",
+    "tier": 2,
+    "tools": ["docker_check", "discord_webhook", "github_issues"],
+    "memory": {"last_run": None, "failure_count": 0},
+    "output_format": "discord_embed"
+}
+```
+
+---
+
+## 🚨 Anti-patterns
+
+- **Don't build agents without an output contract** — downstream agents can't consume undefined output
+- **Don't skip the guardrails section** — every agent needs at least one hard stop
+
+---
+
+## 🔗 Related Skills
+
+- [[HS-002]] SIX_LAWS_OF_AGENTS — the rules every agent obeys
+- [[HS-003]] AGENT_LIFECYCLE_STATE_MACHINE — how agents move through states
+- [[HS-010]] SPECIALIST_AGENT_ROLES — which roles exist in the swarm
+
+---
+
+## 📋 THE PROMPT
+
+> Copy this block into any AI session to activate the skill:
+
+```text
+Use skill HS-001 ANATOMY OF AN AGENT. Build a new agent following the canonical HyperFocus structure: identity, tools, memory, output contract, guardrails.
+```

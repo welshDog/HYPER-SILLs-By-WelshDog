@@ -1,143 +1,41 @@
-# HS-100 — 🔄 CRADLE-TO-GRAVE — Agent Lifecycle State Machine (BIRTH → DEATH)
+# HS-003 — 🔄 AGENT LIFECYCLE STATE MACHINE — Every Agent's Journey from Boot to Retire
 
 ---
-skill_id: HS-100
-hero_name: "CRADLE-TO-GRAVE"
+skill_id: HS-003
+hero_name: "AGENT LIFECYCLE STATE MACHINE"
 emoji: "🔄"
 version: v1.0
 category: agents
 depends_on:
-  - HS-099  # SIX-ORGAN HEART — Heart organ runs this loop
-  - HS-098  # SACRED SIX — Law 3 (REPORT) + Law 5 (REST) enforced here
-  - HS-070  # ALL-SEEING — observability hooks per state
-  - HS-105  # METRICS OATH — what to emit per state
+  - HS-001  # ANATOMY_OF_AN_AGENT — agent must exist before it has a lifecycle
+  - HS-002  # SIX_LAWS_OF_AGENTS — laws govern state transitions
 provides:
-  - lifecycle-state-machine
-  - autopilot-loop-pattern
-  - per-state-observability-hooks
-  - graceful-shutdown-pattern
+  - agent-state-transitions
+  - lifecycle-management
+  - agent-boot-sequence
+  - agent-retire-protocol
 related:
-  - HS-087  # Agent Decision Tree — per-task flow nested inside DECIDE state
-  - HS-093  # Nightly Continuous Learning Loop — drift detection watches REPORT hooks
-  - HS-090  # Universal Life Plan YAML — per-conversation dialogue_state_machine (layer 3)
-graph_notes: "Runtime loop skill. Depends on anatomy (HS-099), laws (HS-098), observability (HS-070, HS-105). Consumed by HS-091 (Founding Six agents all run this loop) and HS-089 (all 22+ roster agents)."
+  - HS-005  # HEALER_CIRCUIT_BREAKER_PROTOCOL
+  - HS-006  # FAIL_GRACEFULLY_FALLBACK_CHAIN
+  - HS-012  # GUARDIAN_WATCHDOG_MONITOR
+graph_notes: "State machine for agent lifecycle — boot, idle, active, error, healing, retired. Required by orchestrators and guardian agents."
 ---
 
 **Category:** `agents/`
-**Source:** HyperCode-V2.4 — `agents/throttle-agent/HYPER-AGENT-BIBLE.md`
 **Version:** v1
 
 ---
 
-## 🤔 What It Does
+## 🔗 Related Skills
 
-The per-cycle state machine every HyperCode agent runs from container start to graceful shutdown. Different from [[HS-087]] (per-task Decision Tree) — this is the *autopilot loop* lifecycle, not the per-task flow. Also distinct from [[HS-090]] life-plan `dialogue_state_machine` which is the per-conversation flow.
-
-> **Three state machines, three layers:**
-> 1. **Container lifecycle** ← this skill (BIRTH → DEATH)
-> 2. **Per-task flow** → [[HS-087]] Decision Tree
-> 3. **Per-conversation** → [[HS-090]] dialogue_state_machine
+- [[HS-005]] HEALER_CIRCUIT_BREAKER_PROTOCOL — healer activates on error state
+- [[HS-006]] FAIL_GRACEFULLY_FALLBACK_CHAIN — fallback chain for failed transitions
+- [[HS-012]] GUARDIAN_WATCHDOG_MONITOR — watchdog monitors state health
 
 ---
 
-## 🔄 The 8 States
+## 📋 THE PROMPT
 
+```text
+Use skill HS-003 AGENT LIFECYCLE STATE MACHINE. Manage an agent's state transition from [current_state] to [target_state] following the canonical lifecycle.
 ```
-BIRTH    →  Container starts, FastAPI boots, startup() fires
-WAKE     →  Autopilot loop begins (if AUTO_*_ENABLED=true)
-WATCH    →  Poll cycle every N s: check signals, Docker, Healer
-DECIDE   →  Apply decision engine (linear regression + thresholds)
-ACT      →  Pause / resume / send / write — the actual mutation
-REPORT   →  Log action (JSON) · update Prometheus · tell Healer
-REST     →  Sleep POLL_INTERVAL_SECONDS · repeat from WATCH
-DEATH    →  Container stops · graceful FastAPI shutdown
-```
-
----
-
-## 🗺️ Transitions
-
-```
-BIRTH ──on_boot_complete──▶ WAKE
-WAKE  ──autopilot_enabled──▶ WATCH
-                            ▲
-                            │
-WATCH ──signals_collected──▶ DECIDE
-DECIDE ─action_chosen──────▶ ACT
-ACT   ─completed──────────▶ REPORT
-REPORT ─logged────────────▶ REST
-REST  ─tick───────────────┘   (loops back to WATCH)
-
-ANY state ─on_SIGTERM────▶ DEATH
-```
-
----
-
-## 🧱 Skeleton
-
-```python
-# main.py
-import asyncio
-from fastapi import FastAPI
-
-app = FastAPI()
-shutdown_event = asyncio.Event()
-
-@app.on_event("startup")
-async def birth():
-    # BIRTH: init clients, register with Crew Orchestrator
-    await register_self()
-    if os.getenv("AUTO_ENABLED", "true").lower() == "true":
-        asyncio.create_task(autopilot())  # WAKE
-
-async def autopilot():
-    while not shutdown_event.is_set():
-        signals  = await watch()          # WATCH
-        decision = await decide(signals)  # DECIDE
-        result   = await act(decision)    # ACT
-        await report(result)              # REPORT
-        await asyncio.sleep(int(os.getenv("POLL_INTERVAL_SECONDS", "30")))  # REST
-
-@app.on_event("shutdown")
-async def death():
-    shutdown_event.set()
-    await deregister_self()
-```
-
----
-
-## 🚨 Mandatory Per-State Hooks
-
-Every state must emit at least one observability signal:
-
-| State | Required signal |
-|---|---|
-| BIRTH | log `component=<name> action=startup version=<ver>` |
-| WAKE | metric `agent_up = 1` |
-| WATCH | metric `agent_last_watch_ts = now` |
-| DECIDE | metric `agent_decision_reasons{reason=...}` incremented |
-| ACT | log `action=<verb> target=<id>` + emit `task_started` event |
-| REPORT | metric `agent_last_action_ts = now` + emit `task_completed` event |
-| REST | (none — quiet by design) |
-| DEATH | log `component=<name> action=shutdown` + metric `agent_up = 0` |
-
-If any hook is missing, observability drift detection in [[HS-093]] will flag the agent.
-
----
-
-## ⚠️ Anti-patterns
-
-- **Skipping REPORT** → silent action = Law 3 violation ([[HS-098]])
-- **WATCH without DECIDE** → busy loop that does nothing → wastes cycles → Law 5 violation
-- **ACT before DECIDE** → reactive without reasoning → not a real agent, just a script
-- **No graceful DEATH** → container kill doesn't deregister → Crew Orchestrator has stale entries → swarm formations fail
-
----
-
-## 🧩 Related Skills
-
-- [[HS-099]] Anatomy of an Agent — Heart organ runs this loop
-- [[HS-087]] Agent Decision Tree — per-task flow nested inside DECIDE
-- [[HS-098]] 6 Laws — Law 3 (REPORT) + Law 5 (REST) live here
-- [[HS-105]] Core Agent Metrics — what to emit per state
-- [[HS-070]] Observable Agent Operations Pattern

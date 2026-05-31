@@ -1,117 +1,42 @@
-# HS-068 — 🎭 THE CONDUCTOR — BROski Orchestrator Pattern
-
-**Category:** `agents/`  
-**Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §2  
-**Version:** v1  
+# HS-008 — 🎼 BROSKI ORCHESTRATOR PATTERN — The Master Conductor of the Agent Swarm
 
 ---
-
-## 🤔 What It Does
-
-The BROski Orchestrator is the top-level AI agent manager. It receives a user request, breaks it into subtasks, delegates to specialists, tracks context, and synthesises a final result. This is the brain of the whole agent crew.
-
+skill_id: HS-008
+hero_name: "BROSKI ORCHESTRATOR PATTERN"
+emoji: "🎼"
+version: v1.0
+category: agents
+depends_on:
+  - HS-007  # HYPERFOCUS_AGENT_SWARM_CORE — orchestrator runs the swarm
+  - HS-009  # HYPER_AGENT_ROSTER — needs to know which agents exist
+  - HS-016  # AGENT_COMMUNICATION_PATTERNS — how to call agents
+provides:
+  - orchestrator-pattern
+  - task-routing-logic
+  - agent-dispatch-protocol
+  - result-aggregation
+related:
+  - HS-014  # AGENT_ROLE_HIERARCHY_PATTERN
+  - HS-017  # AGENT_DECISION_FRAMEWORK_MATRIX
+  - HS-018  # AGENT_DECISION_TREE_FLOWCHART
+graph_notes: "The BROski Orchestrator is the central brain that receives tasks, routes them to specialist agents, and aggregates results."
 ---
 
-## 🛠️ Tools Available
-
-```python
-# Context Management
-await create_context_slot(name: str, description: str)
-await update_context(name: str, value: dict)
-await read_context(name: str) -> dict
-
-# Delegation
-await delegate_task(
-    agent: str,
-    task: str,
-    contexts: List[str]
-) -> TaskResult
-
-# Synthesis
-await synthesize_results(results: List[TaskResult]) -> str
-```
-
----
-
-## 🔄 Orchestrator Flow
-
-```python
-async def handle_user_request(request: str):
-    # 1. Analyse request
-    analysis = await analyze_request(request)
-
-    # 2. Create context slots
-    contexts = await create_required_contexts(analysis)
-
-    # 3. Plan task sequence
-    plan = await create_task_plan(analysis, contexts)
-
-    # 4. Get user approval
-    if not await request_approval(plan):
-        return "Plan cancelled by user"
-
-    # 5. Execute plan
-    results = []
-    for task in plan.tasks:
-        result = await delegate_task(
-            agent=task.agent,
-            task=task.description,
-            contexts=task.required_contexts
-        )
-        results.append(result)
-        await update_contexts(result)
-
-    # 6. Synthesise and report
-    return await synthesize_results(results)
-```
-
----
-
-## 🎯 THE PROMPT
-
-```
-You are BROski, the Orchestrator AI.
-
-When you receive a user request:
-1. Analyse what needs to happen
-2. List the context slots you need to create
-3. Create a task plan with which agent handles each step
-4. Present the plan to the user for approval
-5. Execute tasks in sequence, updating contexts after each
-6. Synthesise a clear summary of what was done
-
-You NEVER write code yourself. You NEVER read full files.
-You delegate ALL implementation to specialist agents.
-
-Context keys follow dot notation: domain.subdomain.specific
-Example: api.auth.design, language.grammar.v0
-```
-
----
-
-## 💡 Example Output
-
-```
-PLAN: Add Authentication to API
-
-Context Slots:
-- api.routes.current → Backend maps existing routes
-- api.auth.design    → Security designs JWT strategy  
-- api.auth.impl      → Backend implements
-- api.auth.tests     → QA validates
-
-Tasks:
-1. [Backend] Investigate current API structure
-2. [Security] Design JWT middleware
-3. [Backend] Implement auth
-4. [QA] Write + run tests
-
-Approve? (yes/no)
-```
+**Category:** `agents/`
+**Version:** v1
 
 ---
 
 ## 🔗 Related Skills
-- HS-067 Agent Role Hierarchy Pattern
-- HS-072 Context Store Architecture
-- HS-075 Agent Decision Framework Matrix
+
+- [[HS-009]] HYPER_AGENT_ROSTER — which agents the orchestrator can call
+- [[HS-017]] AGENT_DECISION_FRAMEWORK_MATRIX — how it decides which agent to use
+- [[HS-014]] AGENT_ROLE_HIERARCHY_PATTERN — role hierarchy the orchestrator respects
+
+---
+
+## 📋 THE PROMPT
+
+```text
+Use skill HS-008 BROSKI ORCHESTRATOR PATTERN. Route the following task to the correct specialist agent: [TASK]. Show the decision path and expected output.
+```

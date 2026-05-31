@@ -1,78 +1,28 @@
-# HS-027 — 📋 TEST HERALD — Test Status Report
-**Version:** 1.0
-
-**Category:** Dev / Testing
-**Rescued From:** [HyperAgent-SDK](https://github.com/welshDog/HyperAgent-SDK) — `.Claude/skills/test-status-report/SKILL.md`
-
-> Use when: "test report", "are tests green", "run the suite", or before/after publishing.
+# DS-007 — 📊 TEST STATUS REPORT — Show Exactly Where Tests Pass and Fail
 
 ---
-
-## ▶️ Run It
-
-```powershell
-cd "H:\HyperAgent-SDK"
-npm test 2>&1 | Tee-Object -FilePath "$env:TEMP\hyper-test-output.log"
-```
-
+skill_id: DS-007
+hero_name: "TEST STATUS REPORT"
+emoji: "📊"
+version: v1.0
+category: dev
+depends_on:
+  - DS-006  # TEST_PYRAMID_FOUR_LEVELS — report covers all 4 levels
+  - DS-008  # CORE_AGENT_METRICS_CONTRACT — test metrics follow contract
+provides:
+  - test-status-format
+  - coverage-report-schema
+  - test-health-dashboard
+related:
+  - DS-005  # PRE_COMMIT_TESTING_CHECKLIST
+  - HS-019  # OBSERVABLE_AGENT_OPERATIONS
+graph_notes: "Standardised test status report format — per-agent pass/fail, coverage %, and trend vs last sprint."
 ---
 
-## 📊 Expected Baseline (v0.3.0)
+**Category:** `dev/`
+**Version:** v1
 
+## 📋 THE PROMPT
+```text
+Use skill DS-007 TEST STATUS REPORT. Generate a test status report for [COMPONENT] as of [DATE].
 ```
-tests/validate.test.js   21/21 ✅
-tests/registry.test.js   15/15 ✅
-tests/init.test.js        7/7  ✅
-tests/client.test.js     14/14 ✅
-────────────────────────────────
-TOTAL                    57/57 ✅
-```
-
----
-
-## 🏷️ Report Format (BROski badge style)
-
-```
-🧪 HyperAgent-SDK Test Report
-📅 Run: 2026-MM-DD | ⏱️ Duration: X.XXs | 🏷️ v0.3.0 | 🌿 main
-
-✅ validate.test.js   21/21
-✅ registry.test.js   15/15
-✅ init.test.js        7/7
-✅ client.test.js     14/14
-──────────────────────────
-🎯 STATUS: ALL GREEN ✅
-```
-
----
-
-## ⚡ Quick One-Shot Badge
-
-```powershell
-cd "H:\HyperAgent-SDK"
-$out = npm test 2>&1
-if ($LASTEXITCODE -eq 0) {
-  $count = ($out | Select-String '# tests (\d+)').Matches.Groups[1].Value
-  Write-Host "✅ $count/$count GREEN" -ForegroundColor Green
-} else {
-  Write-Host "❌ Failing — run full report" -ForegroundColor Red
-}
-```
-
----
-
-## ❌ Hard Rules
-
-- Never claim green without actually running
-- Never trim failures — show all
-- Always include version + commit + branch
-- If TOTAL drops below 57 → that's a regression
-
----
-
-## 🔗 Pairs With
-- `sdk-publish` — pre-flight gate 3
-- `phase-4-graduation` — update baseline when adding `tests/graduate.test.js`
-- `token-sync-debug` — when `tests/client.test.js` regresses
-
-*Rescued from HyperAgent-SDK — HYPER-SKILLs Vault by WelshDog 🐕⚡*

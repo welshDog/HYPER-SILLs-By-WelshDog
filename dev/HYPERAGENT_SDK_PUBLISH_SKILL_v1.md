@@ -1,68 +1,28 @@
-# HS-029 — 📮 PUBLISH FORGE — HyperAgent SDK Publish Skill
-**Version:** 1.0
-
-**Category:** Dev / SDK Publishing
-**Rescued From:** [HyperAgent-SDK](https://github.com/welshDog/HyperAgent-SDK) — `.agents/skills/hyperagent-sdk-publish/SKILL.md`
-
-> Use when: adding new agent interfaces, bumping SDK version, publishing to npm, or syncing SDK changes across the 5-repo ecosystem.
+# DS-017 — 📦 HYPERAGENT SDK PUBLISH SKILL — Ship @w3lshdog/hyper-agent to npm
 
 ---
+skill_id: DS-017
+hero_name: "HYPERAGENT SDK PUBLISH SKILL"
+emoji: "📦"
+version: v1.0
+category: dev
+depends_on:
+  - DS-016  # SDK_PUBLISH_WORKFLOW — publish workflow steps
+  - DS-015  # PARALLEL_GIT_WORKFLOW_SURVIVAL — git hygiene before publish
+provides:
+  - npm-publish-steps
+  - sdk-version-bump
+  - package-release-checklist
+related:
+  - DS-014  # CROSS_REPO_SYNC
+  - DS-019  # FASTAPI_AGENT_API_STANDARDS
+graph_notes: "Step-by-step publish flow for @w3lshdog/hyper-agent — bump, build, test, publish, tag."
+---
 
-## ⚡ Development Flow
+**Category:** `dev/`
+**Version:** v1
 
-1. Make changes in `src/`
-2. Run tests:
-```powershell
-npm test
+## 📋 THE PROMPT
+```text
+Use skill DS-017 HYPERAGENT SDK PUBLISH SKILL. Publish version [VERSION] of @w3lshdog/hyper-agent to npm.
 ```
-3. Build:
-```powershell
-npm run build
-```
-4. Check exports are correct in `dist/`
-
----
-
-## 🚀 Version Bump + Publish
-
-```powershell
-# 1. Bump version
-npm version patch   # or minor / major
-
-# 2. Publish (MUST use --access public — scoped package!)
-npm publish --access public
-
-# 3. Update dependant repos
-# In HyperCode-V2.4 and Hyper-Vibe-Coding-Course:
-npm install @welshdog/hyperagent-sdk@latest
-```
-
----
-
-## 📋 Agent Interface Rules
-
-- Every agent **must** implement the base `HyperAgent` interface
-- Agents are write-once, deploy-anywhere across the ecosystem
-- **Never break existing interface contracts — add, don't remove**
-
----
-
-## ✅ Success Criteria
-
-- All tests pass before publish
-- New version visible on npm
-- Dependent repos updated and building without errors
-
----
-
-## 🔑 Key Env Vars
-
-- `NPM_TOKEN` — for publishing to npm
-
----
-
-## 🔗 Related Skills
-- `dev/SDK_PUBLISH_WORKFLOW_v1.md` (HS-024) — full gated publish flow with safety checks
-- `dev/CROSS_REPO_SYNC_v1.md` (HS-023) — syncing contracts across 3 repos after publish
-
-*Rescued from HyperAgent-SDK — HYPER-SKILLs Vault by WelshDog 🐕⚡*

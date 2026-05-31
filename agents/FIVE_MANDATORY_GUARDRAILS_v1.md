@@ -1,5 +1,26 @@
 # HS-085 — 🚧 THE FIVE WARDS — 5 Mandatory Agent Guardrails
 
+---
+skill_id: HS-085
+hero_name: "THE FIVE WARDS"
+emoji: "🚧"
+version: v1.0
+category: agents
+depends_on: []
+provides:
+  - agent-guardrails
+  - input-validation-pattern
+  - cost-limit-pattern
+  - timeout-pattern
+  - approval-gate-pattern
+related:
+  - HS-077  # User Agency Approval Gate — Rule 5 mechanism
+  - HS-071  # Fail Gracefully + Fallback Chain — when Rule 3 fires
+  - HS-076  # Pre-Commit Testing Checklist
+  - HS-088  # Agent Final Self-Audit
+graph_notes: "Foundation skill — no dependencies. Provides the 5 core safety constraints consumed by most agent skills."
+---
+
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §6
 **Version:** v1

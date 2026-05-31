@@ -1,7 +1,31 @@
 #!/usr/bin/env python3
 """HS-114 BRAIN OPS — Hyper Brain Infrastructure Manager
-Version: 2.0.0 (Gordon-hardened: partial-success, rate budget, vault-git contract)
+Version: 2.1.0 (schema-hardened: correct MorningBriefingRequest body, full API surface)
 Usage: uv run scripts/hyper_brain_ops.py <subcommand> [options]
+
+Live API surface (from /openapi.json — THE HYPER BRAIN v3.0.0):
+  GET  /health
+  GET  /ui, /ui/toolkit
+  GET  /events?limit=10
+  GET  /gamification/summary
+  POST /focus/start            {intent, estimated_minutes, project, tags, difficulty_preference}
+  POST /focus/end              {session_id, actual_minutes, distractions_blocked, notes, mood}
+  GET  /focus/status
+  POST /focus/snapshot
+  POST /hypersplit             {task_title, task_description, max_depth, target_minutes_per_task}
+  POST /distraction/report    {source, context, timestamp}
+  GET  /distraction/patterns?days=7
+  GET  /distraction/status
+  GET  /difficulty/get
+  POST /difficulty/set        {intensity: low|medium|hyper|chaos}
+  GET  /constellation/map
+  GET  /analytics/weekly
+  GET  /analytics/streaks
+  GET  /analytics/heatmap?days=30
+  POST /briefing/generate     {date, include_ai_suggestions, include_focus_forecast}
+  GET  /mcp/status
+  POST /mcp/query?query=<str>
+  POST /webhook/github
 """
 import argparse
 import json
@@ -65,7 +89,6 @@ def load_rate_budget() -> dict:
                 return data
         except Exception:
             pass
-    # Fresh budget (GitHub authenticated = 5000 req/hr)
     from datetime import timedelta
     reset_at = (datetime.now(timezone.utc) + timedelta(hours=1)).isoformat()
     budget = {"github_reads_used": 0, "github_reads_budget": 5000, "reset_at": reset_at}
@@ -226,15 +249,33 @@ def cmd_check_health(args) -> dict:
 
 
 def cmd_generate_briefing(args) -> dict:
-    """Trigger POST /briefing/generate and verify file appears in vault."""
+    """Trigger POST /briefing/generate with correct MorningBriefingRequest schema.
+
+    Schema (from /openapi.json — MorningBriefingRequest):
+        date:                   str | null   (optional, ISO date string)
+        include_ai_suggestions: bool         (default: true)
+        include_focus_forecast: bool         (default: true)
+
+    FIX v2.1.0: Previous version sent {} which caused Pydantic KeyError / 422 crashes.
+    Now sends a fully-formed body matching the live schema.
+    """
     log("📝 Generating morning briefing...")
     start = time.time()
     ok = False
     detail = ""
     briefing_file = None
 
+    # Build correct request body matching MorningBriefingRequest schema
+    today_iso = datetime.now().strftime("%Y-%m-%d")
+    request_body = {
+        "date": today_iso,
+        "include_ai_suggestions": not getattr(args, "no_ai_suggestions", False),
+        "include_focus_forecast": not getattr(args, "no_focus_forecast", False),
+    }
+    log(f"  → Request body: {json.dumps(request_body)}")
+
     try:
-        data = json.dumps({}).encode()
+        data = json.dumps(request_body).encode()
         req = urllib.request.Request(
             f"{BRIEFING_API_URL}/briefing/generate",
             data=data,
@@ -250,22 +291,24 @@ def cmd_generate_briefing(args) -> dict:
             if VAULT_PATH:
                 briefings_dir = VAULT_PATH / "Briefings"
                 briefings_dir.mkdir(parents=True, exist_ok=True)
-                today = datetime.now().strftime("%Y-%m-%d")
-                matches = list(briefings_dir.glob(f"*{today}*.md"))
+                matches = list(briefings_dir.glob(f"*{today_iso}*.md"))
                 if matches:
                     briefing_file = str(matches[0])
                     ok = True
                     log(f"✅ Briefing file found: {briefing_file}")
                 else:
-                    ok = True  # API succeeded even if we can't verify file yet
+                    ok = True  # API succeeded; file may appear async
                     detail += " (file not yet detected in vault — check Briefings/ folder)"
-                    log(f"⚠️  Briefing file for {today} not yet detected in {briefings_dir}")
+                    log(f"⚠️  Briefing file for {today_iso} not yet detected in {briefings_dir}")
             else:
                 ok = True
+
     except urllib.error.HTTPError as e:
         body_text = e.read().decode(errors="replace")
         detail = f"HTTP {e.code}: {body_text[:300]}"
         log(f"❌ Briefing API error: {detail}")
+        if e.code == 422:
+            log("  ℹ️  422 = Pydantic validation error. Check request body matches MorningBriefingRequest schema.")
     except Exception as ex:
         detail = str(ex)
         log(f"❌ Briefing generation failed: {ex}")
@@ -273,6 +316,7 @@ def cmd_generate_briefing(args) -> dict:
     duration = round(time.time() - start, 2)
     status_obj = {
         "command": "generate-briefing", "ok": ok, "duration": duration,
+        "request_body": request_body,
         "detail": detail, "briefing_file": briefing_file
     }
     write_status(args.output, status_obj)
@@ -433,6 +477,10 @@ def main():
     # generate-briefing
     p_brief = sub.add_parser("generate-briefing", help="Trigger briefing generation API")
     p_brief.add_argument("--output", help="Write status JSON to this path")
+    p_brief.add_argument("--no-ai-suggestions", action="store_true",
+                         help="Set include_ai_suggestions=false in request body")
+    p_brief.add_argument("--no-focus-forecast", action="store_true",
+                         help="Set include_focus_forecast=false in request body")
 
     # sync-github
     p_sync = sub.add_parser("sync-github", help="Pull GitHub issues into vault")

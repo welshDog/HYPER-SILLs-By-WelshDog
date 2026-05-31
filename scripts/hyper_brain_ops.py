@@ -1,6 +1,3 @@
-from dotenv import load_dotenv
-load_dotenv()
-
 #!/usr/bin/env python3
 """
 HS-114 🛠️ BRAIN OPS — Hyper Brain Infrastructure Maintenance CLI
@@ -12,6 +9,9 @@ Hardened v1.1 — Gordon's patches applied:
   - Vault Git contract: only commits when there are actual changes (git diff-index --quiet)
   - Full report: reads ALL 4 status files (health, briefing, sync, vault_commit)
   - Windows Task Scheduler wrapper script emitted via 'setup-task' subcommand
+
+v1.2 — load_dotenv() fix:
+  - Moved load_dotenv() to BEFORE config block so .env is loaded before os.environ.get() calls
 
 Usage:
     uv run scripts/hyper_brain_ops.py fix-env
@@ -43,6 +43,13 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
+# ── Load .env FIRST — before any os.environ.get() calls ──────────────────────
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass  # python-dotenv not installed — fall back to real env vars
+
 # ── Config ────────────────────────────────────────────────────────────────────
 
 GITHUB_PAT          = os.environ.get("GITHUB_PAT", "")
@@ -54,7 +61,7 @@ GITHUB_REPOS = [
     r.strip()
     for r in os.environ.get(
         "GITHUB_REPOS",
-        "welshDog/HYPER-SILLs-By-WelshDog,welshDog/HyperFocusZone,welshDog/BROski,welshDog/HyperCodeAI",
+        "welshDog/HyperCode-V2.4,welshDog/HYPER-SILLs-By-WelshDog,welshDog/Hyper-Vibe-Coding-Course,welshDog/WelshDog-Mission-Control",
     ).split(",")
     if r.strip()
 ]
@@ -92,18 +99,16 @@ def _load_rate_budget() -> dict:
             b = json.loads(RATE_BUDGET_FILE.read_text())
             reset_at = datetime.fromisoformat(b.get("reset_at", "2000-01-01T00:00:00+00:00"))
             if datetime.now(timezone.utc) > reset_at:
-                # Budget window expired — reset
                 raise ValueError("expired")
             return b
         except Exception:
             pass
-    # Default fresh budget (GitHub auth = 5000 req/hr)
     return {
         "github_reads_used": 0,
-        "github_reads_budget": 4800,  # leave 200 headroom
+        "github_reads_budget": 4800,
         "github_writes_used": 0,
         "github_writes_budget": 4800,
-        "reset_at": "",  # set on first real request
+        "reset_at": "",
         "window_start": datetime.now(timezone.utc).isoformat(),
     }
 
@@ -136,7 +141,6 @@ def github_get(endpoint: str, budget: dict) -> dict | list:
     )
     time.sleep(1)  # 1 req/sec default
     with urllib.request.urlopen(req, timeout=15) as resp:
-        # Capture reset time from headers if available
         reset_ts = resp.headers.get("X-RateLimit-Reset")
         if reset_ts and not budget.get("reset_at"):
             budget["reset_at"] = datetime.fromtimestamp(int(reset_ts), tz=timezone.utc).isoformat()
@@ -197,7 +201,6 @@ def cmd_check_health(restart_if_down: bool, output: str | None) -> dict:
     result["duration_s"] = round(time.monotonic() - t0, 2)
     log("📊", f"Health: {result['status']} ({result['duration_s']}s)")
 
-    # Always write output — partial success, never crash pipeline
     write_output(output, result)
     return result
 
@@ -290,7 +293,6 @@ def cmd_sync_github(output: str | None) -> dict:
             result["errors"].append(msg)
             log("⚠️", msg)
         except RuntimeError as e:
-            # Budget exhausted
             msg = str(e)
             result["repos"][repo] = {"status": "skipped", "error": msg}
             result["errors"].append(msg)
@@ -313,13 +315,6 @@ def cmd_sync_github(output: str | None) -> dict:
 # ── Subcommand: commit-vault ──────────────────────────────────────────────────
 
 def cmd_commit_vault(output: str | None) -> dict:
-    """
-    Vault Git Contract:
-    - HS-114 writes files; this command commits them.
-    - Only commits if git reports actual changes (git diff-index --quiet).
-    - Never commits an empty tree; never conflicts with Obsidian Git plugin.
-    - Commit message: 'ops: brain-ops sync [YYYY-MM-DD HH:MM UTC]'
-    """
     result = {
         "step": "commit-vault",
         "status": "unknown", "committed": False,
@@ -334,7 +329,6 @@ def cmd_commit_vault(output: str | None) -> dict:
         write_output(output, result)
         return result
 
-    # Check if vault is a git repo
     git_dir = VAULT_PATH / ".git"
     if not git_dir.exists():
         result["status"] = "skipped"
@@ -344,13 +338,11 @@ def cmd_commit_vault(output: str | None) -> dict:
         return result
 
     try:
-        # Stage all changes
         subprocess.run(
             ["git", "add", "-A"],
             cwd=VAULT_PATH, capture_output=True, check=True, timeout=30,
         )
 
-        # Check for actual changes (Gordon's contract: no empty commits)
         diff_check = subprocess.run(
             ["git", "diff-index", "--quiet", "HEAD", "--"],
             cwd=VAULT_PATH, capture_output=True, timeout=10,
@@ -371,7 +363,6 @@ def cmd_commit_vault(output: str | None) -> dict:
             result["message"] = commit_msg
             log("✅", f"Vault committed: {commit_msg}")
 
-            # Optional push (non-fatal if it fails)
             try:
                 subprocess.run(
                     ["git", "push"],
@@ -417,7 +408,6 @@ def cmd_fix_env() -> None:
             if critical:
                 ok = False
 
-    # Docker + container
     try:
         proc = subprocess.run(
             ["docker", "ps", "--filter", f"name={DOCKER_CONTAINER}", "--format", "{{.Names}}"],
@@ -433,7 +423,6 @@ def cmd_fix_env() -> None:
         log("⚠️", "Docker CLI not found.")
         print("    ➡️  Fix: Install Docker Desktop (Windows) or docker on your system.")
 
-    # API reachability
     try:
         with urllib.request.urlopen(urllib.request.Request(f"{BRIEFING_API_URL}/health"), timeout=5) as resp:
             log("✅", f"API at {BRIEFING_API_URL} reachable (HTTP {resp.status}).")
@@ -442,7 +431,6 @@ def cmd_fix_env() -> None:
         print("    ➡️  Fix: Check Docker volume mounts and that port 8100 is exposed.")
         ok = False
 
-    # Vault git check
     if (VAULT_PATH / ".git").exists():
         log("✅", "Vault is a Git repository.")
     else:
@@ -460,10 +448,6 @@ def cmd_fix_env() -> None:
 # ── Subcommand: report ────────────────────────────────────────────────────────
 
 def cmd_report(input_dir: str) -> None:
-    """
-    Reads ALL step status JSONs and sends ONE BROski-style Discord message.
-    Never crashes if a JSON is missing — just marks that step as 'no data'.
-    """
     base = Path(input_dir)
     steps_order = [
         ("health",        "check-health",        "🐳 Health Check"),
@@ -483,7 +467,6 @@ def cmd_report(input_dir: str) -> None:
         else:
             step_results[file_key] = {"status": "no_data"}
 
-    # Build the report lines
     now_str = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M")
     lines = [
         "🛠️ **BRAIN OPS REPORT**",
@@ -499,7 +482,6 @@ def cmd_report(input_dir: str) -> None:
         duration = f" ({r['duration_s']}s)" if r.get("duration_s") else ""
         lines.append(f"{icon} **{label}**: `{s.upper()}`{duration}")
 
-        # Extra detail per step
         if file_key == "health":
             c = r.get("container", "?")
             a = r.get("api", "?")
@@ -537,7 +519,7 @@ def cmd_report(input_dir: str) -> None:
         log("⚠️", "DISCORD_WEBHOOK_URL not set — Discord skipped.")
         return
 
-    time.sleep(1)  # Discord rate-limit safety (5 req / 2 sec)
+    time.sleep(1)
     payload = json.dumps({"content": message}).encode()
     req = urllib.request.Request(
         DISCORD_WEBHOOK_URL,
@@ -557,11 +539,6 @@ def cmd_report(input_dir: str) -> None:
 # ── Subcommand: setup-task ────────────────────────────────────────────────────
 
 def cmd_setup_task(hour: int, minute: int) -> None:
-    """
-    Emits a Windows .bat launcher + PowerShell Task Scheduler registration command.
-    Designed so Task Scheduler never uses 'set -e' behaviour — each step is
-    independent; the chain continues even if a step exits non-zero.
-    """
     script_path = Path(__file__).resolve()
     bat_path = script_path.parent / "run_brain_ops_daily.bat"
 
@@ -601,7 +578,7 @@ exit /b 0
 def main() -> None:
     parser = argparse.ArgumentParser(
         prog="hyper_brain_ops",
-        description="🛠️ HS-114 BRAIN OPS — Hyper Brain Infrastructure Maintenance (v1.1)",
+        description="🛠️ HS-114 BRAIN OPS — Hyper Brain Infrastructure Maintenance (v1.2)",
     )
     sub = parser.add_subparsers(dest="command", required=True)
 
@@ -647,4 +624,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

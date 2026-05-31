@@ -1,5 +1,25 @@
 # HS-105 — 📊 THE METRICS OATH — Core Agent Metrics Contract (5 Mandatory)
 
+---
+skill_id: HS-105
+hero_name: "THE METRICS OATH"
+emoji: "📊"
+version: v1.0
+category: dev
+depends_on:
+  - HS-070  # ALL-SEEING — observability philosophy this contract implements
+provides:
+  - metrics-contract
+  - prometheus-metrics-pattern
+  - agent-health-signals
+related:
+  - HS-099  # Anatomy of an Agent — Eyes organ
+  - HS-100  # Agent Lifecycle State Machine — which state emits which metric
+  - HS-092  # Agent Contract Test Suite
+  - HS-093  # Nightly Continuous Learning Loop
+graph_notes: "Concrete metrics contract. Depends on HS-070 for philosophy. Consumed by HS-103 (Healer watches these signals) and HS-104 (Tier protection reads agent_up)."
+---
+
 **Category:** `dev/`
 **Source:** HyperCode-V2.4 — `agents/throttle-agent/HYPER-AGENT-BIBLE.md`
 **Version:** v1

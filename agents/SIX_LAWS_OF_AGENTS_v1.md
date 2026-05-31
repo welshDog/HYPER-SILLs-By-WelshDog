@@ -1,4 +1,25 @@
-# HS-098 — 🏛️ THE SACRED SIX — The 6 Laws of Agents
+# HS-098 — 🏙️ THE SACRED SIX — The 6 Laws of Agents
+
+---
+skill_id: HS-098
+hero_name: "THE SACRED SIX"
+emoji: "🏙️"
+version: v1.0
+category: agents
+depends_on:
+  - HS-085  # FIVE WARDS — code-level enforcement of these laws
+  - HS-070  # ALL-SEEING — implements Law 6 (Transparency)
+provides:
+  - agent-law-framework
+  - law-conflict-resolution
+  - agent-philosophy
+related:
+  - HS-088  # Agent Final Self-Audit — checks each law at task completion
+  - HS-099  # Anatomy of an Agent — the organs that obey the laws
+  - HS-104  # Tier Protection Rules — implements Law 2 (Protection)
+  - HS-103  # Healer Circuit-Breaker — implements Law 3 (Communication)
+graph_notes: "Philosophical root skill. Sits above HS-085 (code guardrails). All 6 laws map directly to implementing skills via the Law → Skill Map table."
+---
 
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/throttle-agent/HYPER-AGENT-BIBLE.md`
@@ -14,7 +35,7 @@ The six operational laws every HyperCode agent MUST follow. Philosophical level,
 
 ---
 
-## 🏛️ The 6 Laws
+## 🏙️ The 6 Laws
 
 ```
 LAW 1 — PURPOSE

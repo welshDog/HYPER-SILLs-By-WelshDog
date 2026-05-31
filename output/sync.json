@@ -1,0 +1,31 @@
+{
+  "step": "sync-github",
+  "repos": {
+    "welshDog/HYPER-SILLs-By-WelshDog": {
+      "status": "error",
+      "error": "welshDog/HYPER-SILLs-By-WelshDog: HTTP 401 error."
+    },
+    "welshDog/HyperFocusZone": {
+      "status": "error",
+      "error": "welshDog/HyperFocusZone: HTTP 401 error."
+    },
+    "welshDog/BROski": {
+      "status": "error",
+      "error": "welshDog/BROski: HTTP 401 error."
+    },
+    "welshDog/HyperCodeAI": {
+      "status": "error",
+      "error": "welshDog/HyperCodeAI: HTTP 401 error."
+    }
+  },
+  "total_issues_written": 0,
+  "errors": [
+    "welshDog/HYPER-SILLs-By-WelshDog: HTTP 401 error.",
+    "welshDog/HyperFocusZone: HTTP 401 error.",
+    "welshDog/BROski: HTTP 401 error.",
+    "welshDog/HyperCodeAI: HTTP 401 error."
+  ],
+  "status": "partial",
+  "duration_s": 4.78,
+  "timestamp": "2026-05-31T18:11:33.474736+00:00"
+}

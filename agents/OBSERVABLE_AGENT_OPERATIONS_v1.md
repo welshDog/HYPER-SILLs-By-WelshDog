@@ -1,5 +1,25 @@
 # HS-070 — 👁️ THE ALL-SEEING — Observable Agent Operations Pattern
 
+---
+skill_id: HS-070
+hero_name: "THE ALL-SEEING"
+emoji: "👁️"
+version: v1.0
+category: agents
+depends_on: []
+provides:
+  - observability-philosophy
+  - event-emission-pattern
+  - prometheus-metrics-base
+  - trace-operation-pattern
+related:
+  - HS-073  # SSE Agent Event Schema — event transport layer
+  - HS-068  # BROski Orchestrator Pattern
+  - HS-074  # API Standards FastAPI Pattern
+  - HS-105  # THE METRICS OATH — concrete contract built on this philosophy
+graph_notes: "Foundation observability skill — no dependencies. HS-105 is the concrete metrics contract that implements this philosophy. Every agent skill consuming metrics should depend on this."
+---
+
 **Category:** `agents/`  
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §1 Principle 4 + §4  
 **Version:** v1  
@@ -132,7 +152,8 @@ Use this event schema:
 
 ---
 
-## 🔗 Related Skills
-- HS-073 SSE Agent Event Schema
-- HS-068 BROski Orchestrator Pattern
-- HS-074 API Standards FastAPI Pattern
+## 🧩 Related Skills
+- [[HS-073]] SSE Agent Event Schema
+- [[HS-068]] BROski Orchestrator Pattern
+- [[HS-074]] API Standards FastAPI Pattern
+- [[HS-105]] THE METRICS OATH — concrete 5-metric contract built on this philosophy

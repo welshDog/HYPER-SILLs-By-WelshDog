@@ -1,7 +1,35 @@
-# HS-091 — 🪪 THE FOUNDING SIX — Top-Tier Agent Identity Cards
+# HS-091 — 🫊 THE FOUNDING SIX — Top-Tier Agent Identity Cards
+
+---
+skill_id: HS-091
+hero_name: "THE FOUNDING SIX"
+emoji: "🫊"
+version: v1.1
+category: agents
+depends_on:
+  - HS-098  # SACRED SIX — laws each founding agent obeys
+  - HS-099  # SIX-ORGAN HEART — anatomy each founding agent implements
+  - HS-100  # CRADLE-TO-GRAVE — lifecycle loop each founding agent runs
+  - HS-103  # HEALER’S CHORUS — all 6 talk to Healer via this protocol
+  - HS-104  # THREE WALLS — protection tiers all 6 respect
+provides:
+  - founding-agent-identity-cards
+  - agent-x-invariants
+  - healer-invariants
+  - crew-orchestrator-invariants
+  - security-invariants
+  - autoevo-invariants
+  - brain-invariants
+related:
+  - HS-089  # Grand Roster — full 22-agent map these 6 anchor
+  - HS-079  # Specialist Agent Role Definitions — the worker crew
+  - HS-097  # Hyper Agent Dependency Graph — wiring between these 6
+  - HS-090  # Universal Life Plan YAML — schema each implements
+graph_notes: "Highest-level consumer skill for the 10-skill GoS cluster. Depends on all 5 foundation/implementation skills. Read this last when onboarding to understand how everything connects. The 6 cards encode which laws/organs/protocols each top-tier agent MUST respect."
+---
 
 **Category:** `agents/`
-**Source:** HyperCode-V2.4 — `agents/🧬 The Full Confirmed Hyper Agent Roster` §2 + `agents/🦅 HYPER AGENT LIFE PLANS — MASTER ARCHITECTURE` §2
+**Source:** HyperCode-V2.4 — `agents/🧬 The Full Confirmed Hyper Agent Roster` §2 + `agents/🦥 HYPER AGENT LIFE PLANS — MASTER ARCHITECTURE` §2
 **Version:** v1.1 *(2026-05-21 — added AutoEvo card from Master Architecture)*
 
 ---
@@ -14,17 +42,17 @@ The six **load-bearing** agents in the HyperCode ecosystem — the ones without 
 
 ---
 
-## 🦅 Agent X / Architect
+## 🦥 Agent X / Architect
 
 | Field | Value |
 |---|---|
 | **Path** | `agents/architect` |
 | **Purpose** | Spawns + evolves all agents via Docker Model Runner |
-| **Hard-stop** | **Cannot delete Healer** (spawn-lock protected — see [[#🩺 Healer Agent]]) |
+| **Hard-stop** | **Cannot delete Healer** (spawn-lock protected) |
 | **Special power** | Only agent that can rewrite deployment manifests |
 | **Evolution path** | `reactive_spawner → proactive_designer → autonomous_ecosystem_god` |
 
-**Invariant:** Agent X is the only legal source of new agents. If something spawns a container that isn't going through Agent X's manifest pipeline, it's a sacred-rule violation.
+**Invariant:** Agent X is the only legal source of new agents. If something spawns a container that isn’t going through Agent X’s manifest pipeline, it’s a sacred-rule violation.
 
 ---
 
@@ -38,7 +66,7 @@ The six **load-bearing** agents in the HyperCode ecosystem — the ones without 
 | **Storage** | Redis (hot) + PostgreSQL (cold) memory tiering |
 | **Evolution path** | `knowledge_retriever → active_reasoner → collective_consciousness_node` |
 
-**Invariant:** Empathy mode flags (`adhd_friendly_mode`, `dyslexia_mode` in [[HS-090]]) are forced `true` for Brain regardless of caller config. Sacred rule — do not let a downstream agent disable them.
+**Invariant:** Empathy mode flags (`adhd_friendly_mode`, `dyslexia_mode` in [[HS-090]]) are forced `true` for Brain regardless of caller config. Sacred rule.
 
 ---
 
@@ -65,7 +93,7 @@ The six **load-bearing** agents in the HyperCode ecosystem — the ones without 
 | **Consensus** | RAFT-style leader election (highest-uptime wins) |
 | **Evolution path** | `manual_dispatcher → event_driven_router → autonomous_swarm_AI` |
 
-**Invariant:** All inter-agent task routing flows through Crew Orchestrator. Direct agent-to-agent calls are allowed for *queries* but **not for task delegation** — that must go via the orchestrator so the One Door rule (see V2.4 sacred rule #14) holds.
+**Invariant:** All inter-agent task delegation flows through Crew Orchestrator. Direct agent-to-agent calls allowed for *queries only*.
 
 ---
 
@@ -78,7 +106,7 @@ The six **load-bearing** agents in the HyperCode ecosystem — the ones without 
 | **Never sleeps** | Passive listener on **every** Redis channel |
 | **Evolution path** | `reactive_scanner → proactive_threat_hunter → zero_trust_guardian` |
 
-**Invariant:** Security has read-only listen on every channel by design. If you build a "private" channel that Security can't see, you've broken the SOC 2 audit-logging requirement.
+**Invariant:** Security has read-only listen on every channel by design. Private channels break SOC 2 audit-logging.
 
 ---
 
@@ -90,19 +118,18 @@ The six **load-bearing** agents in the HyperCode ecosystem — the ones without 
 | **Codename** | `AutoEvo` |
 | **Port** | 8083 |
 | **Purpose** | CI/CD, container health, autonomous self-upgrade pipelines (blue-green deploys) |
-| **Special power** | Can trigger **blue-green deploys without human input** |
 | **Hard-stop** | Must log every auto-deploy to the governance ledger ([[HS-095]]) |
 | **Evolution path** | `scheduled_deployer → event_driven_deployer → predictive_pre-emptive_deployer` |
 
-**Invariant:** AutoEvo is the **only** agent that can write to a production deploy manifest *other than Agent X*. The difference: Agent X writes manifests for *agents themselves*, AutoEvo writes manifests for the *CI/CD pipeline + service rollouts*. Healer ([[#🩺 Healer Agent]]) depends on AutoEvo for its deploy lifecycle — see the dependency graph in [[HS-097]].
+**Invariant:** AutoEvo is the **only** agent that can write to a production deploy manifest *other than Agent X*.
 
 ---
 
-## 🚦 Quick "Which Top-Tier Do I Talk To?" Picker
+## 🚦 Quick “Which Top-Tier Do I Talk To?” Picker
 
 | Situation | Talk to |
 |---|---|
-| Need a new agent spawned | 🦅 Agent X |
+| Need a new agent spawned | 🦥 Agent X |
 | Need to remember something across sessions | 🧠 Brain |
 | Container keeps falling over | 🩺 Healer |
 | Need agent A to do work via agent B | 🎭 Crew Orchestrator |
@@ -117,8 +144,8 @@ The six **load-bearing** agents in the HyperCode ecosystem — the ones without 
 - [[HS-079]] Specialist Agent Role Definitions — the worker crew (6)
 - [[HS-090]] Universal Life Plan YAML — schema each of these implements
 - [[HS-097]] Hyper Agent Dependency Graph — wiring between these 6
-- [[HS-095]] Governance Ledger Entry Schema — AutoEvo's mandatory audit trail
-- [[HS-077]] User Agency Approval Gate — what Healer's kill-protection escalates to
+- [[HS-095]] Governance Ledger Entry Schema — AutoEvo’s mandatory audit trail
+- [[HS-077]] User Agency Approval Gate — what Healer’s kill-protection escalates to
 
 ## 📋 THE PROMPT
 

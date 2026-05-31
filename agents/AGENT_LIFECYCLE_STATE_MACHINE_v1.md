@@ -1,5 +1,28 @@
 # HS-100 — 🔄 CRADLE-TO-GRAVE — Agent Lifecycle State Machine (BIRTH → DEATH)
 
+---
+skill_id: HS-100
+hero_name: "CRADLE-TO-GRAVE"
+emoji: "🔄"
+version: v1.0
+category: agents
+depends_on:
+  - HS-099  # SIX-ORGAN HEART — Heart organ runs this loop
+  - HS-098  # SACRED SIX — Law 3 (REPORT) + Law 5 (REST) enforced here
+  - HS-070  # ALL-SEEING — observability hooks per state
+  - HS-105  # METRICS OATH — what to emit per state
+provides:
+  - lifecycle-state-machine
+  - autopilot-loop-pattern
+  - per-state-observability-hooks
+  - graceful-shutdown-pattern
+related:
+  - HS-087  # Agent Decision Tree — per-task flow nested inside DECIDE state
+  - HS-093  # Nightly Continuous Learning Loop — drift detection watches REPORT hooks
+  - HS-090  # Universal Life Plan YAML — per-conversation dialogue_state_machine (layer 3)
+graph_notes: "Runtime loop skill. Depends on anatomy (HS-099), laws (HS-098), observability (HS-070, HS-105). Consumed by HS-091 (Founding Six agents all run this loop) and HS-089 (all 22+ roster agents)."
+---
+
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/throttle-agent/HYPER-AGENT-BIBLE.md`
 **Version:** v1

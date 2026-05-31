@@ -1,31 +1,41 @@
 {
   "step": "sync-github",
   "repos": {
+    "welshDog/HyperCode-V2.4": {
+      "status": "error",
+      "error": "welshDog/HyperCode-V2.4: HTTP 401 error."
+    },
     "welshDog/HYPER-SILLs-By-WelshDog": {
       "status": "error",
       "error": "welshDog/HYPER-SILLs-By-WelshDog: HTTP 401 error."
     },
-    "welshDog/HyperFocusZone": {
+    "welshDog/Hyper-Vibe-Coding-Course": {
       "status": "error",
-      "error": "welshDog/HyperFocusZone: HTTP 401 error."
+      "error": "welshDog/Hyper-Vibe-Coding-Course: HTTP 401 error."
     },
-    "welshDog/BROski": {
+    "welshDog/WelshDog-Mission-Control": {
       "status": "error",
-      "error": "welshDog/BROski: HTTP 401 error."
+      "error": "welshDog/WelshDog-Mission-Control: HTTP 401 error."
     },
-    "welshDog/HyperCodeAI": {
+    "welshDog/hyper-agents-ide": {
       "status": "error",
-      "error": "welshDog/HyperCodeAI: HTTP 401 error."
+      "error": "welshDog/hyper-agents-ide: HTTP 401 error."
+    },
+    "welshDog/HyperAgent-SDK": {
+      "status": "error",
+      "error": "welshDog/HyperAgent-SDK: HTTP 401 error."
     }
   },
   "total_issues_written": 0,
   "errors": [
+    "welshDog/HyperCode-V2.4: HTTP 401 error.",
     "welshDog/HYPER-SILLs-By-WelshDog: HTTP 401 error.",
-    "welshDog/HyperFocusZone: HTTP 401 error.",
-    "welshDog/BROski: HTTP 401 error.",
-    "welshDog/HyperCodeAI: HTTP 401 error."
+    "welshDog/Hyper-Vibe-Coding-Course: HTTP 401 error.",
+    "welshDog/WelshDog-Mission-Control: HTTP 401 error.",
+    "welshDog/hyper-agents-ide: HTTP 401 error.",
+    "welshDog/HyperAgent-SDK: HTTP 401 error."
   ],
   "status": "partial",
-  "duration_s": 4.63,
-  "timestamp": "2026-05-31T18:24:30.203113+00:00"
+  "duration_s": 6.93,
+  "timestamp": "2026-05-31T19:36:45.577068+00:00"
 }

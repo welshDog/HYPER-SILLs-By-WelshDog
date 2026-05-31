@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 #!/usr/bin/env python3
 """
 HS-114 🛠️ BRAIN OPS — Hyper Brain Infrastructure Maintenance CLI
@@ -644,3 +647,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

@@ -1,5 +1,30 @@
 # HS-099 — 🧬 SIX-ORGAN HEART — Anatomy of an Agent
 
+---
+skill_id: HS-099
+hero_name: "SIX-ORGAN HEART"
+emoji: "🧬"
+version: v1.0
+category: agents
+depends_on:
+  - HS-098  # SACRED SIX — laws each organ obeys
+  - HS-085  # FIVE WARDS — guardrails wired into Brain + Shield organs
+  - HS-070  # ALL-SEEING — Eyes organ foundation
+  - HS-105  # METRICS OATH — mandatory Eyes organ contract
+provides:
+  - agent-anatomy-framework
+  - six-organ-model
+  - anatomy-audit-checklist
+related:
+  - HS-100  # Agent Lifecycle State Machine — Heart organ loop maps to WATCH→DECIDE→ACT→REPORT
+  - HS-101  # Sleep Cycle — Sleep organ in detail
+  - HS-102  # Predictive Trend — Brain organ prediction engine
+  - HS-103  # Healer Circuit-Breaker — Voice organ protocol
+  - HS-104  # Tier Protection Rules — Shield organ config
+  - HS-106  # New Agent Build Checklist — uses this anatomy audit
+graph_notes: "Structural model skill. Integrates outputs of all foundation skills into a 6-organ framework. New agents MUST pass the anatomy audit checklist before shipping."
+---
+
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/throttle-agent/HYPER-AGENT-BIBLE.md`
 **Version:** v1
@@ -8,7 +33,7 @@
 
 ## 🤔 What It Does
 
-A conceptual decomposition of every HyperCode agent into six **organs**. Use this when designing a new agent — if you can't name what plays the role of each organ, the agent isn't complete. Different angle from [[HS-090]] (which is the YAML schema) and [[HS-079]] (which is role boundaries).
+A conceptual decomposition of every HyperCode agent into six **organs**. Use this when designing a new agent — if you can’t name what plays the role of each organ, the agent isn’t complete. Different angle from [[HS-090]] (which is the YAML schema) and [[HS-079]] (which is role boundaries).
 
 ---
 
@@ -28,7 +53,7 @@ The logic core. Reads signals (RAM %, CPU %, Docker state, business metrics) and
 
 ---
 
-## 🫀 Heart — Autopilot Loop
+## �afe Heart — Autopilot Loop
 
 An async loop that pulses every N seconds (default: 30s). The heartbeat of the agent. **When it stops, the agent is dead.**
 
@@ -59,13 +84,13 @@ if container in PROTECTED_TIERS_1_2_3 or container in PROTECT_CONTAINERS:
 
 ## 🤝 Voice — Healer Integration
 
-Agents talk to the Healer Agent before making big moves. Before resuming a paused container: *"Healer, is it safe?"* The Healer holds the circuit breaker. Agents respect it. See [[HS-103]] for the protocol.
+Agents talk to the Healer Agent before making big moves. Before resuming a paused container: *“Healer, is it safe?”* The Healer holds the circuit breaker. Agents respect it. See [[HS-103]] for the protocol.
 
 ---
 
 ## 😴 Sleep Mode — TTL Pause System
 
-When RAM pressure hits, non-critical containers sleep (pause). They auto-wake after 15 minutes (TTL) or when RAM drops below 75%. **Sleep is not death. It's conservation.** Full pattern in [[HS-101]].
+When RAM pressure hits, non-critical containers sleep (pause). They auto-wake after 15 minutes (TTL) or when RAM drops below 75%. **Sleep is not death. It’s conservation.** Full pattern in [[HS-101]].
 
 ---
 
@@ -88,9 +113,10 @@ Missing any organ → not a fully-formed agent.
 
 - [[HS-098]] 6 Laws — the laws each organ obeys
 - [[HS-090]] Universal Life Plan YAML — the schema each organ implements
+- [[HS-100]] Agent Lifecycle State Machine — Heart organ loop
 - [[HS-101]] Sleep Cycle + Anti-Thrash — the Sleep organ in detail
-- [[HS-102]] Predictive Trend — the Brain organ's prediction engine
-- [[HS-103]] Healer Circuit-Breaker Protocol — the Voice organ's protocol
-- [[HS-104]] Tier Protection Rules — the Shield organ's config
-- [[HS-105]] Core Agent Metrics Contract — the Eyes organ's contract
+- [[HS-102]] Predictive Trend — the Brain organ’s prediction engine
+- [[HS-103]] Healer Circuit-Breaker Protocol — the Voice organ’s protocol
+- [[HS-104]] Tier Protection Rules — the Shield organ’s config
+- [[HS-105]] Core Agent Metrics Contract — the Eyes organ’s contract
 - [[HS-106]] New Agent Build Checklist — uses this anatomy audit

@@ -1,128 +1,113 @@
+# HS-NNN — 🦸 HERO NAME — Short Skill Title
+
 ---
-id: SKILL_XXX
-hero_name: "Your Skill Hero Name"
-category: coding | content | design | agents | youtube | automation | ND-friendly
-version: v1.0.0
-last_updated: YYYY-MM-DD
-best_for: "One sentence on when to use this skill"
-difficulty: beginner | intermediate | advanced
-estimated_time: "~5 min"
-tags: [tag1, tag2, tag3]
-
-# ===== 🧠 SKILL GRAPH METADATA (GoS) — Added v2.0 =====
-# These fields power dependency-aware retrieval (+25% reward, -57% tokens)
-# All fields are OPTIONAL but strongly recommended for new skills
-
-depends_on:           # Skills needed BEFORE using this one effectively
-  - id: SKILL_XXX
-    reason: "Why this skill is a prerequisite"
-  # - id: SKILL_YYY
-  #   reason: "Another prereq if needed"
-
-provides:             # What capabilities/outputs this skill adds
-  - "Capability 1 — what the agent can do after loading this skill"
-  - "Capability 2"
-
-related:              # Cross-references (replaces manual [[HS-NNN]] wikilinks)
-  - SKILL_XXX         # Related Skill Name — why it connects
-  # - SKILL_YYY
-
-packs:                # Which skill packs this belongs to
-  - "Pack Name Here"  # e.g. "Agent Builder Pack"
-
-trigger_keywords:     # Words/phrases that should auto-suggest this skill
-  - "keyword one"
-  - "keyword two"
-
-# ===== 📦 VERSIONING =====
-semantic_version: v1.0.0   # MAJOR.MINOR.PATCH
-# MAJOR = breaking change (prompt behaviour changes)
-# MINOR = new capability added
-# PATCH = fix, clarification, typo
-version_history:
-  - v1.0.0: "Initial skill added to vault"
-
-# ===== 🔄 LIFECYCLE =====
-# DRAFT → REVIEW → ACTIVE → DEPRECATED → ARCHIVED
-skill_lifecycle: DRAFT
-# DRAFT      = new, not yet validated
-# REVIEW     = passes linter, tested at least once
-# ACTIVE     = fully supported, appears in all searches
-# DEPRECATED = warn on use, suggest replacement
-# ARCHIVED   = hidden from search, kept for history
+skill_id: HS-NNN
+hero_name: "HERO NAME"
+emoji: "🦸"
+version: v1.0
+category: agents  # agents | dev | content | youtube | broski
+depends_on:
+  - HS-XXX  # Skill this one builds on — e.g. HS-098 SACRED SIX
+  # Add more dependencies, or '- none' if truly standalone
+provides:
+  - feature-slug-one      # What downstream skills can consume from this one
+  - pattern-name-two
+related:
+  - HS-YYY  # Lateral reference — not a hard dependency, just connected
+graph_notes: "One sentence: where this skill sits in the graph and what it connects."
 ---
 
-# ⚡ [SKILL HERO NAME]
+**Category:** `agents/`
+**Source:** HyperCode-V2.4 — `path/to/source/file`
+**Version:** v1
 
-> *One-line power statement — what does this skill DO in plain English?*
+---
+
+## 🤔 What It Does
+
+> One-line summary. What problem does this skill solve? Why does it exist?
+
+Expand to 2–3 sentences max. Plain English — no jargon until the How section.
 
 ---
 
 ## 🎯 Purpose
 
-What does this skill do? Why does it exist? What problem does it solve?
+- **Who uses it:** Which agents or humans reach for this skill?
+- **When to use it:** What triggers reaching for this skill?
+- **What it unlocks:** What becomes possible once you have it?
 
 ---
 
 ## 📥 Inputs
 
-- **Input 1:** Description of what to provide
-- **Input 2:** Description of what to provide
-- **Input 3:** Description of what to provide
+| Input | Type | Required | Description |
+|---|---|---|---|
+| `param_name` | `string` | ✅ | What it is |
+| `optional_param` | `int` | ❌ | What it does |
 
 ---
 
 ## 📤 Output Format
 
-Describe the output format: markdown, JSON, bullet list, numbered steps, table, etc.
+```json
+{
+  "status": "ok",
+  "result": "..."
+}
+```
 
 ---
 
 ## 🔮 Prompt Block
 
 ```
-PASTE YOUR EXACT PROMPT HERE.
+You are a [ROLE].
 
-Use [INPUT_VARIABLE] format for anything the user needs to fill in.
+Given [CONTEXT], your job is to [TASK].
 
-Example:
-You are an expert in [TOPIC]. Analyse [INPUT_DATA] and provide [OUTPUT_TYPE].
+Rules:
+1. [Rule one]
+2. [Rule two]
+3. [Rule three]
+
+Output format:
+[Describe expected output]
 ```
 
 ---
 
 ## 💡 Example Usage
 
-**Input:**
-```
-[Example of what you'd paste in]
+```python
+# One concrete example — copy-paste ready
+result = skill_function(
+    param="value",
+    optional=42
+)
+print(result)  # Expected: {...}
 ```
 
-**Output:**
-```
-[Example of what the AI returns]
-```
+---
+
+## 🚨 Anti-patterns
+
+- **Don't do X** — because Y happens
+- **Don't do A** — use B instead
 
 ---
 
 ## 🔗 Related Skills
 
-- `SKILL_XXX` — Related Skill Name (why it pairs well)
-- `SKILL_XXX` — Related Skill Name (why it pairs well)
+- [[HS-XXX]] Skill Name — why it's related
+- [[HS-YYY]] Another Skill — how they connect
 
 ---
 
-## 📊 Skill Graph
+## 📋 THE PROMPT
 
+> Copy this block into any AI session to activate the skill:
+
+```text
+Use skill HS-NNN [HERO NAME]. [One-sentence instruction for the AI.]
 ```
-Dependencies (must load first):
-  SKILL_XXX → THIS SKILL → provides: [capability 1, capability 2]
-
-Enables (load these next):
-  THIS SKILL → SKILL_YYY (if building on top of this)
-```
-
----
-
-*Added by: @welshDog | Vault: HYPER-SKILLs-By-WelshDog*
-*Template v2.0 — GoS-ready with dependency graph metadata*

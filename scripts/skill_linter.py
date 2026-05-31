@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 """
-HYPER-SILLs Skill Vault Linter v2.0
+HYPER-SILLs Skill Vault Linter v2.1
 Checks every skill .md file for required structure + Graph-of-Skills (GoS) metadata.
+
+New in v2.1:
+  - Legacy header regex now tolerates emoji prefix (e.g. # 🛠️ HS-114 — ...)
 
 New in v2.0:
   - Validates GoS fields: depends_on, provides, related, graph_notes
   - Detects broken HS-NNN cross-references in depends_on/related
   - Detects circular dependencies across the vault
-  - Warns when skill_id in frontmatter doesn’t match filename HS-NNN
+  - Warns when skill_id in frontmatter doesn't match filename HS-NNN
   - Warns on skills with no provides (graph dead-ends)
 
 Usage:
@@ -18,7 +21,7 @@ Usage:
 import os
 import re
 import sys
-from collections import defaultdict, deque
+from collections import defaultdict
 from pathlib import Path
 
 try:
@@ -34,12 +37,12 @@ REQUIRED_FRONTMATTER = [
     "id:", "hero_name:", "category:", "version:", "last_updated:", "best_for:"
 ]
 REQUIRED_HEADINGS = [
-    "## \U0001f3af Purpose",
-    "## \U0001f4e5 Inputs",
-    "## \U0001f4e4 Output Format",
-    "## \U0001f52e Prompt Block",
-    "## \U0001f4a1 Example Usage",
-    "## \U0001f517 Related Skills",
+    "## 🎯 Purpose",
+    "## 📥 Inputs",
+    "## 📤 Output Format",
+    "## 🔮 Prompt Block",
+    "## 💡 Example Usage",
+    "## 🔗 Related Skills",
 ]
 
 VALID_CATEGORIES   = {"coding", "content", "design", "agents", "youtube", "automation", "ND-friendly", "broski"}
@@ -50,9 +53,9 @@ VERSION_PATTERN  = re.compile(r"^version:\s+v\d+\.\d+")
 DATE_PATTERN     = re.compile(r"^last_updated:\s+\d{4}-\d{2}-\d{2}")
 HS_ID_PATTERN    = re.compile(r"HS-\d{3,}")
 
-# GoS field patterns
-GOS_LIST_ITEM    = re.compile(r"^\s+-\s+(HS-\d{3,})")   # - HS-NNN  (with optional comment)
-GOS_PROVIDES_STR = re.compile(r"^\s+-\s+([\w\-]+)")      # - some-feature-name
+# Legacy header: optional emoji/text before HS-NNN
+# Matches: '# HS-098 —', '# 🛠️ HS-114 —', '# 🏛️ HS-098 THE SACRED SIX'
+LEGACY_HEADER_PATTERN = re.compile(r"^#\s+.*HS-\d{3,}\b")
 
 # ── Colours ─────────────────────────────────────────────────────────────────
 GREEN  = "\033[92m"
@@ -62,13 +65,13 @@ CYAN   = "\033[96m"
 BOLD   = "\033[1m"
 RESET  = "\033[0m"
 
-def ok(msg):   print(f"  {GREEN}\u2705 {msg}{RESET}")
-def fail(msg): print(f"  {RED}\u274c {msg}{RESET}")
-def warn(msg): print(f"  {YELLOW}\u26a0\ufe0f  {msg}{RESET}")
-def info(msg): print(f"  {CYAN}\u2139\ufe0f  {msg}{RESET}")
+def ok(msg):   print(f"  {GREEN}✅ {msg}{RESET}")
+def fail(msg): print(f"  {RED}❌ {msg}{RESET}")
+def warn(msg): print(f"  {YELLOW}⚠️  {msg}{RESET}")
+def info(msg): print(f"  {CYAN}ℹ️  {msg}{RESET}")
 
 
-# ── YAML frontmatter helpers ─────────────────────────────────────────────────
+# ── YAML frontmatter helpers ───────────────────────────────────────────────
 def has_yaml_frontmatter(lines: list[str]) -> bool:
     first = None
     for i, line in enumerate(lines[:30]):
@@ -84,7 +87,8 @@ def has_yaml_frontmatter(lines: list[str]) -> bool:
 
 
 def extract_frontmatter_lines(lines: list[str]) -> list[str]:
-    """Return all lines inside the first --- ... --- block."""
+    """Return all lines inside the FIRST --- ... --- block (works for both
+    YAML-first files and legacy files that embed a GoS block mid-file)."""
     in_fm = False
     fm_lines: list[str] = []
     for line in lines:
@@ -105,7 +109,7 @@ def parse_gos_list(lines: list[str], field: str) -> list[str]:
       depends_on:
         - HS-098  # comment
         - HS-099
-    Returns list of HS-NNN strings (or free-form strings for `provides`).
+    Returns list of raw item strings (strip inline comments first).
     """
     collecting = False
     items: list[str] = []
@@ -116,18 +120,16 @@ def parse_gos_list(lines: list[str], field: str) -> list[str]:
             continue
         if collecting:
             if stripped.startswith("-"):
-                # grab just the identifier, strip inline comments
                 raw = stripped[1:].split("#")[0].strip()
                 if raw:
                     items.append(raw)
             elif stripped and not stripped.startswith("#"):
-                # new top-level key—stop collecting
                 break
     return items
 
 
 def extract_skill_id_from_header(lines: list[str]) -> str | None:
-    """Get HS-NNN from the first non-empty line (legacy header or frontmatter skill_id)."""
+    """Get HS-NNN from the first non-empty line."""
     for line in lines:
         if line.strip():
             m = HS_ID_PATTERN.search(line)
@@ -135,28 +137,24 @@ def extract_skill_id_from_header(lines: list[str]) -> str | None:
     return None
 
 
-# ── GoS Validation ───────────────────────────────────────────────────────────
+# ── GoS Validation ────────────────────────────────────────────────────────
 def lint_gos_fields(
     fm_lines: list[str],
     content: str,
     known_ids: set[str],
     skill_id: str | None,
 ) -> dict:
-    """
-    Validate Graph-of-Skills fields in frontmatter.
-    Returns {errors, warnings, provides, depends_on}.
-    """
     errors: list[str]   = []
     warnings: list[str] = []
     fm_text = "\n".join(fm_lines)
 
-    # skill_id field check
+    # skill_id field
     sid_lines = [l for l in fm_lines if l.strip().startswith("skill_id:")]
     if sid_lines:
         declared = sid_lines[0].split(":", 1)[1].strip()
         if skill_id and declared != skill_id:
             warnings.append(
-                f"skill_id '{declared}' in frontmatter doesn’t match "
+                f"skill_id '{declared}' in frontmatter doesn't match "
                 f"header HS-ID '{skill_id}'"
             )
     else:
@@ -165,7 +163,10 @@ def lint_gos_fields(
     # depends_on
     depends_on = parse_gos_list(fm_lines, "depends_on")
     if not depends_on:
-        warnings.append("GoS: 'depends_on:' is empty or missing — add at least one dependency (or 'none' if truly standalone)")
+        warnings.append(
+            "GoS: 'depends_on:' is empty or missing — add at least one dependency "
+            "(use '- none' if truly standalone)"
+        )
     else:
         for dep in depends_on:
             dep_id = HS_ID_PATTERN.search(dep)
@@ -175,7 +176,9 @@ def lint_gos_fields(
     # provides
     provides = parse_gos_list(fm_lines, "provides")
     if not provides:
-        warnings.append("GoS: 'provides:' is empty or missing — skill is a graph dead-end (nothing consumes it)")
+        warnings.append(
+            "GoS: 'provides:' is empty or missing — skill is a graph dead-end"
+        )
 
     # related
     related = parse_gos_list(fm_lines, "related")
@@ -186,20 +189,25 @@ def lint_gos_fields(
 
     # graph_notes
     if "graph_notes:" not in fm_text:
-        warnings.append("GoS: 'graph_notes:' missing — add a one-line description of this skill’s role in the graph")
+        warnings.append(
+            "GoS: 'graph_notes:' missing — add a one-line description of this skill's role in the graph"
+        )
 
     return {
         "errors": errors,
         "warnings": warnings,
         "provides": provides,
-        "depends_on": [HS_ID_PATTERN.search(d).group(0) for d in depends_on if HS_ID_PATTERN.search(d)],
+        "depends_on": [
+            HS_ID_PATTERN.search(d).group(0)
+            for d in depends_on
+            if HS_ID_PATTERN.search(d)
+        ],
     }
 
 
-# ── Circular dependency detection ────────────────────────────────────────────
+# ── Circular dependency detection ─────────────────────────────────────────
 def detect_cycles(dep_graph: dict[str, list[str]]) -> list[list[str]]:
-    """Return list of cycles found in the dependency graph."""
-    visited = set()
+    visited  = set()
     in_stack = set()
     cycles: list[list[str]] = []
 
@@ -217,11 +225,10 @@ def detect_cycles(dep_graph: dict[str, list[str]]) -> list[list[str]]:
     for node in list(dep_graph.keys()):
         if node not in visited:
             dfs(node, [node])
-
     return cycles
 
 
-# ── Per-file linters ─────────────────────────────────────────────────────────
+# ── Per-file linters ───────────────────────────────────────────────────────
 def lint_yaml_file(content: str, lines: list[str], known_ids: set[str], skill_id: str | None) -> dict:
     errors: list[str]   = []
     warnings: list[str] = []
@@ -254,7 +261,7 @@ def lint_yaml_file(content: str, lines: list[str], known_ids: set[str], skill_id
         cats = [c.strip() for c in cat_match[0].split(":", 1)[1].split("|")]
         for c in cats:
             if c and c not in VALID_CATEGORIES:
-                warnings.append(f"Unknown category '{c}' (valid: {', '.join(sorted(VALID_CATEGORIES))})")
+                warnings.append(f"Unknown category '{c}'")
 
     diff_match = [l for l in fm_lines if l.startswith("difficulty:")]
     if diff_match:
@@ -266,15 +273,15 @@ def lint_yaml_file(content: str, lines: list[str], known_ids: set[str], skill_id
         if heading not in content:
             errors.append(f"Missing required section: {heading}")
 
-    prompt_idx = content.find("## \U0001f52e Prompt Block")
+    prompt_idx = content.find("## 🔮 Prompt Block")
     if prompt_idx != -1:
-        after_prompt = content[prompt_idx + len("## \U0001f52e Prompt Block"):].strip()
+        after_prompt = content[prompt_idx + len("## 🔮 Prompt Block"):].strip()
         if len(after_prompt) < 30:
             errors.append("Prompt Block section looks empty")
 
-    ex_idx = content.find("## \U0001f4a1 Example Usage")
+    ex_idx = content.find("## 💡 Example Usage")
     if ex_idx != -1:
-        after_ex = content[ex_idx + len("## \U0001f4a1 Example Usage"):].strip()
+        after_ex = content[ex_idx + len("## 💡 Example Usage"):].strip()
         if len(after_ex) < 20:
             warnings.append("Example Usage section looks very short")
 
@@ -300,15 +307,20 @@ def lint_legacy_file(content: str, lines: list[str], known_ids: set[str], skill_
             first_non_empty = line.strip()
             break
 
-    if not first_non_empty or not re.match(r"^#\s+HS-\d{3,}\b", first_non_empty):
-        errors.append("Missing legacy header (expected '# HS-NNN — ...')")
+    # v2.1 FIX: tolerate optional emoji/text before HS-NNN in the h1
+    # Valid: '# HS-098 —', '# 🛠️ HS-114 —', '# 🏛️ HS-098 THE SACRED SIX'
+    if not first_non_empty or not LEGACY_HEADER_PATTERN.match(first_non_empty):
+        errors.append(
+            "Missing legacy header (expected '# [emoji] HS-NNN — ...'). "
+            f"Got: '{first_non_empty[:60] if first_non_empty else 'empty'}'"
+        )
 
     if "**Category:**" not in content:
         warnings.append("Missing legacy field: **Category:**")
     if "**Version:**" not in content:
         warnings.append("Missing legacy field: **Version:**")
 
-    prompt_ok = "## \U0001f916 THE PROMPT" in content or "## \U0001f52e Prompt Block" in content
+    prompt_ok = "## 🤖 THE PROMPT" in content or "## 🔮 Prompt Block" in content
     if not prompt_ok:
         m = re.search(r"(?im)^##\s+.*prompt.*$", content)
         if m and "```" in content[m.end():]:
@@ -356,16 +368,15 @@ def lint_file(filepath: Path, known_ids: set[str]) -> dict:
 
     if not re.match(r"^[A-Z0-9_]+v\d+\.md$", filepath.name):
         result["warnings"].append(
-            f"File name '{filepath.name}' doesn’t match pattern NAME_v1.md"
+            f"File name '{filepath.name}' doesn't match pattern NAME_v1.md"
         )
 
     result["skill_id"] = skill_id
     return result
 
 
-# ── Vault-wide ID discovery ───────────────────────────────────────────────────
+# ── Vault-wide ID discovery ────────────────────────────────────────────────
 def collect_vault_ids(root: Path) -> set[str]:
-    """Walk all skill dirs and collect every HS-NNN found in first non-empty line."""
     ids: set[str] = set()
     for skill_dir in SKILL_DIRS:
         dirpath = root / skill_dir
@@ -384,19 +395,18 @@ def collect_vault_ids(root: Path) -> set[str]:
     return ids
 
 
-# ── Main run ─────────────────────────────────────────────────────────────────
+# ── Main run ──────────────────────────────────────────────────────────────
 def run_linter(root: Path = Path(".")) -> int:
-    print(f"\n{BOLD}{CYAN}\U0001f50d HYPER-SILLs Vault Linter v2.0 — scanning skill directories...{RESET}\n")
-    print(f"{CYAN}  \U0001f9e0 Graph-of-Skills validation: ON{RESET}\n")
+    print(f"\n{BOLD}{CYAN}🔍 HYPER-SILLs Vault Linter v2.1 — scanning skill directories...{RESET}\n")
+    print(f"{CYAN}  🧠 Graph-of-Skills validation: ON{RESET}\n")
 
-    # Pass 1: collect all known HS-IDs so cross-refs can be validated
     known_ids = collect_vault_ids(root)
-    print(f"  {CYAN}\U0001f4cb Found {len(known_ids)} skill IDs in vault{RESET}\n")
+    print(f"  {CYAN}📋 Found {len(known_ids)} skill IDs in vault{RESET}\n")
 
     total_files    = 0
     total_errors   = 0
     total_warnings = 0
-    failed_files   = []
+    failed_files: list[str] = []
     dep_graph: dict[str, list[str]] = defaultdict(list)
 
     for skill_dir in SKILL_DIRS:
@@ -413,7 +423,7 @@ def run_linter(root: Path = Path(".")) -> int:
             warn(f"No skill files found in {skill_dir}/")
             continue
 
-        print(f"{BOLD}\U0001f4c1 {skill_dir}/{RESET}")
+        print(f"{BOLD}📁 {skill_dir}/{RESET}")
         for filepath in sorted(md_files):
             total_files += 1
             rel    = filepath.relative_to(root)
@@ -424,7 +434,6 @@ def run_linter(root: Path = Path(".")) -> int:
             total_errors   += e_count
             total_warnings += w_count
 
-            # Build dependency graph for cycle detection
             sid = result.get("skill_id")
             if sid:
                 for dep in result.get("depends_on", []):
@@ -433,47 +442,47 @@ def run_linter(root: Path = Path(".")) -> int:
             if e_count == 0 and w_count == 0:
                 ok(str(rel))
             else:
-                status = f"{RED}\u274c" if e_count else f"{YELLOW}\u26a0\ufe0f "
+                status = f"{RED}❌" if e_count else f"{YELLOW}⚠️ "
                 print(f"  {status} {rel}{RESET}")
-                for err_   in result["errors"]:   fail(f"ERROR:   {err_}")
-                for warn_  in result["warnings"]: warn(f"WARN:    {warn_}")
+                for err_  in result["errors"]:   fail(f"ERROR:   {err_}")
+                for warn_ in result["warnings"]: warn(f"WARN:    {warn_}")
                 if e_count:
                     failed_files.append(str(rel))
         print()
 
-    # ── Vault-wide cycle detection ────────────────────────────────────────
+    # ── Cycle detection ───────────────────────────────────────────────────
     cycles = detect_cycles(dep_graph)
     if cycles:
-        print(f"{RED}{BOLD}\U0001f504 Circular dependencies detected!{RESET}")
+        print(f"{RED}{BOLD}🔄 Circular dependencies detected!{RESET}")
         for cycle in cycles:
-            print(f"  {RED}\u274c Cycle: {' \u2192 '.join(cycle)}{RESET}")
+            print(f"  {RED}❌ Cycle: {' → '.join(cycle)}{RESET}")
             total_errors += 1
             failed_files.append(f"CYCLE: {' -> '.join(cycle)}")
         print()
     else:
-        print(f"  {GREEN}\u2705 No circular dependencies found{RESET}\n")
+        print(f"  {GREEN}✅ No circular dependencies found{RESET}\n")
 
-    # ── Summary ──────────────────────────────────────────────────────────
-    print(f"{BOLD}{'\u2500'*60}{RESET}")
+    # ── Summary ───────────────────────────────────────────────────────────
+    print(f"{BOLD}{'─'*60}{RESET}")
     print(
-        f"{BOLD}\U0001f4ca Results:{RESET}  "
+        f"{BOLD}📊 Results:{RESET}  "
         f"{total_files} files  |  "
         f"{RED}{total_errors} errors{RESET}  |  "
         f"{YELLOW}{total_warnings} warnings{RESET}\n"
     )
 
     if failed_files:
-        print(f"{RED}{BOLD}\U0001f4a5 Failed:{RESET}")
+        print(f"{RED}{BOLD}💥 Failed:{RESET}")
         for f in failed_files:
-            print(f"   \u2022 {f}")
+            print(f"   • {f}")
         print()
-        print(f"{RED}\u274c Linter FAILED — fix errors before committing.{RESET}\n")
+        print(f"{RED}❌ Linter FAILED — fix errors before committing.{RESET}\n")
         return 1
     elif total_warnings:
-        print(f"{YELLOW}\u26a0\ufe0f  Linter passed with warnings — consider fixing them.{RESET}\n")
+        print(f"{YELLOW}⚠️  Linter passed with warnings — consider fixing them.{RESET}\n")
         return 0
     else:
-        print(f"{GREEN}{BOLD}\U0001f3c6 All skills passed! Vault is clean. BROski approved \u221e\ufe0f{RESET}\n")
+        print(f"{GREEN}{BOLD}🏆 All skills passed! Vault is clean. BROski approved ♾️{RESET}\n")
         return 0
 
 

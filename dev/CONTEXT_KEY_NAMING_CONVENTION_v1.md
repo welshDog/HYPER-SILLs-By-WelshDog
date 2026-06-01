@@ -1,4 +1,4 @@
-# DS-004 — 🏷️ CONTEXT KEY NAMING CONVENTION — No More Mystery Keys in the Context Store
+# 🏷️ DS-004 — CONTEXT KEY NAMING CONVENTION — No More Mystery Keys in the Context Store
 
 ---
 skill_id: DS-004
@@ -7,14 +7,12 @@ emoji: "🏷️"
 version: v1.0
 category: dev
 depends_on:
-  - DS-010  # CODE_STYLE_STANDARDS — naming is part of style
+  - DS-010  # CODE_STYLE_STANDARDS
 provides:
   - context-key-naming
   - key-schema-standard
   - context-store-contract
 related:
-  - HS-020  # CONTEXT_STORE_ARCHITECTURE
-  - HS-021  # CONTEXT_RETENTION_ANTI_INTERRUPT
   - DS-008  # CORE_AGENT_METRICS_CONTRACT
 graph_notes: "Defines the naming convention for all context store keys — prevents collisions and enables graph traversal."
 ---

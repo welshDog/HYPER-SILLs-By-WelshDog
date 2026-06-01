@@ -1,4 +1,4 @@
-# DS-029 — 😴 SLEEP CYCLE ANTI THRASH — Stop Agents Waking Up Every 10 Seconds
+# 😴 DS-029 — SLEEP CYCLE ANTI THRASH — Stop Agents Waking Up Every 10 Seconds
 
 ---
 skill_id: DS-029
@@ -7,8 +7,8 @@ emoji: "😴"
 version: v1.0
 category: dev
 depends_on:
-  - DS-028  # PROGRESSIVE_HEALTH_WAIT — builds on backoff pattern
-  - HS-003  # AGENT_LIFECYCLE_STATE_MACHINE — idle state has sleep cycle
+  - DS-028  # PROGRESSIVE_HEALTH_WAIT
+  - HS-003  # AGENT_LIFECYCLE_STATE_MACHINE
 provides:
   - sleep-cycle-pattern
   - anti-thrash-rules

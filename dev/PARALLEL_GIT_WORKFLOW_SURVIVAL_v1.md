@@ -1,4 +1,4 @@
-# DS-015 — 🌿 PARALLEL GIT WORKFLOW SURVIVAL — Work Across 3 Repos Without Losing Your Mind
+# 🌿 DS-015 — PARALLEL GIT WORKFLOW SURVIVAL — Work Across 3 Repos Without Losing Your Mind
 
 ---
 skill_id: DS-015
@@ -7,7 +7,7 @@ emoji: "🌿"
 version: v1.0
 category: dev
 depends_on:
-  - none  # Git fundamentals — no upstream deps
+  - none
 provides:
   - parallel-branch-strategy
   - multi-repo-git-workflow

@@ -1,4 +1,4 @@
-# DS-027 — 📈 PREDICTIVE TREND LINEAR REGRESSION — Forecast Metrics With Simple Math
+# 📈 DS-027 — PREDICTIVE TREND LINEAR REGRESSION — Forecast Metrics With Simple Math
 
 ---
 skill_id: DS-027
@@ -7,7 +7,7 @@ emoji: "📈"
 version: v1.0
 category: dev
 depends_on:
-  - DS-008  # CORE_AGENT_METRICS_CONTRACT — metrics to trend
+  - DS-008  # CORE_AGENT_METRICS_CONTRACT
 provides:
   - linear-regression-pattern
   - metric-forecasting
@@ -23,5 +23,5 @@ graph_notes: "Linear regression on agent metrics — predict failure rates, cost
 
 ## 📋 THE PROMPT
 ```text
-Use skill DS-027 PREDICTIVE TREND LINEAR REGRESSION. Forecast [METRIC] for the next [N] days based on this data: [DATA].
+Use skill DS-027 PREDICTIVE TREND LINEAR REGRESSION. Forecast [METRIC] for the next [N] days based on: [DATA].
 ```

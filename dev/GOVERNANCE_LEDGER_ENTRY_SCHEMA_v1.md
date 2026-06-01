@@ -1,4 +1,4 @@
-# DS-025 — 📒 GOVERNANCE LEDGER ENTRY SCHEMA — Audit Trail for Every Decision
+# 📒 DS-025 — GOVERNANCE LEDGER ENTRY SCHEMA — Audit Trail for Every Decision
 
 ---
 skill_id: DS-025
@@ -7,7 +7,7 @@ emoji: "📒"
 version: v1.0
 category: dev
 depends_on:
-  - DS-010  # CODE_STYLE_STANDARDS — schema follows naming conventions
+  - DS-010  # CODE_STYLE_STANDARDS
 provides:
   - governance-schema
   - audit-trail-pattern

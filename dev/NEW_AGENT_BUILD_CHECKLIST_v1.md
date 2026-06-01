@@ -1,4 +1,4 @@
-# DS-003 — ✅ NEW AGENT BUILD CHECKLIST — Every Step to Ship a Production-Ready Agent
+# ✅ DS-003 — NEW AGENT BUILD CHECKLIST — Every Step to Ship a Production-Ready Agent
 
 ---
 skill_id: DS-003
@@ -7,9 +7,9 @@ emoji: "✅"
 version: v1.0
 category: dev
 depends_on:
-  - HS-001  # ANATOMY_OF_AN_AGENT — anatomy before build
-  - DS-010  # CODE_STYLE_STANDARDS — code must pass standards
-  - DS-005  # PRE_COMMIT_TESTING_CHECKLIST — tests before merge
+  - HS-001  # ANATOMY_OF_AN_AGENT
+  - DS-010  # CODE_STYLE_STANDARDS
+  - DS-005  # PRE_COMMIT_TESTING_CHECKLIST
 provides:
   - agent-build-checklist
   - agent-launch-gates
@@ -18,7 +18,7 @@ related:
   - DS-001  # AGENT_CONTRACT_TEST_SUITE
   - DS-009  # PREFLIGHT_CHECKS_SYSTEM
   - DS-020  # MCP_SERVER_AGENT_REGISTRATION
-graph_notes: "Complete build checklist for new agents — from anatomy → code → tests → MCP registration → production."
+graph_notes: "Complete build checklist — anatomy → code → tests → MCP registration → production."
 ---
 
 **Category:** `dev/`

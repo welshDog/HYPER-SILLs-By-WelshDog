@@ -1,4 +1,4 @@
-# DS-001 — 🧪 AGENT CONTRACT TEST SUITE — Verify Every Agent Keeps Its Promises
+# 🧪 DS-001 — AGENT CONTRACT TEST SUITE — Verify Every Agent Keeps Its Promises
 
 ---
 skill_id: DS-001
@@ -7,8 +7,8 @@ emoji: "🧪"
 version: v1.0
 category: dev
 depends_on:
-  - HS-001  # ANATOMY_OF_AN_AGENT — test the output contract
-  - DS-008  # CORE_AGENT_METRICS_CONTRACT — metrics are part of the contract
+  - HS-001  # ANATOMY_OF_AN_AGENT
+  - DS-008  # CORE_AGENT_METRICS_CONTRACT
 provides:
   - agent-contract-testing
   - output-validation

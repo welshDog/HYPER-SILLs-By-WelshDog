@@ -1,4 +1,4 @@
-# DS-010 — 📐 CODE STYLE STANDARDS — The HyperFocus Way to Write Clean Code
+# 📐 DS-010 — CODE STYLE STANDARDS — The HyperFocus Way to Write Clean Code
 
 ---
 skill_id: DS-010
@@ -7,7 +7,7 @@ emoji: "📐"
 version: v1.0
 category: dev
 depends_on:
-  - none  # Foundational standard — no upstream deps
+  - none
 provides:
   - code-style-rules
   - linting-standards
@@ -17,15 +17,11 @@ related:
   - DS-004  # CONTEXT_KEY_NAMING_CONVENTION
   - DS-005  # PRE_COMMIT_TESTING_CHECKLIST
   - DS-001  # AGENT_CONTRACT_TEST_SUITE
-graph_notes: "Root dev standard — all code in the ecosystem follows these conventions. Applied by linters and pre-commit hooks."
+graph_notes: "Root dev standard — all code follows these conventions. Applied by linters and pre-commit hooks."
 ---
 
 **Category:** `dev/`
 **Version:** v1
-
-## 🔗 Related Skills
-- [[DS-004]] CONTEXT_KEY_NAMING_CONVENTION
-- [[DS-005]] PRE_COMMIT_TESTING_CHECKLIST
 
 ## 📋 THE PROMPT
 ```text

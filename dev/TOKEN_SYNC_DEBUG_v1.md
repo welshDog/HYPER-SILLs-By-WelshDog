@@ -1,4 +1,4 @@
-# DS-030 — 🔑 TOKEN SYNC DEBUG — Fix Broken Auth Tokens Without Panicking
+# 🔑 DS-030 — TOKEN SYNC DEBUG — Fix Broken Auth Tokens Without Panicking
 
 ---
 skill_id: DS-030
@@ -7,7 +7,7 @@ emoji: "🔑"
 version: v1.0
 category: dev
 depends_on:
-  - DS-009  # PREFLIGHT_CHECKS_SYSTEM — token check is part of preflight
+  - DS-009  # PREFLIGHT_CHECKS_SYSTEM
 provides:
   - token-debug-steps
   - auth-sync-protocol

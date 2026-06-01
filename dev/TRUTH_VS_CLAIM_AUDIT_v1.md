@@ -1,4 +1,4 @@
-# DS-012 — 🔬 TRUTH VS CLAIM AUDIT — Is What Claude Said Actually True?
+# 🔬 DS-012 — TRUTH VS CLAIM AUDIT — Is What Claude Said Actually True?
 
 ---
 skill_id: DS-012
@@ -7,7 +7,7 @@ emoji: "🔬"
 version: v1.0
 category: dev
 depends_on:
-  - DS-011  # CROSS_REFERENCE_BEFORE_WRITING — check before claiming
+  - DS-011  # CROSS_REFERENCE_BEFORE_WRITING
 provides:
   - claim-verification
   - truth-audit-checklist

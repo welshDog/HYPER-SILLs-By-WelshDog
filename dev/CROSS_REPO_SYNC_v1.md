@@ -1,4 +1,4 @@
-# DS-014 — 🔄 CROSS REPO SYNC — Keep HyperCode, HyperAgent-SDK, and Course in Sync
+# 🔄 DS-014 — CROSS REPO SYNC — Keep HyperCode, HyperAgent-SDK, and Course in Sync
 
 ---
 skill_id: DS-014
@@ -7,7 +7,7 @@ emoji: "🔄"
 version: v1.0
 category: dev
 depends_on:
-  - DS-015  # PARALLEL_GIT_WORKFLOW_SURVIVAL — git workflow for multi-repo
+  - DS-015  # PARALLEL_GIT_WORKFLOW_SURVIVAL
 provides:
   - cross-repo-sync-protocol
   - shared-type-sync

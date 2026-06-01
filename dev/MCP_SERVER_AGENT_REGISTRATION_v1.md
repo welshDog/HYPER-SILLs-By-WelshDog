@@ -1,4 +1,4 @@
-# DS-020 — 🔌 MCP SERVER AGENT REGISTRATION — Make Your Agents Discoverable by Claude & Cursor
+# 🔌 DS-020 — MCP SERVER AGENT REGISTRATION — Make Your Agents Discoverable by Claude and Cursor
 
 ---
 skill_id: DS-020
@@ -7,8 +7,8 @@ emoji: "🔌"
 version: v1.0
 category: dev
 depends_on:
-  - DS-019  # FASTAPI_AGENT_API_STANDARDS — MCP server uses FastAPI
-  - HS-009  # HYPER_AGENT_ROSTER — register from the roster
+  - DS-019  # FASTAPI_AGENT_API_STANDARDS
+  - HS-009  # HYPER_AGENT_ROSTER
 provides:
   - mcp-server-setup
   - agent-registration-protocol

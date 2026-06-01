@@ -1,4 +1,4 @@
-# DS-028 — ⏳ PROGRESSIVE HEALTH WAIT — Smart Retry With Backoff, Not Hammering
+# ⏳ DS-028 — PROGRESSIVE HEALTH WAIT — Smart Retry With Backoff, Not Hammering
 
 ---
 skill_id: DS-028
@@ -7,8 +7,8 @@ emoji: "⏳"
 version: v1.0
 category: dev
 depends_on:
-  - HS-005  # HEALER_CIRCUIT_BREAKER_PROTOCOL — health wait feeds circuit breaker
-  - HS-006  # FAIL_GRACEFULLY_FALLBACK_CHAIN — used in fallback chain
+  - HS-005  # HEALER_CIRCUIT_BREAKER_PROTOCOL
+  - HS-006  # FAIL_GRACEFULLY_FALLBACK_CHAIN
 provides:
   - exponential-backoff-pattern
   - health-wait-sequence

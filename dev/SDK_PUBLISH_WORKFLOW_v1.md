@@ -1,4 +1,4 @@
-# DS-016 — 🚢 SDK PUBLISH WORKFLOW — The Exact Steps to Ship an npm Package
+# 🚢 DS-016 — SDK PUBLISH WORKFLOW — The Exact Steps to Ship an npm Package
 
 ---
 skill_id: DS-016
@@ -7,8 +7,8 @@ emoji: "🚢"
 version: v1.0
 category: dev
 depends_on:
-  - DS-015  # PARALLEL_GIT_WORKFLOW_SURVIVAL — git hygiene first
-  - DS-005  # PRE_COMMIT_TESTING_CHECKLIST — tests pass before publish
+  - DS-015  # PARALLEL_GIT_WORKFLOW_SURVIVAL
+  - DS-005  # PRE_COMMIT_TESTING_CHECKLIST
 provides:
   - npm-publish-workflow
   - semver-bump-steps

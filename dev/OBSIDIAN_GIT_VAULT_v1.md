@@ -1,4 +1,4 @@
-# DS-018 — 🧠 OBSIDIAN GIT VAULT — Sync the Brain to GitHub Without Breaking It
+# 🧠 DS-018 — OBSIDIAN GIT VAULT — Sync the Brain to GitHub Without Breaking It
 
 ---
 skill_id: DS-018
@@ -7,7 +7,7 @@ emoji: "🧠"
 version: v1.0
 category: dev
 depends_on:
-  - DS-015  # PARALLEL_GIT_WORKFLOW_SURVIVAL — git hygiene for vault commits
+  - DS-015  # PARALLEL_GIT_WORKFLOW_SURVIVAL
 provides:
   - vault-git-sync
   - obsidian-commit-pattern

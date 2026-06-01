@@ -1,4 +1,4 @@
-# DS-022 — 🏁 SIX SPRINT PRODUCTION ROADMAP — From MVP to Live in 6 Sprints
+# 🏁 DS-022 — SIX SPRINT PRODUCTION ROADMAP — From MVP to Live in 6 Sprints
 
 ---
 skill_id: DS-022
@@ -7,7 +7,7 @@ emoji: "🏁"
 version: v1.0
 category: dev
 depends_on:
-  - DS-021  # FOUR_PHASE_EIGHT_SPRINT_ROADMAP — builds on phase structure
+  - DS-021  # FOUR_PHASE_EIGHT_SPRINT_ROADMAP
 provides:
   - six-sprint-plan
   - sprint-gate-criteria
@@ -15,7 +15,7 @@ provides:
 related:
   - DS-023  # LEAN_RAID_DISCIPLINE
   - DS-024  # PHASE4_GRADUATION_FLOW
-graph_notes: "6-sprint production roadmap for the Hyper-Vibe-Coding-Course — Sprint 1 Foundation → Sprint 6 Launch."
+graph_notes: "6-sprint production roadmap — Sprint 1 Foundation through Sprint 6 Launch."
 ---
 
 **Category:** `dev/`
@@ -23,5 +23,5 @@ graph_notes: "6-sprint production roadmap for the Hyper-Vibe-Coding-Course — S
 
 ## 📋 THE PROMPT
 ```text
-Use skill DS-022 SIX SPRINT PRODUCTION ROADMAP. Plan the next sprint [SPRINT_NUMBER] — define goals and exit criteria.
+Use skill DS-022 SIX SPRINT PRODUCTION ROADMAP. Plan sprint [SPRINT_NUMBER] — define goals and exit criteria.
 ```

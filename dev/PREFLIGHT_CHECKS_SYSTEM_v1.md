@@ -1,4 +1,4 @@
-# DS-009 — 🛫 PREFLIGHT CHECKS SYSTEM — Boot Sequence Validation Before Any Agent Runs
+# 🛫 DS-009 — PREFLIGHT CHECKS SYSTEM — Boot Sequence Validation Before Any Agent Runs
 
 ---
 skill_id: DS-009
@@ -7,8 +7,8 @@ emoji: "🛫"
 version: v1.0
 category: dev
 depends_on:
-  - HS-003  # AGENT_LIFECYCLE_STATE_MACHINE — preflight is pre-boot
-  - DS-010  # CODE_STYLE_STANDARDS — check code quality
+  - HS-003  # AGENT_LIFECYCLE_STATE_MACHINE
+  - DS-010  # CODE_STYLE_STANDARDS
 provides:
   - preflight-check-sequence
   - boot-validation

@@ -1,4 +1,4 @@
-# DS-024 — 🎓 PHASE4 GRADUATION FLOW — What Happens When You Finish the Course
+# 🎓 DS-024 — PHASE4 GRADUATION FLOW — What Happens When You Finish the Course
 
 ---
 skill_id: DS-024
@@ -7,7 +7,7 @@ emoji: "🎓"
 version: v1.0
 category: dev
 depends_on:
-  - DS-021  # FOUR_PHASE_EIGHT_SPRINT_ROADMAP — phase 4 is the final phase
+  - DS-021  # FOUR_PHASE_EIGHT_SPRINT_ROADMAP
 provides:
   - graduation-flow
   - completion-certificate
@@ -16,7 +16,7 @@ provides:
 related:
   - DS-022  # SIX_SPRINT_PRODUCTION_ROADMAP
   - DS-023  # LEAN_RAID_DISCIPLINE
-graph_notes: "The Phase 4 graduation experience — BROski$ reward, certificate mint, alumni Discord role, and next-steps roadmap."
+graph_notes: "The Phase 4 graduation experience — BROski$ reward, certificate, alumni Discord role, and next-steps roadmap."
 ---
 
 **Category:** `dev/`

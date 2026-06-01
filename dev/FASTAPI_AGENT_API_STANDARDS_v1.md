@@ -1,4 +1,4 @@
-# DS-019 — 🚀 FASTAPI AGENT API STANDARDS — Build FastAPI Routes the HyperFocus Way
+# 🚀 DS-019 — FASTAPI AGENT API STANDARDS — Build FastAPI Routes the HyperFocus Way
 
 ---
 skill_id: DS-019
@@ -7,8 +7,8 @@ emoji: "🚀"
 version: v1.0
 category: dev
 depends_on:
-  - DS-010  # CODE_STYLE_STANDARDS — API code follows style
-  - DS-001  # AGENT_CONTRACT_TEST_SUITE — API contracts need tests
+  - DS-010  # CODE_STYLE_STANDARDS
+  - DS-001  # AGENT_CONTRACT_TEST_SUITE
 provides:
   - fastapi-route-pattern
   - api-standards

@@ -1,4 +1,4 @@
-# DS-011 — 🔍 CROSS REFERENCE BEFORE WRITING — Check WHATS_DONE Before Building Anything
+# 🔍 DS-011 — CROSS REFERENCE BEFORE WRITING — Check WHATS_DONE Before Building Anything
 
 ---
 skill_id: DS-011
@@ -7,7 +7,7 @@ emoji: "🔍"
 version: v1.0
 category: dev
 depends_on:
-  - none  # Meta-process skill — no code deps
+  - none
 provides:
   - pre-build-audit
   - duplication-prevention

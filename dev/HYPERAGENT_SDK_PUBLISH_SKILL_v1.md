@@ -1,4 +1,4 @@
-# DS-017 — 📦 HYPERAGENT SDK PUBLISH SKILL — Ship @w3lshdog/hyper-agent to npm
+# 📦 DS-017 — HYPERAGENT SDK PUBLISH SKILL — Ship @w3lshdog/hyper-agent to npm
 
 ---
 skill_id: DS-017
@@ -7,8 +7,8 @@ emoji: "📦"
 version: v1.0
 category: dev
 depends_on:
-  - DS-016  # SDK_PUBLISH_WORKFLOW — publish workflow steps
-  - DS-015  # PARALLEL_GIT_WORKFLOW_SURVIVAL — git hygiene before publish
+  - DS-016  # SDK_PUBLISH_WORKFLOW
+  - DS-015  # PARALLEL_GIT_WORKFLOW_SURVIVAL
 provides:
   - npm-publish-steps
   - sdk-version-bump

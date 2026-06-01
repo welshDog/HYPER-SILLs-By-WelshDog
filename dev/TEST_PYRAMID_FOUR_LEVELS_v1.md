@@ -1,4 +1,4 @@
-# DS-006 — 🔺 TEST PYRAMID FOUR LEVELS — Unit → Integration → Contract → E2E
+# 🔺 DS-006 — TEST PYRAMID FOUR LEVELS — Unit to Integration to Contract to E2E
 
 ---
 skill_id: DS-006
@@ -7,7 +7,7 @@ emoji: "🔺"
 version: v1.0
 category: dev
 depends_on:
-  - DS-010  # CODE_STYLE_STANDARDS — tests follow style
+  - DS-010  # CODE_STYLE_STANDARDS
 provides:
   - test-pyramid-structure
   - four-level-test-plan
@@ -16,7 +16,7 @@ related:
   - DS-001  # AGENT_CONTRACT_TEST_SUITE
   - DS-005  # PRE_COMMIT_TESTING_CHECKLIST
   - DS-007  # TEST_STATUS_REPORT
-graph_notes: "The 4-level test pyramid for the HyperFocus ecosystem — unit, integration, contract, E2E with coverage targets per level."
+graph_notes: "The 4-level test pyramid — unit, integration, contract, E2E with coverage targets per level."
 ---
 
 **Category:** `dev/`

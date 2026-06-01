@@ -1,4 +1,4 @@
-# DS-005 — 🔒 PRE COMMIT TESTING CHECKLIST — Never Push Broken Code Again
+# 🔒 DS-005 — PRE COMMIT TESTING CHECKLIST — Never Push Broken Code Again
 
 ---
 skill_id: DS-005
@@ -7,8 +7,8 @@ emoji: "🔒"
 version: v1.0
 category: dev
 depends_on:
-  - DS-010  # CODE_STYLE_STANDARDS — lint must pass
-  - DS-006  # TEST_PYRAMID_FOUR_LEVELS — tests must pass
+  - DS-010  # CODE_STYLE_STANDARDS
+  - DS-006  # TEST_PYRAMID_FOUR_LEVELS
 provides:
   - pre-commit-gates
   - commit-block-rules

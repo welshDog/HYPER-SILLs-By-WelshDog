@@ -1,4 +1,4 @@
-# DS-013 — 🕸️ WIKILINK KNOWLEDGE GRAPH — Your Notes Are Already a Graph, Unlock It
+# 🕸️ DS-013 — WIKILINK KNOWLEDGE GRAPH — Your Notes Are Already a Graph, Unlock It
 
 ---
 skill_id: DS-013
@@ -7,7 +7,7 @@ emoji: "🕸️"
 version: v1.0
 category: dev
 depends_on:
-  - none  # Vault-level skill — no code deps
+  - none
 provides:
   - wikilink-graph
   - knowledge-graph-queries
@@ -16,7 +16,7 @@ related:
   - DS-011  # CROSS_REFERENCE_BEFORE_WRITING
   - DS-018  # OBSIDIAN_GIT_VAULT
   - DS-020  # MCP_SERVER_AGENT_REGISTRATION
-graph_notes: "The Obsidian vault's wikilinks [[]] already form a graph — this skill makes that graph queryable and exportable."
+graph_notes: "The Obsidian vault wikilinks already form a graph — this skill makes it queryable and exportable."
 ---
 
 **Category:** `dev/`

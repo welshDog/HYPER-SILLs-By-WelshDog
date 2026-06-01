@@ -1,4 +1,4 @@
-# DS-002 — ⚡ CLI ARGS LAUNCH PATTERN — Launch Any Agent or Script From the Command Line
+# ⚡ DS-002 — CLI ARGS LAUNCH PATTERN — Launch Any Agent or Script From the Command Line
 
 ---
 skill_id: DS-002
@@ -7,7 +7,7 @@ emoji: "⚡"
 version: v1.0
 category: dev
 depends_on:
-  - DS-010  # CODE_STYLE_STANDARDS — CLI code must follow style
+  - DS-010  # CODE_STYLE_STANDARDS
 provides:
   - cli-launch-pattern
   - argparse-template
@@ -21,10 +21,6 @@ graph_notes: "Standard CLI entrypoint pattern for launching agents and tools —
 
 **Category:** `dev/`
 **Version:** v1
-
-## 🔗 Related Skills
-- [[DS-010]] CODE_STYLE_STANDARDS
-- [[DS-009]] PREFLIGHT_CHECKS_SYSTEM
 
 ## 📋 THE PROMPT
 ```text

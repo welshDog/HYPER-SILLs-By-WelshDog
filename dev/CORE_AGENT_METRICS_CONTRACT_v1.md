@@ -1,4 +1,4 @@
-# HS-105 — 📊 THE METRICS OATH — Core Agent Metrics Contract (5 Mandatory)
+# DS-008 — 📊 THE METRICS OATH — Core Agent Metrics Contract (5 Mandatory)
 
 ---
 skill_id: HS-105
@@ -7,17 +7,14 @@ emoji: "📊"
 version: v1.0
 category: dev
 depends_on:
-  - HS-070  # ALL-SEEING — observability philosophy this contract implements
+  - HS-019  # OBSERVABLE_AGENT_OPERATIONS — observability philosophy this contract implements
 provides:
   - metrics-contract
   - prometheus-metrics-pattern
   - agent-health-signals
 related:
-  - HS-099  # Anatomy of an Agent — Eyes organ
-  - HS-100  # Agent Lifecycle State Machine — which state emits which metric
-  - HS-092  # Agent Contract Test Suite
-  - HS-093  # Nightly Continuous Learning Loop
-graph_notes: "Concrete metrics contract. Depends on HS-070 for philosophy. Consumed by HS-103 (Healer watches these signals) and HS-104 (Tier protection reads agent_up)."
+  - HS-019  # Observable Agent Operations — parent philosophy
+graph_notes: "Concrete metrics contract. Depends on HS-019 for observability philosophy. Consumed by Healer (watches these signals) and Tier protection (reads agent_up)."
 ---
 
 **Category:** `dev/`
@@ -28,7 +25,7 @@ graph_notes: "Concrete metrics contract. Depends on HS-070 for philosophy. Consu
 
 ## 🤔 What It Does
 
-The five Prometheus metrics **every HyperCode agent must export**, no exceptions. Different from [[HS-070]] which is the *observability philosophy* — this is the concrete minimum contract.
+The five Prometheus metrics **every HyperCode agent must export**, no exceptions. Different from [[HS-019]] which is the *observability philosophy* — this is the concrete minimum contract.
 
 > Rule: **If Grafana can't see it, it didn't happen.**
 
@@ -91,13 +88,13 @@ STARTUP_TS = time.time()
 # At startup
 agent_up.labels(agent=AGENT_NAME).set(1)
 
-# Once per autopilot cycle ([[HS-100]] WATCH state)
+# Once per autopilot cycle
 agent_uptime_seconds.labels(agent=AGENT_NAME).set(time.time() - STARTUP_TS)
 
-# After every action ([[HS-100]] REPORT state)
+# After every action
 agent_last_action_ts.labels(agent=AGENT_NAME).set(time.time())
 
-# On every decision ([[HS-100]] DECIDE state)
+# On every decision
 agent_decision_reasons.labels(agent=AGENT_NAME, reason="preemptive_pause").inc()
 
 # On every error
@@ -155,8 +152,4 @@ Should print at least 5 lines. Less than 5 = not contract-compliant.
 
 ## 🧩 Related Skills
 
-- [[HS-070]] Observable Agent Operations Pattern — the philosophy above this contract
-- [[HS-099]] Anatomy of an Agent — Eyes organ
-- [[HS-100]] Agent Lifecycle State Machine — which state emits which metric
-- [[HS-092]] Agent Contract Test Suite — `/health` + `/metrics` test layer
-- [[HS-093]] Nightly Continuous Learning Loop — drift detector reads `agent_decision_reasons`
+- [[HS-019]] Observable Agent Operations — the observability philosophy above this contract

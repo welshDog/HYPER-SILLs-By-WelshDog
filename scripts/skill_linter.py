@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """
-HYPER-SILLs Skill Vault Linter v2.1
+HYPER-SILLs Skill Vault Linter v2.2
 Checks every skill .md file for required structure + Graph-of-Skills (GoS) metadata.
+
+New in v2.2:
+  - Legacy header regex now accepts DS-NNN prefix (dev/ skills) alongside HS-NNN
 
 New in v2.1:
   - Legacy header regex now tolerates emoji prefix (e.g. # 🛠️ HS-114 — ...)
@@ -53,9 +56,9 @@ VERSION_PATTERN  = re.compile(r"^version:\s+v\d+\.\d+")
 DATE_PATTERN     = re.compile(r"^last_updated:\s+\d{4}-\d{2}-\d{2}")
 HS_ID_PATTERN    = re.compile(r"HS-\d{3,}")
 
-# Legacy header: optional emoji/text before HS-NNN
-# Matches: '# HS-098 —', '# 🛠️ HS-114 —', '# 🏛️ HS-098 THE SACRED SIX'
-LEGACY_HEADER_PATTERN = re.compile(r"^#\s+.*HS-\d{3,}\b")
+# Legacy header: optional emoji/text before HS-NNN or DS-NNN
+# Matches: '# HS-098 —', '# 🛠️ HS-114 —', '# DS-001 — ...', '# 🔌 DS-020 — ...'
+LEGACY_HEADER_PATTERN = re.compile(r"^#\s+.*(?:HS|DS)-\d{3,}\b")
 
 # ── Colours ─────────────────────────────────────────────────────────────────
 GREEN  = "\033[92m"
@@ -307,11 +310,11 @@ def lint_legacy_file(content: str, lines: list[str], known_ids: set[str], skill_
             first_non_empty = line.strip()
             break
 
-    # v2.1 FIX: tolerate optional emoji/text before HS-NNN in the h1
-    # Valid: '# HS-098 —', '# 🛠️ HS-114 —', '# 🏛️ HS-098 THE SACRED SIX'
+    # v2.2 FIX: tolerate DS-NNN prefix (dev/ skills) alongside HS-NNN
+    # Valid: '# HS-098 —', '# 🛠️ HS-114 —', '# DS-001 — ...', '# 🔌 DS-020 — ...'
     if not first_non_empty or not LEGACY_HEADER_PATTERN.match(first_non_empty):
         errors.append(
-            "Missing legacy header (expected '# [emoji] HS-NNN — ...'). "
+            "Missing legacy header (expected '# [emoji] HS-NNN — ...' or '# [emoji] DS-NNN — ...'). "
             f"Got: '{first_non_empty[:60] if first_non_empty else 'empty'}'"
         )
 
@@ -397,7 +400,7 @@ def collect_vault_ids(root: Path) -> set[str]:
 
 # ── Main run ──────────────────────────────────────────────────────────────
 def run_linter(root: Path = Path(".")) -> int:
-    print(f"\n{BOLD}{CYAN}🔍 HYPER-SILLs Vault Linter v2.1 — scanning skill directories...{RESET}\n")
+    print(f"\n{BOLD}{CYAN}🔍 HYPER-SILLs Vault Linter v2.2 — scanning skill directories...{RESET}\n")
     print(f"{CYAN}  🧠 Graph-of-Skills validation: ON{RESET}\n")
 
     known_ids = collect_vault_ids(root)

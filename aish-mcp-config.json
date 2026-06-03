@@ -1,0 +1,59 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/AIShell/main/schemas/mcp-config.schema.json",
+  "mcpServers": {
+    "hyper-sills-skills": {
+      "description": "HYPER-SILLs Skills Registry -- search, filter, recommend skills from the 23KB registry",
+      "transport": "stdio",
+      "command": "python",
+      "args": ["skills_query.py", "--stats"],
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "SKILLS_ROOT": "${workspaceFolder}",
+        "REGISTRY_PATH": "${workspaceFolder}/skills-registry.json"
+      },
+      "timeout": 15,
+      "tags": ["skills", "registry", "learning", "hyper-sills"]
+    },
+    "hyper-sills-ps": {
+      "description": "HYPER-SILLs PowerShell tools -- PSAI-registered skill search and recommendation agents",
+      "transport": "stdio",
+      "command": "pwsh",
+      "args": [
+        "-NoProfile",
+        "-NonInteractive",
+        "-File",
+        "${workspaceFolder}/PSAI-Register-Tools.ps1"
+      ],
+      "env": {
+        "SKILLS_ROOT": "${workspaceFolder}"
+      },
+      "timeout": 15,
+      "tags": ["powershell", "skills", "psai"]
+    },
+    "hypercode-gateway": {
+      "description": "HyperCode V2.4 MCP Gateway -- cross-link skills to the agent stack",
+      "transport": "http",
+      "url": "http://localhost:8823",
+      "timeout": 30,
+      "tags": ["hypercode", "agents"]
+    },
+    "broski-brain-mcp": {
+      "description": "BROski Brain -- pull focus + session context alongside skill recommendations",
+      "transport": "http",
+      "url": "http://localhost:8823",
+      "timeout": 30,
+      "tags": ["brain", "focus", "context"]
+    }
+  },
+  "defaults": {
+    "timeout": 20,
+    "retries": 2,
+    "logLevel": "info"
+  },
+  "aish": {
+    "autoConnect": true,
+    "preferredServer": "hyper-sills-skills",
+    "sessionPersistence": true,
+    "systemPromptAddition": "You have access to the HYPER-SILLs skills registry. When a user asks what to learn, what skill they need, or how to solve a problem -- call recommend_skills_for_task first. Always match skill recommendations to the user's current task and energy level. Neurodivergent-first: one skill at a time, clear wins, no overwhelm."
+  }
+}

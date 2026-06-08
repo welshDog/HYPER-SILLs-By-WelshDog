@@ -1,18 +1,17 @@
 {
   "$schema": "https://raw.githubusercontent.com/microsoft/AIShell/main/schemas/mcp-config.schema.json",
   "mcpServers": {
-    "hyper-sills-skills": {
-      "description": "HYPER-SILLs Skills Registry -- search, filter, recommend skills from the 23KB registry",
+    "hyper-sills": {
+      "description": "HYPER-SILLs MCP Server -- 88 skills, Graph-of-Skills, 5 tools: search_skills, load_skill, get_skill_graph, recommend_for_task, list_skills_by_category",
       "transport": "stdio",
       "command": "python",
-      "args": ["skills_query.py", "--stats"],
+      "args": ["mcp_server.py"],
       "cwd": "${workspaceFolder}",
       "env": {
-        "SKILLS_ROOT": "${workspaceFolder}",
-        "REGISTRY_PATH": "${workspaceFolder}/skills-registry.json"
+        "SKILLS_ROOT": "${workspaceFolder}"
       },
-      "timeout": 15,
-      "tags": ["skills", "registry", "learning", "hyper-sills"]
+      "timeout": 30,
+      "tags": ["skills", "registry", "graph-of-skills", "hyper-sills"]
     },
     "hyper-sills-ps": {
       "description": "HYPER-SILLs PowerShell tools -- PSAI-registered skill search and recommendation agents",
@@ -52,7 +51,7 @@
   },
   "aish": {
     "autoConnect": true,
-    "preferredServer": "hyper-sills-skills",
+    "preferredServer": "hyper-sills",
     "sessionPersistence": true,
     "systemPromptAddition": "You have access to the HYPER-SILLs skills registry. When a user asks what to learn, what skill they need, or how to solve a problem -- call recommend_skills_for_task first. Always match skill recommendations to the user's current task and energy level. Neurodivergent-first: one skill at a time, clear wins, no overwhelm."
   }

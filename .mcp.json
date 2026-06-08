@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "hyper-sills": {
+      "command": "python",
+      "args": ["mcp_server.py"],
+      "env": {}
+    }
+  }
+}

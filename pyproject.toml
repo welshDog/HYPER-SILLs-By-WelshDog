@@ -1,7 +1,11 @@
 [project]
-name = "hyper-brain-ops"
-version = "1.0.0"
+name = "hyper-sills"
+version = "1.1.0"
 requires-python = ">=3.11"
 dependencies = [
     "python-dotenv",
+    "mcp>=1.0.0",
 ]
+
+[project.scripts]
+hyper-sills-mcp = "mcp_server:mcp"

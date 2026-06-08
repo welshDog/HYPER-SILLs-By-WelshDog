@@ -1,5 +1,24 @@
 # HS-075 — 🎯 THE CHOICE MATRIX — Agent Decision Framework Matrix
 
+
+---
+skill_id: HS-075
+hero_name: "THE CHOICE MATRIX"
+emoji: "🎯"
+version: v1.0
+category: agents
+depends_on:
+  - HS-002  # SIX_LAWS_OF_AGENTS — laws constrain the decision space
+  - HS-077  # CONSENT GUARDIAN — ask-vs-decide maps to the approval gate
+provides:
+  - ask-vs-decide-matrix
+  - delegate-vs-execute-model
+  - speed-cost-quality-triad
+related:
+  - HS-087  # THE BRANCHING PATH — decision tree uses this matrix
+  - HS-078  # FLOW KEEPER — flow-state preservation shapes small decisions
+graph_notes: "Three decision matrices (ask/decide, delegate/execute, speed/cost/quality) resolving the recurring dilemmas every agent faces."
+---
 **Category:** `agents/`  
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §10  
 **Version:** v1  

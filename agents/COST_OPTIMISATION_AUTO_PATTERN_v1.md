@@ -2,6 +2,26 @@
 **Category:** agents
 **Version:** 1.0
 
+
+---
+skill_id: HS-045
+hero_name: "FRUGAL ENGINE"
+emoji: "💰"
+version: v1.0
+category: agents
+depends_on:
+  - HS-041  # METRICS FORGE — cost monitoring requires metrics to be wired
+  - HS-008  # BROSKI ORCHESTRATOR PATTERN — throttle signals route through orchestrator
+provides:
+  - cost-monitoring
+  - auto-throttle
+  - budget-enforcement
+  - llm-spend-control
+related:
+  - HS-093  # NIGHT TENDER — nightly loop evaluates cost trends
+  - HS-019  # OBSERVABLE AGENT OPERATIONS — cost metrics feed observability
+graph_notes: "Self-tuning cost optimizer — monitors LLM token spend and container resources, throttles before the budget cap."
+---
 > *"The swarm that pays attention to its own bills and tunes itself to spend less."*
 
 ---

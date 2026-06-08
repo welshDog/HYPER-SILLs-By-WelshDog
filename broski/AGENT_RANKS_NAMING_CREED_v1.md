@@ -1,5 +1,25 @@
 # HS-107 — 🏆 THE RANK & THE NAME — Agent Ranks + Self-Naming Protocol + The Creed
 
+
+---
+skill_id: HS-107
+hero_name: "THE RANK & THE NAME"
+emoji: "🏆"
+version: v1.0
+category: broski
+depends_on:
+  - HS-002  # SIX_LAWS_OF_AGENTS — naming protocol must respect the 6 laws
+  - HS-001  # ANATOMY_OF_AN_AGENT — ranks map to anatomy roles
+provides:
+  - agent-rank-definitions
+  - self-naming-protocol
+  - the-creed
+  - rank-hierarchy
+related:
+  - HS-067  # THE THRONE LADDER — rank hierarchy complements role hierarchy
+  - HS-079  # THE CREW CHARTER — crew roles build on rank definitions
+graph_notes: "BROski rank system (Hobbyist → God Tier) + self-naming rules — load before naming or ranking any agent."
+---
 **Category:** `broski/`
 **Source:** HyperCode-V2.4 — `agents/throttle-agent/HYPER-AGENT-BIBLE.md`
 **Version:** v1

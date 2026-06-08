@@ -1,4 +1,22 @@
 # HS-018 — 🌉 BRIDGE KEEPER — MCP Bridge Manifest
+
+---
+skill_id: HS-018
+hero_name: "BRIDGE KEEPER"
+emoji: "🌉"
+version: v1.0
+category: agents
+depends_on:
+  - HS-017  # MIND CORE — bridge routes to the brain core
+  - HS-016  # BRAIN PRIMER — ecosystem orientation required
+provides:
+  - mcp-bridge-api
+  - tool-call-routing
+  - brain-cluster-access
+related:
+  - DS-020  # MCP_SERVER_AGENT_REGISTRATION — registration pattern for this bridge
+graph_notes: "MCP protocol bridge manifest — entry point for any AI IDE (Claude Code, Cursor) to reach the BROski brain cluster."
+---
 **Category:** Agents / MCP-Compatible
 **Version:** 1.0.0
 **Runtime:** Python

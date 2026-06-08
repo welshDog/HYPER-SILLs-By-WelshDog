@@ -1,5 +1,24 @@
 # HS-077 — 🛑 CONSENT GUARDIAN — User Agency Approval Gate Pattern
 
+
+---
+skill_id: HS-077
+hero_name: "CONSENT GUARDIAN"
+emoji: "🛑"
+version: v1.0
+category: agents
+depends_on:
+  - HS-002  # SIX_LAWS_OF_AGENTS — Law 1 (RESPECT USER AGENCY) is this skill
+provides:
+  - approval-gate-pattern
+  - propose-approve-execute-flow
+  - state-change-guard
+related:
+  - HS-078  # FLOW KEEPER — sits in tension; gate state-changes, default small ones
+  - HS-088  # THE MIRROR OATH — check 1 in the completion audit
+  - HS-004  # FIVE MANDATORY GUARDRAILS — approval gate is guardrail 1
+graph_notes: "Non-negotiable approval pattern for any state-changing agent action — propose → approve → execute, never silent."
+---
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §1 Principle 1 + §6 Rule 5
 **Version:** v1

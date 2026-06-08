@@ -1,4 +1,21 @@
-# HS-001 — 📊 SIGNAL HUNTER — YT Analytics Debugger
+# HS-127 — 📊 SIGNAL HUNTER — YT Analytics Debugger
+---
+skill_id: HS-127
+hero_name: "SIGNAL HUNTER"
+emoji: "📊"
+version: v1.0
+category: youtube
+depends_on:
+  - none  # standalone YouTube analytics skill
+provides:
+  - yt-analytics-debug-workflow
+  - retention-signal-analysis
+  - nd-friendly-channel-audit
+related:
+  - HS-034  # BEAT ARCHITECT — 7-beat structure applies to YouTube video structure
+  - HS-036  # ANALOGY ARSENAL — analogies used in ND-friendly explanations
+graph_notes: "YouTube analytics debugger — identifies why views/retention stall and gives ND-friendly fix steps."
+---
 **Category:** YouTube Strategy  
 **Version:** 1.0  
 **Author:** WelshDog  

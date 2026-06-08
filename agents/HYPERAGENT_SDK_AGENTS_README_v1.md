@@ -1,6 +1,25 @@
 # HS-028 — 📖 SDK PRIMER — HyperAgent SDK Agents README
 **Version:** 1.0
 
+
+---
+skill_id: HS-028
+hero_name: "SDK PRIMER"
+emoji: "📖"
+version: v1.0
+category: agents
+depends_on:
+  - HS-125  # THE GRAND CODEX — master context gives the 5-repo map SDK sits in
+provides:
+  - sdk-ecosystem-map
+  - agent-interface-standard
+  - write-once-deploy-anywhere
+related:
+  - HS-016  # BRAIN PRIMER — brain sits at same ecosystem layer
+  - DS-016  # SDK_PUBLISH_WORKFLOW — publish workflow for SDK changes
+  - DS-017  # HYPERAGENT_SDK_PUBLISH_SKILL — SDK publish skill details
+graph_notes: "Orientation for HyperAgent-SDK — the shared agent interface standard that connects all 5 ecosystem repos."
+---
 **Category:** Agents / SDK Architecture
 **Rescued From:** [HyperAgent-SDK](https://github.com/welshDog/HyperAgent-SDK) — `.agents/AGENTS.md`
 

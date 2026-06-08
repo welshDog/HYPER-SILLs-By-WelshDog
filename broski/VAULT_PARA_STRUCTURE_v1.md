@@ -1,4 +1,22 @@
 # HS-015 — 🗂️ THE FOUR DRAWERS — Vault PARA Structure
+
+---
+skill_id: HS-015
+hero_name: "THE FOUR DRAWERS"
+emoji: "🗂️"
+version: v1.0
+category: broski
+depends_on:
+  - none  # root vault structure — no prerequisites
+provides:
+  - para-vault-structure
+  - projects-areas-resources-archive
+  - knowledge-filing-system
+related:
+  - HS-021  # VAULT SYNC — sync workflow targets the PARA structure
+  - HS-010  # THE AESTHETE — vault structure follows design principles
+graph_notes: "PARA knowledge organisation for the BROski vault — the filing system that keeps 1000+ notes findable without a search."
+---
 **Category:** Broski / Knowledge Management  
 **Version:** 1.0  
 **Rescued From:** [BROski-Obsidian-Brain](https://github.com/welshDog/BROski-Obsidian-Brain-for-HyperFocus-z0ne) — `.claude/skills/vault-para-structure/SKILL.md`

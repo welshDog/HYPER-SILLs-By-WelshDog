@@ -1,5 +1,28 @@
 # HS-093 — 🌙 NIGHT TENDER — Nightly Continuous Learning Loop
 
+
+---
+skill_id: HS-093
+hero_name: "NIGHT TENDER"
+emoji: "🌙"
+version: v1.0
+category: agents
+depends_on:
+  - HS-003  # AGENT_LIFECYCLE_STATE_MACHINE — loop is a recurring lifecycle phase
+  - HS-043  # LOOP MASTER — nightly loop executes the 5-loop pattern
+  - HS-004  # FIVE MANDATORY GUARDRAILS — 6 hard gates mirror the guardrails
+provides:
+  - nightly-improvement-loop
+  - drift-detection
+  - hitl-gate-pattern
+  - rollback-on-fail
+  - prompt-update-pipeline
+related:
+  - HS-040  # GOALKEEPER — goalkeeper triggers the loop when KPIs slip
+  - HS-044  # AB SPLITTER — A/B tests feed the prompt-update step
+  - HS-088  # THE MIRROR OATH — regression check mirrors the audit
+graph_notes: "Safe overnight self-improvement pipeline — 6 hard gates prevent agents going rogue while still allowing them to evolve."
+---
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/🧬 The Full Confirmed Hyper Agent Roster` §5
 **Version:** v1

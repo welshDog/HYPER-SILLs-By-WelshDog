@@ -1,5 +1,25 @@
 # HS-080 — 🧰 THE TOOL BELT — Universal Agent Tools API
 
+
+---
+skill_id: HS-080
+hero_name: "THE TOOL BELT"
+emoji: "🧰"
+version: v1.0
+category: agents
+depends_on:
+  - HS-001  # ANATOMY_OF_AN_AGENT — tools are the Hands organ
+  - HS-067  # THE THRONE LADDER — role determines which tools are in the belt
+provides:
+  - minimum-tool-surface
+  - file-ops-api
+  - code-ops-api
+  - agent-tools-checklist
+related:
+  - HS-079  # THE CREW CHARTER — role-specific tools extend this minimum
+  - HS-077  # CONSENT GUARDIAN — write_file uses require_approval=True by default
+graph_notes: "Minimum tool surface every BROski crew agent must expose — use as a checklist when stubbing or auditing any agent."
+---
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §3
 **Version:** v1

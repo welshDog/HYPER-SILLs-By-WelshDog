@@ -1,7 +1,27 @@
-# HS-043 — 🔄 SELF IMPROVEMENT 5-LOOP — Self-Improvement 5-Loop Logic
+# HS-121 — 🔄 SELF IMPROVEMENT 5-LOOP — Self-Improvement 5-Loop Logic
 **Category:** agents
 **Version:** 1.0
 
+
+---
+skill_id: HS-121
+hero_name: "LOOP FORGE"
+emoji: "🔄"
+version: v1.0
+category: agents
+depends_on:
+  - HS-043  # LOOP MASTER — this code implements the 5-loop reference
+  - HS-003  # AGENT_LIFECYCLE_STATE_MACHINE — loop fires within the lifecycle
+provides:
+  - self-improvement-code
+  - loop-implementation
+  - autonomous-metric-check
+  - observation-store-pattern
+related:
+  - HS-040  # GOALKEEPER — goalkeeper uses this loop implementation
+  - HS-093  # NIGHT TENDER — nightly scheduler runs this loop
+graph_notes: "Python code companion to HS-043 LOOP MASTER — implement all 5 loops in any agent background task runner."
+---
 ## What it Does
 The universal 5-step self-improvement loop used by all learning agents in the HyperFocus ecosystem. Every agent that improves over time uses this pattern.
 

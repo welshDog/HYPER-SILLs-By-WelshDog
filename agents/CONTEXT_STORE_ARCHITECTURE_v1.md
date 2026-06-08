@@ -1,5 +1,25 @@
 # HS-072 — 🗃️ THE MEMORY VAULT — Context Store Architecture (Redis)
 
+
+---
+skill_id: HS-072
+hero_name: "THE MEMORY VAULT"
+emoji: "🗃️"
+version: v1.0
+category: agents
+depends_on:
+  - HS-001  # ANATOMY_OF_AN_AGENT — memory is one of the 6 organs
+  - HS-003  # AGENT_LIFECYCLE_STATE_MACHINE — context store feeds every state
+provides:
+  - redis-context-store
+  - context-slot-pattern
+  - agent-shared-memory
+  - dot-notation-key-schema
+related:
+  - HS-078  # FLOW KEEPER — context store enables seamless handoffs
+  - HS-008  # BROSKI ORCHESTRATOR PATTERN — orchestrator writes shared context
+graph_notes: "Shared Redis memory for the agent crew — dot-notation keys let agents hand off state without losing context mid-task."
+---
 **Category:** `agents/`  
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §7  
 **Version:** v1  

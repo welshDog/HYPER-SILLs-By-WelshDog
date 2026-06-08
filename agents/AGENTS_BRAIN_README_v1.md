@@ -1,4 +1,23 @@
 # HS-016 — 📖 BRAIN PRIMER — Agents Brain README
+
+---
+skill_id: HS-016
+hero_name: "BRAIN PRIMER"
+emoji: "📖"
+version: v1.0
+category: agents
+depends_on:
+  - HS-125  # THE GRAND CODEX — master context is the root; brain sits inside it
+provides:
+  - brain-ecosystem-map
+  - agent-boot-sequence
+  - obsidian-architecture-overview
+related:
+  - HS-017  # MIND CORE — the core agent described in this README
+  - HS-018  # BRIDGE KEEPER — the MCP bridge described in this README
+  - HS-028  # SDK PRIMER — SDK sits at same layer as the brain
+graph_notes: "Master orientation for the BROski brain ecosystem — read this before any brain or agent work."
+---
 **Category:** Agents / Brain Architecture
 **Version:** 1.0
 **Rescued From:** [BROski-Obsidian-Brain](https://github.com/welshDog/BROski-Obsidian-Brain-for-HyperFocus-z0ne) — `.agents/AGENTS.md`

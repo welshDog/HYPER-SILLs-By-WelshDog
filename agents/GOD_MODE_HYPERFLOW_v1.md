@@ -1,4 +1,26 @@
-# HS-006 — ⚡ GODFLOW — GOD Mode Hyperflow
+# HS-123 — ⚡ GODFLOW — GOD Mode Hyperflow
+
+---
+skill_id: HS-123
+hero_name: "GODFLOW"
+emoji: "⚡"
+version: v1.0
+category: agents
+depends_on:
+  - HS-002  # SIX_LAWS_OF_AGENTS — God Mode respects the 6 laws
+  - HS-001  # ANATOMY_OF_AN_AGENT — anatomy is the foundation
+provides:
+  - god-mode-protocol
+  - nd-first-flow
+  - momentum-chunking
+  - agent-handoff-rules
+  - dopamine-loop-structure
+related:
+  - HS-008  # BROSKI ORCHESTRATOR PATTERN — orchestrator runs the flow
+  - HS-126  # NODE SMITH — node-graph design complements the flow
+  - HS-125  # THE GRAND CODEX — master context loads first
+graph_notes: "Root workflow skill — activates ND-first hyperfocus mode, chunks any project into momentum-building wins."
+---
 **Category:** Agents / Workflow  
 **Version:** 1.0  
 **Author:** WelshDog  

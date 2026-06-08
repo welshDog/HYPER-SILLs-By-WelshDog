@@ -1,4 +1,22 @@
 # HS-012 — 🪜 THE ASCENT — Level Progression
+
+---
+skill_id: HS-012
+hero_name: "THE ASCENT"
+emoji: "🪜"
+version: v1.0
+category: broski
+depends_on:
+  - HS-002  # SIX_LAWS_OF_AGENTS — Law 5 (REWARD) motivates this system
+provides:
+  - level-progression-rules
+  - xp-calculation
+  - tier-unlock-conditions
+related:
+  - HS-107  # THE RANK & THE NAME — rank titles map to progression tiers
+  - HS-034  # BEAT ARCHITECT — module structure produces the XP awarded here
+graph_notes: "BROski level/XP progression system — the dopamine engine that converts task completion into tier unlocks."
+---
 **Category:** Broski / Gamification  
 **Version:** 1.0  
 **Rescued From:** [BROski-Obsidian-Brain](https://github.com/welshDog/BROski-Obsidian-Brain-for-HyperFocus-z0ne) — `.claude/skills/level-progression/SKILL.md`

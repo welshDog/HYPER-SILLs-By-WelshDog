@@ -2,6 +2,27 @@
 **Category:** agents
 **Version:** 1.0
 
+
+---
+skill_id: HS-038
+hero_name: "PHASE WARDEN"
+emoji: "🛡️"
+version: v1.0
+category: agents
+depends_on:
+  - HS-002  # SIX_LAWS_OF_AGENTS — moderation must respect agent laws
+  - HS-004  # FIVE MANDATORY GUARDRAILS — ban actions require hard-stop guardrails
+  - HS-077  # CONSENT GUARDIAN — P3c ban requires explicit human approval
+provides:
+  - guardian-phase-map
+  - discord-mod-phases
+  - one-door-architecture
+  - p1-to-p3c-reference
+related:
+  - HS-050  # WATCHDOG PRIME — watchdog monitors after Guardian acts
+  - HS-122  # GUARDIAN WATCHDOG — Python monitoring code companion
+graph_notes: "Complete Server Guardian phase map (P1 reactive → P3c veto-gated ban) — must-read before any Discord moderation work."
+---
 > *"Server Guardian: the autonomous Discord mod system. Know every phase before touching it."*
 
 ---

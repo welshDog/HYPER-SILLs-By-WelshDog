@@ -1,7 +1,27 @@
-# HS-050 — 🛡️ GUARDIAN WATCHDOG — Guardian Watchdog Post-Launch Monitor
+# HS-122 — 🛡️ GUARDIAN WATCHDOG — Guardian Watchdog Post-Launch Monitor
 **Category:** agents
 **Version:** 1.0
 
+
+---
+skill_id: HS-122
+hero_name: "GUARDIAN WATCHDOG"
+emoji: "🔭"
+version: v1.0
+category: agents
+depends_on:
+  - HS-038  # PHASE WARDEN — watchdog operates within Guardian phases
+  - HS-041  # METRICS FORGE — metrics must be wired before watchdog can evaluate
+provides:
+  - watchdog-code-pattern
+  - service-health-loop
+  - failure-restart-logic
+  - consecutive-failure-counter
+related:
+  - HS-050  # WATCHDOG PRIME — prompt-block companion to this code pattern
+  - DS-028  # PROGRESSIVE_HEALTH_WAIT — health wait pattern used in restart logic
+graph_notes: "Python implementation of the post-launch watchdog — code companion to HS-050 WATCHDOG PRIME."
+---
 ## What it Does
 Post-launch watchdog monitor that continuously verifies all services remain healthy after startup. Triggers alerts and optionally restarts failing services.
 

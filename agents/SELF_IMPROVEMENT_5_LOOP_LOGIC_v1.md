@@ -2,6 +2,26 @@
 **Category:** agents
 **Version:** 1.0
 
+
+---
+skill_id: HS-043
+hero_name: "LOOP MASTER"
+emoji: "🔄"
+version: v1.0
+category: agents
+depends_on:
+  - HS-003  # AGENT_LIFECYCLE_STATE_MACHINE — improvement loops within the lifecycle
+  - HS-002  # SIX_LAWS_OF_AGENTS — Law 4 (IMPROVE) mandates this loop
+provides:
+  - 5-loop-pattern
+  - observe-analyse-update-deploy-review
+  - self-improvement-reference
+related:
+  - HS-093  # NIGHT TENDER — nightly loop is the scheduled executor
+  - HS-040  # GOALKEEPER — goalkeeper measures KPIs between loops
+  - HS-044  # AB SPLITTER — A/B tests feed the UPDATE step
+graph_notes: "Canonical 5-loop self-improvement pattern — the difference between a static tool and an autonomous, compounding system."
+---
 > *"The agent doesn't wait to be told to improve. It runs this loop on its own."*
 
 ---

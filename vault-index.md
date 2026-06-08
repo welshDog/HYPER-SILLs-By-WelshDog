@@ -8,19 +8,20 @@ Master tracking list for every skill in the vault.
 
 > Last Hunt: 20 May 2026 — 86 repos scanned 🐕💨
 > Last Updated: 21 May 2026 — **FULL HERO REBRAND COMPLETE** 🦸✨ · all **72 rescued skills** now carry Marvel-style hero names · 37 catalogued
+> 2026-06-08 — **GoS RETROFIT COMPLETE** — 36 agents/ + 7 broski/ + 2 agents/ missed files + 4 dev/ new entries. Full Graph-of-Skills frontmatter now on all 90 vault files. 84 total in registry.
 > *Every skill is a hero. Header convention standardised across the whole vault: `# HS-### — 🎯 HERO NAME — Descriptive Title`. The 25 legacy `Hyper Skill:` headers were migrated to match.*
 
 ---
 
-## ✅ RESCUED SKILLS (file present on disk, 72 total)
+## ✅ RESCUED SKILLS (file present on disk, 84 total)
 
 | ID | Skill Name | File | Source Repo | Category |
 |---|---|---|---|---|
-| HS-001 | 📊 **SIGNAL HUNTER** — YT Analytics Debugger | [`youtube/YT_DEBUGGER_v1.md`](youtube/YT_DEBUGGER_v1.md) | Original | `youtube/` |
-| HS-006 | ⚡ **GODFLOW** — GOD Mode Hyperflow | [`agents/GOD_MODE_HYPERFLOW_v1.md`](agents/GOD_MODE_HYPERFLOW_v1.md) | GOD-Agent-Mode | `agents/` |
-| HS-007 | 🔗 **NODE SMITH** — HyperGraph Node Skill | [`agents/HYPERGRAPH_NODE_SKILL_v1.md`](agents/HYPERGRAPH_NODE_SKILL_v1.md) | GOD-Agent-Mode | `agents/` |
-| HS-008 | 🐝 **SWARM CROWN** — Hyperfocus Agent Swarm Core | [`agents/HYPERFOCUS_AGENT_SWARM_CORE_v1.md`](agents/HYPERFOCUS_AGENT_SWARM_CORE_v1.md) | Hyperfocus-Global-Impact-Skills | `agents/` |
-| HS-009 | 🏆 **THE GRAND CODEX** — Hyperfocus Zone Master Context | [`agents/HYPERFOCUS_ZONE_MASTER_CONTEXT_v1.md`](agents/HYPERFOCUS_ZONE_MASTER_CONTEXT_v1.md) | BROski-Obsidian-Brain | `agents/` |
+| HS-127 | 📊 **SIGNAL HUNTER** — YT Analytics Debugger | [`youtube/YT_DEBUGGER_v1.md`](youtube/YT_DEBUGGER_v1.md) | Original | `youtube/` |
+| HS-123 | ⚡ **GODFLOW** — GOD Mode Hyperflow | [`agents/GOD_MODE_HYPERFLOW_v1.md`](agents/GOD_MODE_HYPERFLOW_v1.md) | GOD-Agent-Mode | `agents/` |
+| HS-126 | 🔗 **NODE SMITH** — HyperGraph Node Skill | [`agents/HYPERGRAPH_NODE_SKILL_v1.md`](agents/HYPERGRAPH_NODE_SKILL_v1.md) | GOD-Agent-Mode | `agents/` |
+| HS-007 | 🐝 **SWARM CROWN** — Hyperfocus Agent Swarm Core | [`agents/HYPERFOCUS_AGENT_SWARM_CORE_v1.md`](agents/HYPERFOCUS_AGENT_SWARM_CORE_v1.md) | Hyperfocus-Global-Impact-Skills | `agents/` |
+| HS-125 | 🏆 **THE GRAND CODEX** — Hyperfocus Zone Master Context | [`agents/HYPERFOCUS_ZONE_MASTER_CONTEXT_v1.md`](agents/HYPERFOCUS_ZONE_MASTER_CONTEXT_v1.md) | BROski-Obsidian-Brain | `agents/` |
 | HS-010 | 🎨 **THE AESTHETE** — Design Brain | [`broski/DESIGN_BRAIN_v1.md`](broski/DESIGN_BRAIN_v1.md) | BROski-Obsidian-Brain | `broski/` |
 | HS-011 | 🧩 **MIND BLOCKS** — Hyper Brain Modules | [`agents/HYPER_BRAIN_MODULES_v1.md`](agents/HYPER_BRAIN_MODULES_v1.md) | BROski-Obsidian-Brain | `agents/` |
 | HS-012 | 🪜 **THE ASCENT** — Level Progression | [`broski/LEVEL_PROGRESSION_v1.md`](broski/LEVEL_PROGRESSION_v1.md) | BROski-Obsidian-Brain | `broski/` |
@@ -30,7 +31,7 @@ Master tracking list for every skill in the vault.
 | HS-016 | 📖 **BRAIN PRIMER** — Agents Brain README | [`agents/AGENTS_BRAIN_README_v1.md`](agents/AGENTS_BRAIN_README_v1.md) | BROski-Obsidian-Brain | `agents/` |
 | HS-017 | 🧠 **MIND CORE** — Hyper Brain Core Manifest | [`agents/AGENT_MANIFEST_HYPER_BRAIN_CORE_v1.md`](agents/AGENT_MANIFEST_HYPER_BRAIN_CORE_v1.md) | BROski-Obsidian-Brain | `agents/` |
 | HS-018 | 🌉 **BRIDGE KEEPER** — MCP Bridge Manifest | [`agents/AGENT_MANIFEST_MCP_BRIDGE_v1.md`](agents/AGENT_MANIFEST_MCP_BRIDGE_v1.md) | BROski-Obsidian-Brain | `agents/` |
-| HS-019 | 🦅 **FOCUS HAWK** — Focus Tracker Manifest | [`agents/AGENT_MANIFEST_FOCUS_TRACKER_v1.md`](agents/AGENT_MANIFEST_FOCUS_TRACKER_v1.md) | BROski-Obsidian-Brain | `agents/` |
+| HS-124 | 🦅 **FOCUS HAWK** — Focus Tracker Manifest | [`agents/AGENT_MANIFEST_FOCUS_TRACKER_v1.md`](agents/AGENT_MANIFEST_FOCUS_TRACKER_v1.md) | BROski-Obsidian-Brain | `agents/` |
 | HS-020 | 🌄 **HERALD'S SCROLL** — Morning Briefing Manifest | [`agents/AGENT_MANIFEST_MORNING_BRIEFING_v1.md`](agents/AGENT_MANIFEST_MORNING_BRIEFING_v1.md) | BROski-Obsidian-Brain | `agents/` |
 | HS-021 | 🔄 **VAULT SYNC** — Obsidian Brain Sync Skill | [`agents/OBSIDIAN_BRAIN_SYNC_SKILL_v1.md`](agents/OBSIDIAN_BRAIN_SYNC_SKILL_v1.md) | BROski-Obsidian-Brain | `agents/` |
 | HS-022 | 📦 **SDK SOVEREIGN** — HyperCode SDK Master | [`dev/HYPERCODE_SDK_MASTER_v1.md`](dev/HYPERCODE_SDK_MASTER_v1.md) | HyperAgent-SDK | `dev/` |
@@ -42,9 +43,9 @@ Master tracking list for every skill in the vault.
 | HS-028 | 📖 **SDK PRIMER** — HyperAgent SDK Agents README | [`agents/HYPERAGENT_SDK_AGENTS_README_v1.md`](agents/HYPERAGENT_SDK_AGENTS_README_v1.md) | HyperAgent-SDK | `agents/` |
 | HS-029 | 📮 **PUBLISH FORGE** — HyperAgent SDK Publish Skill | [`dev/HYPERAGENT_SDK_PUBLISH_SKILL_v1.md`](dev/HYPERAGENT_SDK_PUBLISH_SKILL_v1.md) | HyperAgent-SDK | `dev/` |
 | HS-067 | 👑 **THE THRONE LADDER** — Agent Role Hierarchy Pattern | [`agents/AGENT_ROLE_HIERARCHY_PATTERN_v1.md`](agents/AGENT_ROLE_HIERARCHY_PATTERN_v1.md) | HyperCode-V2.4 (Bible) | `agents/` |
-| HS-068 | 🎭 **THE CONDUCTOR** — BROski Orchestrator Pattern | [`agents/BROSKI_ORCHESTRATOR_PATTERN_v1.md`](agents/BROSKI_ORCHESTRATOR_PATTERN_v1.md) | HyperCode-V2.4 (Bible) | `agents/` |
+| HS-008 | 🎭 **THE CONDUCTOR** — BROski Orchestrator Pattern | [`agents/BROSKI_ORCHESTRATOR_PATTERN_v1.md`](agents/BROSKI_ORCHESTRATOR_PATTERN_v1.md) | HyperCode-V2.4 (Bible) | `agents/` |
 | HS-069 | 💚 **MERCY MESSAGE** — ND-First Error Messages Template | [`broski/ND_FIRST_ERROR_MESSAGES_TEMPLATE_v1.md`](broski/ND_FIRST_ERROR_MESSAGES_TEMPLATE_v1.md) | HyperCode-V2.4 (Bible §1) | `broski/` |
-| HS-070 | 👁️ **THE ALL-SEEING** — Observable Agent Operations Pattern | [`agents/OBSERVABLE_AGENT_OPERATIONS_v1.md`](agents/OBSERVABLE_AGENT_OPERATIONS_v1.md) | HyperCode-V2.4 (Bible) | `agents/` |
+| HS-019 | 👁️ **THE ALL-SEEING** — Observable Agent Operations Pattern | [`agents/OBSERVABLE_AGENT_OPERATIONS_v1.md`](agents/OBSERVABLE_AGENT_OPERATIONS_v1.md) | HyperCode-V2.4 (Bible) | `agents/` |
 | HS-071 | 🪂 **SOFT LANDING** — Fail Gracefully + Fallback Chain | [`agents/FAIL_GRACEFULLY_FALLBACK_CHAIN_v1.md`](agents/FAIL_GRACEFULLY_FALLBACK_CHAIN_v1.md) | HyperCode-V2.4 (Bible) | `agents/` |
 | HS-072 | 🗃️ **THE MEMORY VAULT** — Context Store Architecture (Redis) | [`agents/CONTEXT_STORE_ARCHITECTURE_v1.md`](agents/CONTEXT_STORE_ARCHITECTURE_v1.md) | HyperCode-V2.4 (Bible) | `agents/` |
 | HS-073 | 📡 **PULSE STREAM** — SSE Agent Event Schema | [`agents/SSE_AGENT_EVENT_SCHEMA_v1.md`](agents/SSE_AGENT_EVENT_SCHEMA_v1.md) | HyperCode-V2.4 (Bible) | `agents/` |
@@ -88,6 +89,55 @@ Master tracking list for every skill in the vault.
 | HS-111 | 🚩 **TRUTH FLAGGER** — Surface Contradictions, Don't Pick Sides | [`agents/SURFACE_CONTRADICTIONS_DONT_PICK_SIDES_v1.md`](agents/SURFACE_CONTRADICTIONS_DONT_PICK_SIDES_v1.md) | Original — distilled from HFZ CLAUDE.md communication rules | `agents/` |
 | HS-112 | 🕸️ **WEB WEAVER** — Wikilink Knowledge Graph for Docs | [`dev/WIKILINK_KNOWLEDGE_GRAPH_v1.md`](dev/WIKILINK_KNOWLEDGE_GRAPH_v1.md) | Original — vault convention from HS-067 onwards | `dev/` |
 | HS-113 | ⚒️ **FETCH FORGE** — Parallel Git Workflow Survival Guide | [`dev/PARALLEL_GIT_WORKFLOW_SURVIVAL_v1.md`](dev/PARALLEL_GIT_WORKFLOW_SURVIVAL_v1.md) | Original — from Lyndz's parallel-workflow memory | `dev/` |
+
+| HS-034 | 🎯 **BEAT ARCHITECT** — 7-Beat Module Teaching Structure | [](broski/SEVEN_BEAT_MODULE_STRUCTURE_v1.md) | Original | `broski/` |
+| HS-036 | 🧠 **ANALOGY ARSENAL** — ND-Friendly Analogy Library | [](broski/ANALOGY_ARSENAL_v1.md) | Original | `broski/` |
+| HS-038 | 🛡️ **PHASE WARDEN** — Server Guardian Bot Phase Map | [](agents/GUARDIAN_BOT_PHASE_MAP_v1.md) | HyperCode-V2.4 | `agents/` |
+| HS-040 | 🥅 **GOALKEEPER** — Self-Improving Goal-Tracking Agent | [](agents/GOALKEEPER_SELF_IMPROVING_AGENT_v1.md) | HyperCode-V2.4 | `agents/` |
+| HS-041 | ⚡ **METRICS FORGE** — Prometheus + Grafana Agent Metrics Integration | [](agents/METRICS_ENGINE_INTEGRATION_v1.md) | HyperCode-V2.4 | `agents/` |
+| HS-042 | 📋 **REGISTRY LORD** — Skill Registry Agent Pattern (Yellow Pages) | [](agents/SKILL_REGISTRY_AGENT_PATTERN_v1.md) | HyperCode-V2.4 | `agents/` |
+| HS-043 | 🔄 **LOOP MASTER** — Self-Improvement 5-Loop Pattern (Reference) | [](agents/SELF_IMPROVEMENT_5_LOOP_LOGIC_v1.md) | HyperCode-V2.4 | `agents/` |
+| HS-044 | 🧪 **AB SPLITTER** — A/B Testing Framework (Prompt Block) | [](agents/AB_TESTING_FRAMEWORK_v1.md) | HyperCode-V2.4 | `agents/` |
+| HS-045 | 💰 **FRUGAL ENGINE** — Cost Optimisation Auto-Pattern | [The AT command has been deprecated. Please use schtasks.exe instead.
+
+Invalid command.
+
+The AT command schedules commands and programs to run on a computer at      
+a specified time and date. The Schedule service must be running to use      
+the AT command.
+                                                           
+AT [\computername] [ [id] [/DELETE] | /DELETE [/YES]]                    
+AT [\computername] time [/INTERACTIVE]
+    [ /EVERY:date[,...] | /NEXT:date[,...]] "command"
+
+\computername     Specifies a remote computer. Commands are scheduled on the
+                   local computer if this parameter is omitted.             
+id                 Is an identification number assigned to a scheduled      
+                   command.                                                 
+/delete            Cancels a scheduled command. If id is omitted, all the
+                   scheduled commands on the computer are canceled.
+/yes               Used with cancel all jobs command when no further
+                   confirmation is desired.
+time               Specifies the time when command is to run.
+/interactive       Allows the job to interact with the desktop of the user   
+                   who is logged on at the time the job runs.
+/every:date[,...]  Runs the command on each specified day(s) of the week or
+                   month. If date is omitted, the current day of the month
+                   is assumed.                                              
+/next:date[,...]   Runs the specified command on the next occurrence of the
+                   day (for example, next Thursday).  If date is omitted, the
+                   current day of the month is assumed.
+"command"          Is the Windows NT command, or batch program to be run.
+
+Ctrl click to launch VS Code Native REPL](agents/COST_OPTIMISATION_AUTO_PATTERN_v1.md) | HyperCode-V2.4 | `agents/` |
+| HS-050 | 🛡️ **WATCHDOG PRIME** — Post-Launch Watchdog Monitoring Pattern | [Ctrl click to launch VS Code Native REPL](agents/GUARDIAN_WATCHDOG_POST_LAUNCH_v1.md) | HyperCode-V2.4 | `agents/` |
+| HS-114 | 🛠️ **BRAIN OPS** — Hyper Brain Infrastructure Runbook | [](dev/HYPER_BRAIN_OPS_v1.md) | BROski-Obsidian-Brain | `dev/` |
+| HS-120 | 🧪 **AB FORGE** — A/B Testing Framework (Python Code) | [](agents/AB_TESTING_FRAMEWORK_AGENTS_v1.md) | HyperCode-V2.4 | `agents/` |
+| HS-121 | 🔄 **LOOP FORGE** — Self-Improvement 5-Loop (Python Implementation) | [](agents/SELF_IMPROVEMENT_5_LOOP_v1.md) | HyperCode-V2.4 | `agents/` |
+| HS-122 | 🔭 **GUARDIAN WATCHDOG** — Watchdog Monitor Code Pattern | [](agents/GUARDIAN_WATCHDOG_MONITOR_v1.md) | HyperCode-V2.4 | `agents/` |
+| DS-002 | ⚡ **CLI LAUNCHER** — CLI Args Launch Pattern | [](dev/CLI_ARGS_LAUNCH_PATTERN_v1.md) | HyperCode-V2.4 | `dev/` |
+| DS-009 | 🛫 **PREFLIGHT** — Preflight Checks System (Boot Validation) | [](dev/PREFLIGHT_CHECKS_SYSTEM_v1.md) | HyperCode-V2.4 | `dev/` |
+| DS-028 | ⏳ **HEALTH WAITER** — Progressive Health Wait (Smart Backoff) | [](dev/PROGRESSIVE_HEALTH_WAIT_v1.md) | HyperCode-V2.4 | `dev/` |
 
 ---
 

@@ -64,8 +64,8 @@ def parse_vault_index(vault_path: Path) -> list[dict]:
             rescued_section += line + "\n"
 
     skills = []
-    # Match table rows: | HS-NNN | name cell | file cell | source | category |
-    row_re = re.compile(r'^\|\s*(HS-\d+)\s*\|(.+?)\|(.+?)\|(.+?)\|(.+?)\|\s*$')
+    # Match table rows: | HS-NNN | or | DS-NNN | name cell | file cell | source | category |
+    row_re = re.compile(r'^\|\s*((?:HS|DS)-\d+)\s*\|(.+?)\|(.+?)\|(.+?)\|(.+?)\|\s*$')
 
     for line in rescued_section.splitlines():
         m = row_re.match(line.strip())
@@ -131,6 +131,11 @@ def build_registry(skills: list[dict]) -> dict:
 
 
 def main():
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
     parser = argparse.ArgumentParser(description="Generate HYPER-SKILLs registry JSON")
     parser.add_argument("--vault",  default="vault-index.md",        help="Path to vault-index.md")
     parser.add_argument("--output", default="skills-registry.json",  help="Output JSON path")
@@ -141,12 +146,12 @@ def main():
     output_path = Path(args.output)
 
     if not vault_path.exists():
-        print(f"❌ vault-index.md not found at: {vault_path}")
+        print(f"vault-index.md not found at: {vault_path}")
         sys.exit(1)
 
-    print(f"\n🔍 Parsing {vault_path}...")
+    print(f"\nParsing {vault_path}...")
     skills = parse_vault_index(vault_path)
-    print(f"✅ Found {len(skills)} rescued skills")
+    print(f"Found {len(skills)} rescued skills")
 
     registry = build_registry(skills)
 
@@ -154,11 +159,10 @@ def main():
     indent = 2 if args.pretty else None
     output_path.write_text(json.dumps(registry, indent=indent, ensure_ascii=False), encoding="utf-8")
 
-    print(f"\n📦 Registry written → {output_path}")
+    print(f"\nRegistry written -> {output_path}")
     print(f"   Skills:     {registry['_meta']['total_skills']}")
     print(f"   Categories: {json.dumps(registry['_meta']['categories'], indent=6)}")
     print(f"   Packs:      {list(registry['packs'].keys())}")
-    print(f"\n🏆 Done! BROski approved ♾️\n")
 
 
 if __name__ == "__main__":

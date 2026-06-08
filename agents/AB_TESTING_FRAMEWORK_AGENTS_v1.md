@@ -1,7 +1,26 @@
-# HS-044 — 🧪 A/B TESTING FRAMEWORK — A/B Testing Framework for Agents
+# HS-120 — 🧪 A/B TESTING FRAMEWORK — A/B Testing Framework for Agents
 **Category:** agents
 **Version:** 1.0
 
+
+---
+skill_id: HS-120
+hero_name: "AB FORGE"
+emoji: "🧪"
+version: v1.0
+category: agents
+depends_on:
+  - HS-002  # SIX_LAWS_OF_AGENTS — governs test behaviour boundaries
+  - HS-043  # LOOP MASTER — A/B test plugs into the 5-loop
+provides:
+  - ab-test-code
+  - traffic-splitting-implementation
+  - variant-management
+related:
+  - HS-044  # AB SPLITTER — prompt-block companion to this code pattern
+  - HS-093  # NIGHT TENDER — nightly loop runs the A/B evaluation
+graph_notes: "Python A/B testing code for agent behaviour comparison — code companion to HS-044 AB SPLITTER."
+---
 ## What it Does
 Standard A/B testing pattern for comparing two agent behaviours, prompts, or decision paths. Used in the self-improvement loop to safely test changes before committing them.
 

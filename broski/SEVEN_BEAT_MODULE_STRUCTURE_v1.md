@@ -2,6 +2,24 @@
 **Category:** broski
 **Version:** 1.0
 
+
+---
+skill_id: HS-034
+hero_name: "BEAT ARCHITECT"
+emoji: "🎯"
+version: v1.0
+category: broski
+depends_on:
+  - HS-002  # SIX_LAWS_OF_AGENTS — Law 3 (EXPLAIN SIMPLY) motivates the beat structure
+provides:
+  - 7-beat-teaching-structure
+  - dopamine-arc-template
+  - module-outline-pattern
+related:
+  - HS-036  # ANALOGY ARSENAL — beat 3 (core explanation) uses analogies
+  - HS-012  # THE ASCENT — modules award XP tracked by level progression
+graph_notes: "7-beat ND-first teaching arc (Hook → Struggle → Explain → Analogy → Live → Challenge → Win) — use for every lesson, doc, or demo."
+---
 > *"Every module is a story. 7 beats = student goes from lost → capable → hungry for more."*
 
 ---

@@ -2,6 +2,26 @@
 **Category:** agents
 **Version:** 1.0
 
+
+---
+skill_id: HS-041
+hero_name: "METRICS FORGE"
+emoji: "⚡"
+version: v1.0
+category: agents
+depends_on:
+  - HS-001  # ANATOMY_OF_AN_AGENT — metrics are the Eyes organ
+  - HS-019  # OBSERVABLE AGENT OPERATIONS — observability schema defines what to emit
+provides:
+  - prometheus-wiring-pattern
+  - agent-metrics-template
+  - grafana-auto-scrape
+  - python-and-node-support
+related:
+  - HS-050  # WATCHDOG PRIME — watchdog consumes these metrics
+  - HS-073  # PULSE STREAM — SSE events complement Prometheus metrics
+graph_notes: "Standard pattern for wiring any agent into Prometheus/Grafana — apply at agent creation, never retroactively."
+---
 > *"Wire any agent to Prometheus metrics in under 10 minutes."*
 
 ---

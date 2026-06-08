@@ -1,4 +1,23 @@
 # HS-010 — 🎨 THE AESTHETE — Design Brain
+
+---
+skill_id: HS-010
+hero_name: "THE AESTHETE"
+emoji: "🎨"
+version: v1.0
+category: broski
+depends_on:
+  - none  # root aesthetic reference — no prerequisites
+provides:
+  - design-principles
+  - colour-palette-ref
+  - typography-choices
+  - ux-guidelines
+related:
+  - HS-069  # MERCY MESSAGE — error message tone pairs with design voice
+  - HS-015  # THE FOUR DRAWERS — vault structure uses these design principles
+graph_notes: "Master design reference for the BROski ecosystem — colour, typography, and ND-first UX principles in one place."
+---
 **Category:** Broski / Design  
 **Version:** 1.0  
 **Rescued From:** [BROski-Obsidian-Brain](https://github.com/welshDog/BROski-Obsidian-Brain-for-HyperFocus-z0ne) — `.claude/skills/design-brain/SKILL.md`

@@ -1,4 +1,24 @@
 # HS-021 — 🔄 VAULT SYNC — Obsidian Brain Sync Skill
+
+---
+skill_id: HS-021
+hero_name: "VAULT SYNC"
+emoji: "🔄"
+version: v1.0
+category: agents
+depends_on:
+  - DS-018  # OBSIDIAN_GIT_VAULT — git workflow for the vault is a prerequisite
+  - HS-016  # BRAIN PRIMER — brain ecosystem context required
+provides:
+  - brain-sync-workflow
+  - sprint-knowledge-update
+  - vault-maintenance-checklist
+  - commit-push-pattern
+related:
+  - HS-125  # THE GRAND CODEX — codex is the primary sync target
+  - DS-015  # PARALLEL_GIT_WORKFLOW_SURVIVAL — parallel workflow awareness needed
+graph_notes: "Post-sprint knowledge sync — WHATS_DONE → CLAUDE_CONTEXT → architecture → commit → push."
+---
 **Category:** Agents / Brain Maintenance
 **Version:** 1.0
 **Rescued From:** [BROski-Obsidian-Brain](https://github.com/welshDog/BROski-Obsidian-Brain-for-HyperFocus-z0ne) — `.agents/skills/obsidian-brain-sync/SKILL.md`

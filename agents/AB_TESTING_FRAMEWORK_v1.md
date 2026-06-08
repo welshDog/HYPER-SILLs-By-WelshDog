@@ -2,6 +2,25 @@
 **Category:** agents
 **Version:** 1.0
 
+
+---
+skill_id: HS-044
+hero_name: "AB SPLITTER"
+emoji: "🧪"
+version: v1.0
+category: agents
+depends_on:
+  - HS-002  # SIX_LAWS_OF_AGENTS — tests must respect agent laws
+  - HS-043  # LOOP MASTER — A/B test is a sub-loop of the 5-loop
+provides:
+  - ab-test-prompt
+  - behaviour-comparison-workflow
+  - winner-promotion-pattern
+related:
+  - HS-120  # AB FORGE — Python code companion
+  - HS-093  # NIGHT TENDER — nightly evaluation loop
+graph_notes: "Prompt-block A/B testing pattern for comparing agent behaviours — use with HS-120 for implementation."
+---
 > *"Don't guess which agent behaviour is better. Measure it."*
 
 ---

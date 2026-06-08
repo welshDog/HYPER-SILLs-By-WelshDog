@@ -1,4 +1,23 @@
 # HS-017 — 🧠 MIND CORE — Hyper Brain Core Manifest
+
+---
+skill_id: HS-017
+hero_name: "MIND CORE"
+emoji: "🧠"
+version: v1.0
+category: agents
+depends_on:
+  - HS-016  # BRAIN PRIMER — orientation required before calling the core
+provides:
+  - brain-query-api
+  - brain-state-update
+  - mcp-compatible-brain-interface
+related:
+  - HS-018  # BRIDGE KEEPER — MCP bridge routes calls to this core
+  - HS-011  # MIND BLOCKS — module map for this core's endpoints
+  - HS-125  # THE GRAND CODEX — master context loads before the core
+graph_notes: "Core brain agent manifest — MCP-compatible; Claude/Cursor can call it directly for knowledge queries and state updates."
+---
 **Category:** Agents / MCP-Compatible
 **Version:** 1.0.0
 **Runtime:** Python

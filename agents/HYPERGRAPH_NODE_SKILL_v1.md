@@ -1,4 +1,23 @@
-# HS-007 — 🔗 NODE SMITH — HyperGraph Node Skill
+# HS-126 — 🔗 NODE SMITH — HyperGraph Node Skill
+
+---
+skill_id: HS-126
+hero_name: "NODE SMITH"
+emoji: "🔗"
+version: v1.0
+category: agents
+depends_on:
+  - HS-001  # ANATOMY_OF_AN_AGENT — agents are nodes; anatomy defines their shape
+provides:
+  - hypergraph-pattern
+  - node-based-design
+  - visual-architecture-spec
+  - typed-port-model
+related:
+  - HS-008  # BROSKI ORCHESTRATOR PATTERN — orchestrator is a hub node
+  - HS-123  # GODFLOW — god mode workflow maps to a hypergraph
+graph_notes: "Visual node-graph architecture pattern — design any agent system as a circuit-board of typed input/brain/output nodes."
+---
 **Category:** Agents / Dev Architecture  
 **Version:** 1.0  
 **Author:** WelshDog  

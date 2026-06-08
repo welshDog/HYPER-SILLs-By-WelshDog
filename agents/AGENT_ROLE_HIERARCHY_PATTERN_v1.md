@@ -1,5 +1,24 @@
 # HS-067 — 👑 THE THRONE LADDER — Agent Role Hierarchy Pattern
 
+
+---
+skill_id: HS-067
+hero_name: "THE THRONE LADDER"
+emoji: "👑"
+version: v1.0
+category: agents
+depends_on:
+  - HS-001  # ANATOMY_OF_AN_AGENT — anatomy defines role components
+  - HS-002  # SIX_LAWS_OF_AGENTS — laws set role boundaries
+provides:
+  - role-hierarchy
+  - orchestrator-worker-validator-model
+  - delegation-boundaries
+related:
+  - HS-008  # BROSKI ORCHESTRATOR PATTERN — the Orchestrator role defined here
+  - HS-079  # THE CREW CHARTER — per-specialist role definitions
+graph_notes: "Canonical Orchestrator→Worker→Validator role structure — the skeleton all multi-agent systems build on."
+---
 **Category:** `agents/`  
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §2  
 **Version:** v1  

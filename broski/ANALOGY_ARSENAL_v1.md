@@ -2,6 +2,24 @@
 **Category:** broski
 **Version:** 1.0
 
+
+---
+skill_id: HS-036
+hero_name: "ANALOGY ARSENAL"
+emoji: "🧠"
+version: v1.0
+category: broski
+depends_on:
+  - HS-002  # SIX_LAWS_OF_AGENTS — Law 3 (EXPLAIN SIMPLY) motivates this arsenal
+provides:
+  - nd-friendly-analogies
+  - explanation-arsenal
+  - concept-to-concrete-bridges
+related:
+  - HS-069  # MERCY MESSAGE — ND-first comms pair with ND-first analogies
+  - HS-034  # BEAT ARCHITECT — 7-beat structure uses these analogies in teaching beats
+graph_notes: "Library of battle-tested analogies for explaining AI/tech concepts to ND brains — use before writing docs or error messages."
+---
 > *"Complex tech explained in 10 words or less. ADHD-brain approved."*
 
 ---

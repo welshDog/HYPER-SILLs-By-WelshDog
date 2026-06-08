@@ -1,5 +1,25 @@
 # HS-087 — 🌳 THE BRANCHING PATH — Agent Decision Tree (Quick Ref Flowchart)
 
+
+---
+skill_id: HS-087
+hero_name: "THE BRANCHING PATH"
+emoji: "🌳"
+version: v1.0
+category: agents
+depends_on:
+  - HS-075  # THE CHOICE MATRIX — matrix feeds the tree nodes
+  - HS-067  # THE THRONE LADDER — role check is first tree node
+  - HS-077  # CONSENT GUARDIAN — approval gate is second tree node
+provides:
+  - task-routing-tree
+  - agent-entry-point-flow
+  - decision-flowchart
+related:
+  - HS-088  # THE MIRROR OATH — tree terminates at the 8-point audit
+  - HS-079  # THE CREW CHARTER — delegation node uses role definitions
+graph_notes: "Single-page decision flowchart every agent runs on every task — from receipt to HS-088 completion audit."
+---
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` (Quick Reference)
 **Version:** v1

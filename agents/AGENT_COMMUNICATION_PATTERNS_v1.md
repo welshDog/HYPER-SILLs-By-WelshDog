@@ -1,5 +1,25 @@
 # HS-083 — 🗣️ THE THREE VOICES — Agent Communication Patterns (Req-Res, Stream, Error)
 
+
+---
+skill_id: HS-083
+hero_name: "THE THREE VOICES"
+emoji: "🗣️"
+version: v1.0
+category: agents
+depends_on:
+  - HS-067  # THE THRONE LADDER — roles determine who talks to whom
+  - HS-008  # BROSKI ORCHESTRATOR PATTERN — orchestrator drives comms
+provides:
+  - request-response-pattern
+  - streaming-pattern
+  - error-signalling-pattern
+  - inter-agent-comms
+related:
+  - HS-073  # PULSE STREAM — SSE schema for streaming events
+  - HS-080  # THE TOOL BELT — tools use these patterns
+graph_notes: "Three canonical inter-agent comms patterns (req-res, streaming, errors) — every agent-to-agent call uses one of these three."
+---
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §4
 **Version:** v1

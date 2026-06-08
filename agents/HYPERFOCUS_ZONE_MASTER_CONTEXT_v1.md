@@ -1,4 +1,24 @@
-# HS-009 — 🏆 THE GRAND CODEX — Hyperfocus Zone Master Context
+# HS-125 — 🏆 THE GRAND CODEX — Hyperfocus Zone Master Context
+
+---
+skill_id: HS-125
+hero_name: "THE GRAND CODEX"
+emoji: "🏆"
+version: v1.0
+category: agents
+depends_on:
+  - none  # root skill — no prerequisites
+provides:
+  - ecosystem-context
+  - sacred-rules-reference
+  - system-architecture-snapshot
+  - 5-repo-map
+related:
+  - HS-016  # BRAIN PRIMER — brain readme sits inside this ecosystem
+  - HS-028  # SDK PRIMER — SDK readme sits inside this ecosystem
+  - DS-012  # TRUTH VS CLAIM AUDIT — contradictions in the codex must be surfaced
+graph_notes: "Root context skill for the entire ecosystem — load in any AI session before any HyperFocus z0ne work."
+---
 **Category:** Agents / Master Context  
 **Version:** 1.0  
 **Author:** WelshDog (Lyndz Williams)  

@@ -2,6 +2,26 @@
 **Category:** agents
 **Version:** 1.0
 
+
+---
+skill_id: HS-050
+hero_name: "WATCHDOG PRIME"
+emoji: "🛡️"
+version: v1.0
+category: agents
+depends_on:
+  - HS-038  # PHASE WARDEN — watchdog starts after Guardian phases are live
+  - HS-041  # METRICS FORGE — metrics must be wired before watchdog can evaluate
+provides:
+  - watchdog-monitoring-prompt
+  - post-launch-monitoring
+  - auto-heal-pattern
+  - discord-alert-integration
+related:
+  - HS-122  # GUARDIAN WATCHDOG — Python code companion
+  - DS-028  # PROGRESSIVE_HEALTH_WAIT — health wait feeds the watchdog loop
+graph_notes: "Prompt block to activate post-launch watchdog monitoring — use with HS-122 for the Python implementation."
+---
 > *"Launch is just the beginning. Watchdog makes sure it stays up."*
 
 ---

@@ -1,5 +1,23 @@
 # HS-111 — 🚩 TRUTH FLAGGER — Surface Contradictions, Don't Pick Sides
 
+
+---
+skill_id: HS-111
+hero_name: "TRUTH FLAGGER"
+emoji: "🚩"
+version: v1.0
+category: agents
+depends_on:
+  - HS-002  # SIX_LAWS_OF_AGENTS — Law 6 (SURFACE) is this skill
+provides:
+  - contradiction-surfacing
+  - silent-pick-prevention
+  - doc-correction-pattern
+related:
+  - DS-012  # TRUTH VS CLAIM AUDIT — audit tool that detects contradictions
+  - DS-011  # CROSS_REFERENCE_BEFORE_WRITING — cross-ref prevents contradictions
+graph_notes: "Single most important AI-collaboration discipline — surface contradictions visibly instead of silently picking a side."
+---
 **Category:** `agents/`
 **Source:** Original — distilled from HyperFocus z0ne CLAUDE.md communication rules + 2026-05-21 raid contradictions (container count: 48 vs 32 vs 30 across three docs)
 **Version:** v1

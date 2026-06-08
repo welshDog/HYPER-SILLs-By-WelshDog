@@ -1,4 +1,23 @@
 # 🛠️ HS-114 — BRAIN OPS
+---
+skill_id: HS-114
+hero_name: "BRAIN OPS"
+emoji: "🛠️"
+version: v2.0.0
+category: dev
+depends_on:
+  - HS-016  # BRAIN PRIMER — brain ecosystem orientation required
+  - HS-017  # MIND CORE — brain core is the primary target for ops
+provides:
+  - brain-infrastructure-runbook
+  - docker-health-debug-steps
+  - github-sync-ops
+  - briefing-fix-procedures
+related:
+  - HS-021  # VAULT SYNC — ops keeps the vault sync healthy
+  - DS-028  # PROGRESSIVE_HEALTH_WAIT — health wait used in brain restart
+graph_notes: "v2 ops runbook for the BROski brain infrastructure — Docker health checks, GitHub sync fixes, and service restart procedures."
+---
 **Skill ID:** `HYPER_BRAIN_OPS_v2`  
 **Category:** `dev`  
 **Version:** 2.0.0  

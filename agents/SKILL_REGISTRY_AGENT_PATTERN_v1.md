@@ -2,6 +2,26 @@
 **Category:** agents
 **Version:** 1.0
 
+
+---
+skill_id: HS-042
+hero_name: "REGISTRY LORD"
+emoji: "📋"
+version: v1.0
+category: agents
+depends_on:
+  - HS-008  # BROSKI ORCHESTRATOR PATTERN — orchestrator uses the registry for routing
+  - HS-067  # THE THRONE LADDER — hierarchy determines registry authority
+provides:
+  - skill-registry-pattern
+  - task-routing
+  - agent-capability-index
+  - yellow-pages-pattern
+related:
+  - HS-079  # THE CREW CHARTER — role definitions feed the registry
+  - HS-125  # THE GRAND CODEX — codex is the source of truth for capabilities
+graph_notes: "Central registry pattern for a 30+ agent swarm — the Yellow Pages that routes tasks to the best-matched agent."
+---
 > *"An agent that knows what every other agent can do — and routes tasks to the right one."*
 
 ---

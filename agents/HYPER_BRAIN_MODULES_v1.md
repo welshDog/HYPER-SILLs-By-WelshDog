@@ -1,4 +1,25 @@
 # HS-011 — 🧩 MIND BLOCKS — Hyper Brain Modules
+
+---
+skill_id: HS-011
+hero_name: "MIND BLOCKS"
+emoji: "🧩"
+version: v1.0
+category: agents
+depends_on:
+  - HS-016  # BRAIN PRIMER — orientation required before reading the module map
+  - HS-017  # MIND CORE — core agent hosts these modules
+provides:
+  - brain-module-map
+  - port-8100-reference
+  - brain-api-endpoints
+  - 8-module-overview
+related:
+  - HS-013  # DAWN HERALD — morning_briefing_ai module lives here
+  - HS-124  # FOCUS HAWK — focus_tracker module lives here
+  - HS-018  # BRIDGE KEEPER — mcp_bridge module lives here
+graph_notes: "API reference for all 8 HyperBrain modules on port 8100 — the map agents load before calling any brain endpoint."
+---
 **Category:** Agents / Brain API  
 **Version:** 1.0  
 **Rescued From:** [BROski-Obsidian-Brain](https://github.com/welshDog/BROski-Obsidian-Brain-for-HyperFocus-z0ne) — `.claude/skills/hyper-brain-modules/SKILL.md`

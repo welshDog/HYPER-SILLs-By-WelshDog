@@ -9,16 +9,16 @@ category: agents
 depends_on:
   - HS-007  # HYPERFOCUS_AGENT_SWARM_CORE — orchestrator runs the swarm
   - HS-009  # HYPER_AGENT_ROSTER — needs to know which agents exist
-  - HS-016  # AGENT_COMMUNICATION_PATTERNS — how to call agents
 provides:
   - orchestrator-pattern
   - task-routing-logic
   - agent-dispatch-protocol
   - result-aggregation
 related:
-  - HS-014  # AGENT_ROLE_HIERARCHY_PATTERN
-  - HS-017  # AGENT_DECISION_FRAMEWORK_MATRIX
-  - HS-018  # AGENT_DECISION_TREE_FLOWCHART
+  - HS-083  # THE THREE VOICES — comms patterns the orchestrator applies
+  - HS-067  # THE THRONE LADDER — role hierarchy governs orchestrator authority
+  - HS-075  # THE CHOICE MATRIX — decision framework for delegate vs. execute
+  - HS-087  # THE BRANCHING PATH — decision tree routes tasks from the orchestrator
 graph_notes: "The BROski Orchestrator is the central brain that receives tasks, routes them to specialist agents, and aggregates results."
 ---
 

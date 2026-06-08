@@ -1,5 +1,25 @@
 # HS-088 — 🪞 THE MIRROR OATH — Agent Final Self-Audit (8-Point Checklist)
 
+
+---
+skill_id: HS-088
+hero_name: "THE MIRROR OATH"
+emoji: "🪞"
+version: v1.0
+category: agents
+depends_on:
+  - HS-087  # THE BRANCHING PATH — tree leads here as terminal gate
+  - HS-004  # FIVE MANDATORY GUARDRAILS — audit checks all 5 guardrails
+provides:
+  - completion-audit
+  - 8-point-checklist
+  - task-sign-off-gate
+related:
+  - HS-077  # CONSENT GUARDIAN — check 1 in the audit
+  - HS-078  # FLOW KEEPER — check 2 in the audit
+  - HS-019  # OBSERVABLE AGENT OPERATIONS — checks 4+5 in the audit
+graph_notes: "Terminal gate before task_completed — 8 binary checks; any failure requires a fix before the completion event is emitted."
+---
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` (Final Checklist)
 **Version:** v1

@@ -1,5 +1,23 @@
 # HS-078 — 🌊 FLOW KEEPER — Context Retention / Anti-Interrupt Pattern
 
+
+---
+skill_id: HS-078
+hero_name: "FLOW KEEPER"
+emoji: "🌊"
+version: v1.0
+category: agents
+depends_on:
+  - HS-002  # SIX_LAWS_OF_AGENTS — Law 2 (MINIMISE INTERRUPTIONS) is this skill
+provides:
+  - flow-state-preservation
+  - anti-interrupt-defaults
+  - silent-decision-pattern
+related:
+  - HS-077  # CONSENT GUARDIAN — sits in tension; gate state-changes, default small ones
+  - HS-075  # THE CHOICE MATRIX — matrix formalises when to interrupt vs default
+graph_notes: "Critical ND-first principle — agents preserve hyperfocus by defaulting small decisions rather than interrupting the user."
+---
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §1 Principle 2
 **Version:** v1

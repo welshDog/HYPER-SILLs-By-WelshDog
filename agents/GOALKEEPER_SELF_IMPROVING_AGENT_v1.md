@@ -2,6 +2,26 @@
 **Category:** agents
 **Version:** 1.0
 
+
+---
+skill_id: HS-040
+hero_name: "GOALKEEPER"
+emoji: "🥅"
+version: v1.0
+category: agents
+depends_on:
+  - HS-043  # LOOP MASTER — goalkeeper runs the 5-loop autonomously
+  - HS-003  # AGENT_LIFECYCLE_STATE_MACHINE — lifecycle governs when improvement fires
+provides:
+  - goal-tracking
+  - kpi-measurement
+  - autonomous-improvement-trigger
+  - proactive-agent-pattern
+related:
+  - HS-093  # NIGHT TENDER — nightly loop is the scheduled executor
+  - HS-045  # FRUGAL ENGINE — cost KPIs feed into goalkeeper metrics
+graph_notes: "Proactive goal-tracking agent — knows what done looks like and pushes toward it without being asked."
+---
 > *"An agent that tracks its own goals, measures its own progress, and improves itself."*
 
 ---

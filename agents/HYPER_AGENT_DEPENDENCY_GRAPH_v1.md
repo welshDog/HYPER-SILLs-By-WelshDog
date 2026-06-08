@@ -1,5 +1,25 @@
 # HS-097 — 🕸️ THE WEB OF NEEDS — Hyper Agent Dependency Graph (Worked Example, 8 Codenames)
 
+---
+skill_id: HS-097
+hero_name: "THE WEB OF NEEDS"
+emoji: "🕸️"
+version: v1.0
+category: agents
+depends_on:
+  - HS-090  # SOUL SCROLL — dependency graph is a worked example of the life_plan schema
+  - HS-009  # HYPER_AGENT_ROSTER — roster gives the 22 agents; this graph maps the founding 8
+provides:
+  - dependency-graph-example
+  - agent-codename-reference
+  - collaboration-matrix-template
+  - founding-8-wiring
+related:
+  - HS-008  # BROSKI ORCHESTRATOR PATTERN — orchestrator uses the dependency graph for routing
+  - HS-042  # REGISTRY LORD — registry pattern builds on the dependency map
+graph_notes: "Worked example of the collaboration_matrix.dependency_graph field — copy as starting point when wiring depends_on/depended_by for new agents."
+---
+
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/🦅 HYPER AGENT LIFE PLANS — MASTER ARCHITECTURE` §1 (collaboration_matrix)
 **Version:** v1

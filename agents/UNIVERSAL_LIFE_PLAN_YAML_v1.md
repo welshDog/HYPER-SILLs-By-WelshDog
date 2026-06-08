@@ -1,5 +1,26 @@
 # HS-090 — 📜 SOUL SCROLL — Universal Life Plan YAML v2.0 Template
 
+---
+skill_id: HS-090
+hero_name: "SOUL SCROLL"
+emoji: "📜"
+version: v1.0
+category: agents
+depends_on:
+  - none  # root schema — no prerequisites
+provides:
+  - life-plan-yaml-schema
+  - agent-identity-spec
+  - swarm-rules-template
+  - ethics-charter-scaffold
+  - deprecation-schedule-pattern
+related:
+  - HS-097  # THE WEB OF NEEDS — dependency graph is a worked example of this schema
+  - HS-093  # NIGHT TENDER — nightly loop requires life_plan.yaml to pick up agents
+  - HS-009  # HYPER_AGENT_ROSTER — roster builds on the soul scroll schema
+graph_notes: "Root YAML schema every HyperCode agent inherits from — drop at agents/{name}/life_plan.yaml to get identity, ethics, swarm rules, and autoscale for free."
+---
+
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/🧬 The Full Confirmed Hyper Agent Roster` §1
 **Version:** v1 (wraps Life Plan schema v2.0.0)

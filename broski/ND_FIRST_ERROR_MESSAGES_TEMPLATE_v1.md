@@ -1,5 +1,23 @@
 # HS-069 — 💚 MERCY MESSAGE — ND-First Error Messages Template
 
+
+---
+skill_id: HS-069
+hero_name: "MERCY MESSAGE"
+emoji: "💚"
+version: v1.0
+category: broski
+depends_on:
+  - HS-002  # SIX_LAWS_OF_AGENTS — Law 3 (EXPLAIN SIMPLY) drives ND-first messaging
+provides:
+  - nd-first-error-template
+  - empathy-first-pattern
+  - recovery-cue-language
+related:
+  - HS-036  # ANALOGY ARSENAL — analogies soften the error explanation
+  - HS-010  # THE AESTHETE — error message tone aligns with design voice
+graph_notes: "Non-judgmental error message template for ADHD/ND users — empathy first, then diagnosis, then next step."
+---
 **Category:** `broski/`  
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §1 Principle 3  
 **Version:** v1  

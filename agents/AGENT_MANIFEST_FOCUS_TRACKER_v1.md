@@ -1,4 +1,25 @@
-# HS-019 — 🦅 FOCUS HAWK — Focus Tracker Manifest
+# HS-124 — 🦅 FOCUS HAWK — Focus Tracker Manifest
+
+---
+skill_id: HS-124
+hero_name: "FOCUS HAWK"
+emoji: "🦅"
+version: v1.0
+category: agents
+depends_on:
+  - HS-016  # BRAIN PRIMER — brain ecosystem context required
+  - HS-011  # MIND BLOCKS — module map needed to call the focus endpoint
+provides:
+  - focus-session-api
+  - adhd-session-tracking
+  - streak-scoring
+  - focus-start-end-tools
+related:
+  - HS-017  # MIND CORE — brain core runs the focus tracker
+  - HS-013  # DAWN HERALD — morning briefing includes focus stats
+  - HS-093  # NIGHT TENDER — nightly loop evaluates focus data
+graph_notes: "ADHD focus session tracker manifest — logs sessions, scores streaks; pairs with Brain Level 16 on port 8100."
+---
 **Category:** Agents / ADHD Tools
 **Version:** 1.0.0
 **Runtime:** Python

@@ -1,5 +1,25 @@
 # HS-073 — 📡 PULSE STREAM — SSE Agent Event Schema
 
+
+---
+skill_id: HS-073
+hero_name: "PULSE STREAM"
+emoji: "📡"
+version: v1.0
+category: agents
+depends_on:
+  - HS-001  # ANATOMY_OF_AN_AGENT — Voice organ defines what agents emit
+  - HS-083  # THE THREE VOICES — streaming is one of the three comms patterns
+provides:
+  - sse-event-schema
+  - real-time-agent-events
+  - frontend-streaming-contract
+  - typescript-event-interface
+related:
+  - HS-019  # OBSERVABLE AGENT OPERATIONS — logs + metrics complement SSE events
+  - HS-041  # METRICS FORGE — Prometheus and SSE are parallel observability streams
+graph_notes: "Canonical SSE schema for streaming real-time agent activity to the frontend — every agent emits structured events so the timeline UI stays live."
+---
 **Category:** `agents/`  
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §4  
 **Version:** v1  

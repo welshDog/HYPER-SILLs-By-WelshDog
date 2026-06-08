@@ -1,4 +1,25 @@
 # HS-013 — 🌅 DAWN HERALD — Morning Briefing AI
+
+---
+skill_id: HS-013
+hero_name: "DAWN HERALD"
+emoji: "🌅"
+version: v1.0
+category: agents
+depends_on:
+  - HS-011  # MIND BLOCKS — module map needed to call the briefing endpoint
+  - HS-016  # BRAIN PRIMER — brain ecosystem context required
+provides:
+  - briefing-generation
+  - daily-ai-summary
+  - vault-briefing-note
+  - port-8100-briefing-trigger
+related:
+  - HS-020  # HERALD'S SCROLL — morning briefing manifest
+  - HS-124  # FOCUS HAWK — focus stats included in briefing
+  - HS-021  # VAULT SYNC — brain sync often follows the briefing
+graph_notes: "Trigger reference for the morning briefing AI — curl endpoint, sections, output path on port 8100."
+---
 **Category:** Agents / Brain Modules  
 **Version:** 1.0  
 **Rescued From:** [BROski-Obsidian-Brain](https://github.com/welshDog/BROski-Obsidian-Brain-for-HyperFocus-z0ne) — `.claude/skills/morning-briefing-ai/SKILL.md`

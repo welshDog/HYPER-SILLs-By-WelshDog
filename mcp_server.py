@@ -34,6 +34,7 @@ mcp = FastMCP(
 # ── Registry cache ────────────────────────────────────────────────────────────
 
 _registry: dict | None = None
+_gos_index: dict | None = None  # skill_id → Path, for vault-only skills
 
 
 def get_registry() -> dict:
@@ -47,9 +48,55 @@ def skills_list() -> list[dict]:
     return get_registry().get("skills", [])
 
 
+def _build_gos_index() -> dict:
+    """Build a lazy index of skill_id → file path from GoS blocks in vault files.
+    Used as fallback for skills that are in files but not in the registry.
+    """
+    global _gos_index
+    if _gos_index is not None:
+        return _gos_index
+    _gos_index = {}
+    for fp in VAULT_ROOT.rglob("*.md"):
+        try:
+            txt = fp.read_text(encoding="utf-8", errors="replace")
+            m = re.search(r"^skill_id:\s*((?:HS|DS)-\d+)\s*$", txt, re.MULTILINE)
+            if m:
+                sid = m.group(1).strip().upper()
+                _gos_index[sid] = fp
+        except Exception:
+            pass
+    return _gos_index
+
+
 def find_by_id(skill_id: str) -> dict | None:
     sid = skill_id.upper().strip()
-    return next((s for s in skills_list() if s.get("id", "").upper() == sid), None)
+    # Registry lookup first (fast path)
+    result = next((s for s in skills_list() if s.get("id", "").upper() == sid), None)
+    if result:
+        return result
+    # Fallback: scan GoS blocks in vault files (handles registry/file ID mismatches)
+    idx = _build_gos_index()
+    fp = idx.get(sid)
+    if fp is None:
+        return None
+    try:
+        content = fp.read_text(encoding="utf-8", errors="replace")
+        gos = parse_gos(content)
+        rel = fp.relative_to(VAULT_ROOT)
+        return {
+            "id":          gos.get("skill_id", sid),
+            "hero_name":   gos.get("hero_name", sid),
+            "emoji":       gos.get("emoji", ""),
+            "description": gos.get("graph_notes", "")[:100],
+            "category":    gos.get("category", ""),
+            "version":     gos.get("version", ""),
+            "file":        str(rel).replace("\\", "/"),
+            "tags":        [],
+            "pack":        "",
+            "status":      "vault-only",
+        }
+    except Exception:
+        return None
 
 
 # ── GoS frontmatter parser ─────────────────────────────────────────────────────
@@ -148,16 +195,17 @@ def search_skills(
     cat = category.lower().rstrip("/")
     tg = tag.lower()
 
+    tokens = q.split() if q else []
     results = []
     for s in skills_list():
-        if q:
+        if tokens:
             haystack = " ".join([
                 s.get("id", ""),
                 s.get("hero_name", ""),
                 s.get("description", ""),
                 " ".join(s.get("tags", [])),
             ]).lower()
-            if q not in haystack:
+            if not all(t in haystack for t in tokens):
                 continue
         if cat and s.get("category", "").lower().rstrip("/") != cat:
             continue

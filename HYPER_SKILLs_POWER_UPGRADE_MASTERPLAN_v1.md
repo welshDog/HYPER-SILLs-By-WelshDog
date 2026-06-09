@@ -1,3 +1,4 @@
+
 # HYPER-SKILLs POWER UPGRADE MASTERPLAN v1.0
 
 > *"A skill unused is a skill wasted. A skill undiscoverable is a skill that doesn't exist."*

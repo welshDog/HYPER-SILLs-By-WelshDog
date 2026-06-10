@@ -9,7 +9,8 @@
       "agents": 49,
       "broski": 7,
       "dev": 31
-    }
+    },
+    "alias_note": "aliases = Graph-of-Skills frontmatter ids (skill_id in the file) that renumbering left behind; graph_builder resolves them to the canonical id"
   },
   "packs": {
     "YouTube Growth Pack": [
@@ -616,7 +617,10 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "rescued",
+      "aliases": [
+        "HS-006"
+      ]
     },
     {
       "id": "HS-072",
@@ -854,7 +858,10 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "rescued",
+      "aliases": [
+        "HS-004"
+      ]
     },
     {
       "id": "HS-086",
@@ -922,7 +929,10 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "rescued",
+      "aliases": [
+        "HS-009"
+      ]
     },
     {
       "id": "HS-090",
@@ -1075,7 +1085,10 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "rescued",
+      "aliases": [
+        "HS-002"
+      ]
     },
     {
       "id": "HS-099",
@@ -1092,7 +1105,10 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "rescued",
+      "aliases": [
+        "HS-001"
+      ]
     },
     {
       "id": "HS-100",
@@ -1109,7 +1125,10 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "rescued",
+      "aliases": [
+        "HS-003"
+      ]
     },
     {
       "id": "HS-101",
@@ -1160,7 +1179,10 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "rescued",
+      "aliases": [
+        "HS-005"
+      ]
     },
     {
       "id": "HS-104",

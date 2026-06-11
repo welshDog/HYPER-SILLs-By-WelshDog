@@ -3,10 +3,10 @@
     "name": "HYPER-SKILLs Registry",
     "repo": "welshDog/HYPER-SILLs-By-WelshDog",
     "generated_at": "2026-06-08T21:46:32Z",
-    "total_skills": 88,
+    "total_skills": 89,
     "categories": {
       "youtube": 1,
-      "agents": 49,
+      "agents": 50,
       "broski": 7,
       "dev": 31
     },
@@ -1481,6 +1481,23 @@
       "category": "agents",
       "version": "v1.0",
       "file": "agents/AB_TESTING_FRAMEWORK_v1.md",
+      "source_repo": "HyperCode-V2.4",
+      "tags": [
+        "agents",
+        "orchestration",
+        "ai"
+      ],
+      "pack": "Agent Builder Pack",
+      "status": "rescued"
+    },
+    {
+      "id": "HS-045",
+      "hero_name": "FRUGAL ENGINE",
+      "emoji": "💰",
+      "description": "Cost Optimisation Auto-Pattern",
+      "category": "agents",
+      "version": "v1.0",
+      "file": "agents/COST_OPTIMISATION_AUTO_PATTERN_v1.md",
       "source_repo": "HyperCode-V2.4",
       "tags": [
         "agents",

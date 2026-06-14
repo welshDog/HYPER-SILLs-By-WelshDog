@@ -1,6 +1,6 @@
 ---
-name: "HYPER-SKILLs MEGA VAULT — All 72 Rescued Skills"
-description: "The complete neurodivergent-first AI prompt vault by welshDog. 72 hero-named skills across agents, dev, broski, and youtube categories. Covers agent orchestration, ND-friendly coding, YouTube strategy, and the full BROski ecosystem. Every skill is a hero — power baked into the title."
+name: "hyper-skills-mega-vault"
+description: "The complete neurodivergent-first AI prompt vault by welshDog. 72 hero-named skills across agents, dev, broski, and youtube categories. Covers agent orchestration, ND-friendly coding, YouTube strategy, and the full BROski ecosystem. Use for any HyperFocus Zone task, agent build, sprint planning, or ND-friendly dev workflow. Every skill is a hero — power baked into the title."
 version: "v1.0"
 author: "welshDog"
 last_updated: "2026-05-28"

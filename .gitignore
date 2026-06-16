@@ -1,2 +1,7 @@
 HYPER-SILLs-By-WelshDog.zip
 .env
+logs/
+__pycache__/
+*.pyc
+.venv/
+output/

@@ -110,14 +110,39 @@ Master tracking list for every skill in the vault.
 
 ---
 
-## 📝 CATALOGUED — Extraction TODO (37 patterns, no file yet)
+## ✅ CATALOGUED — FULLY RECONCILED 2026-06-19 (all 37 now have files)
 
-> ⚠️ Honesty pass 21 May 2026: HS-030 → HS-066 were added to the index across 4 commits
-> (`48e1630`, `595523d`, `e6ef042`, `245af8f`) that **only touched `vault-index.md`** — no skill
-> files were ever committed. The patterns are real (identified in HyperCode-V2.4 source), but
-> the actual skill `.md` files don't exist in this repo yet. Target folders `hypercode/` and
-> `web3/` also don't exist.
-> Status changed from ✅ RESCUED → 📝 CATALOGUED so the index stops lying.
+> ✅ **Reconciliation pass 19 June 2026 (P1-3):** the catalogued list (HS-030→066)
+> was badly stale. Disk audit found **22 of the 37 already had files on disk**
+> (written across sessions since 21 May, but the index was never updated — exactly
+> the trap HS-108 Reality Anchor + HS-109 Grep Hound warn about). The remaining
+> **15 genuinely-missing** skills were written this session, and `web3/` (which
+> didn't exist) was created. **All 37 are now RESCUED.**
+>
+> **15 newly written 2026-06-19** (header convention `# HS-### — 🎯 HERO — Title`):
+>
+> | ID | Skill | File |
+> |---|---|---|
+> | HS-052 | 🐾 PET MASTER — BROskiPets Full Integration Plan | [`web3/BROSKI_PETS_INTEGRATION_PLAN_v1.md`](web3/BROSKI_PETS_INTEGRATION_PLAN_v1.md) |
+> | HS-053 | 🎲 FATE ROLLER — Pet Rarity Roll Formula | [`web3/PET_RARITY_ROLL_FORMULA_v1.md`](web3/PET_RARITY_ROLL_FORMULA_v1.md) |
+> | HS-054 | ⚡ XP SPARK — Dev Action XP Trigger System | [`web3/DEV_ACTION_XP_TRIGGER_v1.md`](web3/DEV_ACTION_XP_TRIGGER_v1.md) |
+> | HS-055 | 📜 CHAIN LEDGER — dNFT On-Chain Portfolio Pattern | [`web3/DNFT_ONCHAIN_PORTFOLIO_v1.md`](web3/DNFT_ONCHAIN_PORTFOLIO_v1.md) |
+> | HS-056 | 🦈 BEAST CODEX — Pet Species Power Mapping | [`web3/PET_SPECIES_POWER_MAPPING_v1.md`](web3/PET_SPECIES_POWER_MAPPING_v1.md) |
+> | HS-057 | 🥚 GENESIS PROMPT — BROskiPets Phase 0 Build | [`web3/BROSKI_PETS_PHASE_0_BUILD_v1.md`](web3/BROSKI_PETS_PHASE_0_BUILD_v1.md) |
+> | HS-058 | 🐣 HATCH PROMPT — BROskiPets Phase 1 Build | [`web3/BROSKI_PETS_PHASE_1_BUILD_v1.md`](web3/BROSKI_PETS_PHASE_1_BUILD_v1.md) |
+> | HS-059 | 🗺️ THE CARTOGRAPHER — Complete Ecosystem Inventory | [`hypercode/ECOSYSTEM_INVENTORY_v1.md`](hypercode/ECOSYSTEM_INVENTORY_v1.md) |
+> | HS-060 | 🐳 FLEET ADMIRAL — Container Stack Reference | [`dev/CONTAINER_STACK_REFERENCE_v1.md`](dev/CONTAINER_STACK_REFERENCE_v1.md) |
+> | HS-061 | 🔌 THE PORT WARDEN — Port + Network Map | [`dev/PORT_NETWORK_MAP_v1.md`](dev/PORT_NETWORK_MAP_v1.md) |
+> | HS-062 | 🗄️ THE SCHEMA SCRIBE — Database Schema Reference | [`dev/DATABASE_SCHEMA_REFERENCE_v1.md`](dev/DATABASE_SCHEMA_REFERENCE_v1.md) |
+> | HS-063 | 📦 THE QUARTERMASTER — Backend Deps Stack | [`dev/BACKEND_DEPS_STACK_v1.md`](dev/BACKEND_DEPS_STACK_v1.md) |
+> | HS-064 | ⚡ THE QUICK HAND — Dev Commands Cheat Sheet | [`dev/DEV_COMMANDS_CHEAT_SHEET_v1.md`](dev/DEV_COMMANDS_CHEAT_SHEET_v1.md) |
+> | HS-065 | 🔗 THE CONNECTOR — External Integrations Map | [`hypercode/EXTERNAL_INTEGRATIONS_MAP_v1.md`](hypercode/EXTERNAL_INTEGRATIONS_MAP_v1.md) |
+> | HS-066 | 🏆 THE MILESTONE KEEPER — Milestone Tracker Template | [`hypercode/MILESTONE_TRACKER_TEMPLATE_v1.md`](hypercode/MILESTONE_TRACKER_TEMPLATE_v1.md) |
+>
+> **22 already on disk before this pass** (index lagged, now confirmed RESCUED):
+> HS-030,031,032,033,034,035,036,037,038,039,040,041,042,043,044,046,047,048,049,050,051.
+>
+> The table below is kept as the historical **source-pattern reference** per skill.
 
 | ID | Skill Name | Target Folder | Source Pattern Location |
 |---|---|---|---|
@@ -337,8 +362,8 @@ The vault-index previously implied 9+ specialist Bibles were rich raid targets. 
 |---|---|
 | Total Repos Scanned | 86 |
 | Skill Candidates Found | 100+ |
-| ✅ **Rescued (file on disk)** | **72** (HS-001, HS-006→029, HS-067→113) |
-| 📝 **Catalogued (no file yet)** | **37** (HS-030 → HS-066) |
+| ✅ **Rescued (file on disk)** | **109** (HS-001, HS-006→113) — incl. all of HS-030→066 after the 2026-06-19 reconciliation |
+| 📝 **Catalogued (no file yet)** | **0** — all 37 reconciled 2026-06-19 (22 already on disk + 15 written) |
 | 🔨 In Progress | 4 (HS-002, HS-003, HS-004, HS-005) |
 | 🔍 Still To Raid | 20+ repos + 2 priority Bible-tier docs + the Quick-Win Stack |
 | 🏆 Best Raid | 21 May 2026 — Bible deep-raid HS-077→088 (+12 skills in one run) 🔥📖 |
@@ -355,8 +380,8 @@ The vault-index previously implied 9+ specialist Bibles were rich raid targets. 
 | `dev/` | HS-014 · HS-022 · HS-023 · HS-024 · HS-025 · HS-026 · HS-027 · HS-029 · HS-074 · HS-076 · HS-081 · HS-082 · HS-084 · HS-086 · HS-092 · HS-094 · HS-095 · HS-096 · HS-101 · HS-102 · HS-105 · HS-106 · HS-108 · HS-109 · HS-110 · HS-112 · HS-113 → **27 skills** | HS-048 · HS-049 · HS-051 · HS-060 · HS-061 · HS-062 · HS-063 · HS-064 |
 | `broski/` | HS-010 · HS-012 · HS-015 · HS-069 · HS-107 → **5 skills** | HS-034 · HS-036 |
 | `youtube/` | HS-001 → **1 skill** | — |
-| `hypercode/` *(folder doesn't exist)* | **0 skills** | HS-030 · HS-031 · HS-032 · HS-033 · HS-035 · HS-037 · HS-039 · HS-046 · HS-047 · HS-059 · HS-065 · HS-066 |
-| `web3/` *(folder doesn't exist)* | **0 skills** | HS-052 · HS-053 · HS-054 · HS-055 · HS-056 · HS-057 · HS-058 |
+| `hypercode/` | HS-030 · HS-031 · HS-032 · HS-033 · HS-035 · HS-037 · HS-039 · HS-046 · HS-047 · **HS-059 · HS-065 · HS-066** → **12 skills** | — (all reconciled 2026-06-19) |
+| `web3/` *(created 2026-06-19)* | **HS-052 · HS-053 · HS-054 · HS-055 · HS-056 · HS-057 · HS-058 → 7 skills** | — (all written 2026-06-19) |
 | `content/` | — | (HS-002, HS-004, HS-005 in progress) |
 
 ---

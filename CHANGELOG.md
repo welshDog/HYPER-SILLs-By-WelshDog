@@ -29,7 +29,9 @@
 
 ### ✨ Added — Content & Freshness
 - 4 new 2026-tech skills: **HS-128 PLUGIN FORGE**, **HS-129 SKILLS-OVER-MCP**,
-  **HS-130 OCI SKILL SHIP**, **HS-131 THE NESTED SWARM**. Vault 89 → **93 skills**.
+  **HS-130 OCI SKILL SHIP**, **HS-131 THE NESTED SWARM**.
+- **YouTube rebalance** — **HS-132 THUMBNAIL DUELIST**, **HS-133 SHORTS ALCHEMIST**,
+  **HS-134 SIGNAL-TO-SCRIPT LOOP** (youtube 1 → 4). Vault 89 → **96 skills**.
 - **Semantic versioning + lifecycle** — `status:` (DRAFT/REVIEW/ACTIVE/DEPRECATED/ARCHIVED) and semver
   flow from frontmatter → registry (`generate_registry.py`) → linter validation (`skill_linter.py`).
 

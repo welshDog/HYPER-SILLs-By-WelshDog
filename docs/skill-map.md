@@ -5,6 +5,9 @@
 ```mermaid
 graph TD
     HS_127["📊 SIGNAL HUNTER"]
+    HS_132["🥊 THUMBNAIL DUELIST"]
+    HS_133["✂️ SHORTS ALCHEMIST"]
+    HS_134["🔁 SIGNAL-TO-SCRIPT LOOP"]
     HS_123["⚡ GODFLOW"]
     HS_126["🔗 NODE SMITH"]
     HS_007["🐝 SWARM CROWN"]
@@ -97,6 +100,8 @@ graph TD
     DS_002["⚡ CLI LAUNCHER"]
     DS_009["🛫 PREFLIGHT"]
     DS_028["⏳ HEALTH WAITER"]
+    HS_127 --> HS_132
+    HS_127 --> HS_134
     HS_098 --> HS_123
     HS_099 --> HS_123
     HS_099 --> HS_126
@@ -233,6 +238,9 @@ graph TD
     HS_103 --> DS_028
     HS_071 --> DS_028
     style HS_127 fill:#ef4444,color:#fff,stroke:#1e293b
+    style HS_132 fill:#ef4444,color:#fff,stroke:#1e293b
+    style HS_133 fill:#ef4444,color:#fff,stroke:#1e293b
+    style HS_134 fill:#ef4444,color:#fff,stroke:#1e293b
     style HS_123 fill:#3b82f6,color:#fff,stroke:#1e293b
     style HS_126 fill:#3b82f6,color:#fff,stroke:#1e293b
     style HS_007 fill:#3b82f6,color:#fff,stroke:#1e293b

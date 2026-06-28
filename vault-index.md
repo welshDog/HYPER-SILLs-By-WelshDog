@@ -18,6 +18,9 @@ Master tracking list for every skill in the vault.
 | ID | Skill Name | File | Source Repo | Category |
 |---|---|---|---|---|
 | HS-127 | 📊 **SIGNAL HUNTER** — YT Analytics Debugger | [`youtube/YT_DEBUGGER_v1.md`](youtube/YT_DEBUGGER_v1.md) | Original | `youtube/` |
+| HS-132 | 🥊 **THUMBNAIL DUELIST** — Title + Thumbnail A/B Testing | [`youtube/THUMBNAIL_DUELIST_v1.md`](youtube/THUMBNAIL_DUELIST_v1.md) | Born-here — YouTube packaging | `youtube/` |
+| HS-133 | ✂️ **SHORTS ALCHEMIST** — Long-Form → Shorts Repurposing Engine | [`youtube/SHORTS_ALCHEMIST_v1.md`](youtube/SHORTS_ALCHEMIST_v1.md) | Born-here — Shorts repurposing | `youtube/` |
+| HS-134 | 🔁 **SIGNAL-TO-SCRIPT LOOP** — Analytics → Next Video Script | [`youtube/SIGNAL_TO_SCRIPT_LOOP_v1.md`](youtube/SIGNAL_TO_SCRIPT_LOOP_v1.md) | Born-here — data-driven content loop | `youtube/` |
 | HS-123 | ⚡ **GODFLOW** — GOD Mode Hyperflow | [`agents/GOD_MODE_HYPERFLOW_v1.md`](agents/GOD_MODE_HYPERFLOW_v1.md) | GOD-Agent-Mode | `agents/` |
 | HS-126 | 🔗 **NODE SMITH** — HyperGraph Node Skill | [`agents/HYPERGRAPH_NODE_SKILL_v1.md`](agents/HYPERGRAPH_NODE_SKILL_v1.md) | GOD-Agent-Mode | `agents/` |
 | HS-007 | 🐝 **SWARM CROWN** — Hyperfocus Agent Swarm Core | [`agents/HYPERFOCUS_AGENT_SWARM_CORE_v1.md`](agents/HYPERFOCUS_AGENT_SWARM_CORE_v1.md) | Hyperfocus-Global-Impact-Skills | `agents/` |

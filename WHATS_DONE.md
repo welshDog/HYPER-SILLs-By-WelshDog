@@ -19,7 +19,8 @@
 | New skills | HS-128 PLUGIN FORGE, HS-129 SKILLS-OVER-MCP, HS-130 OCI SKILL SHIP, HS-131 THE NESTED SWARM (vault now **93**) |
 | Semver + lifecycle | `status:` + semver flow frontmatter -> `generate_registry.py` -> `skill_linter.py` validation |
 
-**Still open:** YouTube category rebalance (still 1 skill); real-embedding backend swap (TF-IDF placeholder); bulk semver/status backfill of the 89 legacy skills (new ones use it).
+**YouTube rebalance (2026-06-28):** youtube 1 → 4 skills — HS-132 THUMBNAIL DUELIST, HS-133 SHORTS ALCHEMIST, HS-134 SIGNAL-TO-SCRIPT LOOP (vault now **96**).
+**Still open:** real-embedding backend swap (TF-IDF placeholder); bulk semver/status backfill of the legacy skills (new ones use it).
 **Gotcha:** GoS `depends_on`/`related` must reference the *in-file* `skill_id:` (renumber aliases — e.g. PORTAL FORGE = DS-020, FIVE WARDS = HS-004), not the registry id, or the linter fails.
 
 ---

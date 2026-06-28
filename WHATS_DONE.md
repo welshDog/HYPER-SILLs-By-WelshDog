@@ -11,7 +11,7 @@
 | Format bridge | `scripts/export_claude_skills.py` -> agentskills.io / Claude Code `SKILL.md` (out to `dist/`, gitignored) |
 | MCP Resources | `skills://index` + `skill://HS-NNN` in `mcp_server.py` (SEP-2640) + `semantic_search` tool + mercy messages |
 | OCI publish | `.github/workflows/publish-skills.yml` (oras, on release) |
-| Semantic search | `scripts/embed_skills.py` + `scripts/search_skills.py` (local TF-IDF, cache in `vector-store/`, gitignored) |
+| Semantic search | `scripts/embed_skills.py` + `scripts/search_skills.py` — **pluggable backend** (`--backend auto/local/openai/tfidf`): local sentence-transformers `all-MiniLM-L6-v2` (384-dim, offline) → OpenAI (if key) → TF-IDF fallback. Cache in `vector-store/` (gitignored). MCP/CLI stdout kept clean for stdio transport |
 | Trigger engine | `scripts/trigger_engine.py` + `packs/*/manifest.yaml` (3 packs) |
 | Learning loop | `.skill-memory/` + `scripts/skill_memory.py`; recorded by `sills_session_end.py` |
 | ND-UX | `scripts/body_double.py`, `scripts/progress_tracker.py` (+ `progress-tracker.yaml`), `scripts/generate_skill_map.py` (-> `docs/skill-map.md`) |
@@ -22,7 +22,8 @@
 **YouTube rebalance (2026-06-28):** youtube 1 → 4 skills — HS-132 THUMBNAIL DUELIST, HS-133 SHORTS ALCHEMIST, HS-134 SIGNAL-TO-SCRIPT LOOP (vault now **96**).
 
 **CI fix (2026-06-28):** GitHub Actions is **billing-locked** for this account — the `skill-lint.yml` "Lint Skill Files" check failed at job-startup (0 steps, ~3s) on EVERY push/PR incl. main, regardless of code (linter passes clean locally). Fix: `skill-lint.yml` triggers changed to `workflow_dispatch`-only (stops false-red); real gate is now a **local pre-push hook** (`scripts/git_pre_push_lint.sh`, install via `python scripts/install_git_hooks.py`) — blocks push if `skill_linter.py` errors, override `git push --no-verify`. Re-enable the workflow's push/PR triggers when Actions billing returns. **Re-run the installer after a fresh clone** (hooks aren't cloned). Does NOT clobber the existing XP post-commit hook.
-**Still open:** real-embedding backend swap (TF-IDF placeholder); bulk semver/status backfill of the legacy skills (new ones use it).
+**Embedding backend (2026-06-28):** TF-IDF placeholder → **real dense embeddings**. `search_skills.py` now auto-resolves local sentence-transformers `all-MiniLM-L6-v2` (offline, free, 384-dim) → OpenAI (if `OPENAI_API_KEY`) → TF-IDF fallback. Optional deps in `pyproject.toml` extras (`embeddings`, `openai`); torch/sentence-transformers already installed in this env. `vector-store/skill_index.json` now stores dense vectors (~385KB). Local embedder silences HF progress/logs so MCP stdio stays clean.
+**Still open:** bulk semver/status backfill of the legacy skills (new ones use it).
 **Gotcha:** GoS `depends_on`/`related` must reference the *in-file* `skill_id:` (renumber aliases — e.g. PORTAL FORGE = DS-020, FIVE WARDS = HS-004), not the registry id, or the linter fails.
 
 ---

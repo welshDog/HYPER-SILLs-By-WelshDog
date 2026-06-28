@@ -1,0 +1,27 @@
+name: "ND-Friendly Coding Pack"
+description: "ADHD/dyslexia-friendly dev workflow, testing, distribution, and tooling skills."
+category: dev
+triggers:
+  keywords:
+    - "test"
+    - "pre-commit"
+    - "publish"
+    - "plugin marketplace"
+    - "mcp server"
+    - "skill registry"
+    - "code style"
+    - "graduation"
+  file_patterns:
+    - "**/*.test.*"
+    - "pyproject.toml"
+    - "package.json"
+    - ".claude-plugin/**"
+    - "scripts/**"
+  context_signals:
+    - "writing or running tests"
+    - "shipping or releasing"
+    - "feeling stuck or overwhelmed"
+  exclusions:
+    - "youtube"
+auto_load: false
+suggest: true

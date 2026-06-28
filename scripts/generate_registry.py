@@ -13,6 +13,9 @@ import argparse
 from pathlib import Path
 from datetime import datetime
 
+# Repo root — skill file paths in vault-index.md are relative to this.
+REPO_ROOT = Path(__file__).resolve().parent.parent
+
 # ── Category → tags + pack mapping ──────────────────────────────────────────
 CATEGORY_META = {
     "agents/":    {"tags": ["agents", "orchestration", "ai"],        "pack": "Agent Builder Pack"},
@@ -90,6 +93,18 @@ def parse_vault_index(vault_path: Path) -> list[dict]:
         # Derive version from filename (e.g. _v1.md → v1.0)
         ver_match = re.search(r'_v(\d+)\.md$', file_path)
         version = f"v{ver_match.group(1)}.0" if ver_match else "v1.0"
+        status = "rescued"
+
+        # Prefer richer in-file frontmatter when present (semver + lifecycle).
+        skill_fp = (REPO_ROOT / file_path)
+        if skill_fp.exists():
+            fm = skill_fp.read_text(encoding="utf-8", errors="replace")
+            vm = re.search(r'^version:\s*["\']?(v\d+\.\d+(?:\.\d+)?)', fm, re.MULTILINE)
+            if vm:
+                version = vm.group(1)
+            sm = re.search(r'^status:\s*["\']?([A-Za-z]+)', fm, re.MULTILINE)
+            if sm:
+                status = sm.group(1).upper() if sm.group(1).lower() != "rescued" else "rescued"
 
         skills.append({
             "id":          raw_id,
@@ -102,7 +117,7 @@ def parse_vault_index(vault_path: Path) -> list[dict]:
             "source_repo": raw_source.strip(),
             "tags":        meta["tags"],
             "pack":        meta["pack"],
-            "status":      "rescued",
+            "status":      status,
         })
 
     return skills

@@ -4,7 +4,8 @@
 skill_id: HS-NNN
 hero_name: "HERO NAME"
 emoji: "🦸"
-version: v1.0
+version: v1.0.0  # semver vMAJOR.MINOR.PATCH — bump MAJOR on prompt-behaviour change
+status: ACTIVE   # DRAFT | REVIEW | ACTIVE | DEPRECATED | ARCHIVED (ARCHIVED is hidden from search)
 category: agents  # agents | dev | content | youtube | broski
 depends_on:
   - HS-XXX  # Skill this one builds on — e.g. HS-098 SACRED SIX

@@ -1,0 +1,23 @@
+name: "YouTube Growth Pack"
+description: "Channel growth, analytics, and content strategy skills for creators."
+category: youtube
+triggers:
+  keywords:
+    - "youtube"
+    - "thumbnail"
+    - "analytics"
+    - "subscribers"
+    - "watch time"
+    - "video script"
+    - "shorts"
+  file_patterns:
+    - "**/*.srt"
+    - "**/script*.md"
+  context_signals:
+    - "discussing a video or channel"
+    - "talking about views or CTR"
+  exclusions:
+    - "agent orchestration"
+    - "docker"
+auto_load: false
+suggest: true

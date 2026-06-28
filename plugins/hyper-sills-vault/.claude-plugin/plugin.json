@@ -1,0 +1,26 @@
+{
+  "name": "hyper-sills-vault",
+  "version": "1.0.0",
+  "description": "The neurodivergent-first AI skill vault — 89 hero-named skills with Graph-of-Skills retrieval, exposed via MCP plus find/load/recommend slash commands.",
+  "author": {
+    "name": "welshDog",
+    "url": "https://github.com/welshDog"
+  },
+  "homepage": "https://github.com/welshDog/HYPER-SILLs-By-WelshDog",
+  "license": "AGPL-3.0",
+  "keywords": [
+    "skills",
+    "agent-skills",
+    "mcp",
+    "graph-of-skills",
+    "neurodivergent",
+    "adhd"
+  ],
+  "mcpServers": {
+    "hyper-sills": {
+      "command": "python",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/../../mcp_server.py"],
+      "env": {}
+    }
+  }
+}

@@ -1,0 +1,29 @@
+name: "Agent Builder Pack"
+description: "Skills for building, orchestrating, and governing AI agents."
+category: agents
+# Skill IDs are sourced live from skills-registry.json packs[] — this manifest
+# adds the auto-load TRIGGERS that registry entries don't carry.
+triggers:
+  keywords:
+    - "build agent"
+    - "agent swarm"
+    - "orchestrator"
+    - "fastapi agent"
+    - "docker container agent"
+    - "sub-agent"
+    - "self-healing"
+    - "circuit breaker"
+  file_patterns:
+    - "Dockerfile*"
+    - "docker-compose*.yml"
+    - "agents/**"
+    - "**/orchestrator*.py"
+  context_signals:
+    - "discussing containerization"
+    - "mentioning prometheus or grafana"
+    - "health check endpoint"
+  exclusions:
+    - "youtube"
+    - "video editing"
+auto_load: false   # suggest, don't force
+suggest: true

@@ -1,7 +1,30 @@
 # WHATS_DONE.md -- HYPER-SILLs-By-WelshDog
 
 > Single source of truth. Check this before building ANYTHING.
-> Last updated: 2026-06-03
+> Last updated: 2026-06-28
+
+## v3.0 Upgrade (2026-06-28) -- ALL EXIST, do not rebuild
+
+| Area | What shipped |
+|---|---|
+| Plugin marketplace | `.claude-plugin/marketplace.json` + `plugins/hyper-sills-vault/` (plugin.json bundles MCP server; `/skill-find` `/skill-load` `/skill-recommend` commands) |
+| Format bridge | `scripts/export_claude_skills.py` -> agentskills.io / Claude Code `SKILL.md` (out to `dist/`, gitignored) |
+| MCP Resources | `skills://index` + `skill://HS-NNN` in `mcp_server.py` (SEP-2640) + `semantic_search` tool + mercy messages |
+| OCI publish | `.github/workflows/publish-skills.yml` (oras, on release) |
+| Semantic search | `scripts/embed_skills.py` + `scripts/search_skills.py` (local TF-IDF, cache in `vector-store/`, gitignored) |
+| Trigger engine | `scripts/trigger_engine.py` + `packs/*/manifest.yaml` (3 packs) |
+| Learning loop | `.skill-memory/` + `scripts/skill_memory.py`; recorded by `sills_session_end.py` |
+| ND-UX | `scripts/body_double.py`, `scripts/progress_tracker.py` (+ `progress-tracker.yaml`), `scripts/generate_skill_map.py` (-> `docs/skill-map.md`) |
+| New Brain Ops cmds | `skill-search`, `analyze-skill-usage`, `skill-progress` |
+| New skills | HS-128 PLUGIN FORGE, HS-129 SKILLS-OVER-MCP, HS-130 OCI SKILL SHIP, HS-131 THE NESTED SWARM (vault now **93**) |
+| Semver + lifecycle | `status:` + semver flow frontmatter -> `generate_registry.py` -> `skill_linter.py` validation |
+
+**YouTube rebalance (2026-06-28):** youtube 1 → 4 skills — HS-132 THUMBNAIL DUELIST, HS-133 SHORTS ALCHEMIST, HS-134 SIGNAL-TO-SCRIPT LOOP (vault now **96**).
+**Still open:** real-embedding backend swap (TF-IDF placeholder); bulk semver/status backfill of the legacy skills (new ones use it).
+**Gotcha:** GoS `depends_on`/`related` must reference the *in-file* `skill_id:` (renumber aliases — e.g. PORTAL FORGE = DS-020, FIVE WARDS = HS-004), not the registry id, or the linter fails.
+
+---
+### Pre-v3.0 baseline
 
 ---
 

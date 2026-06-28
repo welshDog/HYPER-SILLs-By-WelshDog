@@ -7,6 +7,7 @@ and removes the marker.  Always exits 0.
 """
 
 import json
+import re
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -15,6 +16,30 @@ from typing import Optional
 ROOT = Path(__file__).resolve().parents[1]
 SESSION_FILE = ROOT / ".focus_session_start"
 SESSION_LOG = ROOT / "logs" / "sessions.jsonl"
+
+
+def _record_skill_usage() -> list[str]:
+    """Best-effort: scan the session transcript for skill IDs used, feed the
+    learning loop. Reads the SessionEnd hook JSON on stdin (transcript_path).
+    Fail-soft — never blocks session end."""
+    try:
+        raw = sys.stdin.read() if not sys.stdin.isatty() else ""
+        if not raw.strip():
+            return []
+        payload = json.loads(raw)
+        tpath = payload.get("transcript_path")
+        if not tpath or not Path(tpath).exists():
+            return []
+        text = Path(tpath).read_text(encoding="utf-8", errors="replace")
+        ids = sorted(set(re.findall(r"\b(?:HS|DS)-\d{3,}\b", text)))
+        if not ids:
+            return []
+        sys.path.insert(0, str(ROOT / "scripts"))
+        from skill_memory import record  # type: ignore
+        record(ids, task="session", success=True)
+        return ids
+    except Exception:  # noqa: BLE001
+        return []
 
 
 def _read_start() -> Optional[datetime]:
@@ -49,6 +74,12 @@ def main() -> int:
         fh.write(json.dumps(record) + "\n")
 
     print("   Log:  logs/sessions.jsonl")
+
+    used = _record_skill_usage()
+    if used:
+        print(f"   Skills logged to memory: {', '.join(used[:8])}"
+              + (" ..." if len(used) > 8 else ""))
+
     print()
     print("PASS  SILLs session ended. Great work BROski forever!\n")
     return 0

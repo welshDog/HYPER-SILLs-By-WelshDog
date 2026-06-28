@@ -604,6 +604,14 @@ def main() -> None:
     p_task.add_argument("--hour", type=int, default=7, help="Hour to trigger (24h, default: 7)")
     p_task.add_argument("--minute", type=int, default=0, help="Minute to trigger (default: 0)")
 
+    p_search = sub.add_parser("skill-search", help="Semantic search the HYPER-SILLs vault")
+    p_search.add_argument("query", nargs="+", help="What you're trying to do")
+    p_search.add_argument("--limit", type=int, default=5)
+
+    p_usage = sub.add_parser("analyze-skill-usage", help="Summarise .skill-memory usage + suggest improvements")
+
+    p_prog = sub.add_parser("skill-progress", help="Dopamine progress tracker (achievements + streak)")
+
     args = parser.parse_args()
 
     if args.command == "check-health":
@@ -620,6 +628,56 @@ def main() -> None:
         cmd_report(input_dir=args.input_dir)
     elif args.command == "setup-task":
         cmd_setup_task(hour=args.hour, minute=args.minute)
+    elif args.command == "skill-search":
+        cmd_skill_search(query=" ".join(args.query), limit=args.limit)
+    elif args.command == "analyze-skill-usage":
+        cmd_analyze_skill_usage()
+    elif args.command == "skill-progress":
+        cmd_skill_progress()
+
+
+def cmd_skill_search(query: str, limit: int) -> None:
+    """Semantic search over the vault (delegates to search_skills.py)."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    try:
+        from search_skills import semantic_search
+    except Exception as e:  # noqa: BLE001
+        print(f"skill-search unavailable: {e}")
+        return
+    hits = semantic_search(query, limit=limit)
+    if not hits:
+        print(f"No stress — nothing matched '{query}'. Try different words.")
+        return
+    print(f"\nTop {len(hits)} for: {query}\n")
+    for h in hits:
+        print(f"  {h['id']}  {h['hero_name']}  (score {h['score']}, {h['category']})")
+        print(f"      {h['description']}")
+    print()
+
+
+def cmd_analyze_skill_usage() -> None:
+    """Read .skill-memory usage + suggest dependency/pack improvements."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    try:
+        from skill_memory import analyze
+    except Exception as e:  # noqa: BLE001
+        print(f"analyze-skill-usage unavailable: {e}")
+        return
+    report = analyze()
+    print(report)
+
+
+def cmd_skill_progress() -> None:
+    """Dopamine progress tracker (delegates to progress_tracker.py)."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    try:
+        from progress_tracker import compute, render, _write_snapshot
+    except Exception as e:  # noqa: BLE001
+        print(f"skill-progress unavailable: {e}")
+        return
+    s = compute()
+    _write_snapshot(s)
+    print(render(s))
 
 
 if __name__ == "__main__":

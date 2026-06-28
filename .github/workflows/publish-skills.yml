@@ -1,0 +1,49 @@
+name: 📦 Publish Agent Skills (OCI)
+
+# Packages the vault as portable Agent Skills (agentskills.io format) and pushes
+# them as an OCI artifact to GitHub Container Registry on every release tag.
+# OCI artifacts give versioned, immutable, signable skill distribution — pull
+# with `oras pull ghcr.io/welshdog/hyper-skills:<tag>`.
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to publish (defaults to latest)'
+        required: false
+        default: 'latest'
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Export skills to Agent Skills format
+        run: python scripts/export_claude_skills.py --format agentskills --out dist/agent-skills
+
+      - name: Install ORAS (OCI registry CLI)
+        uses: oras-project/setup-oras@v1
+
+      - name: Log in to GHCR
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | oras login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Push skills as OCI artifact
+        run: |
+          TAG="${{ github.event.release.tag_name || inputs.tag || 'latest' }}"
+          REPO="ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/hyper-skills"
+          cd dist/agent-skills
+          oras push "${REPO}:${TAG}" \
+            --artifact-type application/vnd.agentskills.bundle.v1+json \
+            $(find . -name 'SKILL.md' -printf '%P:text/markdown\n')
+          echo "Published ${REPO}:${TAG}"

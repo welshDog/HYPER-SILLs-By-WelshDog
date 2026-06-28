@@ -89,6 +89,10 @@ Master tracking list for every skill in the vault.
 | HS-111 | 🚩 **TRUTH FLAGGER** — Surface Contradictions, Don't Pick Sides | [`agents/SURFACE_CONTRADICTIONS_DONT_PICK_SIDES_v1.md`](agents/SURFACE_CONTRADICTIONS_DONT_PICK_SIDES_v1.md) | Original — distilled from HFZ CLAUDE.md communication rules | `agents/` |
 | HS-112 | 🕸️ **WEB WEAVER** — Wikilink Knowledge Graph for Docs | [`dev/WIKILINK_KNOWLEDGE_GRAPH_v1.md`](dev/WIKILINK_KNOWLEDGE_GRAPH_v1.md) | Original — vault convention from HS-067 onwards | `dev/` |
 | HS-113 | ⚒️ **FETCH FORGE** — Parallel Git Workflow Survival Guide | [`dev/PARALLEL_GIT_WORKFLOW_SURVIVAL_v1.md`](dev/PARALLEL_GIT_WORKFLOW_SURVIVAL_v1.md) | Original — from Lyndz's parallel-workflow memory | `dev/` |
+| HS-128 | 🏗️ **PLUGIN FORGE** — Build & Publish a Claude Code Plugin Marketplace | [`dev/PLUGIN_FORGE_v1.md`](dev/PLUGIN_FORGE_v1.md) | Born-here — Claude Code plugin marketplaces 2026 | `dev/` |
+| HS-129 | 🌐 **SKILLS-OVER-MCP** — Expose Skills as MCP Resources (SEP-2640) | [`dev/SKILLS_OVER_MCP_v1.md`](dev/SKILLS_OVER_MCP_v1.md) | Born-here — Skills-over-MCP WG / SEP-2640 | `dev/` |
+| HS-130 | 🚢 **OCI SKILL SHIP** — Distribute Skills as OCI Artifacts | [`dev/OCI_SKILL_SHIP_v1.md`](dev/OCI_SKILL_SHIP_v1.md) | Born-here — skills-oci / Agent-Skills-as-OCI 2026 | `dev/` |
+| HS-131 | 🪆 **THE NESTED SWARM** — Sub-Agents That Spawn Sub-Agents (Bounded Depth) | [`agents/NESTED_SWARM_v1.md`](agents/NESTED_SWARM_v1.md) | Born-here — subagents spawn subagents, 5 levels 2026 | `agents/` |
 
 | HS-034 | 🎯 **BEAT ARCHITECT** — 7-Beat Module Teaching Structure | [](broski/SEVEN_BEAT_MODULE_STRUCTURE_v1.md) | Original | `broski/` |
 | HS-036 | 🧠 **ANALOGY ARSENAL** — ND-Friendly Analogy Library | [](broski/ANALOGY_ARSENAL_v1.md) | Original | `broski/` |

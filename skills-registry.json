@@ -2,15 +2,14 @@
   "_meta": {
     "name": "HYPER-SKILLs Registry",
     "repo": "welshDog/HYPER-SILLs-By-WelshDog",
-    "generated_at": "2026-06-08T21:46:32Z",
-    "total_skills": 89,
+    "generated_at": "2026-06-28T08:56:47Z",
+    "total_skills": 93,
     "categories": {
       "youtube": 1,
-      "agents": 50,
+      "agents": 51,
       "broski": 7,
-      "dev": 31
-    },
-    "alias_note": "aliases = Graph-of-Skills frontmatter ids (skill_id in the file) that renumbering left behind; graph_builder resolves them to the canonical id"
+      "dev": 34
+    }
   },
   "packs": {
     "YouTube Growth Pack": [
@@ -56,12 +55,14 @@
       "HS-103",
       "HS-104",
       "HS-111",
+      "HS-131",
       "HS-038",
       "HS-040",
       "HS-041",
       "HS-042",
       "HS-043",
       "HS-044",
+      "HS-045",
       "HS-050",
       "HS-120",
       "HS-121",
@@ -100,6 +101,9 @@
       "HS-110",
       "HS-112",
       "HS-113",
+      "HS-128",
+      "HS-129",
+      "HS-130",
       "HS-034",
       "HS-036",
       "HS-114",
@@ -294,7 +298,7 @@
         "hyperfocus"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-016",
@@ -396,7 +400,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-022",
@@ -617,10 +621,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued",
-      "aliases": [
-        "HS-006"
-      ]
+      "status": "rescued"
     },
     {
       "id": "HS-072",
@@ -858,10 +859,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued",
-      "aliases": [
-        "HS-004"
-      ]
+      "status": "rescued"
     },
     {
       "id": "HS-086",
@@ -929,10 +927,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued",
-      "aliases": [
-        "HS-009"
-      ]
+      "status": "rescued"
     },
     {
       "id": "HS-090",
@@ -1085,10 +1080,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued",
-      "aliases": [
-        "HS-002"
-      ]
+      "status": "rescued"
     },
     {
       "id": "HS-099",
@@ -1105,10 +1097,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued",
-      "aliases": [
-        "HS-001"
-      ]
+      "status": "rescued"
     },
     {
       "id": "HS-100",
@@ -1125,10 +1114,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued",
-      "aliases": [
-        "HS-003"
-      ]
+      "status": "rescued"
     },
     {
       "id": "HS-101",
@@ -1179,10 +1165,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued",
-      "aliases": [
-        "HS-005"
-      ]
+      "status": "rescued"
     },
     {
       "id": "HS-104",
@@ -1353,6 +1336,74 @@
       ],
       "pack": "ND-Friendly Coding Pack",
       "status": "rescued"
+    },
+    {
+      "id": "HS-128",
+      "hero_name": "PLUGIN FORGE",
+      "emoji": "🏗️",
+      "description": "Build & Publish a Claude Code Plugin Marketplace",
+      "category": "dev",
+      "version": "v1.0.0",
+      "file": "dev/PLUGIN_FORGE_v1.md",
+      "source_repo": "Born-here — Claude Code plugin marketplaces 2026",
+      "tags": [
+        "coding",
+        "dev",
+        "tooling"
+      ],
+      "pack": "ND-Friendly Coding Pack",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "HS-129",
+      "hero_name": "SKILLS-OVER-MCP",
+      "emoji": "🌐",
+      "description": "Expose Skills as MCP Resources (SEP-2640)",
+      "category": "dev",
+      "version": "v1.0.0",
+      "file": "dev/SKILLS_OVER_MCP_v1.md",
+      "source_repo": "Born-here — Skills-over-MCP WG / SEP-2640",
+      "tags": [
+        "coding",
+        "dev",
+        "tooling"
+      ],
+      "pack": "ND-Friendly Coding Pack",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "HS-130",
+      "hero_name": "OCI SKILL SHIP",
+      "emoji": "🚢",
+      "description": "Distribute Skills as OCI Artifacts",
+      "category": "dev",
+      "version": "v1.0.0",
+      "file": "dev/OCI_SKILL_SHIP_v1.md",
+      "source_repo": "Born-here — skills-oci / Agent-Skills-as-OCI 2026",
+      "tags": [
+        "coding",
+        "dev",
+        "tooling"
+      ],
+      "pack": "ND-Friendly Coding Pack",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "HS-131",
+      "hero_name": "THE NESTED SWARM",
+      "emoji": "🪆",
+      "description": "Sub-Agents That Spawn Sub-Agents (Bounded Depth)",
+      "category": "agents",
+      "version": "v1.0.0",
+      "file": "agents/NESTED_SWARM_v1.md",
+      "source_repo": "Born-here — subagents spawn subagents, 5 levels 2026",
+      "tags": [
+        "agents",
+        "orchestration",
+        "ai"
+      ],
+      "pack": "Agent Builder Pack",
+      "status": "ACTIVE"
     },
     {
       "id": "HS-034",
@@ -1530,7 +1581,7 @@
       "emoji": "🛠️",
       "description": "Hyper Brain Infrastructure Runbook",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.1",
       "file": "dev/HYPER_BRAIN_OPS_v1.md",
       "source_repo": "BROski-Obsidian-Brain",
       "tags": [

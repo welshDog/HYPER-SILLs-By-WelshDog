@@ -50,6 +50,11 @@ REQUIRED_HEADINGS = [
 
 VALID_CATEGORIES   = {"coding", "content", "design", "agents", "youtube", "automation", "ND-friendly", "broski"}
 VALID_DIFFICULTIES = {"beginner", "intermediate", "advanced"}
+# Skill lifecycle (optional `status:` frontmatter field). DRAFT→REVIEW→ACTIVE
+# →DEPRECATED→ARCHIVED. Legacy rescued skills use the implicit "rescued" status.
+VALID_STATUSES     = {"draft", "review", "active", "deprecated", "archived", "rescued"}
+SEMVER_PATTERN     = re.compile(r"^version:\s+v\d+\.\d+(\.\d+)?\s*$", re.MULTILINE)
+STATUS_PATTERN     = re.compile(r"^status:\s*[\"']?([A-Za-z]+)[\"']?\s*$", re.MULTILINE)
 
 SKILL_ID_PATTERN = re.compile(r"^id:\s+SKILL_\d{3,}")
 VERSION_PATTERN  = re.compile(r"^version:\s+v\d+\.\d+")
@@ -350,6 +355,15 @@ def lint_legacy_file(content: str, lines: list[str], known_ids: set[str], skill_
         )
         provides   = []
         depends_on = []
+
+    # Lifecycle status (optional). If present, must be a known state.
+    fm_text = "\n".join(fm_lines)
+    sm = STATUS_PATTERN.search(fm_text)
+    if sm and sm.group(1).lower() not in VALID_STATUSES:
+        errors.append(
+            f"Invalid status '{sm.group(1)}' — must be one of "
+            f"{', '.join(sorted(VALID_STATUSES))}"
+        )
 
     return {
         "errors": errors,

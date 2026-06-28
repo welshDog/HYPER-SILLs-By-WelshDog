@@ -25,9 +25,10 @@ REGISTRY_PATH = VAULT_ROOT / "skills-registry.json"
 mcp = FastMCP(
     "hyper-sills",
     instructions=(
-        "HYPER-SILLs — 88-skill AI vault with Graph-of-Skills. "
+        "HYPER-SILLs — 89-skill AI vault with Graph-of-Skills. "
         "Tools: search_skills, load_skill, get_skill_graph, recommend_for_task, list_skills_by_category. "
-        "Categories: agents (49), dev (31), broski (7), youtube (1)."
+        "Resources (SEP-2640 Skills-over-MCP): skills://index, skill://HS-NNN. "
+        "Categories: agents (50), dev (31), broski (7), youtube (1)."
     ),
 )
 
@@ -228,6 +229,38 @@ def search_skills(
 
 
 @mcp.tool()
+def semantic_search(query: str, limit: int = 5) -> str:
+    """Find skills by describing the problem in natural language (meaning, not keywords).
+
+    Ranks skills by semantic similarity to your description — use this when you
+    don't know the hero name or ID. Falls back to keyword search if the vector
+    index is unavailable.
+
+    Args:
+        query: natural-language description, e.g. "auto-restart a crashed agent"
+        limit: max results (default 5)
+
+    Examples:
+        semantic_search("publish my skills so other tools can use them")
+        semantic_search("stop my agents spawning forever")
+    """
+    if not query.strip():
+        return json.dumps({"error": "Describe what you need in a sentence."})
+    try:
+        sys.path.insert(0, str(VAULT_ROOT / "scripts"))
+        from search_skills import semantic_search as _ss  # type: ignore
+        hits = _ss(query, limit=limit)
+        if hits:
+            return json.dumps({"query": query, "backend": "semantic",
+                               "count": len(hits), "results": hits},
+                              ensure_ascii=False, indent=2)
+    except Exception as e:  # noqa: BLE001 — degrade gracefully to keyword search
+        pass
+    # Fallback: keyword search never leaves the user stuck (Mercy Message ethos).
+    return search_skills(query=query, limit=limit)
+
+
+@mcp.tool()
 def load_skill(skill_id: str) -> str:
     """Load the full content of a skill file by its ID (e.g. 'HS-042' or 'DS-028').
 
@@ -239,10 +272,7 @@ def load_skill(skill_id: str) -> str:
     """
     meta = find_by_id(skill_id)
     if not meta:
-        return json.dumps({
-            "error": f"Skill '{skill_id}' not found in registry.",
-            "hint": "Call search_skills() to find the right ID.",
-        })
+        return _mercy_not_found(skill_id)
 
     fp = VAULT_ROOT / meta["file"]
     if not fp.exists():
@@ -280,10 +310,7 @@ def get_skill_graph(skill_id: str) -> str:
     """
     meta = find_by_id(skill_id)
     if not meta:
-        return json.dumps({
-            "error": f"Skill '{skill_id}' not found.",
-            "hint": "Call search_skills() to find the right ID.",
-        })
+        return _mercy_not_found(skill_id)
 
     fp = VAULT_ROOT / meta["file"]
     if not fp.exists():
@@ -416,6 +443,68 @@ def list_skills_by_category(category: str = "") -> str:
     }, ensure_ascii=False, indent=2)
 
 
+# ── Resources (Skills-over-MCP / SEP-2640 alignment) ───────────────────────────
+# The "Skills over MCP" working group (SEP-2640, Extensions Track) standardises
+# exposing skills via MCP *Resources* rather than bespoke tools. We add a
+# Resources surface alongside the existing tools so SEP-2640-aware hosts can
+# discover and read skills natively, while keeping the tools for back-compat.
+
+def _skill_uri(skill_id: str) -> str:
+    return f"skill://{skill_id.upper()}"
+
+
+@mcp.resource("skills://index")
+def skills_index() -> str:
+    """Browseable index of every skill as a Resource (skill://HS-NNN)."""
+    items = [
+        {
+            "uri":       _skill_uri(s["id"]),
+            "id":        s["id"],
+            "hero_name": s.get("hero_name"),
+            "category":  s.get("category"),
+            "description": s.get("description", ""),
+        }
+        for s in skills_list()
+        if s.get("status", "").lower() != "archived"
+    ]
+    return json.dumps({"count": len(items), "skills": items},
+                      ensure_ascii=False, indent=2)
+
+
+@mcp.resource("skill://{skill_id}")
+def skill_resource(skill_id: str) -> str:
+    """Read a single skill's full markdown by ID, e.g. resource skill://HS-100."""
+    meta = find_by_id(skill_id)
+    if not meta:
+        return _mercy_not_found(skill_id)
+    fp = VAULT_ROOT / meta["file"]
+    if not fp.exists():
+        return f"# {skill_id}\n\nNo stress — this skill is registered but its file isn't on disk yet ({meta['file']})."
+    return fp.read_text(encoding="utf-8", errors="replace")
+
+
+# ── Mercy messages (HS-069) ────────────────────────────────────────────────────
+# Apply the vault's own ND-first error ethos to the server: never blame, always
+# offer the next step.
+
+def _mercy_not_found(skill_id: str) -> str:
+    near = []
+    sid = skill_id.upper().strip()
+    digits = re.sub(r"\D", "", sid)
+    for s in skills_list():
+        if digits and digits in re.sub(r"\D", "", s.get("id", "")):
+            near.append(f'{s["id"]} {s.get("hero_name","")}')
+        if len(near) >= 3:
+            break
+    hint = ("Closest matches: " + "; ".join(near)) if near else \
+        'Try search_skills("<keywords>") to find it by topic.'
+    return json.dumps({
+        "ok": False,
+        "message": f"No stress — '{skill_id}' isn't in the vault yet. {hint}",
+        "next_step": 'search_skills(query="...") or recommend_for_task(task="...")',
+    }, ensure_ascii=False, indent=2)
+
+
 # ── Smoke test ─────────────────────────────────────────────────────────────────
 
 def _smoke_test():
@@ -450,7 +539,19 @@ def _smoke_test():
     print(f"   gos.graph_notes: {gos.get('graph_notes','(none)')[:60]}")
     print()
 
-    print("All tools OK.")
+    print("6. resources: skills://index + skill://HS-100")
+    idx = json.loads(skills_index())
+    print(f"   index count={idx['count']}  first={idx['skills'][0]['uri'] if idx['skills'] else 'none'}")
+    res = skill_resource("HS-100")
+    print(f"   skill://HS-100 -> {len(res)} chars, starts: {res.splitlines()[0][:50] if res else '(empty)'}")
+    print()
+
+    print("7. mercy: load_skill('HS-9999')")
+    r = json.loads(load_skill("HS-9999"))
+    print(f"   ok={r.get('ok')}  message={r.get('message','')[:60]}")
+    print()
+
+    print("All tools + resources OK.")
 
 
 # ── Entry point ────────────────────────────────────────────────────────────────

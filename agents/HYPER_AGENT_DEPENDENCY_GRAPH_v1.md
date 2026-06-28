@@ -4,7 +4,8 @@
 skill_id: HS-097
 hero_name: "THE WEB OF NEEDS"
 emoji: "🕸️"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-090  # SOUL SCROLL — dependency graph is a worked example of the life_plan schema

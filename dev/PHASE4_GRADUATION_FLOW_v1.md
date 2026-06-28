@@ -4,7 +4,8 @@
 skill_id: DS-024
 hero_name: "PHASE4 GRADUATION FLOW"
 emoji: "🎓"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: dev
 depends_on:
   - DS-021  # FOUR_PHASE_EIGHT_SPRINT_ROADMAP

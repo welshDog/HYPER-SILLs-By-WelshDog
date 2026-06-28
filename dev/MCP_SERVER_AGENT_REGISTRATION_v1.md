@@ -4,7 +4,8 @@
 skill_id: DS-020
 hero_name: "MCP SERVER AGENT REGISTRATION"
 emoji: "🔌"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: dev
 depends_on:
   - DS-019  # FASTAPI_AGENT_API_STANDARDS

@@ -4,7 +4,8 @@
 skill_id: DS-010
 hero_name: "CODE STYLE STANDARDS"
 emoji: "📐"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: dev
 depends_on:
   - none

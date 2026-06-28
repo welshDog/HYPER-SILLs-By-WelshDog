@@ -7,7 +7,8 @@
 skill_id: HS-120
 hero_name: "AB FORGE"
 emoji: "🧪"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-002  # SIX_LAWS_OF_AGENTS — governs test behaviour boundaries

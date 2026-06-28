@@ -4,7 +4,8 @@
 skill_id: DS-023
 hero_name: "LEAN RAID DISCIPLINE"
 emoji: "🧹"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: dev
 depends_on:
   - none

@@ -4,7 +4,8 @@
 skill_id: HS-018
 hero_name: "BRIDGE KEEPER"
 emoji: "🌉"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-017  # MIND CORE — bridge routes to the brain core

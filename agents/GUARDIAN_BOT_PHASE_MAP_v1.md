@@ -7,7 +7,8 @@
 skill_id: HS-038
 hero_name: "PHASE WARDEN"
 emoji: "🛡️"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-002  # SIX_LAWS_OF_AGENTS — moderation must respect agent laws

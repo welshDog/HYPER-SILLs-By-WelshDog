@@ -4,7 +4,8 @@
 skill_id: HS-009
 hero_name: "HYPER AGENT ROSTER"
 emoji: "📋"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-001  # ANATOMY_OF_AN_AGENT — each roster entry follows anatomy spec

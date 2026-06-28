@@ -5,7 +5,8 @@
 skill_id: HS-083
 hero_name: "THE THREE VOICES"
 emoji: "🗣️"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-067  # THE THRONE LADDER — roles determine who talks to whom

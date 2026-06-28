@@ -7,7 +7,8 @@
 skill_id: HS-041
 hero_name: "METRICS FORGE"
 emoji: "⚡"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-001  # ANATOMY_OF_AN_AGENT — metrics are the Eyes organ

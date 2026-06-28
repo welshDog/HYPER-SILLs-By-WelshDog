@@ -4,7 +4,8 @@
 skill_id: DS-002
 hero_name: "CLI ARGS LAUNCH PATTERN"
 emoji: "⚡"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: dev
 depends_on:
   - DS-010  # CODE_STYLE_STANDARDS

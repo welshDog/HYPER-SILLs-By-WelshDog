@@ -4,7 +4,8 @@
 skill_id: DS-028
 hero_name: "PROGRESSIVE HEALTH WAIT"
 emoji: "⏳"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: dev
 depends_on:
   - HS-005  # HEALER_CIRCUIT_BREAKER_PROTOCOL

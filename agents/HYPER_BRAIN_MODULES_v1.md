@@ -4,7 +4,8 @@
 skill_id: HS-011
 hero_name: "MIND BLOCKS"
 emoji: "🧩"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-016  # BRAIN PRIMER — orientation required before reading the module map

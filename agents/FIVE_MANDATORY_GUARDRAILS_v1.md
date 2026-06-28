@@ -4,7 +4,8 @@
 skill_id: HS-004
 hero_name: "FIVE MANDATORY GUARDRAILS"
 emoji: "🛡️"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-002  # SIX_LAWS_OF_AGENTS — guardrails enforce the laws

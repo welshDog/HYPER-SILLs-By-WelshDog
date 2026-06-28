@@ -4,7 +4,8 @@
 skill_id: DS-007
 hero_name: "TEST STATUS REPORT"
 emoji: "📊"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: dev
 depends_on:
   - DS-006  # TEST_PYRAMID_FOUR_LEVELS

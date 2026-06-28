@@ -4,7 +4,8 @@
 skill_id: DS-012
 hero_name: "TRUTH VS CLAIM AUDIT"
 emoji: "🔬"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: dev
 depends_on:
   - DS-011  # CROSS_REFERENCE_BEFORE_WRITING

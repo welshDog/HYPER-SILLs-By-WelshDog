@@ -4,7 +4,8 @@
 skill_id: DS-003
 hero_name: "NEW AGENT BUILD CHECKLIST"
 emoji: "✅"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: dev
 depends_on:
   - HS-001  # ANATOMY_OF_AN_AGENT

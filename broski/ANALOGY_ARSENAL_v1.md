@@ -7,7 +7,8 @@
 skill_id: HS-036
 hero_name: "ANALOGY ARSENAL"
 emoji: "🧠"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: broski
 depends_on:
   - HS-002  # SIX_LAWS_OF_AGENTS — Law 3 (EXPLAIN SIMPLY) motivates this arsenal

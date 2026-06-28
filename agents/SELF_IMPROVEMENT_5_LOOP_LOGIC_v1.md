@@ -7,7 +7,8 @@
 skill_id: HS-043
 hero_name: "LOOP MASTER"
 emoji: "🔄"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-003  # AGENT_LIFECYCLE_STATE_MACHINE — improvement loops within the lifecycle

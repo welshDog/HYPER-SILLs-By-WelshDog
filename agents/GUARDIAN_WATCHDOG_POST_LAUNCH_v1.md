@@ -7,7 +7,8 @@
 skill_id: HS-050
 hero_name: "WATCHDOG PRIME"
 emoji: "🛡️"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-038  # PHASE WARDEN — watchdog starts after Guardian phases are live

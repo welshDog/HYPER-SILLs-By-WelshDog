@@ -3,7 +3,8 @@
 skill_id: HS-127
 hero_name: "SIGNAL HUNTER"
 emoji: "📊"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: youtube
 depends_on:
   - none  # standalone YouTube analytics skill

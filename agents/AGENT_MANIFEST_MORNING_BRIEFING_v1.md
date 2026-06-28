@@ -4,7 +4,8 @@
 skill_id: HS-020
 hero_name: "HERALD'S SCROLL"
 emoji: "🌄"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-013  # DAWN HERALD — trigger reference for the briefing AI

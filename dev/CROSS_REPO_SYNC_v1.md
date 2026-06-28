@@ -4,7 +4,8 @@
 skill_id: DS-014
 hero_name: "CROSS REPO SYNC"
 emoji: "🔄"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: dev
 depends_on:
   - DS-015  # PARALLEL_GIT_WORKFLOW_SURVIVAL

@@ -7,7 +7,8 @@
 skill_id: HS-121
 hero_name: "LOOP FORGE"
 emoji: "🔄"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-043  # LOOP MASTER — this code implements the 5-loop reference

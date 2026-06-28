@@ -7,7 +7,8 @@
 skill_id: HS-045
 hero_name: "FRUGAL ENGINE"
 emoji: "💰"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-041  # METRICS FORGE — cost monitoring requires metrics to be wired

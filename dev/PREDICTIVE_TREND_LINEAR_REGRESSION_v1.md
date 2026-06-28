@@ -4,7 +4,8 @@
 skill_id: DS-027
 hero_name: "PREDICTIVE TREND LINEAR REGRESSION"
 emoji: "📈"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: dev
 depends_on:
   - DS-008  # CORE_AGENT_METRICS_CONTRACT

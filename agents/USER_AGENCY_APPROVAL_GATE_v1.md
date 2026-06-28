@@ -5,7 +5,8 @@
 skill_id: HS-077
 hero_name: "CONSENT GUARDIAN"
 emoji: "🛑"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-002  # SIX_LAWS_OF_AGENTS — Law 1 (RESPECT USER AGENCY) is this skill

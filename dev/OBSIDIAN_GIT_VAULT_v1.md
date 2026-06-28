@@ -4,7 +4,8 @@
 skill_id: DS-018
 hero_name: "OBSIDIAN GIT VAULT"
 emoji: "🧠"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: dev
 depends_on:
   - DS-015  # PARALLEL_GIT_WORKFLOW_SURVIVAL

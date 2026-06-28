@@ -4,7 +4,8 @@
 skill_id: HS-124
 hero_name: "FOCUS HAWK"
 emoji: "🦅"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-016  # BRAIN PRIMER — brain ecosystem context required

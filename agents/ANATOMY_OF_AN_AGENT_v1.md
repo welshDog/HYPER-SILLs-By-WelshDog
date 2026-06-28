@@ -4,7 +4,8 @@
 skill_id: HS-001
 hero_name: "ANATOMY OF AN AGENT"
 emoji: "🦴"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - none  # Root skill — foundational, no upstream deps

@@ -5,7 +5,8 @@
 skill_id: HS-111
 hero_name: "TRUTH FLAGGER"
 emoji: "🚩"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-002  # SIX_LAWS_OF_AGENTS — Law 6 (SURFACE) is this skill

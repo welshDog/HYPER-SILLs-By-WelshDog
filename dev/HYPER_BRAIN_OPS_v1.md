@@ -4,7 +4,8 @@
 skill_id: HS-114
 hero_name: "BRAIN OPS"
 emoji: "🛠️"
-version: v1.1
+version: v1.1.0
+status: ACTIVE
 category: dev
 depends_on:
   - HS-016  # BRAIN PRIMER — brain ecosystem orientation required

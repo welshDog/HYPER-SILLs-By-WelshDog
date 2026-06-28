@@ -7,7 +7,8 @@
 skill_id: HS-122
 hero_name: "GUARDIAN WATCHDOG"
 emoji: "🔭"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-038  # PHASE WARDEN — watchdog operates within Guardian phases

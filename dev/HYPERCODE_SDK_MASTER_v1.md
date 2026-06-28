@@ -4,7 +4,8 @@
 skill_id: DS-026
 hero_name: "HYPERCODE SDK MASTER"
 emoji: "🏗️"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: dev
 depends_on:
   - HS-007  # HYPERFOCUS_AGENT_SWARM_CORE

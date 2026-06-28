@@ -7,7 +7,8 @@
 skill_id: HS-044
 hero_name: "AB SPLITTER"
 emoji: "🧪"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-002  # SIX_LAWS_OF_AGENTS — tests must respect agent laws

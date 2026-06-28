@@ -4,7 +4,8 @@
 skill_id: HS-012
 hero_name: "THE ASCENT"
 emoji: "🪜"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: broski
 depends_on:
   - HS-002  # SIX_LAWS_OF_AGENTS — Law 5 (REWARD) motivates this system

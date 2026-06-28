@@ -4,7 +4,8 @@
 skill_id: HS-016
 hero_name: "BRAIN PRIMER"
 emoji: "📖"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-125  # THE GRAND CODEX — master context is the root; brain sits inside it

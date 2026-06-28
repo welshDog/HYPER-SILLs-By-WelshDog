@@ -4,7 +4,8 @@
 skill_id: HS-105
 hero_name: "TOP TIER AGENT IDENTITY CARDS"
 emoji: "🪪"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-001  # ANATOMY_OF_AN_AGENT — identity cards follow anatomy spec

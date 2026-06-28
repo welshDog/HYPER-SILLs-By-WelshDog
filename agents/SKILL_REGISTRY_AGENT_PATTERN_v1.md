@@ -7,7 +7,8 @@
 skill_id: HS-042
 hero_name: "REGISTRY LORD"
 emoji: "📋"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-008  # BROSKI ORCHESTRATOR PATTERN — orchestrator uses the registry for routing

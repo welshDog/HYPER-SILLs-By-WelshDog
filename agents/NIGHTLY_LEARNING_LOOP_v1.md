@@ -5,7 +5,8 @@
 skill_id: HS-093
 hero_name: "NIGHT TENDER"
 emoji: "🌙"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-003  # AGENT_LIFECYCLE_STATE_MACHINE — loop is a recurring lifecycle phase

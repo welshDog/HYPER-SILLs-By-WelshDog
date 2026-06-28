@@ -5,7 +5,8 @@
 skill_id: HS-080
 hero_name: "THE TOOL BELT"
 emoji: "🧰"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-001  # ANATOMY_OF_AN_AGENT — tools are the Hands organ

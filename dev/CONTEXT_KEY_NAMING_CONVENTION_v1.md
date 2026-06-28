@@ -4,7 +4,8 @@
 skill_id: DS-004
 hero_name: "CONTEXT KEY NAMING CONVENTION"
 emoji: "🏷️"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: dev
 depends_on:
   - DS-010  # CODE_STYLE_STANDARDS

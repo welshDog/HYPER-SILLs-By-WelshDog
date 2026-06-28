@@ -6,7 +6,8 @@
 skill_id: HS-028
 hero_name: "SDK PRIMER"
 emoji: "📖"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-125  # THE GRAND CODEX — master context gives the 5-repo map SDK sits in

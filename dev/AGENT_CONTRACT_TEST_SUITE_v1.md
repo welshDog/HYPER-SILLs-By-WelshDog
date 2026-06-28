@@ -4,7 +4,8 @@
 skill_id: DS-001
 hero_name: "AGENT CONTRACT TEST SUITE"
 emoji: "🧪"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: dev
 depends_on:
   - HS-001  # ANATOMY_OF_AN_AGENT

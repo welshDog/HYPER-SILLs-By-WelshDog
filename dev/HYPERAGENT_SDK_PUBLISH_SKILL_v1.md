@@ -4,7 +4,8 @@
 skill_id: DS-017
 hero_name: "HYPERAGENT SDK PUBLISH SKILL"
 emoji: "📦"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: dev
 depends_on:
   - DS-016  # SDK_PUBLISH_WORKFLOW

@@ -5,7 +5,8 @@
 skill_id: HS-078
 hero_name: "FLOW KEEPER"
 emoji: "🌊"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-002  # SIX_LAWS_OF_AGENTS — Law 2 (MINIMISE INTERRUPTIONS) is this skill

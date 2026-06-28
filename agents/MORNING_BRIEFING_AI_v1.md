@@ -4,7 +4,8 @@
 skill_id: HS-013
 hero_name: "DAWN HERALD"
 emoji: "🌅"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-011  # MIND BLOCKS — module map needed to call the briefing endpoint

@@ -7,7 +7,8 @@
 skill_id: HS-040
 hero_name: "GOALKEEPER"
 emoji: "🥅"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-043  # LOOP MASTER — goalkeeper runs the 5-loop autonomously

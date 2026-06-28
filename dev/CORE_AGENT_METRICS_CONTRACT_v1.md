@@ -4,7 +4,8 @@
 skill_id: HS-105
 hero_name: "THE METRICS OATH"
 emoji: "📊"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: dev
 depends_on:
   - HS-019  # OBSERVABLE_AGENT_OPERATIONS — observability philosophy this contract implements

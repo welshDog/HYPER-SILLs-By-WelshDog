@@ -4,7 +4,8 @@
 skill_id: HS-010
 hero_name: "THE AESTHETE"
 emoji: "🎨"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: broski
 depends_on:
   - none  # root aesthetic reference — no prerequisites

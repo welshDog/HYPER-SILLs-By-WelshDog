@@ -2,7 +2,7 @@
   "_meta": {
     "name": "HYPER-SKILLs Registry",
     "repo": "welshDog/HYPER-SILLs-By-WelshDog",
-    "generated_at": "2026-06-28T09:35:46Z",
+    "generated_at": "2026-06-28T10:31:46Z",
     "total_skills": 96,
     "categories": {
       "youtube": 4,
@@ -122,7 +122,7 @@
       "emoji": "📊",
       "description": "YT Analytics Debugger",
       "category": "youtube",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "youtube/YT_DEBUGGER_v1.md",
       "source_repo": "Original",
       "tags": [
@@ -131,7 +131,7 @@
         "analytics"
       ],
       "pack": "YouTube Growth Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-132",
@@ -190,7 +190,7 @@
       "emoji": "⚡",
       "description": "GOD Mode Hyperflow",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/GOD_MODE_HYPERFLOW_v1.md",
       "source_repo": "GOD-Agent-Mode",
       "tags": [
@@ -199,7 +199,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-126",
@@ -207,7 +207,7 @@
       "emoji": "🔗",
       "description": "HyperGraph Node Skill",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/HYPERGRAPH_NODE_SKILL_v1.md",
       "source_repo": "GOD-Agent-Mode",
       "tags": [
@@ -216,7 +216,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-007",
@@ -224,7 +224,7 @@
       "emoji": "🐝",
       "description": "Hyperfocus Agent Swarm Core",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/HYPERFOCUS_AGENT_SWARM_CORE_v1.md",
       "source_repo": "Hyperfocus-Global-Impact-Skills",
       "tags": [
@@ -233,7 +233,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-125",
@@ -241,7 +241,7 @@
       "emoji": "🏆",
       "description": "Hyperfocus Zone Master Context",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/HYPERFOCUS_ZONE_MASTER_CONTEXT_v1.md",
       "source_repo": "BROski-Obsidian-Brain",
       "tags": [
@@ -250,7 +250,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-010",
@@ -258,7 +258,7 @@
       "emoji": "🎨",
       "description": "Design Brain",
       "category": "broski",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "broski/DESIGN_BRAIN_v1.md",
       "source_repo": "BROski-Obsidian-Brain",
       "tags": [
@@ -267,7 +267,7 @@
         "hyperfocus"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-011",
@@ -275,7 +275,7 @@
       "emoji": "🧩",
       "description": "Hyper Brain Modules",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/HYPER_BRAIN_MODULES_v1.md",
       "source_repo": "BROski-Obsidian-Brain",
       "tags": [
@@ -284,7 +284,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-012",
@@ -292,7 +292,7 @@
       "emoji": "🪜",
       "description": "Level Progression",
       "category": "broski",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "broski/LEVEL_PROGRESSION_v1.md",
       "source_repo": "BROski-Obsidian-Brain",
       "tags": [
@@ -301,7 +301,7 @@
         "hyperfocus"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-013",
@@ -309,7 +309,7 @@
       "emoji": "🌅",
       "description": "Morning Briefing AI",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/MORNING_BRIEFING_AI_v1.md",
       "source_repo": "BROski-Obsidian-Brain",
       "tags": [
@@ -318,7 +318,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-014",
@@ -326,7 +326,7 @@
       "emoji": "🔮",
       "description": "Obsidian Git Vault",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/OBSIDIAN_GIT_VAULT_v1.md",
       "source_repo": "BROski-Obsidian-Brain",
       "tags": [
@@ -335,7 +335,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-015",
@@ -343,7 +343,7 @@
       "emoji": "🗂️",
       "description": "Vault PARA Structure",
       "category": "broski",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "broski/VAULT_PARA_STRUCTURE_v1.md",
       "source_repo": "BROski-Obsidian-Brain",
       "tags": [
@@ -360,7 +360,7 @@
       "emoji": "📖",
       "description": "Agents Brain README",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/AGENTS_BRAIN_README_v1.md",
       "source_repo": "BROski-Obsidian-Brain",
       "tags": [
@@ -369,7 +369,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-017",
@@ -377,7 +377,7 @@
       "emoji": "🧠",
       "description": "Hyper Brain Core Manifest",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/AGENT_MANIFEST_HYPER_BRAIN_CORE_v1.md",
       "source_repo": "BROski-Obsidian-Brain",
       "tags": [
@@ -386,7 +386,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-018",
@@ -394,7 +394,7 @@
       "emoji": "🌉",
       "description": "MCP Bridge Manifest",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/AGENT_MANIFEST_MCP_BRIDGE_v1.md",
       "source_repo": "BROski-Obsidian-Brain",
       "tags": [
@@ -403,7 +403,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-124",
@@ -411,7 +411,7 @@
       "emoji": "🦅",
       "description": "Focus Tracker Manifest",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/AGENT_MANIFEST_FOCUS_TRACKER_v1.md",
       "source_repo": "BROski-Obsidian-Brain",
       "tags": [
@@ -420,7 +420,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-020",
@@ -428,7 +428,7 @@
       "emoji": "🌄",
       "description": "Morning Briefing Manifest",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/AGENT_MANIFEST_MORNING_BRIEFING_v1.md",
       "source_repo": "BROski-Obsidian-Brain",
       "tags": [
@@ -437,7 +437,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-021",
@@ -445,7 +445,7 @@
       "emoji": "🔄",
       "description": "Obsidian Brain Sync Skill",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/OBSIDIAN_BRAIN_SYNC_SKILL_v1.md",
       "source_repo": "BROski-Obsidian-Brain",
       "tags": [
@@ -462,7 +462,7 @@
       "emoji": "📦",
       "description": "HyperCode SDK Master",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/HYPERCODE_SDK_MASTER_v1.md",
       "source_repo": "HyperAgent-SDK",
       "tags": [
@@ -471,7 +471,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-023",
@@ -479,7 +479,7 @@
       "emoji": "🔗",
       "description": "Cross-Repo Sync",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/CROSS_REPO_SYNC_v1.md",
       "source_repo": "HyperAgent-SDK",
       "tags": [
@@ -488,7 +488,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-024",
@@ -496,7 +496,7 @@
       "emoji": "🚀",
       "description": "SDK Publish Workflow",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/SDK_PUBLISH_WORKFLOW_v1.md",
       "source_repo": "HyperAgent-SDK",
       "tags": [
@@ -505,7 +505,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-025",
@@ -513,7 +513,7 @@
       "emoji": "🪙",
       "description": "Token Sync Debug",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/TOKEN_SYNC_DEBUG_v1.md",
       "source_repo": "HyperAgent-SDK",
       "tags": [
@@ -522,7 +522,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-026",
@@ -530,7 +530,7 @@
       "emoji": "🎓",
       "description": "Phase 4 Graduation Flow",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/PHASE4_GRADUATION_FLOW_v1.md",
       "source_repo": "HyperAgent-SDK",
       "tags": [
@@ -539,7 +539,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-027",
@@ -547,7 +547,7 @@
       "emoji": "📋",
       "description": "Test Status Report",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/TEST_STATUS_REPORT_v1.md",
       "source_repo": "HyperAgent-SDK",
       "tags": [
@@ -556,7 +556,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-028",
@@ -564,7 +564,7 @@
       "emoji": "📖",
       "description": "HyperAgent SDK Agents README",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/HYPERAGENT_SDK_AGENTS_README_v1.md",
       "source_repo": "HyperAgent-SDK",
       "tags": [
@@ -573,7 +573,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-029",
@@ -581,7 +581,7 @@
       "emoji": "📮",
       "description": "HyperAgent SDK Publish Skill",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/HYPERAGENT_SDK_PUBLISH_SKILL_v1.md",
       "source_repo": "HyperAgent-SDK",
       "tags": [
@@ -590,7 +590,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-067",
@@ -598,7 +598,7 @@
       "emoji": "👑",
       "description": "Agent Role Hierarchy Pattern",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/AGENT_ROLE_HIERARCHY_PATTERN_v1.md",
       "source_repo": "HyperCode-V2.4 (Bible)",
       "tags": [
@@ -607,7 +607,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-008",
@@ -615,7 +615,7 @@
       "emoji": "🎭",
       "description": "BROski Orchestrator Pattern",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/BROSKI_ORCHESTRATOR_PATTERN_v1.md",
       "source_repo": "HyperCode-V2.4 (Bible)",
       "tags": [
@@ -624,7 +624,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-069",
@@ -632,7 +632,7 @@
       "emoji": "💚",
       "description": "ND-First Error Messages Template",
       "category": "broski",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "broski/ND_FIRST_ERROR_MESSAGES_TEMPLATE_v1.md",
       "source_repo": "HyperCode-V2.4 (Bible §1)",
       "tags": [
@@ -641,7 +641,7 @@
         "hyperfocus"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-019",
@@ -649,7 +649,7 @@
       "emoji": "👁️",
       "description": "Observable Agent Operations Pattern",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/OBSERVABLE_AGENT_OPERATIONS_v1.md",
       "source_repo": "HyperCode-V2.4 (Bible)",
       "tags": [
@@ -658,7 +658,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-071",
@@ -666,7 +666,7 @@
       "emoji": "🪂",
       "description": "Fail Gracefully + Fallback Chain",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/FAIL_GRACEFULLY_FALLBACK_CHAIN_v1.md",
       "source_repo": "HyperCode-V2.4 (Bible)",
       "tags": [
@@ -675,7 +675,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-072",
@@ -683,7 +683,7 @@
       "emoji": "🗃️",
       "description": "Context Store Architecture (Redis)",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/CONTEXT_STORE_ARCHITECTURE_v1.md",
       "source_repo": "HyperCode-V2.4 (Bible)",
       "tags": [
@@ -692,7 +692,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-073",
@@ -700,7 +700,7 @@
       "emoji": "📡",
       "description": "SSE Agent Event Schema",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/SSE_AGENT_EVENT_SCHEMA_v1.md",
       "source_repo": "HyperCode-V2.4 (Bible)",
       "tags": [
@@ -709,7 +709,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-074",
@@ -717,7 +717,7 @@
       "emoji": "🚀",
       "description": "API Standards (FastAPI Agent Pattern)",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/FASTAPI_AGENT_API_STANDARDS_v1.md",
       "source_repo": "HyperCode-V2.4 (Bible)",
       "tags": [
@@ -726,7 +726,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-075",
@@ -734,7 +734,7 @@
       "emoji": "🎯",
       "description": "Agent Decision Framework Matrix",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/AGENT_DECISION_FRAMEWORK_MATRIX_v1.md",
       "source_repo": "HyperCode-V2.4 (Bible §10)",
       "tags": [
@@ -743,7 +743,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-076",
@@ -751,7 +751,7 @@
       "emoji": "✅",
       "description": "Pre-Commit Testing Checklist",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/PRE_COMMIT_TESTING_CHECKLIST_v1.md",
       "source_repo": "HyperCode-V2.4 (Bible §9)",
       "tags": [
@@ -760,7 +760,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-077",
@@ -768,7 +768,7 @@
       "emoji": "🛑",
       "description": "User Agency Approval Gate Pattern",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/USER_AGENCY_APPROVAL_GATE_v1.md",
       "source_repo": "HyperCode-V2.4 (Bible §1 P1 + §6 R5)",
       "tags": [
@@ -777,7 +777,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-078",
@@ -785,7 +785,7 @@
       "emoji": "🌊",
       "description": "Context Retention / Anti-Interrupt Pattern",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/CONTEXT_RETENTION_ANTI_INTERRUPT_v1.md",
       "source_repo": "HyperCode-V2.4 (Bible §1 P2)",
       "tags": [
@@ -794,7 +794,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-079",
@@ -802,7 +802,7 @@
       "emoji": "👥",
       "description": "Specialist Agent Role Definitions",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/SPECIALIST_AGENT_ROLES_v1.md",
       "source_repo": "HyperCode-V2.4 (Bible §2)",
       "tags": [
@@ -811,7 +811,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-080",
@@ -819,7 +819,7 @@
       "emoji": "🧰",
       "description": "Universal Agent Tools API",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/UNIVERSAL_AGENT_TOOLS_API_v1.md",
       "source_repo": "HyperCode-V2.4 (Bible §3)",
       "tags": [
@@ -828,7 +828,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-081",
@@ -836,7 +836,7 @@
       "emoji": "🔌",
       "description": "MCP Server + Agent Registration Pattern",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/MCP_SERVER_AGENT_REGISTRATION_v1.md",
       "source_repo": "HyperCode-V2.4 (Bible §3)",
       "tags": [
@@ -845,7 +845,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-082",
@@ -853,7 +853,7 @@
       "emoji": "🏷️",
       "description": "Context Key Naming Convention + Value Schema",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/CONTEXT_KEY_NAMING_CONVENTION_v1.md",
       "source_repo": "HyperCode-V2.4 (Bible §4 + §7)",
       "tags": [
@@ -862,7 +862,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-083",
@@ -870,7 +870,7 @@
       "emoji": "🗣️",
       "description": "Agent Communication Patterns (Req-Res, Stream, Error)",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/AGENT_COMMUNICATION_PATTERNS_v1.md",
       "source_repo": "HyperCode-V2.4 (Bible §4)",
       "tags": [
@@ -879,7 +879,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-084",
@@ -887,7 +887,7 @@
       "emoji": "📐",
       "description": "Code Style Standards (Python + TS/React)",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/CODE_STYLE_STANDARDS_v1.md",
       "source_repo": "HyperCode-V2.4 (Bible §5)",
       "tags": [
@@ -896,7 +896,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-085",
@@ -904,7 +904,7 @@
       "emoji": "🚧",
       "description": "5 Mandatory Agent Guardrails",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/FIVE_MANDATORY_GUARDRAILS_v1.md",
       "source_repo": "HyperCode-V2.4 (Bible §6)",
       "tags": [
@@ -913,7 +913,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-086",
@@ -921,7 +921,7 @@
       "emoji": "🔺",
       "description": "Test Pyramid (4 Levels)",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/TEST_PYRAMID_FOUR_LEVELS_v1.md",
       "source_repo": "HyperCode-V2.4 (Bible §9)",
       "tags": [
@@ -930,7 +930,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-087",
@@ -938,7 +938,7 @@
       "emoji": "🌳",
       "description": "Agent Decision Tree (Quick Ref Flowchart)",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/AGENT_DECISION_TREE_FLOWCHART_v1.md",
       "source_repo": "HyperCode-V2.4 (Bible Quick Ref)",
       "tags": [
@@ -947,7 +947,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-088",
@@ -955,7 +955,7 @@
       "emoji": "🪞",
       "description": "Agent Final Self-Audit (8-Point Checklist)",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/AGENT_FINAL_SELF_AUDIT_v1.md",
       "source_repo": "HyperCode-V2.4 (Bible Final Checklist)",
       "tags": [
@@ -964,7 +964,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-089",
@@ -972,7 +972,7 @@
       "emoji": "🗺️",
       "description": "Hyper Agent Roster (22 Confirmed + 5 Expansion)",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/HYPER_AGENT_ROSTER_v1.md",
       "source_repo": "HyperCode-V2.4 (🧬 Roster)",
       "tags": [
@@ -981,7 +981,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-090",
@@ -989,7 +989,7 @@
       "emoji": "📜",
       "description": "Universal Life Plan YAML v2.0 Template",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/UNIVERSAL_LIFE_PLAN_YAML_v1.md",
       "source_repo": "HyperCode-V2.4 (🧬 Roster §1)",
       "tags": [
@@ -998,7 +998,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-091",
@@ -1006,7 +1006,7 @@
       "emoji": "🪪",
       "description": "Top-Tier Agent Identity Cards *(v1.1 — +AutoEvo)*",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/TOP_TIER_AGENT_IDENTITY_CARDS_v1.md",
       "source_repo": "HyperCode-V2.4 (🧬 Roster §2 + 🦅 Life Plans Master §2)",
       "tags": [
@@ -1015,7 +1015,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-092",
@@ -1023,7 +1023,7 @@
       "emoji": "🧪",
       "description": "Agent Contract Test Suite",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/AGENT_CONTRACT_TEST_SUITE_v1.md",
       "source_repo": "HyperCode-V2.4 (🧬 Roster §4)",
       "tags": [
@@ -1032,7 +1032,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-093",
@@ -1040,7 +1040,7 @@
       "emoji": "🌙",
       "description": "Nightly Continuous Learning Loop",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/NIGHTLY_LEARNING_LOOP_v1.md",
       "source_repo": "HyperCode-V2.4 (🧬 Roster §5)",
       "tags": [
@@ -1049,7 +1049,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-094",
@@ -1057,7 +1057,7 @@
       "emoji": "🚀",
       "description": "6-Sprint Production Roadmap (with KPI Gates)",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/SIX_SPRINT_PRODUCTION_ROADMAP_v1.md",
       "source_repo": "HyperCode-V2.4 (🧬 Roster §3)",
       "tags": [
@@ -1066,7 +1066,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-095",
@@ -1074,7 +1074,7 @@
       "emoji": "📒",
       "description": "Governance Ledger Entry Schema",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/GOVERNANCE_LEDGER_ENTRY_SCHEMA_v1.md",
       "source_repo": "HyperCode-V2.4 (🧬 Roster §6)",
       "tags": [
@@ -1083,7 +1083,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-096",
@@ -1091,7 +1091,7 @@
       "emoji": "🗓️",
       "description": "4-Phase / 8-Sprint Production Roadmap (Alt Cadence)",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/FOUR_PHASE_EIGHT_SPRINT_ROADMAP_v1.md",
       "source_repo": "HyperCode-V2.4 (🦅 Life Plans Master §3)",
       "tags": [
@@ -1100,7 +1100,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-097",
@@ -1108,7 +1108,7 @@
       "emoji": "🕸️",
       "description": "Hyper Agent Dependency Graph (8-Agent Worked Example)",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/HYPER_AGENT_DEPENDENCY_GRAPH_v1.md",
       "source_repo": "HyperCode-V2.4 (🦅 Life Plans Master §1)",
       "tags": [
@@ -1117,7 +1117,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-098",
@@ -1125,7 +1125,7 @@
       "emoji": "🏛️",
       "description": "The 6 Laws of Agents",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/SIX_LAWS_OF_AGENTS_v1.md",
       "source_repo": "HyperCode-V2.4 (throttle-agent Bible)",
       "tags": [
@@ -1134,7 +1134,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-099",
@@ -1142,7 +1142,7 @@
       "emoji": "🧬",
       "description": "Anatomy of an Agent",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/ANATOMY_OF_AN_AGENT_v1.md",
       "source_repo": "HyperCode-V2.4 (throttle-agent Bible)",
       "tags": [
@@ -1151,7 +1151,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-100",
@@ -1159,7 +1159,7 @@
       "emoji": "🔄",
       "description": "Agent Lifecycle State Machine (BIRTH → DEATH)",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/AGENT_LIFECYCLE_STATE_MACHINE_v1.md",
       "source_repo": "HyperCode-V2.4 (throttle-agent Bible)",
       "tags": [
@@ -1168,7 +1168,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-101",
@@ -1176,7 +1176,7 @@
       "emoji": "😴",
       "description": "Sleep Cycle + 5-Minute Anti-Thrash Hold",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/SLEEP_CYCLE_ANTI_THRASH_v1.md",
       "source_repo": "HyperCode-V2.4 (throttle-agent Bible)",
       "tags": [
@@ -1185,7 +1185,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-102",
@@ -1193,7 +1193,7 @@
       "emoji": "📈",
       "description": "Predictive Trend via Linear Regression",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/PREDICTIVE_TREND_LINEAR_REGRESSION_v1.md",
       "source_repo": "HyperCode-V2.4 (throttle-agent Bible)",
       "tags": [
@@ -1202,7 +1202,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-103",
@@ -1210,7 +1210,7 @@
       "emoji": "🤝",
       "description": "Healer Circuit-Breaker Protocol",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/HEALER_CIRCUIT_BREAKER_PROTOCOL_v1.md",
       "source_repo": "HyperCode-V2.4 (throttle-agent Bible)",
       "tags": [
@@ -1219,7 +1219,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-104",
@@ -1227,7 +1227,7 @@
       "emoji": "🛡️",
       "description": "Tier Protection Rules (Hardcoded + Configurable + Self)",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/TIER_PROTECTION_RULES_v1.md",
       "source_repo": "HyperCode-V2.4 (throttle-agent Bible)",
       "tags": [
@@ -1236,7 +1236,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-105",
@@ -1244,7 +1244,7 @@
       "emoji": "📊",
       "description": "Core Agent Metrics Contract (5 Mandatory)",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/CORE_AGENT_METRICS_CONTRACT_v1.md",
       "source_repo": "HyperCode-V2.4 (throttle-agent Bible)",
       "tags": [
@@ -1253,7 +1253,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-106",
@@ -1261,7 +1261,7 @@
       "emoji": "🌱",
       "description": "New Agent Build Checklist (10-Point)",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/NEW_AGENT_BUILD_CHECKLIST_v1.md",
       "source_repo": "HyperCode-V2.4 (throttle-agent Bible)",
       "tags": [
@@ -1270,7 +1270,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-107",
@@ -1278,7 +1278,7 @@
       "emoji": "🏆",
       "description": "Agent Ranks + Self-Naming Protocol + The Creed",
       "category": "broski",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "broski/AGENT_RANKS_NAMING_CREED_v1.md",
       "source_repo": "HyperCode-V2.4 (throttle-agent Bible)",
       "tags": [
@@ -1287,7 +1287,7 @@
         "hyperfocus"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-108",
@@ -1295,7 +1295,7 @@
       "emoji": "🔱",
       "description": "Truth-vs-Claim Audit Pattern",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/TRUTH_VS_CLAIM_AUDIT_v1.md",
       "source_repo": "Original — session synthesis",
       "tags": [
@@ -1304,7 +1304,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-109",
@@ -1312,7 +1312,7 @@
       "emoji": "🐕",
       "description": "Cross-Reference Before You Write",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/CROSS_REFERENCE_BEFORE_WRITING_v1.md",
       "source_repo": "Original — session synthesis",
       "tags": [
@@ -1321,7 +1321,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-110",
@@ -1329,7 +1329,7 @@
       "emoji": "⚔️",
       "description": "Lean Raid Discipline (Anti-Inflation)",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/LEAN_RAID_DISCIPLINE_v1.md",
       "source_repo": "Original — session synthesis",
       "tags": [
@@ -1338,7 +1338,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-111",
@@ -1346,7 +1346,7 @@
       "emoji": "🚩",
       "description": "Surface Contradictions, Don't Pick Sides",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/SURFACE_CONTRADICTIONS_DONT_PICK_SIDES_v1.md",
       "source_repo": "Original — distilled from HFZ CLAUDE.md communication rules",
       "tags": [
@@ -1355,7 +1355,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-112",
@@ -1363,7 +1363,7 @@
       "emoji": "🕸️",
       "description": "Wikilink Knowledge Graph for Docs",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/WIKILINK_KNOWLEDGE_GRAPH_v1.md",
       "source_repo": "Original — vault convention from HS-067 onwards",
       "tags": [
@@ -1372,7 +1372,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-113",
@@ -1380,7 +1380,7 @@
       "emoji": "⚒️",
       "description": "Parallel Git Workflow Survival Guide",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/PARALLEL_GIT_WORKFLOW_SURVIVAL_v1.md",
       "source_repo": "Original — from Lyndz's parallel-workflow memory",
       "tags": [
@@ -1389,7 +1389,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-128",
@@ -1465,7 +1465,7 @@
       "emoji": "🎯",
       "description": "7-Beat Module Teaching Structure",
       "category": "broski",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "broski/SEVEN_BEAT_MODULE_STRUCTURE_v1.md",
       "source_repo": "Original",
       "tags": [
@@ -1474,7 +1474,7 @@
         "hyperfocus"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-036",
@@ -1482,7 +1482,7 @@
       "emoji": "🧠",
       "description": "ND-Friendly Analogy Library",
       "category": "broski",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "broski/ANALOGY_ARSENAL_v1.md",
       "source_repo": "Original",
       "tags": [
@@ -1491,7 +1491,7 @@
         "hyperfocus"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-038",
@@ -1499,7 +1499,7 @@
       "emoji": "🛡️",
       "description": "Server Guardian Bot Phase Map",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/GUARDIAN_BOT_PHASE_MAP_v1.md",
       "source_repo": "HyperCode-V2.4",
       "tags": [
@@ -1508,7 +1508,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-040",
@@ -1516,7 +1516,7 @@
       "emoji": "🥅",
       "description": "Self-Improving Goal-Tracking Agent",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/GOALKEEPER_SELF_IMPROVING_AGENT_v1.md",
       "source_repo": "HyperCode-V2.4",
       "tags": [
@@ -1525,7 +1525,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-041",
@@ -1533,7 +1533,7 @@
       "emoji": "⚡",
       "description": "Prometheus + Grafana Agent Metrics Integration",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/METRICS_ENGINE_INTEGRATION_v1.md",
       "source_repo": "HyperCode-V2.4",
       "tags": [
@@ -1542,7 +1542,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-042",
@@ -1550,7 +1550,7 @@
       "emoji": "📋",
       "description": "Skill Registry Agent Pattern (Yellow Pages)",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/SKILL_REGISTRY_AGENT_PATTERN_v1.md",
       "source_repo": "HyperCode-V2.4",
       "tags": [
@@ -1559,7 +1559,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-043",
@@ -1567,7 +1567,7 @@
       "emoji": "🔄",
       "description": "Self-Improvement 5-Loop Pattern (Reference)",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/SELF_IMPROVEMENT_5_LOOP_LOGIC_v1.md",
       "source_repo": "HyperCode-V2.4",
       "tags": [
@@ -1576,7 +1576,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-044",
@@ -1584,7 +1584,7 @@
       "emoji": "🧪",
       "description": "A/B Testing Framework (Prompt Block)",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/AB_TESTING_FRAMEWORK_v1.md",
       "source_repo": "HyperCode-V2.4",
       "tags": [
@@ -1593,7 +1593,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-045",
@@ -1601,7 +1601,7 @@
       "emoji": "💰",
       "description": "Cost Optimisation Auto-Pattern",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/COST_OPTIMISATION_AUTO_PATTERN_v1.md",
       "source_repo": "HyperCode-V2.4",
       "tags": [
@@ -1610,7 +1610,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-050",
@@ -1618,7 +1618,7 @@
       "emoji": "🛡️",
       "description": "Post-Launch Watchdog Monitoring Pattern",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/GUARDIAN_WATCHDOG_POST_LAUNCH_v1.md",
       "source_repo": "HyperCode-V2.4",
       "tags": [
@@ -1627,7 +1627,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-114",
@@ -1635,7 +1635,7 @@
       "emoji": "🛠️",
       "description": "Hyper Brain Infrastructure Runbook",
       "category": "dev",
-      "version": "v1.1",
+      "version": "v1.1.0",
       "file": "dev/HYPER_BRAIN_OPS_v1.md",
       "source_repo": "BROski-Obsidian-Brain",
       "tags": [
@@ -1644,7 +1644,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-120",
@@ -1652,7 +1652,7 @@
       "emoji": "🧪",
       "description": "A/B Testing Framework (Python Code)",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/AB_TESTING_FRAMEWORK_AGENTS_v1.md",
       "source_repo": "HyperCode-V2.4",
       "tags": [
@@ -1661,7 +1661,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-121",
@@ -1669,7 +1669,7 @@
       "emoji": "🔄",
       "description": "Self-Improvement 5-Loop (Python Implementation)",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/SELF_IMPROVEMENT_5_LOOP_v1.md",
       "source_repo": "HyperCode-V2.4",
       "tags": [
@@ -1678,7 +1678,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-122",
@@ -1686,7 +1686,7 @@
       "emoji": "🔭",
       "description": "Watchdog Monitor Code Pattern",
       "category": "agents",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "agents/GUARDIAN_WATCHDOG_MONITOR_v1.md",
       "source_repo": "HyperCode-V2.4",
       "tags": [
@@ -1695,7 +1695,7 @@
         "ai"
       ],
       "pack": "Agent Builder Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "DS-002",
@@ -1703,7 +1703,7 @@
       "emoji": "⚡",
       "description": "CLI Args Launch Pattern",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/CLI_ARGS_LAUNCH_PATTERN_v1.md",
       "source_repo": "HyperCode-V2.4",
       "tags": [
@@ -1712,7 +1712,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "DS-009",
@@ -1720,7 +1720,7 @@
       "emoji": "🛫",
       "description": "Preflight Checks System (Boot Validation)",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/PREFLIGHT_CHECKS_SYSTEM_v1.md",
       "source_repo": "HyperCode-V2.4",
       "tags": [
@@ -1729,7 +1729,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "DS-028",
@@ -1737,7 +1737,7 @@
       "emoji": "⏳",
       "description": "Progressive Health Wait (Smart Backoff)",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/PROGRESSIVE_HEALTH_WAIT_v1.md",
       "source_repo": "HyperCode-V2.4",
       "tags": [
@@ -1746,7 +1746,7 @@
         "tooling"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     }
   ]
 }

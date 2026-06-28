@@ -5,7 +5,8 @@
 skill_id: HS-067
 hero_name: "THE THRONE LADDER"
 emoji: "👑"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-001  # ANATOMY_OF_AN_AGENT — anatomy defines role components

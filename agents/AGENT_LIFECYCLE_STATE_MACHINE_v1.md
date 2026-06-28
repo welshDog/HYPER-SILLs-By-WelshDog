@@ -4,7 +4,8 @@
 skill_id: HS-003
 hero_name: "AGENT LIFECYCLE STATE MACHINE"
 emoji: "🔄"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-001  # ANATOMY_OF_AN_AGENT — agent must exist before it has a lifecycle

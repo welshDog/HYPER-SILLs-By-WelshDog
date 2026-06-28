@@ -5,7 +5,8 @@
 skill_id: HS-087
 hero_name: "THE BRANCHING PATH"
 emoji: "🌳"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-075  # THE CHOICE MATRIX — matrix feeds the tree nodes

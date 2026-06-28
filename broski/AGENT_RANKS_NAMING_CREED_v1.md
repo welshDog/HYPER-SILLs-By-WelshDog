@@ -5,7 +5,8 @@
 skill_id: HS-107
 hero_name: "THE RANK & THE NAME"
 emoji: "🏆"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: broski
 depends_on:
   - HS-002  # SIX_LAWS_OF_AGENTS — naming protocol must respect the 6 laws

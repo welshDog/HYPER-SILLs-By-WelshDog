@@ -4,7 +4,8 @@
 skill_id: HS-008
 hero_name: "BROSKI ORCHESTRATOR PATTERN"
 emoji: "🎼"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-007  # HYPERFOCUS_AGENT_SWARM_CORE — orchestrator runs the swarm

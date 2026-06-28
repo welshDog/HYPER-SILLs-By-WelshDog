@@ -4,7 +4,8 @@
 skill_id: HS-090
 hero_name: "SOUL SCROLL"
 emoji: "📜"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - none  # root schema — no prerequisites

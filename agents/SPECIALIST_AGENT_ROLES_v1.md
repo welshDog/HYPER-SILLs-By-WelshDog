@@ -5,7 +5,8 @@
 skill_id: HS-079
 hero_name: "THE CREW CHARTER"
 emoji: "👥"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-067  # THE THRONE LADDER — hierarchy defines the 6 slots

@@ -4,7 +4,8 @@
 skill_id: DS-022
 hero_name: "SIX SPRINT PRODUCTION ROADMAP"
 emoji: "🏁"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: dev
 depends_on:
   - DS-021  # FOUR_PHASE_EIGHT_SPRINT_ROADMAP

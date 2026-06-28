@@ -4,7 +4,7 @@
 skill_id: HS-021
 hero_name: "VAULT SYNC"
 emoji: "🔄"
-version: v1.0
+version: v1.0.0
 category: agents
 depends_on:
   - DS-018  # OBSIDIAN_GIT_VAULT — git workflow for the vault is a prerequisite

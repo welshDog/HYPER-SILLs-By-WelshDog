@@ -4,7 +4,8 @@
 skill_id: DS-021
 hero_name: "FOUR PHASE EIGHT SPRINT ROADMAP"
 emoji: "🗺️"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: dev
 depends_on:
   - none

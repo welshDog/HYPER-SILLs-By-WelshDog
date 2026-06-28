@@ -4,7 +4,7 @@
 skill_id: HS-015
 hero_name: "THE FOUR DRAWERS"
 emoji: "🗂️"
-version: v1.0
+version: v1.0.0
 category: broski
 depends_on:
   - none  # root vault structure — no prerequisites

@@ -4,7 +4,8 @@
 skill_id: DS-029
 hero_name: "SLEEP CYCLE ANTI THRASH"
 emoji: "😴"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: dev
 depends_on:
   - DS-028  # PROGRESSIVE_HEALTH_WAIT

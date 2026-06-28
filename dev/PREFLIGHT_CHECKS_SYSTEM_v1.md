@@ -4,7 +4,8 @@
 skill_id: DS-009
 hero_name: "PREFLIGHT CHECKS SYSTEM"
 emoji: "🛫"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: dev
 depends_on:
   - HS-003  # AGENT_LIFECYCLE_STATE_MACHINE

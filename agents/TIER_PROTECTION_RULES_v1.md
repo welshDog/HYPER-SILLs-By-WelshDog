@@ -4,7 +4,8 @@
 skill_id: HS-104
 hero_name: "THE THREE WALLS"
 emoji: "🛡️"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-002  # SIX_LAWS_OF_AGENTS — implements Law 2 (PROTECTION)

@@ -4,7 +4,8 @@
 skill_id: HS-019
 hero_name: "OBSERVABLE AGENT OPERATIONS"
 emoji: "👁️"
-version: v1.0
+version: v1.0.0
+status: ACTIVE
 category: agents
 depends_on:
   - HS-003  # AGENT_LIFECYCLE_STATE_MACHINE — observes state transitions

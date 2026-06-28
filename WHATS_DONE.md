@@ -3,6 +3,17 @@
 > Single source of truth. Check this before building ANYTHING.
 > Last updated: 2026-06-28
 
+## v3.2 Bridge + HTTP Transport (2026-06-28) -- DONE, do not redo
+
+**The Hyper Merge bridge is now LIVE, not just declared.**
+
+- **HTTP transport added** to `mcp_server.py`: `python mcp_server.py --http` serves **streamable-http** (the current standard; SSE deprecated but available via `--sse`) on `$PORT` (default 8000), host `$HOST` (default 0.0.0.0). stdio is still the default for local IDE wiring. Verified live: `/mcp` returns 406 to a bare GET (correct — needs MCP Accept headers).
+- **`/health` endpoint** (`@mcp.custom_route`) — the manifest declared `health_check: /health` but the server never served it. Now returns `{"status":"ok","service":"hyper-sills-mcp","version":"1.1.0","skills":120,"categories":{...}}`. Verified live → HTTP 200. Fail-soft (503 on registry error, never crashes the probe).
+- **Deploy files**: `Procfile` (`web: python mcp_server.py --http`) + `railway.json` (NIXPACKS, startCommand `--http`, `healthcheckPath: /health`). Railway/Render one-command deploy → public URL → paste into Perplexity's MCP connector. `mcp>=1.0.0` (pyproject) pulls starlette+uvicorn.
+- **Bridge wired into HyperAgent-SDK**: ran `hyper-agent registry build ../HYPER-SILLs-By-WelshDog --strict` → SDK `registry.json` now lists `hyper-sills-mcp` as a **verified** agent (badges: verified, mcp-ready, multi-tool, hyper-coder, elite, health-checked, featured; level 5; port 3350). Replaced the 4 throwaway template scaffolds (correct — production registry = real agents). Manifest passes `hyper-agent validate` (1 passed, 0 failed, mcp ✓).
+- **SDK `registry build` upgraded** to accept **multiple paths** (`build <repoA> <repoB> ...`) so one ecosystem registry can span all 5 repos as they add manifests. Fixed a latent arg-parse bug (the `--out` value leaked in as a phantom path) via a new `positionalArgs()` helper. `node --check` clean.
+- **Still TODO** (handover): rate-limit on Redis DB 2; `SILLS_EMBED_BACKEND` env var; bundle pre-deploy step; wire other 4 repos' manifests into the registry.
+
 ## v3.1 Registry Reconciliation (2026-06-28) -- DONE, do not redo
 
 **The 96 → 120 fix.** The registry undercounted: `generate_registry.py` builds the registry by parsing only the `## ✅ RESCUED SKILLS` table in `vault-index.md`, and **24 real on-disk skills lived in the stale `CATALOGUED` section** (no file-link column) → silently absent from the registry, MCP server, and the `manifest.json` bridge. Promoted all 24 to proper RESCUED rows. **Registry now 120 skills / 6 categories** (was 96 / 4): agents 51, dev 39, hypercode 12, broski 7, web3 7, youtube 4. The whole `hypercode/` (12) and `web3/` (7 BROskiPets/dNFT) packs are now live + queryable over MCP.

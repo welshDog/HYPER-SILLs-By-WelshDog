@@ -1,23 +1,32 @@
 #!/usr/bin/env python3
 """
 HYPER-SILLs MCP Server
-Exposes the 88-skill vault via Model Context Protocol (stdio transport).
-Works with Claude Code, Cursor, Gemini CLI, Copilot, and any MCP-compatible IDE.
+Exposes the 120-skill vault via Model Context Protocol.
+Works with Claude Code, Cursor, Gemini CLI, Copilot, and any MCP-compatible IDE,
+plus remote hosts (Railway/Render) and the Perplexity MCP connector over HTTP.
 
 Usage:
-    python mcp_server.py          # stdio (for mcp config wiring)
+    python mcp_server.py          # stdio (for local mcp config wiring)
+    python mcp_server.py --http   # streamable-HTTP on $PORT (default 8000) for remote hosts
     python mcp_server.py --test   # smoke-test all tools and exit
+
+Health: GET /health -> {"status":"ok",...} (served when running over HTTP).
 
 Backed by arXiv:2604.05333 — Graph-of-Skills yields +25.55% reward,
 -56.72% tokens vs flat skill loading.
 """
 
 import json
+import os
 import re
 import sys
 from pathlib import Path
 
 from mcp.server.fastmcp import FastMCP
+from starlette.requests import Request
+from starlette.responses import JSONResponse
+
+SERVER_VERSION = "1.1.0"
 
 VAULT_ROOT = Path(__file__).parent
 REGISTRY_PATH = VAULT_ROOT / "skills-registry.json"
@@ -494,6 +503,27 @@ def skill_resource(skill_id: str) -> str:
     return content
 
 
+# ── Health check ───────────────────────────────────────────────────────────────
+# The manifest.json declares `health_check: /health`. Served on the HTTP app
+# (streamable-http / sse). Lets Railway/Render and the Perplexity connector probe
+# liveness without speaking MCP.
+
+@mcp.custom_route("/health", methods=["GET"])
+async def health(request: Request) -> JSONResponse:
+    try:
+        skills = len(skills_list())
+        meta = get_registry().get("_meta", {})
+        return JSONResponse({
+            "status": "ok",
+            "service": "hyper-sills-mcp",
+            "version": SERVER_VERSION,
+            "skills": skills,
+            "categories": meta.get("categories", {}),
+        })
+    except Exception as exc:  # never let a probe crash the server
+        return JSONResponse({"status": "degraded", "error": str(exc)}, status_code=503)
+
+
 # ── Mercy messages (HS-069) ────────────────────────────────────────────────────
 # Apply the vault's own ND-first error ethos to the server: never blame, always
 # offer the next step.
@@ -570,5 +600,17 @@ def _smoke_test():
 if __name__ == "__main__":
     if "--test" in sys.argv:
         _smoke_test()
+    elif "--http" in sys.argv or os.environ.get("PORT"):
+        # HTTP transport for remote hosts (Railway/Render) + the Perplexity MCP
+        # connector. Streamable-HTTP is the current standard (SSE is deprecated).
+        mcp.settings.host = os.environ.get("HOST", "0.0.0.0")
+        mcp.settings.port = int(os.environ.get("PORT", "8000"))
+        transport = "sse" if "--sse" in sys.argv else "streamable-http"
+        print(
+            f"HYPER-SILLs MCP serving {len(skills_list())} skills over {transport} "
+            f"on {mcp.settings.host}:{mcp.settings.port} (health: /health)",
+            file=sys.stderr,
+        )
+        mcp.run(transport=transport)
     else:
         mcp.run(transport="stdio")

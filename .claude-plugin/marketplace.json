@@ -12,7 +12,10 @@
       "source": "./plugins/hyper-sills-vault",
       "version": "1.0.0",
       "description": "Install the full HYPER-SILLs vault: an MCP server (search/load/recommend skills + Graph-of-Skills dependency graph) plus slash commands to find and load skills by problem, not ID.",
-      "author": "welshDog",
+      "author": {
+        "name": "welshDog",
+        "url": "https://github.com/welshDog"
+      },
       "license": "AGPL-3.0",
       "keywords": [
         "skills",

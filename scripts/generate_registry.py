@@ -11,7 +11,7 @@ import json
 import sys
 import argparse
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone
 
 # Repo root — skill file paths in vault-index.md are relative to this.
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -136,13 +136,35 @@ def build_registry(skills: list[dict]) -> dict:
         "_meta": {
             "name":         "HYPER-SKILLs Registry",
             "repo":         "welshDog/HYPER-SILLs-By-WelshDog",
-            "generated_at": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "total_skills": len(skills),
             "categories":   categories,
         },
         "packs": packs,
         "skills": skills,
     }
+
+
+def reconcile_disk(skills: list[dict]) -> list[str]:
+    """Safety net: find skill .md files on disk that the registry missed.
+
+    The registry is generated from vault-index.md. If a skill file exists on
+    disk but was never promoted to a RESCUED row, it silently vanishes from the
+    registry, the MCP server, and the bridge manifest. This catches that.
+    Returns the list of stranded file paths (relative to repo root).
+    """
+    header_re = re.compile(r'#\s*(?:\S+\s+)?(?:HS|DS)-\d+\s*[—-]')
+    reg_files = {s["file"] for s in skills}
+    stranded = []
+    for folder in CATEGORY_META:  # only real skill folders
+        for fp in sorted((REPO_ROOT / folder.rstrip("/")).glob("*.md")):
+            head = fp.read_text(encoding="utf-8", errors="replace")[:200]
+            if not header_re.search(head):
+                continue  # not a skill file (template, readme, etc.)
+            rel = fp.relative_to(REPO_ROOT).as_posix()
+            if rel not in reg_files:
+                stranded.append(rel)
+    return stranded
 
 
 def main():
@@ -178,6 +200,17 @@ def main():
     print(f"   Skills:     {registry['_meta']['total_skills']}")
     print(f"   Categories: {json.dumps(registry['_meta']['categories'], indent=6)}")
     print(f"   Packs:      {list(registry['packs'].keys())}")
+
+    # Safety net — warn loudly if any skill file on disk isn't in the registry.
+    stranded = reconcile_disk(skills)
+    if stranded:
+        print(f"\n⚠️  {len(stranded)} skill file(s) on disk are MISSING from the registry")
+        print("   (they exist on disk but have no RESCUED row in vault-index.md):")
+        for s in stranded:
+            print(f"     - {s}")
+        print("   Add a RESCUED row for each in vault-index.md, then re-run.")
+    else:
+        print("\n✅ Disk reconciliation clean — every skill file on disk is registered.")
 
 
 if __name__ == "__main__":

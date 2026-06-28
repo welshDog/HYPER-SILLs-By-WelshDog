@@ -3,6 +3,17 @@
 > Single source of truth. Check this before building ANYTHING.
 > Last updated: 2026-06-28
 
+## v3.1 Registry Reconciliation (2026-06-28) -- DONE, do not redo
+
+**The 96 → 120 fix.** The registry undercounted: `generate_registry.py` builds the registry by parsing only the `## ✅ RESCUED SKILLS` table in `vault-index.md`, and **24 real on-disk skills lived in the stale `CATALOGUED` section** (no file-link column) → silently absent from the registry, MCP server, and the `manifest.json` bridge. Promoted all 24 to proper RESCUED rows. **Registry now 120 skills / 6 categories** (was 96 / 4): agents 51, dev 39, hypercode 12, broski 7, web3 7, youtube 4. The whole `hypercode/` (12) and `web3/` (7 BROskiPets/dNFT) packs are now live + queryable over MCP.
+
+- **Two id namespaces (don't confuse):** registry IDs come from vault-index.md (what MCP serves); in-file frontmatter `skill_id` is the GoS-graph id and is *intentionally* different for some skills (e.g. THE FIVE WARDS = registry HS-085 / GoS HS-004). Do NOT "fix" the generator to read frontmatter skill_id — it would renumber ~30 dev skills and break the registry.
+- **Dup files resolved:** archived `hypercode/V24_SACRED_RULES_v1.md` (kept `V2_4_SACRED_RULES`, HS-031) and `hypercode/AI_BEHAVIOUR_RULES_v1.md` (kept `AI_BEHAVIOUR_RULES_TOOL_MATRIX`, HS-035) → `_archive/`.
+- **GoS bug fixed:** `dev/CORE_AGENT_METRICS_CONTRACT_v1.md` frontmatter `skill_id` was `HS-105` but its H1 + 6 inbound `depends_on` edges use `DS-008`; set frontmatter to `DS-008` so those edges resolve (verified via `get_skill_graph('DS-001')`).
+- **Safety net added:** `generate_registry.py` now runs `reconcile_disk()` after every build — warns loudly if any skill `.md` on disk has no registry row. Currently **clean** (disk 120 ↔ registry 120). This is what would have caught the original bug.
+- **The 24 promoted skills carry `status: rescued`** (they're legacy files lacking v3.0 GoS/semver frontmatter). That's accurate, not a bug. Bulk frontmatter backfill of legacy skills is still the open debt (see below) — do NOT invent `depends_on` edges hastily.
+- Updated to match: `README.md` (120/6-cat table + architecture), `manifest.json` (description + tool category lists), `mcp_server.py` (instructions + category docstrings). No `skills-bundle.json` exists, so MCP reads `skills-registry.json` directly — changes are already live. `vault-index.md` RESCUED header + stats say 120. Linter: 0 errors.
+
 ## v3.0 Upgrade (2026-06-28) -- ALL EXIST, do not rebuild
 
 | Area | What shipped |

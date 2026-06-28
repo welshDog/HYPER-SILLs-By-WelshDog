@@ -2,13 +2,15 @@
   "_meta": {
     "name": "HYPER-SKILLs Registry",
     "repo": "welshDog/HYPER-SILLs-By-WelshDog",
-    "generated_at": "2026-06-28T10:31:46Z",
-    "total_skills": 96,
+    "generated_at": "2026-06-28T14:56:33Z",
+    "total_skills": 120,
     "categories": {
       "youtube": 4,
       "agents": 51,
       "broski": 7,
-      "dev": 34
+      "dev": 39,
+      "hypercode": 12,
+      "web3": 7
     }
   },
   "packs": {
@@ -112,7 +114,12 @@
       "HS-114",
       "DS-002",
       "DS-009",
-      "DS-028"
+      "DS-028",
+      "HS-060",
+      "HS-061",
+      "HS-062",
+      "HS-063",
+      "HS-064"
     ]
   },
   "skills": [
@@ -1747,6 +1754,414 @@
       ],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
+    },
+    {
+      "id": "HS-030",
+      "hero_name": "HYPERFOCUS MASTER CONSTITUTION",
+      "emoji": "🏆",
+      "description": "HyperFocus Master Constitution",
+      "category": "hypercode",
+      "version": "v1.0",
+      "file": "hypercode/HYPERFOCUS_MASTER_CONSTITUTION_v1.md",
+      "source_repo": "HyperCode-V2.4 / root CLAUDE.md",
+      "tags": [
+        "hypercode",
+        "system",
+        "architecture"
+      ],
+      "pack": null,
+      "status": "rescued"
+    },
+    {
+      "id": "HS-031",
+      "hero_name": "V2.4 SACRED RULES",
+      "emoji": "🔴",
+      "description": "V2.4 Sacred Rules (20 Rules)",
+      "category": "hypercode",
+      "version": "v1.0",
+      "file": "hypercode/V2_4_SACRED_RULES_v1.md",
+      "source_repo": "HyperCode-V2.4 CLAUDE.md §3",
+      "tags": [
+        "hypercode",
+        "system",
+        "architecture"
+      ],
+      "pack": null,
+      "status": "rescued"
+    },
+    {
+      "id": "HS-032",
+      "hero_name": "COURSE SACRED RULES",
+      "emoji": "🔴",
+      "description": "Course Sacred Rules (11 Rules)",
+      "category": "hypercode",
+      "version": "v1.0",
+      "file": "hypercode/COURSE_SACRED_RULES_v1.md",
+      "source_repo": "HyperCode-V2.4 CLAUDE.md §4",
+      "tags": [
+        "hypercode",
+        "system",
+        "architecture"
+      ],
+      "pack": null,
+      "status": "rescued"
+    },
+    {
+      "id": "HS-033",
+      "hero_name": "BROSKI SHOP SACRED RULES",
+      "emoji": "🔴",
+      "description": "BROski$ Shop Sacred Rules",
+      "category": "hypercode",
+      "version": "v1.0",
+      "file": "hypercode/BROSKI_SHOP_SACRED_RULES_v1.md",
+      "source_repo": "HyperCode-V2.4 CLAUDE.md §5",
+      "tags": [
+        "hypercode",
+        "system",
+        "architecture"
+      ],
+      "pack": null,
+      "status": "rescued"
+    },
+    {
+      "id": "HS-035",
+      "hero_name": "PROTOCOL PRIME",
+      "emoji": "🤖",
+      "description": "AI Behaviour Rules + Tool Matrix",
+      "category": "hypercode",
+      "version": "v1.0",
+      "file": "hypercode/AI_BEHAVIOUR_RULES_TOOL_MATRIX_v1.md",
+      "source_repo": "HyperCode-V2.4 CLAUDE.md §9",
+      "tags": [
+        "hypercode",
+        "system",
+        "architecture"
+      ],
+      "pack": null,
+      "status": "rescued"
+    },
+    {
+      "id": "HS-037",
+      "hero_name": "GRID MASTER",
+      "emoji": "⚡",
+      "description": "Architecture Quick Ref (Ports + Networks)",
+      "category": "hypercode",
+      "version": "v1.0",
+      "file": "hypercode/ARCHITECTURE_QUICK_REF_v1.md",
+      "source_repo": "HyperCode-V2.4 CLAUDE.md §6",
+      "tags": [
+        "hypercode",
+        "system",
+        "architecture"
+      ],
+      "pack": null,
+      "status": "rescued"
+    },
+    {
+      "id": "HS-039",
+      "hero_name": "CLOSE PROTOCOL",
+      "emoji": "✅",
+      "description": "Session End Checklist",
+      "category": "hypercode",
+      "version": "v1.0",
+      "file": "hypercode/SESSION_END_CHECKLIST_v1.md",
+      "source_repo": "HyperCode-V2.4 CLAUDE.md §11",
+      "tags": [
+        "hypercode",
+        "system",
+        "architecture"
+      ],
+      "pack": null,
+      "status": "rescued"
+    },
+    {
+      "id": "HS-046",
+      "hero_name": "LAUNCH SOVEREIGN",
+      "emoji": "🚀",
+      "description": "HyperLaunch Unified Commander",
+      "category": "hypercode",
+      "version": "v1.0",
+      "file": "hypercode/HYPERLAUNCH_UNIFIED_COMMANDER_v1.md",
+      "source_repo": "HyperCode-V2.4 / hyperlaunch.py",
+      "tags": [
+        "hypercode",
+        "system",
+        "architecture"
+      ],
+      "pack": null,
+      "status": "rescued"
+    },
+    {
+      "id": "HS-047",
+      "hero_name": "TIER FORGE",
+      "emoji": "🏗️",
+      "description": "4-Tier ServiceSpec Launch Pattern",
+      "category": "hypercode",
+      "version": "v1.0",
+      "file": "hypercode/FOUR_TIER_SERVICESPEC_LAUNCH_v1.md",
+      "source_repo": "HyperCode-V2.4 / hyperlaunch.py",
+      "tags": [
+        "hypercode",
+        "system",
+        "architecture"
+      ],
+      "pack": null,
+      "status": "rescued"
+    },
+    {
+      "id": "HS-059",
+      "hero_name": "THE CARTOGRAPHER",
+      "emoji": "🗺️",
+      "description": "Complete Ecosystem Inventory",
+      "category": "hypercode",
+      "version": "v1.0",
+      "file": "hypercode/ECOSYSTEM_INVENTORY_v1.md",
+      "source_repo": "HyperCode-V2.4",
+      "tags": [
+        "hypercode",
+        "system",
+        "architecture"
+      ],
+      "pack": null,
+      "status": "rescued"
+    },
+    {
+      "id": "HS-065",
+      "hero_name": "THE CONNECTOR",
+      "emoji": "🔗",
+      "description": "External Integrations Map",
+      "category": "hypercode",
+      "version": "v1.0",
+      "file": "hypercode/EXTERNAL_INTEGRATIONS_MAP_v1.md",
+      "source_repo": "HyperCode-V2.4",
+      "tags": [
+        "hypercode",
+        "system",
+        "architecture"
+      ],
+      "pack": null,
+      "status": "rescued"
+    },
+    {
+      "id": "HS-066",
+      "hero_name": "THE MILESTONE KEEPER",
+      "emoji": "🏆",
+      "description": "Milestone Tracker Template",
+      "category": "hypercode",
+      "version": "v1.0",
+      "file": "hypercode/MILESTONE_TRACKER_TEMPLATE_v1.md",
+      "source_repo": "HyperCode-V2.4",
+      "tags": [
+        "hypercode",
+        "system",
+        "architecture"
+      ],
+      "pack": null,
+      "status": "rescued"
+    },
+    {
+      "id": "HS-052",
+      "hero_name": "PET MASTER",
+      "emoji": "🐾",
+      "description": "BROskiPets Full Integration Plan",
+      "category": "web3",
+      "version": "v1.0",
+      "file": "web3/BROSKI_PETS_INTEGRATION_PLAN_v1.md",
+      "source_repo": "HyperCode-V2.4 / BROskiPets",
+      "tags": [
+        "web3",
+        "nft",
+        "blockchain"
+      ],
+      "pack": null,
+      "status": "rescued"
+    },
+    {
+      "id": "HS-053",
+      "hero_name": "FATE ROLLER",
+      "emoji": "🎲",
+      "description": "Pet Rarity Roll Formula",
+      "category": "web3",
+      "version": "v1.0",
+      "file": "web3/PET_RARITY_ROLL_FORMULA_v1.md",
+      "source_repo": "HyperCode-V2.4 / BROskiPets",
+      "tags": [
+        "web3",
+        "nft",
+        "blockchain"
+      ],
+      "pack": null,
+      "status": "rescued"
+    },
+    {
+      "id": "HS-054",
+      "hero_name": "XP SPARK",
+      "emoji": "⚡",
+      "description": "Dev Action XP Trigger System",
+      "category": "web3",
+      "version": "v1.0",
+      "file": "web3/DEV_ACTION_XP_TRIGGER_v1.md",
+      "source_repo": "HyperCode-V2.4 / BROskiPets",
+      "tags": [
+        "web3",
+        "nft",
+        "blockchain"
+      ],
+      "pack": null,
+      "status": "rescued"
+    },
+    {
+      "id": "HS-055",
+      "hero_name": "CHAIN LEDGER",
+      "emoji": "📜",
+      "description": "dNFT On-Chain Portfolio Pattern",
+      "category": "web3",
+      "version": "v1.0",
+      "file": "web3/DNFT_ONCHAIN_PORTFOLIO_v1.md",
+      "source_repo": "HyperCode-V2.4 / BROskiPets",
+      "tags": [
+        "web3",
+        "nft",
+        "blockchain"
+      ],
+      "pack": null,
+      "status": "rescued"
+    },
+    {
+      "id": "HS-056",
+      "hero_name": "BEAST CODEX",
+      "emoji": "🦈",
+      "description": "Pet Species Power Mapping",
+      "category": "web3",
+      "version": "v1.0",
+      "file": "web3/PET_SPECIES_POWER_MAPPING_v1.md",
+      "source_repo": "HyperCode-V2.4 / BROskiPets",
+      "tags": [
+        "web3",
+        "nft",
+        "blockchain"
+      ],
+      "pack": null,
+      "status": "rescued"
+    },
+    {
+      "id": "HS-057",
+      "hero_name": "GENESIS PROMPT",
+      "emoji": "🥚",
+      "description": "BROskiPets Phase 0 Build Prompt",
+      "category": "web3",
+      "version": "v1.0",
+      "file": "web3/BROSKI_PETS_PHASE_0_BUILD_v1.md",
+      "source_repo": "HyperCode-V2.4 / BROskiPets",
+      "tags": [
+        "web3",
+        "nft",
+        "blockchain"
+      ],
+      "pack": null,
+      "status": "rescued"
+    },
+    {
+      "id": "HS-058",
+      "hero_name": "HATCH PROMPT",
+      "emoji": "🐣",
+      "description": "BROskiPets Phase 1 Build Prompt",
+      "category": "web3",
+      "version": "v1.0",
+      "file": "web3/BROSKI_PETS_PHASE_1_BUILD_v1.md",
+      "source_repo": "HyperCode-V2.4 / BROskiPets",
+      "tags": [
+        "web3",
+        "nft",
+        "blockchain"
+      ],
+      "pack": null,
+      "status": "rescued"
+    },
+    {
+      "id": "HS-060",
+      "hero_name": "FLEET ADMIRAL",
+      "emoji": "🐳",
+      "description": "Container Stack Reference",
+      "category": "dev",
+      "version": "v1.0",
+      "file": "dev/CONTAINER_STACK_REFERENCE_v1.md",
+      "source_repo": "HyperCode-V2.4 / docker-compose.agents.yml",
+      "tags": [
+        "coding",
+        "dev",
+        "tooling"
+      ],
+      "pack": "ND-Friendly Coding Pack",
+      "status": "rescued"
+    },
+    {
+      "id": "HS-061",
+      "hero_name": "THE PORT WARDEN",
+      "emoji": "🔌",
+      "description": "Port + Network Map",
+      "category": "dev",
+      "version": "v1.0",
+      "file": "dev/PORT_NETWORK_MAP_v1.md",
+      "source_repo": "HyperCode-V2.4 / docker-compose.agents.yml",
+      "tags": [
+        "coding",
+        "dev",
+        "tooling"
+      ],
+      "pack": "ND-Friendly Coding Pack",
+      "status": "rescued"
+    },
+    {
+      "id": "HS-062",
+      "hero_name": "THE SCHEMA SCRIBE",
+      "emoji": "🗄️",
+      "description": "Database Schema Reference",
+      "category": "dev",
+      "version": "v1.0",
+      "file": "dev/DATABASE_SCHEMA_REFERENCE_v1.md",
+      "source_repo": "HyperCode-V2.4 / backend",
+      "tags": [
+        "coding",
+        "dev",
+        "tooling"
+      ],
+      "pack": "ND-Friendly Coding Pack",
+      "status": "rescued"
+    },
+    {
+      "id": "HS-063",
+      "hero_name": "THE QUARTERMASTER",
+      "emoji": "📦",
+      "description": "Backend Deps Stack",
+      "category": "dev",
+      "version": "v1.0",
+      "file": "dev/BACKEND_DEPS_STACK_v1.md",
+      "source_repo": "HyperCode-V2.4 / backend",
+      "tags": [
+        "coding",
+        "dev",
+        "tooling"
+      ],
+      "pack": "ND-Friendly Coding Pack",
+      "status": "rescued"
+    },
+    {
+      "id": "HS-064",
+      "hero_name": "THE QUICK HAND",
+      "emoji": "⚡",
+      "description": "Dev Commands Cheat Sheet",
+      "category": "dev",
+      "version": "v1.0",
+      "file": "dev/DEV_COMMANDS_CHEAT_SHEET_v1.md",
+      "source_repo": "HyperCode-V2.4",
+      "tags": [
+        "coding",
+        "dev",
+        "tooling"
+      ],
+      "pack": "ND-Friendly Coding Pack",
+      "status": "rescued"
     }
   ]
 }

@@ -30,10 +30,10 @@ BUNDLE_PATH = VAULT_ROOT / "skills-bundle.json"
 mcp = FastMCP(
     "hyper-sills",
     instructions=(
-        "HYPER-SILLs — 96-skill AI vault with Graph-of-Skills. "
+        "HYPER-SILLs — 120-skill AI vault with Graph-of-Skills. "
         "Tools: search_skills, semantic_search, load_skill, get_skill_graph, recommend_for_task, list_skills_by_category. "
         "Resources (SEP-2640 Skills-over-MCP): skills://index, skill://HS-NNN. "
-        "Categories: agents (51), dev (34), broski (7), youtube (4)."
+        "Categories: agents (51), dev (39), hypercode (12), broski (7), web3 (7), youtube (4)."
     ),
 )
 
@@ -193,7 +193,7 @@ def search_skills(
 
     Args:
         query: keyword matched against skill ID, hero name, description, and tags
-        category: filter to one of: agents, dev, broski, youtube
+        category: filter to one of: agents, dev, hypercode, broski, web3, youtube
         tag: filter by a specific tag (e.g. 'coding', 'orchestration', 'ND-friendly')
         limit: max results to return (default 10)
 
@@ -423,7 +423,7 @@ def list_skills_by_category(category: str = "") -> str:
     """List all skills in a category, or show category overview if none given.
 
     Args:
-        category: 'agents', 'dev', 'broski', or 'youtube'. Leave blank for overview.
+        category: 'agents', 'dev', 'hypercode', 'broski', 'web3', or 'youtube'. Leave blank for overview.
     """
     if not category:
         meta = get_registry().get("_meta", {})

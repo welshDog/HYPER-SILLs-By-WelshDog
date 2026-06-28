@@ -1,7 +1,7 @@
 # 🧠 HYPER-SILLs By WelshDog
 ### *The Neurodivergent-First AI Skills Vault*
 
-> **96 battle-tested skills. One MCP server. Zero friction.**
+> **120 battle-tested skills. One MCP server. Zero friction.**
 > Built for ADHD brains, hyperfocus zones, and autonomous AI agents.
 
 ---
@@ -44,15 +44,17 @@ python skills_query.py --category dev
 
 ---
 
-## 📦 The Vault — 96 Skills, 4 Categories
+## 📦 The Vault — 120 Skills, 6 Categories
 
 > Categories match the live MCP server exactly — use these names with `semantic_search(query="...", category="agents")`.
 
 | Category | Count | Example Skills | Key IDs |
 |---|---|---|---|
 | 🤖 `agents` | **51** | Swarm orchestration, nested agents, decision trees, guardrails, lifecycle state machines | HS-007, HS-075, HS-085, HS-099, HS-131 |
-| 🛠️ `dev` | **34** | FastAPI standards, pre-commit checks, OCI skill ship, plugin forge, MCP resources, Git workflows | HS-074, HS-076, HS-128, HS-129, HS-130 |
+| 🛠️ `dev` | **39** | FastAPI standards, pre-commit checks, OCI skill ship, plugin forge, MCP resources, infra references | HS-074, HS-076, HS-128, HS-129, HS-130 |
+| 🐳 `hypercode` | **12** | Sacred rules, master constitution, ecosystem inventory, launch commander, integrations map | HS-030, HS-031, HS-046, HS-059, HS-065 |
 | 🧠 `broski` | **7** | ND-first error messages, body-double mode, PARA vault structure, analogy arsenal, level progression | HS-034, HS-036, HS-069, HS-107 |
+| 🌐 `web3` | **7** | BROskiPets integration, dNFT on-chain portfolio, pet rarity rolls, species power mapping, XP triggers | HS-052, HS-053, HS-055, HS-056, HS-058 |
 | 🎬 `youtube` | **4** | Analytics debugger, A/B thumbnail duels, Shorts repurposing, data-driven script loop | HS-127, HS-132, HS-133, HS-134 |
 
 > **Note:** Skill IDs are non-contiguous by design — assigned at creation time, not by category block. Use `skills_query.py` or `semantic_search` to find skills rather than guessing ID ranges.
@@ -90,8 +92,10 @@ python scripts/trigger_engine.py
 ```
 HYPER-SILLs-By-WelshDog/
 ├── agents/          ← 51 agent skill packs
+├── dev/             ← 39 dev + DevOps skills
+├── hypercode/       ← 12 ecosystem/infra constitution skills
 ├── broski/          ← 7 ND-first focus tools
-├── dev/             ← 34 dev + DevOps skills
+├── web3/            ← 7 dNFT / BROskiPets / on-chain skills
 ├── youtube/         ← 4 YouTube creator skills
 ├── packs/           ← Curated skill bundles (manifest.yaml)
 ├── plugins/         ← Claude Code plugin definitions
@@ -101,7 +105,7 @@ HYPER-SILLs-By-WelshDog/
 ├── .claude-plugin/  ← Claude Code marketplace integration
 ├── mcp_server.py    ← MCP server (tools + resources)
 ├── skills_query.py  ← CLI skill finder
-└── skills-registry.json  ← Full vault index (45KB, 96 skills)
+└── skills-registry.json  ← Full vault index (~60KB, 120 skills)
 ```
 
 ---
@@ -160,7 +164,8 @@ python scripts/export_claude_skills.py --pack focus-toolkit
 
 | Version | Date | What Dropped |
 |---|---|---|
-| **v3.0** | 2026-06-28 | Claude Code plugin, semantic search, ND-UX tools, OCI publish, 7 new skills (96 total) |
+| **v3.1** | 2026-06-28 | Registry reconciliation — promoted 24 stranded `hypercode/` + `web3/` + `dev/` skills into the registry, +2 categories → **120 skills, 6 categories** |
+| v3.0 | 2026-06-28 | Claude Code plugin, semantic search, ND-UX tools, OCI publish, 7 new skills (96 total) |
 | v2.2 | 2026-06-01 | Linter clean — 0 errors |
 | v2.1 | 2026-05-26 | GoS cross-reference validation |
 | v2.0 | 2026-05-20 | Graph-of-Skills (GoS) layer |

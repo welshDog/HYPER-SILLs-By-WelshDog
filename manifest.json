@@ -2,19 +2,19 @@
   "name": "hyper-sills-mcp",
   "version": "1.1.0",
   "display_name": "HYPER-SILLs Skills Brain",
-  "description": "96-skill AI vault exposed over MCP via Graph-of-Skills architecture. Exposes search, semantic search, skill loading, dependency graphs, task recommendations, and category browsing. Powers all agents in the Hyperfocus Zone ecosystem with shared skill intelligence.",
+  "description": "120-skill AI vault exposed over MCP via Graph-of-Skills architecture. Exposes search, semantic search, skill loading, dependency graphs, task recommendations, and category browsing. Powers all agents in the Hyperfocus Zone ecosystem with shared skill intelligence.",
   "author": "welshDog",
   "runtime": "python",
   "entrypoint": "mcp_server.py",
   "tools": [
     {
       "name": "search_skills",
-      "description": "Search the 96-skill vault by keyword, category (agents/dev/broski/youtube), or tag. Returns matching skills with ID, hero name, description, and file path.",
+      "description": "Search the 120-skill vault by keyword, category (agents/dev/hypercode/broski/web3/youtube), or tag. Returns matching skills with ID, hero name, description, and file path.",
       "input_schema": {
         "type": "object",
         "properties": {
           "query":    { "type": "string",  "description": "Keyword matched against skill ID, hero name, description, and tags" },
-          "category": { "type": "string",  "description": "Filter to one of: agents, dev, broski, youtube" },
+          "category": { "type": "string",  "description": "Filter to one of: agents, dev, hypercode, broski, web3, youtube" },
           "tag":      { "type": "string",  "description": "Filter by a specific tag e.g. coding, orchestration, ND-friendly" },
           "limit":    { "type": "integer", "description": "Max results to return (default 10)" }
         },
@@ -115,11 +115,11 @@
     },
     {
       "name": "list_skills_by_category",
-      "description": "List all skills in a category (agents/dev/broski/youtube), or get a full overview with category counts and pack sizes if no category given.",
+      "description": "List all skills in a category (agents/dev/hypercode/broski/web3/youtube), or get a full overview with category counts and pack sizes if no category given.",
       "input_schema": {
         "type": "object",
         "properties": {
-          "category": { "type": "string", "description": "agents, dev, broski, or youtube — leave blank for overview" }
+          "category": { "type": "string", "description": "agents, dev, hypercode, broski, web3, or youtube — leave blank for overview" }
         },
         "required": []
       },

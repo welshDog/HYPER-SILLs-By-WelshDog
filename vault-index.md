@@ -13,7 +13,7 @@ Master tracking list for every skill in the vault.
 
 ---
 
-## ✅ RESCUED SKILLS (file present on disk, 84 total)
+## ✅ RESCUED SKILLS (file present on disk, 120 total)
 
 | ID | Skill Name | File | Source Repo | Category |
 |---|---|---|---|---|
@@ -114,6 +114,30 @@ Master tracking list for every skill in the vault.
 | DS-002 | ⚡ **CLI LAUNCHER** — CLI Args Launch Pattern | [](dev/CLI_ARGS_LAUNCH_PATTERN_v1.md) | HyperCode-V2.4 | `dev/` |
 | DS-009 | 🛫 **PREFLIGHT** — Preflight Checks System (Boot Validation) | [](dev/PREFLIGHT_CHECKS_SYSTEM_v1.md) | HyperCode-V2.4 | `dev/` |
 | DS-028 | ⏳ **HEALTH WAITER** — Progressive Health Wait (Smart Backoff) | [](dev/PROGRESSIVE_HEALTH_WAIT_v1.md) | HyperCode-V2.4 | `dev/` |
+| HS-030 | 🏆 **HYPERFOCUS MASTER CONSTITUTION** — HyperFocus Master Constitution | [`hypercode/HYPERFOCUS_MASTER_CONSTITUTION_v1.md`](hypercode/HYPERFOCUS_MASTER_CONSTITUTION_v1.md) | HyperCode-V2.4 / root CLAUDE.md | `hypercode/` |
+| HS-031 | 🔴 **V2.4 SACRED RULES** — V2.4 Sacred Rules (20 Rules) | [`hypercode/V2_4_SACRED_RULES_v1.md`](hypercode/V2_4_SACRED_RULES_v1.md) | HyperCode-V2.4 CLAUDE.md §3 | `hypercode/` |
+| HS-032 | 🔴 **COURSE SACRED RULES** — Course Sacred Rules (11 Rules) | [`hypercode/COURSE_SACRED_RULES_v1.md`](hypercode/COURSE_SACRED_RULES_v1.md) | HyperCode-V2.4 CLAUDE.md §4 | `hypercode/` |
+| HS-033 | 🔴 **BROSKI SHOP SACRED RULES** — BROski$ Shop Sacred Rules | [`hypercode/BROSKI_SHOP_SACRED_RULES_v1.md`](hypercode/BROSKI_SHOP_SACRED_RULES_v1.md) | HyperCode-V2.4 CLAUDE.md §5 | `hypercode/` |
+| HS-035 | 🤖 **PROTOCOL PRIME** — AI Behaviour Rules + Tool Matrix | [`hypercode/AI_BEHAVIOUR_RULES_TOOL_MATRIX_v1.md`](hypercode/AI_BEHAVIOUR_RULES_TOOL_MATRIX_v1.md) | HyperCode-V2.4 CLAUDE.md §9 | `hypercode/` |
+| HS-037 | ⚡ **GRID MASTER** — Architecture Quick Ref (Ports + Networks) | [`hypercode/ARCHITECTURE_QUICK_REF_v1.md`](hypercode/ARCHITECTURE_QUICK_REF_v1.md) | HyperCode-V2.4 CLAUDE.md §6 | `hypercode/` |
+| HS-039 | ✅ **CLOSE PROTOCOL** — Session End Checklist | [`hypercode/SESSION_END_CHECKLIST_v1.md`](hypercode/SESSION_END_CHECKLIST_v1.md) | HyperCode-V2.4 CLAUDE.md §11 | `hypercode/` |
+| HS-046 | 🚀 **LAUNCH SOVEREIGN** — HyperLaunch Unified Commander | [`hypercode/HYPERLAUNCH_UNIFIED_COMMANDER_v1.md`](hypercode/HYPERLAUNCH_UNIFIED_COMMANDER_v1.md) | HyperCode-V2.4 / hyperlaunch.py | `hypercode/` |
+| HS-047 | 🏗️ **TIER FORGE** — 4-Tier ServiceSpec Launch Pattern | [`hypercode/FOUR_TIER_SERVICESPEC_LAUNCH_v1.md`](hypercode/FOUR_TIER_SERVICESPEC_LAUNCH_v1.md) | HyperCode-V2.4 / hyperlaunch.py | `hypercode/` |
+| HS-059 | 🗺️ **THE CARTOGRAPHER** — Complete Ecosystem Inventory | [`hypercode/ECOSYSTEM_INVENTORY_v1.md`](hypercode/ECOSYSTEM_INVENTORY_v1.md) | HyperCode-V2.4 | `hypercode/` |
+| HS-065 | 🔗 **THE CONNECTOR** — External Integrations Map | [`hypercode/EXTERNAL_INTEGRATIONS_MAP_v1.md`](hypercode/EXTERNAL_INTEGRATIONS_MAP_v1.md) | HyperCode-V2.4 | `hypercode/` |
+| HS-066 | 🏆 **THE MILESTONE KEEPER** — Milestone Tracker Template | [`hypercode/MILESTONE_TRACKER_TEMPLATE_v1.md`](hypercode/MILESTONE_TRACKER_TEMPLATE_v1.md) | HyperCode-V2.4 | `hypercode/` |
+| HS-052 | 🐾 **PET MASTER** — BROskiPets Full Integration Plan | [`web3/BROSKI_PETS_INTEGRATION_PLAN_v1.md`](web3/BROSKI_PETS_INTEGRATION_PLAN_v1.md) | HyperCode-V2.4 / BROskiPets | `web3/` |
+| HS-053 | 🎲 **FATE ROLLER** — Pet Rarity Roll Formula | [`web3/PET_RARITY_ROLL_FORMULA_v1.md`](web3/PET_RARITY_ROLL_FORMULA_v1.md) | HyperCode-V2.4 / BROskiPets | `web3/` |
+| HS-054 | ⚡ **XP SPARK** — Dev Action XP Trigger System | [`web3/DEV_ACTION_XP_TRIGGER_v1.md`](web3/DEV_ACTION_XP_TRIGGER_v1.md) | HyperCode-V2.4 / BROskiPets | `web3/` |
+| HS-055 | 📜 **CHAIN LEDGER** — dNFT On-Chain Portfolio Pattern | [`web3/DNFT_ONCHAIN_PORTFOLIO_v1.md`](web3/DNFT_ONCHAIN_PORTFOLIO_v1.md) | HyperCode-V2.4 / BROskiPets | `web3/` |
+| HS-056 | 🦈 **BEAST CODEX** — Pet Species Power Mapping | [`web3/PET_SPECIES_POWER_MAPPING_v1.md`](web3/PET_SPECIES_POWER_MAPPING_v1.md) | HyperCode-V2.4 / BROskiPets | `web3/` |
+| HS-057 | 🥚 **GENESIS PROMPT** — BROskiPets Phase 0 Build Prompt | [`web3/BROSKI_PETS_PHASE_0_BUILD_v1.md`](web3/BROSKI_PETS_PHASE_0_BUILD_v1.md) | HyperCode-V2.4 / BROskiPets | `web3/` |
+| HS-058 | 🐣 **HATCH PROMPT** — BROskiPets Phase 1 Build Prompt | [`web3/BROSKI_PETS_PHASE_1_BUILD_v1.md`](web3/BROSKI_PETS_PHASE_1_BUILD_v1.md) | HyperCode-V2.4 / BROskiPets | `web3/` |
+| HS-060 | 🐳 **FLEET ADMIRAL** — Container Stack Reference | [`dev/CONTAINER_STACK_REFERENCE_v1.md`](dev/CONTAINER_STACK_REFERENCE_v1.md) | HyperCode-V2.4 / docker-compose.agents.yml | `dev/` |
+| HS-061 | 🔌 **THE PORT WARDEN** — Port + Network Map | [`dev/PORT_NETWORK_MAP_v1.md`](dev/PORT_NETWORK_MAP_v1.md) | HyperCode-V2.4 / docker-compose.agents.yml | `dev/` |
+| HS-062 | 🗄️ **THE SCHEMA SCRIBE** — Database Schema Reference | [`dev/DATABASE_SCHEMA_REFERENCE_v1.md`](dev/DATABASE_SCHEMA_REFERENCE_v1.md) | HyperCode-V2.4 / backend | `dev/` |
+| HS-063 | 📦 **THE QUARTERMASTER** — Backend Deps Stack | [`dev/BACKEND_DEPS_STACK_v1.md`](dev/BACKEND_DEPS_STACK_v1.md) | HyperCode-V2.4 / backend | `dev/` |
+| HS-064 | ⚡ **THE QUICK HAND** — Dev Commands Cheat Sheet | [`dev/DEV_COMMANDS_CHEAT_SHEET_v1.md`](dev/DEV_COMMANDS_CHEAT_SHEET_v1.md) | HyperCode-V2.4 | `dev/` |
 
 ---
 
@@ -369,7 +393,7 @@ The vault-index previously implied 9+ specialist Bibles were rich raid targets. 
 |---|---|
 | Total Repos Scanned | 86 |
 | Skill Candidates Found | 100+ |
-| ✅ **Rescued (file on disk)** | **109** (HS-001, HS-006→113) — incl. all of HS-030→066 after the 2026-06-19 reconciliation |
+| ✅ **Rescued (file on disk)** | **120** — all hypercode/ + web3/ promoted into the RESCUED table 2026-06-28 (registry now matches disk) |
 | 📝 **Catalogued (no file yet)** | **0** — all 37 reconciled 2026-06-19 (22 already on disk + 15 written) |
 | 🔨 In Progress | 4 (HS-002, HS-003, HS-004, HS-005) |
 | 🔍 Still To Raid | 20+ repos + 2 priority Bible-tier docs + the Quick-Win Stack |

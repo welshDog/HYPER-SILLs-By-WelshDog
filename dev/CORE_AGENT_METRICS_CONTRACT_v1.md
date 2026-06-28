@@ -1,7 +1,7 @@
 # DS-008 — 📊 THE METRICS OATH — Core Agent Metrics Contract (5 Mandatory)
 
 ---
-skill_id: HS-105
+skill_id: DS-008
 hero_name: "THE METRICS OATH"
 emoji: "📊"
 version: v1.0.0

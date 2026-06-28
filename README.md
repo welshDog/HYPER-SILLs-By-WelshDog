@@ -38,25 +38,34 @@ python mcp_server.py
 ### Skills Query (CLI)
 ```bash
 python skills_query.py "docker agent"
-python skills_query.py --category broski
+python skills_query.py --category agents
+python skills_query.py --category dev
 ```
 
 ---
 
-## 📦 The Vault — 96 Skills Across 10 Domains
+## 📦 The Vault — 96 Skills, 4 Categories
 
-| Domain | Skills | Highlights |
+> Categories match the live MCP server exactly — use these names with `semantic_search(query="...", category="agents")`.
+
+| Category | Count | Example Skills | Key IDs |
+|---|---|---|---|
+| 🤖 `agents` | **51** | Swarm orchestration, nested agents, decision trees, guardrails, lifecycle state machines | HS-007, HS-075, HS-085, HS-099, HS-131 |
+| 🛠️ `dev` | **34** | FastAPI standards, pre-commit checks, OCI skill ship, plugin forge, MCP resources, Git workflows | HS-074, HS-076, HS-128, HS-129, HS-130 |
+| 🧠 `broski` | **7** | ND-first error messages, body-double mode, PARA vault structure, analogy arsenal, level progression | HS-034, HS-036, HS-069, HS-107 |
+| 🎬 `youtube` | **4** | Analytics debugger, A/B thumbnail duels, Shorts repurposing, data-driven script loop | HS-127, HS-132, HS-133, HS-134 |
+
+> **Note:** Skill IDs are non-contiguous by design — assigned at creation time, not by category block. Use `skills_query.py` or `semantic_search` to find skills rather than guessing ID ranges.
+
+---
+
+## 📦 Curated Packs
+
+| Pack | Skills | Best For |
 |---|---|---|
-| 🤖 Agents | HS-001 → HS-030 | Swarm orchestration, nested agents, observable ops |
-| 🐳 HyperCode | HS-031 → HS-060 | Docker, Kubernetes, 48-container deployments |
-| 🧠 BROski | HS-061 → HS-080 | ADHD tools, body-double mode, focus systems |
-| 🌐 Web3 | HS-081 → HS-100 | dNFTs, Solidity, on-chain agent triggers |
-| 🎬 YouTube | HS-128 → HS-134 | Thumbnail duels, Shorts alchemy, signal-to-script |
-| 🔌 Plugins | HS-128 PLUGIN FORGE | Claude Code plugin authoring |
-| 🚢 OCI | HS-130 OCI SKILL SHIP | Ship skills as container artifacts |
-| 🕸️ MCP | HS-129 SKILLS-OVER-MCP | Skills-over-MCP / SEP-2640 standard |
-| 🐝 Swarm | HS-131 NESTED SWARM | Multi-agent nested orchestration |
-| 📊 Dev | HS-113 → HS-127 | Metrics contracts, linting, semantic versioning |
+| 🐝 Agent Builder Pack | 51 skills | Building + deploying autonomous agents |
+| 💻 ND-Friendly Coding Pack | 41 skills | Dev workflows built for neurodivergent flow |
+| 🎬 YouTube Growth Pack | 4 skills | Data-driven content creation |
 
 ---
 
@@ -66,8 +75,9 @@ python skills_query.py --category broski
 # Semantic search (zero dependencies — local TF-IDF)
 python scripts/search_skills.py "redis rate limiting"
 
-# Via MCP tool
+# Via MCP tool (category names: agents, dev, broski, youtube)
 semantic_search(query="discord bot cog")
+semantic_search(query="ND error messages", category="broski")
 
 # Trigger engine — auto-suggests packs from your current context
 python scripts/trigger_engine.py
@@ -79,20 +89,19 @@ python scripts/trigger_engine.py
 
 ```
 HYPER-SILLs-By-WelshDog/
-├── agents/          ← Agent skill packs
-├── broski/          ← ND-first focus tools
-├── content/         ← Content creation skills
-├── dev/             ← Dev + DevOps skills
-├── hypercode/       ← Docker/K8s infrastructure
+├── agents/          ← 51 agent skill packs
+├── broski/          ← 7 ND-first focus tools
+├── dev/             ← 34 dev + DevOps skills
+├── youtube/         ← 4 YouTube creator skills
 ├── packs/           ← Curated skill bundles (manifest.yaml)
 ├── plugins/         ← Claude Code plugin definitions
 ├── scripts/         ← Linter, embed, memory, export tools
 ├── templates/       ← Skill authoring templates
-├── web3/            ← Blockchain + dNFT skills
-├── youtube/         ← YouTube creator skills
+├── .skill-memory/   ← Usage learning loop
+├── .claude-plugin/  ← Claude Code marketplace integration
 ├── mcp_server.py    ← MCP server (tools + resources)
 ├── skills_query.py  ← CLI skill finder
-└── skills-registry.json  ← Full vault index (45KB)
+└── skills-registry.json  ← Full vault index (45KB, 96 skills)
 ```
 
 ---
@@ -127,7 +136,7 @@ Every skill has a status: `DRAFT → REVIEW → ACTIVE → DEPRECATED → ARCHIV
 Run the linter before committing:
 ```bash
 python scripts/skill_linter.py
-# Target: 0 errors ✅ (currently clean — v2.2)
+# Target: 0 errors ✅ (currently clean — v3.0)
 ```
 
 ---
@@ -151,7 +160,7 @@ python scripts/export_claude_skills.py --pack focus-toolkit
 
 | Version | Date | What Dropped |
 |---|---|---|
-| **v3.0** | 2026-06-28 | Claude Code plugin, semantic search, ND-UX tools, OCI publish, 7 new skills |
+| **v3.0** | 2026-06-28 | Claude Code plugin, semantic search, ND-UX tools, OCI publish, 7 new skills (96 total) |
 | v2.2 | 2026-06-01 | Linter clean — 0 errors |
 | v2.1 | 2026-05-26 | GoS cross-reference validation |
 | v2.0 | 2026-05-20 | Graph-of-Skills (GoS) layer |

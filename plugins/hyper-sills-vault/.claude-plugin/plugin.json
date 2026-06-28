@@ -19,7 +19,7 @@
   "mcpServers": {
     "hyper-sills": {
       "command": "python",
-      "args": ["${CLAUDE_PLUGIN_ROOT}/../../mcp_server.py"],
+      "args": ["${CLAUDE_PLUGIN_ROOT}/vault/mcp_server.py"],
       "env": {}
     }
   }

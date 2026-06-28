@@ -41,3 +41,18 @@ This plugin bundles the **HYPER-SILLs** skill vault — 89 hero-named skills acr
 
 *Part of the [HyperFocus Zone](https://github.com/welshDog) ecosystem — built by welshDog 🐕🏴󠁧󠁢󠁷󠁬󠁳󠁧⚡*
 *Stop apologising for your brain. Start building.*
+
+---
+
+## Maintainers
+
+The MCP server is **self-contained** under `vault/` (a copy of `mcp_server.py` +
+`search_skills.py` + `skills-bundle.json` with every skill's content embedded), so
+it works after a github install where only the plugin dir is cached. **Rebuild it
+whenever skills or the server change:**
+
+```bash
+python scripts/build_plugin.py   # regenerates plugins/hyper-sills-vault/vault/
+```
+
+Then commit `plugins/hyper-sills-vault/vault/`.

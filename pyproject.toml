@@ -7,5 +7,11 @@ dependencies = [
     "mcp>=1.0.0",
 ]
 
+# Optional — semantic search auto-upgrades to real dense embeddings when these
+# are present, else falls back to the built-in TF-IDF backend (zero deps).
+[project.optional-dependencies]
+embeddings = ["sentence-transformers>=2.2", "numpy"]
+openai = ["openai>=1.0"]
+
 [project.scripts]
 hyper-sills-mcp = "mcp_server:mcp"

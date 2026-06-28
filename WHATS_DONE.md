@@ -20,6 +20,8 @@
 | Semver + lifecycle | `status:` + semver flow frontmatter -> `generate_registry.py` -> `skill_linter.py` validation |
 
 **YouTube rebalance (2026-06-28):** youtube 1 → 4 skills — HS-132 THUMBNAIL DUELIST, HS-133 SHORTS ALCHEMIST, HS-134 SIGNAL-TO-SCRIPT LOOP (vault now **96**).
+
+**CI fix (2026-06-28):** GitHub Actions is **billing-locked** for this account — the `skill-lint.yml` "Lint Skill Files" check failed at job-startup (0 steps, ~3s) on EVERY push/PR incl. main, regardless of code (linter passes clean locally). Fix: `skill-lint.yml` triggers changed to `workflow_dispatch`-only (stops false-red); real gate is now a **local pre-push hook** (`scripts/git_pre_push_lint.sh`, install via `python scripts/install_git_hooks.py`) — blocks push if `skill_linter.py` errors, override `git push --no-verify`. Re-enable the workflow's push/PR triggers when Actions billing returns. **Re-run the installer after a fresh clone** (hooks aren't cloned). Does NOT clobber the existing XP post-commit hook.
 **Still open:** real-embedding backend swap (TF-IDF placeholder); bulk semver/status backfill of the legacy skills (new ones use it).
 **Gotcha:** GoS `depends_on`/`related` must reference the *in-file* `skill_id:` (renumber aliases — e.g. PORTAL FORGE = DS-020, FIVE WARDS = HS-004), not the registry id, or the linter fails.
 

@@ -1,20 +1,18 @@
 name: 🔍 Skill Vault Linter
 
+# NOTE: GitHub Actions is billing-locked for this account, so hosted runs fail at
+# job-startup (zero steps executed) regardless of code — NOT a linter/YAML bug.
+# The REAL gate is now the LOCAL pre-push hook (scripts/git_pre_push_lint.sh,
+# install via scripts/install_git_hooks.py), mirroring the evo_harness local gate.
+# This workflow is kept manual-only so it stops posting false-red checks on every
+# push/PR; re-enable the push/pull_request triggers below once Actions billing is
+# restored.
 on:
-  push:
-    paths:
-      - 'agents/**'
-      - 'content/**'
-      - 'dev/**'
-      - 'youtube/**'
-      - 'broski/**'
-  pull_request:
-    paths:
-      - 'agents/**'
-      - 'content/**'
-      - 'dev/**'
-      - 'youtube/**'
-      - 'broski/**'
+  workflow_dispatch:
+  # push:
+  #   paths: ['agents/**','content/**','dev/**','youtube/**','broski/**']
+  # pull_request:
+  #   paths: ['agents/**','content/**','dev/**','youtube/**','broski/**']
 
 jobs:
   lint-skills:

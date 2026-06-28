@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/microsoft/AIShell/main/schemas/mcp-config.schema.json",
   "mcpServers": {
     "hyper-sills": {
-      "description": "HYPER-SILLs MCP Server -- 88 skills, Graph-of-Skills, 5 tools: search_skills, load_skill, get_skill_graph, recommend_for_task, list_skills_by_category",
+      "description": "HYPER-SILLs MCP Server -- 120 skills, Graph-of-Skills, 6 tools: search_skills, semantic_search, load_skill, get_skill_graph, recommend_for_task, list_skills_by_category",
       "transport": "stdio",
       "command": "python",
       "args": ["mcp_server.py"],

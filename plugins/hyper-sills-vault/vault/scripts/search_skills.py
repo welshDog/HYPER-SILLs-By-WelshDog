@@ -272,11 +272,22 @@ def _fmt(ranked: list[tuple]) -> list[dict]:
              "category": d["category"], "score": round(score, 4)} for score, d in ranked]
 
 
+# Records the engine actually used by the last semantic_search() call, so the MCP
+# server can report the TRUE backend (tfidf / local:… / openai:…) instead of a
+# hardcoded label. Honest observability beats a pretty lie.
+_ACTIVE_BACKEND: dict[str, str | None] = {"name": None}
+
+
+def active_backend() -> str:
+    return _ACTIVE_BACKEND["name"] or "unknown"
+
+
 def semantic_search(query: str, limit: int = 5, index: dict | None = None) -> list[dict]:
     """Rank skills by semantic similarity to the query. Returns a list of dicts."""
     if not query.strip():
         return []
     idx = index or load_index()
+    _ACTIVE_BACKEND["name"] = idx.get("backend")
     if idx.get("backend") == "tfidf":
         return _search_tfidf(query, idx, limit)
     hits = _search_dense(query, idx, limit)

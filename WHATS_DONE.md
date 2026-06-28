@@ -3,6 +3,26 @@
 > Single source of truth. Check this before building ANYTHING.
 > Last updated: 2026-06-28
 
+## v3.3 Search & Recommend Quality (2026-06-28) -- DONE, do not redo
+
+Fixed the three search/recommend weaknesses (Perplexity review + live testing):
+
+- **`recommend_for_task` now uses the semantic engine** (`scripts/search_skills.semantic_search`)
+  instead of flat keyword-overlap counts. Scores are real cosine floats (e.g. 0.39/0.33/0.31),
+  no longer all `2`; top result for "self-healing docker agent" is now **HS-103 HEALER'S CHORUS**
+  (was the weaker MIRROR OATH). Keyword scoring kept as fallback, but **normalised 0..1** (not flat ints).
+- **Tags + keywords enriched** in `generate_registry.py` (`enrich_tags_keywords()`): each skill gets
+  its frontmatter `provides` slugs as tags + top content-frequency `keywords` (search-only, hidden).
+  `search_skills` now matches these → **"docker" hits 5 skills (was 0)**, "graph dependency" hits 2.
+- **`version` surfaced** in `search_skills` + `recommend_for_task` results.
+- **Honest backend label** — `semantic_search`/`recommend` now report the *real* engine
+  (`tfidf` / `local:…` / `openai:…`) via `search_skills.active_backend()`, not a hardcoded "semantic".
+  The old label misled (Railway runs **tfidf** — `requirements.txt` has no sentence-transformers, by
+  design: lean/free/fast, good for 120 skills). To upgrade to dense later: add `openai` to
+  `requirements.txt` + set `OPENAI_API_KEY` (the `openai` backend is already wired, no torch needed).
+- Registry regenerated (still 120/6-cat), plugin bundle rebuilt (373 KB). **Requires `railway up`** to
+  go live. NOTE: Railway builds the vector index on-the-fly (tfidf) from the deployed registry.
+
 ## v3.2 Bridge + HTTP Transport (2026-06-28) -- DONE, do not redo
 
 **The Hyper Merge bridge is now LIVE, not just declared.**

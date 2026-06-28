@@ -10,6 +10,7 @@ import re
 import json
 import sys
 import argparse
+from collections import Counter
 from pathlib import Path
 from datetime import datetime, timezone
 
@@ -51,6 +52,45 @@ def parse_file_path(raw_path: str) -> str | None:
     """Extract file path from markdown link like [`youtube/YT_DEBUGGER_v1.md`](youtube/...)"""
     match = re.search(r'\(([^)]+\.md)\)', raw_path)
     return match.group(1).strip() if match else None
+
+# ── Tag + keyword enrichment ────────────────────────────────────────────────
+# Registry tags were generic per-category defaults (e.g. agents/orchestration/ai),
+# so literal-term keyword search was blind ("docker" -> 0 hits). Enrich each skill
+# with its frontmatter `provides` slugs (shown as tags) + content-frequency terms
+# (hidden `keywords`, used by search_skills) so meaningful words actually match.
+_STOP = {
+    "the", "a", "an", "and", "or", "to", "of", "in", "on", "for", "with", "is",
+    "are", "be", "this", "that", "it", "as", "at", "by", "from", "you", "your",
+    "my", "use", "uses", "using", "via", "when", "what", "which", "how", "do",
+    "if", "not", "but", "can", "will", "all", "any", "one", "two", "its", "has",
+    "skill", "skills", "prompt", "example", "agent", "agents", "hyper", "broski",
+}
+
+
+def enrich_tags_keywords(fm_text: str, base_tags: list[str]) -> tuple[list[str], list[str]]:
+    """Return (display_tags, search_keywords) for one skill.
+
+    tags     = category defaults + frontmatter `provides` slugs (curated, shown).
+    keywords = top content-frequency terms + split provides (search-only, hidden).
+    """
+    tags = list(base_tags)
+    provides: list[str] = []
+    pm = re.search(r'(?m)^provides:\s*\n((?:[ \t]*-[ \t]*.+\n?)+)', fm_text)
+    if pm:
+        provides = [p.strip() for p in re.findall(r'-[ \t]*([A-Za-z0-9][\w\-]+)', pm.group(1))]
+        for p in provides:
+            if p and p not in tags:
+                tags.append(p)
+
+    # Body = everything outside the YAML frontmatter block.
+    body = re.sub(r'(?ms)^---\s*$.*?^---\s*$', '', fm_text, count=1)
+    freq = Counter(w for w in re.findall(r'[a-z][a-z0-9]{2,}', body.lower()) if w not in _STOP)
+    keywords = {w for w, _ in freq.most_common(20)}
+    for p in provides:                         # make slug words individually searchable
+        keywords.update(w for w in p.split('-') if len(w) > 2 and w not in _STOP)
+    keywords.update(t for t in tags if '-' not in t and len(t) > 2)
+    return tags, sorted(keywords)
+
 
 def parse_vault_index(vault_path: Path) -> list[dict]:
     content = vault_path.read_text(encoding="utf-8")
@@ -95,7 +135,9 @@ def parse_vault_index(vault_path: Path) -> list[dict]:
         version = f"v{ver_match.group(1)}.0" if ver_match else "v1.0"
         status = "rescued"
 
-        # Prefer richer in-file frontmatter when present (semver + lifecycle).
+        # Prefer richer in-file frontmatter when present (semver + lifecycle),
+        # and enrich tags/keywords from the file content for real keyword search.
+        tags, keywords = list(meta["tags"]), []
         skill_fp = (REPO_ROOT / file_path)
         if skill_fp.exists():
             fm = skill_fp.read_text(encoding="utf-8", errors="replace")
@@ -105,6 +147,7 @@ def parse_vault_index(vault_path: Path) -> list[dict]:
             sm = re.search(r'^status:\s*["\']?([A-Za-z]+)', fm, re.MULTILINE)
             if sm:
                 status = sm.group(1).upper() if sm.group(1).lower() != "rescued" else "rescued"
+            tags, keywords = enrich_tags_keywords(fm, meta["tags"])
 
         skills.append({
             "id":          raw_id,
@@ -115,7 +158,8 @@ def parse_vault_index(vault_path: Path) -> list[dict]:
             "version":     version,
             "file":        file_path,
             "source_repo": raw_source.strip(),
-            "tags":        meta["tags"],
+            "tags":        tags,
+            "keywords":    keywords,
             "pack":        meta["pack"],
             "status":      status,
         })

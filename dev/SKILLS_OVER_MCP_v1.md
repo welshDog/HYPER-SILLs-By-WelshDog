@@ -87,7 +87,7 @@ Rules:
 
 ```python
 # Host (SEP-2640-aware) lists resources:
-#   skills://index            → 89 skills
+#   skills://index            → 120 skills
 #   skill://HS-100            → full CRADLE-TO-GRAVE markdown
 res = await session.read_resource("skill://HS-100")
 ```

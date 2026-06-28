@@ -405,6 +405,11 @@ The vault-index previously implied 9+ specialist Bibles were rich raid targets. 
 
 ## 🗂️ Skills By Category (rescued only — files on disk)
 
+> ⚠️ **Historical snapshot (pre-2026-06-28).** The per-category lists + "Catalogued" column
+> below are out of date — everything catalogued has since been rescued and registered.
+> **Authoritative current counts: 120 skills / 6 categories** — agents 51, dev 39, hypercode 12,
+> broski 7, web3 7, youtube 4 (see the RESCUED table above + `skills-registry.json` `_meta`).
+
 | Category | Rescued | Catalogued (no file yet) |
 |---|---|---|
 | `agents/` | HS-006 · HS-007 · HS-008 · HS-009 · HS-011 · HS-013 · HS-016 · HS-017 · HS-018 · HS-019 · HS-020 · HS-021 · HS-028 · HS-067 · HS-068 · HS-070 · HS-071 · HS-072 · HS-073 · HS-075 · HS-077 · HS-078 · HS-079 · HS-080 · HS-083 · HS-085 · HS-087 · HS-088 · HS-089 · HS-090 · HS-091 · HS-093 · HS-097 · HS-098 · HS-099 · HS-100 · HS-103 · HS-104 · HS-111 → **39 skills** | HS-038 · HS-040 · HS-041 · HS-042 · HS-043 · HS-044 · HS-045 · HS-050 |

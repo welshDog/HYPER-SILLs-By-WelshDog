@@ -18,6 +18,20 @@ Think of it as a **skill OS** for your AI stack:
 
 ---
 
+## 🌐 Live
+
+The vault is deployed and callable over MCP right now:
+
+```
+https://hyper-sills-by-welshdog-production.up.railway.app/mcp   ← MCP endpoint (streamable-HTTP)
+https://hyper-sills-by-welshdog-production.up.railway.app/health ← {"status":"ok","skills":120,...}
+```
+
+Add the `/mcp` URL to the **Perplexity MCP connector** (or any HTTP MCP client) and all 6 tools
+are callable from every chat. See [`DEPLOY.md`](DEPLOY.md) to deploy your own.
+
+---
+
 ## 🚀 Quick Start
 
 ### Claude Code (Recommended)
@@ -32,7 +46,8 @@ Then just use `/skill-find`, `/skill-load`, or `/skill-recommend` in any Claude 
 git clone https://github.com/welshDog/HYPER-SILLs-By-WelshDog
 cd HYPER-SILLs-By-WelshDog
 pip install -e .
-python mcp_server.py
+python mcp_server.py          # stdio (local IDE wiring)
+python mcp_server.py --http   # streamable-HTTP on $PORT (remote / Perplexity)
 ```
 
 ### Skills Query (CLI)

@@ -1,23 +1,33 @@
 #!/usr/bin/env python3
 """
 HYPER-SILLs MCP Server
-Exposes the 88-skill vault via Model Context Protocol (stdio transport).
-Works with Claude Code, Cursor, Gemini CLI, Copilot, and any MCP-compatible IDE.
+Exposes the 120-skill vault via Model Context Protocol.
+Works with Claude Code, Cursor, Gemini CLI, Copilot, and any MCP-compatible IDE,
+plus remote hosts (Railway/Render) and the Perplexity MCP connector over HTTP.
 
 Usage:
-    python mcp_server.py          # stdio (for mcp config wiring)
+    python mcp_server.py          # stdio (for local mcp config wiring)
+    python mcp_server.py --http   # streamable-HTTP on $PORT (default 8000) for remote hosts
     python mcp_server.py --test   # smoke-test all tools and exit
+
+Health: GET /health -> {"status":"ok",...} (served when running over HTTP).
 
 Backed by arXiv:2604.05333 — Graph-of-Skills yields +25.55% reward,
 -56.72% tokens vs flat skill loading.
 """
 
 import json
+import os
 import re
 import sys
 from pathlib import Path
 
 from mcp.server.fastmcp import FastMCP
+from mcp.server.transport_security import TransportSecuritySettings
+from starlette.requests import Request
+from starlette.responses import JSONResponse
+
+SERVER_VERSION = "1.1.0"
 
 VAULT_ROOT = Path(__file__).parent
 REGISTRY_PATH = VAULT_ROOT / "skills-registry.json"
@@ -30,10 +40,10 @@ BUNDLE_PATH = VAULT_ROOT / "skills-bundle.json"
 mcp = FastMCP(
     "hyper-sills",
     instructions=(
-        "HYPER-SILLs — 96-skill AI vault with Graph-of-Skills. "
+        "HYPER-SILLs — 120-skill AI vault with Graph-of-Skills. "
         "Tools: search_skills, semantic_search, load_skill, get_skill_graph, recommend_for_task, list_skills_by_category. "
         "Resources (SEP-2640 Skills-over-MCP): skills://index, skill://HS-NNN. "
-        "Categories: agents (51), dev (34), broski (7), youtube (4)."
+        "Categories: agents (51), dev (39), hypercode (12), broski (7), web3 (7), youtube (4)."
     ),
 )
 
@@ -193,7 +203,7 @@ def search_skills(
 
     Args:
         query: keyword matched against skill ID, hero name, description, and tags
-        category: filter to one of: agents, dev, broski, youtube
+        category: filter to one of: agents, dev, hypercode, broski, web3, youtube
         tag: filter by a specific tag (e.g. 'coding', 'orchestration', 'ND-friendly')
         limit: max results to return (default 10)
 
@@ -212,6 +222,7 @@ def search_skills(
                 s.get("hero_name", ""),
                 s.get("description", ""),
                 " ".join(s.get("tags", [])),
+                " ".join(s.get("keywords", [])),
             ]).lower()
             if not all(t in haystack for t in tokens):
                 continue
@@ -223,6 +234,7 @@ def search_skills(
             "id":          s.get("id"),
             "hero_name":   s.get("hero_name"),
             "description": s.get("description"),
+            "version":     s.get("version", ""),
             "category":    s.get("category"),
             "file":        s.get("file"),
             "tags":        s.get("tags", []),
@@ -255,10 +267,10 @@ def semantic_search(query: str, limit: int = 5) -> str:
         return json.dumps({"error": "Describe what you need in a sentence."})
     try:
         sys.path.insert(0, str(VAULT_ROOT / "scripts"))
-        from search_skills import semantic_search as _ss  # type: ignore
+        from search_skills import semantic_search as _ss, active_backend  # type: ignore
         hits = _ss(query, limit=limit)
         if hits:
-            return json.dumps({"query": query, "backend": "semantic",
+            return json.dumps({"query": query, "backend": active_backend(),
                                "count": len(hits), "results": hits},
                               ensure_ascii=False, indent=2)
     except Exception as e:  # noqa: BLE001 — degrade gracefully to keyword search
@@ -378,37 +390,65 @@ def recommend_for_task(task: str, limit: int = 5) -> str:
             "example": 'recommend_for_task("build a self-healing agent")',
         })
 
-    keywords = [w for w in re.split(r'\W+', task.lower()) if len(w) > 2]
-    scored = []
-    for s in skills_list():
-        haystack = " ".join([
-            s.get("id", ""),
-            s.get("hero_name", ""),
-            s.get("description", ""),
-            s.get("category", ""),
-            " ".join(s.get("tags", [])),
-        ]).lower()
-        score = sum(1 for kw in keywords if kw in haystack)
-        if score > 0:
-            scored.append((score, s))
+    # Rank with the same semantic engine search uses — real cosine relevance,
+    # not flat keyword-overlap counts. Degrades to keyword scoring if unavailable.
+    backend = "keyword"
+    hits: list[dict] = []
+    try:
+        sys.path.insert(0, str(VAULT_ROOT / "scripts"))
+        from search_skills import semantic_search as _ss, active_backend  # type: ignore
+        hits = _ss(task, limit=limit)
+        if hits:
+            backend = active_backend()
+    except Exception:  # noqa: BLE001 — fall through to keyword scoring
+        hits = []
 
-    scored.sort(key=lambda x: x[0], reverse=True)
-
-    results = [
-        {
-            "id":               s["id"],
-            "hero_name":        s["hero_name"],
-            "description":      s.get("description", ""),
-            "category":         s.get("category"),
-            "relevance_score":  score,
-            "tags":             s.get("tags", []),
-            "next_step":        f'load_skill("{s["id"]}")',
-        }
-        for score, s in scored[:limit]
-    ]
+    if hits:
+        results = []
+        for h in hits:
+            meta = find_by_id(h["id"]) or {}
+            results.append({
+                "id":               h["id"],
+                "hero_name":        h["hero_name"],
+                "description":      h.get("description", ""),
+                "category":         h.get("category"),
+                "version":          meta.get("version", ""),
+                "relevance_score":  round(float(h.get("score", 0.0)), 4),
+                "tags":             meta.get("tags", []),
+                "next_step":        f'load_skill("{h["id"]}")',
+            })
+    else:
+        backend = "keyword"
+        keywords = [w for w in re.split(r'\W+', task.lower()) if len(w) > 2]
+        scored = []
+        for s in skills_list():
+            haystack = " ".join([
+                s.get("id", ""), s.get("hero_name", ""), s.get("description", ""),
+                s.get("category", ""), " ".join(s.get("tags", [])),
+                " ".join(s.get("keywords", [])),
+            ]).lower()
+            hitcount = sum(1 for kw in keywords if kw in haystack)
+            if hitcount:
+                scored.append((hitcount, s))
+        scored.sort(key=lambda x: x[0], reverse=True)
+        denom = max(len(keywords), 1)
+        results = [
+            {
+                "id":               s["id"],
+                "hero_name":        s["hero_name"],
+                "description":      s.get("description", ""),
+                "category":         s.get("category"),
+                "version":          s.get("version", ""),
+                "relevance_score":  round(hitcount / denom, 3),  # normalised 0..1, not flat ints
+                "tags":             s.get("tags", []),
+                "next_step":        f'load_skill("{s["id"]}")',
+            }
+            for hitcount, s in scored[:limit]
+        ]
 
     return json.dumps({
         "task":        task,
+        "backend":     backend,
         "count":       len(results),
         "recommended": results,
         "tip": (
@@ -423,7 +463,7 @@ def list_skills_by_category(category: str = "") -> str:
     """List all skills in a category, or show category overview if none given.
 
     Args:
-        category: 'agents', 'dev', 'broski', or 'youtube'. Leave blank for overview.
+        category: 'agents', 'dev', 'hypercode', 'broski', 'web3', or 'youtube'. Leave blank for overview.
     """
     if not category:
         meta = get_registry().get("_meta", {})
@@ -492,6 +532,27 @@ def skill_resource(skill_id: str) -> str:
     if content is None:
         return f"# {skill_id}\n\nNo stress — this skill is registered but its content isn't bundled yet ({meta.get('file')})."
     return content
+
+
+# ── Health check ───────────────────────────────────────────────────────────────
+# The manifest.json declares `health_check: /health`. Served on the HTTP app
+# (streamable-http / sse). Lets Railway/Render and the Perplexity connector probe
+# liveness without speaking MCP.
+
+@mcp.custom_route("/health", methods=["GET"])
+async def health(request: Request) -> JSONResponse:
+    try:
+        skills = len(skills_list())
+        meta = get_registry().get("_meta", {})
+        return JSONResponse({
+            "status": "ok",
+            "service": "hyper-sills-mcp",
+            "version": SERVER_VERSION,
+            "skills": skills,
+            "categories": meta.get("categories", {}),
+        })
+    except Exception as exc:  # never let a probe crash the server
+        return JSONResponse({"status": "degraded", "error": str(exc)}, status_code=503)
 
 
 # ── Mercy messages (HS-069) ────────────────────────────────────────────────────
@@ -570,5 +631,45 @@ def _smoke_test():
 if __name__ == "__main__":
     if "--test" in sys.argv:
         _smoke_test()
+    elif "--http" in sys.argv or os.environ.get("PORT"):
+        # HTTP transport for remote hosts (Railway/Render) + the Perplexity MCP
+        # connector. Streamable-HTTP is the current standard (SSE is deprecated).
+        mcp.settings.host = os.environ.get("HOST", "0.0.0.0")
+        mcp.settings.port = int(os.environ.get("PORT", "8000"))
+
+        # DNS-rebinding protection rejects any Host header not in allowed_hosts
+        # (default: localhost only) -> "Invalid Host header" / 421 behind a proxy.
+        # Allow this deployment's public host so MCP clients (e.g. Perplexity) connect.
+        if os.environ.get("MCP_DISABLE_HOST_CHECK"):
+            mcp.settings.transport_security = TransportSecuritySettings(
+                enable_dns_rebinding_protection=False,
+            )
+        else:
+            hosts = ["localhost", "localhost:*", "127.0.0.1", "127.0.0.1:*"]
+            origins: list[str] = []
+            # Railway / Render inject the public hostname automatically.
+            domain = (os.environ.get("RAILWAY_PUBLIC_DOMAIN")
+                      or os.environ.get("RENDER_EXTERNAL_HOSTNAME") or "").strip()
+            if domain:
+                hosts += [domain, f"{domain}:*"]
+                origins += [f"https://{domain}", f"http://{domain}"]
+            # Manual overrides (comma-separated) for any other public host/origin.
+            hosts += [h.strip() for h in os.environ.get("MCP_ALLOWED_HOSTS", "").split(",") if h.strip()]
+            origins += [o.strip() for o in os.environ.get("MCP_ALLOWED_ORIGINS", "").split(",") if o.strip()]
+            mcp.settings.transport_security = TransportSecuritySettings(
+                enable_dns_rebinding_protection=True,
+                allowed_hosts=hosts,
+                allowed_origins=origins,
+            )
+
+        transport = "sse" if "--sse" in sys.argv else "streamable-http"
+        _ts = mcp.settings.transport_security
+        print(
+            f"HYPER-SILLs MCP serving {len(skills_list())} skills over {transport} "
+            f"on {mcp.settings.host}:{mcp.settings.port} (health: /health, "
+            f"allowed_hosts: {_ts.allowed_hosts or 'ALL — host check disabled'})",
+            file=sys.stderr,
+        )
+        mcp.run(transport=transport)
     else:
         mcp.run(transport="stdio")

@@ -2,6 +2,31 @@
 
 ---
 
+## [v3.2] — 2026-06-28 🌐 LIVE ON THE INTERNET
+
+### ✨ Added — Deployment & Bridge
+- **Streamable-HTTP transport** — `python mcp_server.py --http` serves the vault over HTTP on
+  `$PORT` (SSE available via `--sse`); stdio remains the default for local IDE wiring.
+- **`/health` + host-allowlisting** — `@mcp.custom_route("/health")` returns live skill/category
+  counts; DNS-rebinding allow-list auto-trusts `RAILWAY_PUBLIC_DOMAIN` (override via
+  `MCP_ALLOWED_HOSTS` / `MCP_DISABLE_HOST_CHECK`) so remote MCP clients can connect.
+- **Deployed to Railway** — live at `https://hyper-sills-by-welshdog-production.up.railway.app`
+  (`/health`, MCP at `/mcp`). Adds `Procfile` + `railway.json` (healthcheck → `/health`) +
+  `requirements.txt` + `.python-version` + `DEPLOY.md`.
+- **Bridged to HyperAgent-SDK** — registered in the SDK ecosystem `registry.json` as a verified
+  agent (port 3350, level 5). Callable live from the **Perplexity MCP connector**.
+
+## [v3.1] — 2026-06-28 🔢 REGISTRY RECONCILIATION (96 → 120)
+
+### 🔧 Fixed
+- **24 stranded skills recovered** — the whole `hypercode/` (12) + `web3/` (7) packs + 5 `dev/`
+  refs existed on disk but were never in the registry (stale `vault-index.md` CATALOGUED section).
+  Promoted to RESCUED rows → **registry now 120 skills / 6 categories**
+  (agents 51, dev 39, hypercode 12, broski 7, web3 7, youtube 4).
+- Archived 2 duplicate `hypercode/` files; fixed a dangling GoS edge (metrics contract `skill_id`).
+- **`generate_registry.py` safety net** — `reconcile_disk()` now warns if any on-disk skill is
+  missing from the registry, so this can't silently recur.
+
 ## [v3.0] — 2026-06-28 🚀 DISTRIBUTION + DISCOVERY + ND-UX
 
 ### ✨ Added — Distribution & Reach

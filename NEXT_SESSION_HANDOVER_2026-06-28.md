@@ -7,16 +7,38 @@
 
 ---
 
+## ✅ STATUS UPDATE — 2026-06-28 (later same day): THE MERGE IS LIVE
+
+**Most of the TODO list below is DONE.** Authoritative record: `WHATS_DONE.md` (v3.1 + v3.2).
+Don't rebuild these:
+
+- ✅ **Registry reconciled 96 → 120 skills / 6 categories** (agents 51, dev 39, hypercode 12,
+  broski 7, web3 7, youtube 4). 24 stranded `hypercode/`+`web3/`+`dev/` skills recovered.
+- ✅ **HTTP/SSE transport** added (`mcp_server.py --http`, streamable-http on `$PORT`) — TODO #1 done.
+- ✅ **`/health` endpoint** added (custom_route) — TODO #7 done.
+- ✅ **`Procfile` + `railway.json`** added — TODO #2, #3 done.
+- ✅ **`manifest.json` validates** against the spec (1 passed, 0 failed) — TODO #4 done.
+- ✅ **Bridged into the SDK** — `registry build` now multi-path; HYPER-SILLs is a verified agent in
+  `HyperAgent-SDK/registry.json` — TODO #5 done.
+- ✅ **DEPLOYED to Railway**, live at `https://hyper-sills-by-welshdog-production.up.railway.app`
+  (`/mcp` + `/health`). **Perplexity connector tested and working** (full initialize → tools/call) — TODO #6 done.
+
+**Still genuinely open:** rate-limit on Redis DB 2 (#9); `SILLS_EMBED_BACKEND` env var (#10);
+`skills-bundle.json` pre-deploy step (#8); structured logging + usage tracking; enrich keyword
+search (literal "docker" misses; semantic nails it); reconcile the dual-id wart in `load_skill`.
+
+---
+
 ## 🧠 WHAT WE DISCOVERED TODAY
 
 We mapped the full connection between two repos that were always meant to work together but had never been formally bridged:
 
 ### Repo 1: HYPER-SILLs-By-WelshDog (this repo)
-- Full MCP server in `mcp_server.py` — 96 skills over FastMCP
+- Full MCP server in `mcp_server.py` — 120 skills over FastMCP
 - 6 tools: `search_skills`, `semantic_search`, `load_skill`, `get_skill_graph`, `recommend_for_task`, `list_skills_by_category`
 - 2 MCP Resources: `skills://index` + `skill://HS-NNN` (SEP-2640 aligned)
 - pyproject.toml already wired: `mcp>=1.0.0`, `hyper-sills-mcp` script entry point
-- Categories: agents (51), dev (34), broski (7), youtube (4)
+- Categories: agents (51), dev (39), hypercode (12), broski (7), web3 (7), youtube (4)
 - arXiv:2604.05333 — Graph-of-Skills: +25.55% reward, -56.72% tokens vs flat loading
 
 ### Repo 2: HyperAgent-SDK (welshDog/HyperAgent-SDK)
@@ -92,7 +114,7 @@ where every layer speaks MCP and every tool can discover + use every skill.
 │  Perplexity AI  ──MCP connector──▶  HYPER-SILLs MCP    │
 │  Claude Code    ──MCP config───▶    Server (port 3350)  │
 │  Cursor / IDEs  ──aish-mcp──▶       ↕                   │
-│                                   96 Skills             │
+│                                   120 Skills            │
 │                                   Graph-of-Skills       │
 │                                     ↕                   │
 │  HyperAgent-SDK ──validates──▶    manifest.json ✅       │
@@ -111,7 +133,7 @@ where every layer speaks MCP and every tool can discover + use every skill.
 
 | Repo | Role in The Hyper Merge |
 |---|---|
-| HYPER-SILLs-By-WelshDog | **Skills Brain** — 96 skills over MCP, Graph-of-Skills |
+| HYPER-SILLs-By-WelshDog | **Skills Brain** — 120 skills over MCP, Graph-of-Skills |
 | HyperAgent-SDK | **Agent Standard** — spec, CLI, templates, registry |
 | HyperCode-V2.4 | **Runtime** — 48 Docker containers, runs all agents |
 | Hyper-Vibe-Course | **Course Platform** — Supabase + Vercel + Web3 |
@@ -207,7 +229,7 @@ speaking MCP, all connected, all discoverable, all powering each other.
 
 The immediate next step is deploying `mcp_server.py` to Railway so it gets a
 public URL, which then gets added to Perplexity's custom MCP connector — giving
-Perplexity live access to all 96 skills from every chat.
+Perplexity live access to all 120 skills from every chat.
 
 **We'd love your recommendations on:**
 

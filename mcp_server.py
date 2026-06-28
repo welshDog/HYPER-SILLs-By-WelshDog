@@ -222,6 +222,7 @@ def search_skills(
                 s.get("hero_name", ""),
                 s.get("description", ""),
                 " ".join(s.get("tags", [])),
+                " ".join(s.get("keywords", [])),
             ]).lower()
             if not all(t in haystack for t in tokens):
                 continue
@@ -233,6 +234,7 @@ def search_skills(
             "id":          s.get("id"),
             "hero_name":   s.get("hero_name"),
             "description": s.get("description"),
+            "version":     s.get("version", ""),
             "category":    s.get("category"),
             "file":        s.get("file"),
             "tags":        s.get("tags", []),
@@ -265,10 +267,10 @@ def semantic_search(query: str, limit: int = 5) -> str:
         return json.dumps({"error": "Describe what you need in a sentence."})
     try:
         sys.path.insert(0, str(VAULT_ROOT / "scripts"))
-        from search_skills import semantic_search as _ss  # type: ignore
+        from search_skills import semantic_search as _ss, active_backend  # type: ignore
         hits = _ss(query, limit=limit)
         if hits:
-            return json.dumps({"query": query, "backend": "semantic",
+            return json.dumps({"query": query, "backend": active_backend(),
                                "count": len(hits), "results": hits},
                               ensure_ascii=False, indent=2)
     except Exception as e:  # noqa: BLE001 — degrade gracefully to keyword search
@@ -388,37 +390,65 @@ def recommend_for_task(task: str, limit: int = 5) -> str:
             "example": 'recommend_for_task("build a self-healing agent")',
         })
 
-    keywords = [w for w in re.split(r'\W+', task.lower()) if len(w) > 2]
-    scored = []
-    for s in skills_list():
-        haystack = " ".join([
-            s.get("id", ""),
-            s.get("hero_name", ""),
-            s.get("description", ""),
-            s.get("category", ""),
-            " ".join(s.get("tags", [])),
-        ]).lower()
-        score = sum(1 for kw in keywords if kw in haystack)
-        if score > 0:
-            scored.append((score, s))
+    # Rank with the same semantic engine search uses — real cosine relevance,
+    # not flat keyword-overlap counts. Degrades to keyword scoring if unavailable.
+    backend = "keyword"
+    hits: list[dict] = []
+    try:
+        sys.path.insert(0, str(VAULT_ROOT / "scripts"))
+        from search_skills import semantic_search as _ss, active_backend  # type: ignore
+        hits = _ss(task, limit=limit)
+        if hits:
+            backend = active_backend()
+    except Exception:  # noqa: BLE001 — fall through to keyword scoring
+        hits = []
 
-    scored.sort(key=lambda x: x[0], reverse=True)
-
-    results = [
-        {
-            "id":               s["id"],
-            "hero_name":        s["hero_name"],
-            "description":      s.get("description", ""),
-            "category":         s.get("category"),
-            "relevance_score":  score,
-            "tags":             s.get("tags", []),
-            "next_step":        f'load_skill("{s["id"]}")',
-        }
-        for score, s in scored[:limit]
-    ]
+    if hits:
+        results = []
+        for h in hits:
+            meta = find_by_id(h["id"]) or {}
+            results.append({
+                "id":               h["id"],
+                "hero_name":        h["hero_name"],
+                "description":      h.get("description", ""),
+                "category":         h.get("category"),
+                "version":          meta.get("version", ""),
+                "relevance_score":  round(float(h.get("score", 0.0)), 4),
+                "tags":             meta.get("tags", []),
+                "next_step":        f'load_skill("{h["id"]}")',
+            })
+    else:
+        backend = "keyword"
+        keywords = [w for w in re.split(r'\W+', task.lower()) if len(w) > 2]
+        scored = []
+        for s in skills_list():
+            haystack = " ".join([
+                s.get("id", ""), s.get("hero_name", ""), s.get("description", ""),
+                s.get("category", ""), " ".join(s.get("tags", [])),
+                " ".join(s.get("keywords", [])),
+            ]).lower()
+            hitcount = sum(1 for kw in keywords if kw in haystack)
+            if hitcount:
+                scored.append((hitcount, s))
+        scored.sort(key=lambda x: x[0], reverse=True)
+        denom = max(len(keywords), 1)
+        results = [
+            {
+                "id":               s["id"],
+                "hero_name":        s["hero_name"],
+                "description":      s.get("description", ""),
+                "category":         s.get("category"),
+                "version":          s.get("version", ""),
+                "relevance_score":  round(hitcount / denom, 3),  # normalised 0..1, not flat ints
+                "tags":             s.get("tags", []),
+                "next_step":        f'load_skill("{s["id"]}")',
+            }
+            for hitcount, s in scored[:limit]
+        ]
 
     return json.dumps({
         "task":        task,
+        "backend":     backend,
         "count":       len(results),
         "recommended": results,
         "tip": (

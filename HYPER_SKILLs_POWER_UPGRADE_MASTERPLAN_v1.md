@@ -3,7 +3,7 @@
 
 > *"A skill unused is a skill wasted. A skill undiscoverable is a skill that doesn't exist."*
 >
-> **Target**: `welshDog/HYPER-SILLs-By-WelshDog` | **72 rescued skills · 37 catalogued · 4 in progress**
+> **Target**: `welshDog/HYPER-SILLs-By-WelshDog` | **120 rescued skills · 6 categories** *(reconciled 2026-06-28; was 72 rescued · 37 catalogued at research time)*
 > **Research Date**: 2026-06-01 | **Sources**: 25+ papers, repos, protocols, frameworks
 
 ---

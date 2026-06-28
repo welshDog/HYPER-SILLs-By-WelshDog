@@ -23,6 +23,7 @@ import sys
 from pathlib import Path
 
 from mcp.server.fastmcp import FastMCP
+from mcp.server.transport_security import TransportSecuritySettings
 from starlette.requests import Request
 from starlette.responses import JSONResponse
 
@@ -605,10 +606,38 @@ if __name__ == "__main__":
         # connector. Streamable-HTTP is the current standard (SSE is deprecated).
         mcp.settings.host = os.environ.get("HOST", "0.0.0.0")
         mcp.settings.port = int(os.environ.get("PORT", "8000"))
+
+        # DNS-rebinding protection rejects any Host header not in allowed_hosts
+        # (default: localhost only) -> "Invalid Host header" / 421 behind a proxy.
+        # Allow this deployment's public host so MCP clients (e.g. Perplexity) connect.
+        if os.environ.get("MCP_DISABLE_HOST_CHECK"):
+            mcp.settings.transport_security = TransportSecuritySettings(
+                enable_dns_rebinding_protection=False,
+            )
+        else:
+            hosts = ["localhost", "localhost:*", "127.0.0.1", "127.0.0.1:*"]
+            origins: list[str] = []
+            # Railway / Render inject the public hostname automatically.
+            domain = (os.environ.get("RAILWAY_PUBLIC_DOMAIN")
+                      or os.environ.get("RENDER_EXTERNAL_HOSTNAME") or "").strip()
+            if domain:
+                hosts += [domain, f"{domain}:*"]
+                origins += [f"https://{domain}", f"http://{domain}"]
+            # Manual overrides (comma-separated) for any other public host/origin.
+            hosts += [h.strip() for h in os.environ.get("MCP_ALLOWED_HOSTS", "").split(",") if h.strip()]
+            origins += [o.strip() for o in os.environ.get("MCP_ALLOWED_ORIGINS", "").split(",") if o.strip()]
+            mcp.settings.transport_security = TransportSecuritySettings(
+                enable_dns_rebinding_protection=True,
+                allowed_hosts=hosts,
+                allowed_origins=origins,
+            )
+
         transport = "sse" if "--sse" in sys.argv else "streamable-http"
+        _ts = mcp.settings.transport_security
         print(
             f"HYPER-SILLs MCP serving {len(skills_list())} skills over {transport} "
-            f"on {mcp.settings.host}:{mcp.settings.port} (health: /health)",
+            f"on {mcp.settings.host}:{mcp.settings.port} (health: /health, "
+            f"allowed_hosts: {_ts.allowed_hosts or 'ALL — host check disabled'})",
             file=sys.stderr,
         )
         mcp.run(transport=transport)

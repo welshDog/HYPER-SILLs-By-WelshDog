@@ -1,4 +1,11 @@
 # HS-056 — 🦈 BEAST CODEX — Pet Species Power Mapping
+---
+skill_id: HS-056
+problem_keywords:
+  - pet species
+  - power mapping
+  - beast codex
+---
 
 > Catalogued → **RESCUED** 2026-06-19. Source pattern: HyperCode-V2.4 /
 > BROskiPets. Category: `web3/`.

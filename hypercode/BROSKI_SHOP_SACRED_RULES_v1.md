@@ -15,6 +15,10 @@ The BROski$ token economy is the gamification backbone. A bug here breaks trust 
 ## ⚙️ How To Use
 1. Paste when working on ShopPage, award_tokens, or any BROski$ flow
 2. AI respects token economy integrity rules automatically
+problem_keywords:
+  - shop rules
+  - broski shop rules
+  - shop sacred rules
 
 ---
 

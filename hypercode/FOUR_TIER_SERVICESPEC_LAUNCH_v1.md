@@ -16,6 +16,11 @@ Docker compose doesn't guarantee startup order by health. This pattern adds inte
 1. Classify any new service into one of the 4 tiers
 2. Launch tiers in order — never skip or parallel across tiers
 3. Each tier must be fully healthy before the next starts
+problem_keywords:
+  - service tiers
+  - launch pattern
+  - servicespec
+  - tiered launch
 
 ---
 

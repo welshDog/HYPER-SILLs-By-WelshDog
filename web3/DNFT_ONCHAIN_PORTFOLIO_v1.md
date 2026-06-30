@@ -1,4 +1,12 @@
 # HS-055 — 📜 CHAIN LEDGER — dNFT On-Chain Portfolio Pattern
+---
+skill_id: HS-055
+problem_keywords:
+  - on chain portfolio
+  - dnft
+  - wallet
+  - chain ledger
+---
 
 > Catalogued → **RESCUED** 2026-06-19. Source pattern: HyperCode-V2.4 /
 > BROskiPets-LLM-dNFT. Category: `web3/`.

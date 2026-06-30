@@ -21,6 +21,12 @@ related:
   - HS-009  # HYPER_AGENT_ROSTER
   - HS-016  # AGENT_COMMUNICATION_PATTERNS
 graph_notes: "Top-level swarm architecture — defines how 39+ agents coordinate, delegate, and reach consensus across the HyperFocus ecosystem."
+problem_keywords:
+  - multiple agents
+  - agent swarm
+  - coordinate agents
+  - swarm core
+
 ---
 
 **Category:** `agents/`

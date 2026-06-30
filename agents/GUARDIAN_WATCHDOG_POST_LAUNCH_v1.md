@@ -22,6 +22,15 @@ related:
   - HS-122  # GUARDIAN WATCHDOG — Python code companion
   - DS-028  # PROGRESSIVE_HEALTH_WAIT — health wait feeds the watchdog loop
 graph_notes: "Prompt block to activate post-launch watchdog monitoring — use with HS-122 for the Python implementation."
+problem_keywords:
+  - crash
+  - monitor after launch
+  - auto heal
+  - watchdog
+  - alert on down
+  - keeps failing
+  - post launch monitoring
+
 ---
 > *"Launch is just the beginning. Watchdog makes sure it stays up."*
 

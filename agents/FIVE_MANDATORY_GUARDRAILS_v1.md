@@ -18,6 +18,13 @@ related:
   - HS-011  # TIER_PROTECTION_RULES
   - HS-015  # USER_AGENCY_APPROVAL_GATE
 graph_notes: "Five non-negotiable hard stops that block any agent from crossing safety boundaries — plug into every agent's decision path."
+problem_keywords:
+  - guardrails
+  - safety
+  - hard stops
+  - prevent dangerous actions
+  - agent guardrails
+
 ---
 
 **Category:** `agents/`

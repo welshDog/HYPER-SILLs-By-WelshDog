@@ -18,6 +18,12 @@ related:
   - DS-009  # PREFLIGHT_CHECKS_SYSTEM
   - HS-003  # AGENT_LIFECYCLE_STATE_MACHINE
 graph_notes: "Standard CLI entrypoint pattern for launching agents and tools — argparse template with validation."
+problem_keywords:
+  - cli args
+  - argparse
+  - command line entrypoint
+  - launch script
+
 ---
 
 **Category:** `dev/`

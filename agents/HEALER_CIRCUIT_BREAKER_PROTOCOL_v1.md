@@ -20,6 +20,18 @@ related:
   - HS-013  # GUARDIAN_WATCHDOG_POST_LAUNCH
   - HS-019  # OBSERVABLE_AGENT_OPERATIONS
 graph_notes: "Circuit breaker pattern — open on N failures, half-open after cooldown, closed on recovery. Powers the self-healing swarm."
+problem_keywords:
+  - crash
+  - crashed
+  - keeps crashing
+  - agent down
+  - service unhealthy
+  - auto recover
+  - self heal
+  - restart on failure
+  - circuit breaker
+  - keeps dying
+
 ---
 
 **Category:** `agents/`

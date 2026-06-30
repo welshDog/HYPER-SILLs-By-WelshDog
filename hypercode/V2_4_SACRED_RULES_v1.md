@@ -16,6 +16,11 @@ Every rule here was learned the hard way. Breaking any one of them can take down
 1. Paste at start of any V2.4 session
 2. AI treats these as hard constraints — not suggestions
 3. If AI tries to break one, flag it immediately
+problem_keywords:
+  - v2.4 rules
+  - sacred rules
+  - hypercode rules
+  - 20 rules
 
 ---
 

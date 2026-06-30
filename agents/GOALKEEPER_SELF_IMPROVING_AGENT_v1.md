@@ -22,6 +22,12 @@ related:
   - HS-093  # NIGHT TENDER — nightly loop is the scheduled executor
   - HS-045  # FRUGAL ENGINE — cost KPIs feed into goalkeeper metrics
 graph_notes: "Proactive goal-tracking agent — knows what done looks like and pushes toward it without being asked."
+problem_keywords:
+  - track goals
+  - kpi
+  - self improving
+  - autonomous improvement
+
 ---
 > *"An agent that tracks its own goals, measures its own progress, and improves itself."*
 

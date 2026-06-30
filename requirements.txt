@@ -4,3 +4,14 @@
 # sse-starlette + httpx transitively (the streamable-http server needs them).
 python-dotenv
 mcp>=1.0.0
+
+# Dense semantic search on the host. Without these the server silently falls back
+# to the TF-IDF backend at query time (it can't embed the live query). CPU-only
+# torch keeps the image lean — there's no GPU on these hosts anyway. The prebuilt
+# vector-store/skill_index.json ships alongside, so only the query is embedded at
+# runtime (the model warms on first /mcp call). If the torch pin ever fails to
+# resolve for the host's Python, bump it to the latest +cpu wheel for that version.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.4.1+cpu
+sentence-transformers>=2.2
+numpy

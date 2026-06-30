@@ -20,6 +20,13 @@ related:
   - HS-019  # OBSERVABLE AGENT OPERATIONS — logs + metrics complement SSE events
   - HS-041  # METRICS FORGE — Prometheus and SSE are parallel observability streams
 graph_notes: "Canonical SSE schema for streaming real-time agent activity to the frontend — every agent emits structured events so the timeline UI stays live."
+problem_keywords:
+  - streaming
+  - server sent events
+  - sse
+  - realtime updates
+  - live agent events
+
 ---
 **Category:** `agents/`  
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §4  

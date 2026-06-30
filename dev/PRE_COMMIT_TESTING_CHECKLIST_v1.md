@@ -19,6 +19,13 @@ related:
   - DS-009  # PREFLIGHT_CHECKS_SYSTEM
   - DS-003  # NEW_AGENT_BUILD_CHECKLIST
 graph_notes: "Pre-commit gate checklist — lint, tests, secret scan, type check. Hard blocks for set-state-in-effect and committed secrets."
+problem_keywords:
+  - pre commit
+  - before commit
+  - ci checks
+  - block bad commit
+  - commit gate
+
 ---
 
 **Category:** `dev/`

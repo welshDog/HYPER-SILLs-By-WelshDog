@@ -1,4 +1,12 @@
 # HS-053 — 🎲 FATE ROLLER — Pet Rarity Roll Formula
+---
+skill_id: HS-053
+problem_keywords:
+  - pet rarity
+  - roll formula
+  - rarity odds
+  - fate roll
+---
 
 > Catalogued → **RESCUED** 2026-06-19. Source pattern: HyperCode-V2.4 /
 > BROskiPets. Category: `web3/`.

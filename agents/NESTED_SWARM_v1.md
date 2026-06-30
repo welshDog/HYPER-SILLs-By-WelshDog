@@ -19,6 +19,16 @@ related:
   - HS-006  # SOFT LANDING — fallback when a nested branch fails
   - HS-077  # CONSENT GUARDIAN — approval gates survive nesting
 graph_notes: "Pattern for sub-agents spawning their own sub-agents (now supported up to 5 levels deep) with hard depth caps, per-level budgets, and guardrails inherited down the tree."
+problem_keywords:
+  - agents spawning forever
+  - infinite spawn
+  - runaway subagents
+  - recursion limit
+  - depth limit
+  - too many agents
+  - stop spawning
+  - bounded delegation
+
 ---
 **Category:** `agents/`
 **Source:** Born-here — Claude Code changelog: subagents spawn subagents, 5 levels (2026-06)

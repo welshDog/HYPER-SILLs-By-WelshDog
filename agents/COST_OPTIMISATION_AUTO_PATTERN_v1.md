@@ -22,6 +22,16 @@ related:
   - HS-093  # NIGHT TENDER — nightly loop evaluates cost trends
   - HS-019  # OBSERVABLE AGENT OPERATIONS — cost metrics feed observability
 graph_notes: "Self-tuning cost optimizer — monitors LLM token spend and container resources, throttles before the budget cap."
+problem_keywords:
+  - spending too much
+  - llm cost
+  - throttle
+  - budget
+  - expensive
+  - token spend
+  - cap cost
+  - cost optimisation
+
 ---
 > *"The swarm that pays attention to its own bills and tunes itself to spend less."*
 

@@ -19,6 +19,12 @@ related:
   - HS-021  # VAULT SYNC — ops keeps the vault sync healthy
   - DS-028  # PROGRESSIVE_HEALTH_WAIT — health wait used in brain restart
 graph_notes: "Living ops runbook for the BROski brain infrastructure — Docker health checks, GitHub sync fixes, and service restart procedures."
+problem_keywords:
+  - brain runbook
+  - docker debug
+  - github sync broken
+  - brain infrastructure
+
 ---
 **Version:** v1.1 (Hardened — Gordon's patches applied)
 **Last tested:** 2026-05-31 21:18 BST

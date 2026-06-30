@@ -15,6 +15,9 @@ These rules protect a live production course with real students and real payment
 ## ⚙️ How To Use
 1. Paste at the start of any course / HyperLabs session
 2. AI treats these as hard stops — not guidelines
+problem_keywords:
+  - course rules
+  - course sacred rules
 
 ---
 

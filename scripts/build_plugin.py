@@ -63,6 +63,16 @@ def main() -> int:
     shutil.copyfile(REPO_ROOT / "mcp_server.py", VAULT_OUT / "mcp_server.py")
     shutil.copyfile(REPO_ROOT / "scripts" / "search_skills.py",
                     VAULT_OUT / "scripts" / "search_skills.py")
+    # 4. Prebuilt dense index — so the plugin serves real embeddings immediately
+    #    (only the live query is embedded) instead of rebuilding all 120 vectors on
+    #    the first search. search_skills resolves it at vault/vector-store/.
+    index_src = REPO_ROOT / "vector-store" / "skill_index.json"
+    if index_src.exists():
+        (VAULT_OUT / "vector-store").mkdir(exist_ok=True)
+        shutil.copyfile(index_src, VAULT_OUT / "vector-store" / "skill_index.json")
+        print(f"   + prebuilt index ({index_src.stat().st_size // 1024} KB, dense)")
+    else:
+        print("   ! no vector-store/skill_index.json — run embed_skills.py for dense search")
 
     bundle_kb = (VAULT_OUT / "skills-bundle.json").stat().st_size / 1024
     print(f"✅ built plugin bundle -> {VAULT_OUT.relative_to(REPO_ROOT)}")

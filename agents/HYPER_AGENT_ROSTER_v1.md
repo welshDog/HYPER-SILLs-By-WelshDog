@@ -19,6 +19,12 @@ related:
   - HS-008  # BROSKI_ORCHESTRATOR_PATTERN
   - HS-010  # SPECIALIST_AGENT_ROLES
 graph_notes: "Master registry of all 39+ agents — name, role, tier, tools, and status. Single source of truth for orchestrators and skill discovery."
+problem_keywords:
+  - agent roster
+  - list of agents
+  - which agents exist
+  - agent inventory
+
 ---
 
 **Category:** `agents/`

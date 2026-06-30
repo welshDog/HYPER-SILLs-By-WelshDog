@@ -15,6 +15,11 @@ Launching 30+ containers in the wrong order breaks dependencies. HyperLaunch han
 ## ⚙️ How To Use
 1. Use as the reference pattern when modifying `hyperlaunch.py`
 2. Paste when building any multi-service launch orchestration
+problem_keywords:
+  - hyperlaunch
+  - launch stack
+  - start services
+  - unified launcher
 
 ---
 

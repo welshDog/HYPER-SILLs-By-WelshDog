@@ -19,6 +19,15 @@ related:
   - HS-019  # OBSERVABLE_AGENT_OPERATIONS
   - HS-020  # COST_OPTIMISATION_AUTO_PATTERN
 graph_notes: "Defines the 3-level fallback chain (retry → degrade → safe-mode) used by every agent that can fail."
+problem_keywords:
+  - crash
+  - fail gracefully
+  - fallback
+  - error recovery
+  - graceful degradation
+  - what to do when it breaks
+  - fallback chain
+
 ---
 
 **Category:** `agents/`

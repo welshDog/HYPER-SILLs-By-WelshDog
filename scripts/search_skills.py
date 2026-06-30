@@ -50,14 +50,32 @@ def tokenize(text: str) -> list[str]:
 
 # ── Document text per skill (what we embed) ────────────────────────────────────
 
+def _dehyphenate(slugs: list[str]) -> str:
+    """`circuit-breaker-pattern` -> `circuit breaker pattern` so the slug reads as
+    natural problem language to both TF-IDF and the dense embedder."""
+    return " ".join(s.replace("-", " ") for s in slugs)
+
+
 def skill_document(skill: dict) -> str:
-    """The searchable text for a skill: hero + description + tags + body excerpt."""
+    """The searchable text for a skill, weighted toward the CLEAN problem signal.
+
+    The skill bodies are written in poetic hero-narrative ("SOFT LANDING", "NIGHT
+    TENDER"…), which used to dominate the embedding and pull semantically-adjacent
+    but wrong skills (wellness drift on a query like "crashing agents"). So we lead
+    with — and repeat — the curated signal (description, problem_keywords, provides
+    slugs, graph_notes) and keep only a short body excerpt for extra recall.
+    """
+    description = skill.get("description", "")
+    problem_kw = " ".join(skill.get("problem_keywords", []))
+    provides = _dehyphenate([t for t in skill.get("tags", []) if "-" in t])
+
     parts = [
         skill.get("hero_name", ""),
-        skill.get("hero_name", ""),  # weight hero name x2
-        skill.get("description", ""),
+        skill.get("hero_name", ""),                 # hero name x2
+        description, description, description,        # plain-English subtitle x3
+        problem_kw, problem_kw, problem_kw,           # curated problem language x3
+        provides, provides,                           # de-hyphenated `provides` x2
         skill.get("category", ""),
-        " ".join(skill.get("tags", [])),
     ]
     fp = VAULT_ROOT / skill.get("file", "")
     if fp.exists():
@@ -65,7 +83,10 @@ def skill_document(skill: dict) -> str:
         gn = re.search(r'graph_notes:\s*["\'](.+?)["\']', body)
         if gn:
             parts.append(gn.group(1))
-        parts.append(body[:1200])
+        # Strip the YAML frontmatter so field names (skill_id, depends_on, related,
+        # version…) don't leak into the bag of words, then keep a short excerpt.
+        body_only = re.sub(r"^#.*?\n+---\n.*?\n---\n", "", body, count=1, flags=re.S)
+        parts.append(body_only[:400])
     return " ".join(parts)
 
 

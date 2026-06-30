@@ -22,6 +22,12 @@ related:
   - HS-079  # THE CREW CHARTER — role definitions feed the registry
   - HS-125  # THE GRAND CODEX — codex is the source of truth for capabilities
 graph_notes: "Central registry pattern for a 30+ agent swarm — the Yellow Pages that routes tasks to the best-matched agent."
+problem_keywords:
+  - skill registry
+  - route to capability
+  - yellow pages
+  - find the right agent
+
 ---
 > *"An agent that knows what every other agent can do — and routes tasks to the right one."*
 

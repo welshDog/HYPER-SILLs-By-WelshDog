@@ -20,6 +20,13 @@ related:
   - HS-078  # FLOW KEEPER — context store enables seamless handoffs
   - HS-008  # BROSKI ORCHESTRATOR PATTERN — orchestrator writes shared context
 graph_notes: "Shared Redis memory for the agent crew — dot-notation keys let agents hand off state without losing context mid-task."
+problem_keywords:
+  - shared memory
+  - redis
+  - context store
+  - agents share state
+  - memory between agents
+
 ---
 **Category:** `agents/`  
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §7  

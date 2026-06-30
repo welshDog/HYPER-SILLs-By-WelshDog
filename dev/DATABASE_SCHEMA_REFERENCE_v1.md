@@ -20,6 +20,10 @@ Shared `alembic_version` re-stamps crash-loop core. One reference prevents both.
 ## ⚙️ How To Use
 
 Paste before any schema/migration work. **Always `alembic current` first.**
+problem_keywords:
+  - database schema
+  - db tables
+  - schema reference
 
 ---
 

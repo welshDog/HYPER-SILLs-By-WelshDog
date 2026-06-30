@@ -22,6 +22,10 @@ catalogued" list 22 stale).
 
 Drop into `docs/NEXT_TASKS.md`. Update status only after verifying against
 `origin/main` + the live system — never from memory.
+problem_keywords:
+  - milestone tracker
+  - track progress
+  - milestones
 
 ---
 

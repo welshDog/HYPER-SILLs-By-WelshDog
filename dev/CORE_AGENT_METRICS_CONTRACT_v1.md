@@ -16,6 +16,12 @@ provides:
 related:
   - HS-019  # Observable Agent Operations — parent philosophy
 graph_notes: "Concrete metrics contract. Depends on HS-019 for observability philosophy. Consumed by Healer (watches these signals) and Tier protection (reads agent_up)."
+problem_keywords:
+  - agent metrics
+  - required metrics
+  - prometheus contract
+  - mandatory metrics
+
 ---
 
 **Category:** `dev/`

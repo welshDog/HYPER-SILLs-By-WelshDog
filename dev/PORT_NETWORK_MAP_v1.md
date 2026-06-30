@@ -20,6 +20,11 @@ can't connect (e.g. prometheus can't scrape an agent not on a shared net).
 ## ⚙️ How To Use
 
 Paste for Docker/networking/scrape work.
+problem_keywords:
+  - ports
+  - network map
+  - port warden
+  - which port
 
 ---
 

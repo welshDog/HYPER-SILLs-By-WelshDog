@@ -539,6 +539,28 @@ def skill_resource(skill_id: str) -> str:
 # (streamable-http / sse). Lets Railway/Render and the Perplexity connector probe
 # liveness without speaking MCP.
 
+def _search_backend_report() -> dict:
+    """Cheap, honest backend probe (no model load): what does the cached index use,
+    and can the live query actually be embedded with the same engine? When the
+    query embedder is missing, dense search silently degrades to TF-IDF — surface
+    that here so 'why are my results fuzzy?' is answerable from /health alone."""
+    import importlib.util
+    report = {"index": "unknown", "query": "tfidf", "dense_active": False}
+    try:
+        sys.path.insert(0, str(VAULT_ROOT / "scripts"))
+        from search_skills import load_index  # type: ignore
+        report["index"] = load_index().get("backend", "unknown")
+    except Exception:
+        return report
+    if importlib.util.find_spec("sentence_transformers"):
+        report["query"] = "local:sentence-transformers"
+    elif os.environ.get("OPENAI_API_KEY"):
+        report["query"] = "openai"
+    report["dense_active"] = (report["index"] != "tfidf"
+                              and report["query"] != "tfidf")
+    return report
+
+
 @mcp.custom_route("/health", methods=["GET"])
 async def health(request: Request) -> JSONResponse:
     try:
@@ -550,6 +572,7 @@ async def health(request: Request) -> JSONResponse:
             "version": SERVER_VERSION,
             "skills": skills,
             "categories": meta.get("categories", {}),
+            "search_backend": _search_backend_report(),
         })
     except Exception as exc:  # never let a probe crash the server
         return JSONResponse({"status": "degraded", "error": str(exc)}, status_code=503)

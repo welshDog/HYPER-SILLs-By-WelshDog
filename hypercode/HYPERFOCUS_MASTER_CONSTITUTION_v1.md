@@ -16,6 +16,11 @@ Without this, every AI starts from zero. With it, any agent instantly knows the 
 1. Paste this skill at the top of any AI session
 2. AI reads the constitution → understands the full ecosystem
 3. Proceed to work — no re-explaining needed
+problem_keywords:
+  - ecosystem rules
+  - master constitution
+  - top level rules
+  - hyperfocus rules
 
 ---
 

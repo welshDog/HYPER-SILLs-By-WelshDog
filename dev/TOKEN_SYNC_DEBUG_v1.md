@@ -18,6 +18,13 @@ related:
   - DS-018  # OBSIDIAN_GIT_VAULT
   - HS-019  # OBSERVABLE_AGENT_OPERATIONS
 graph_notes: "Debug guide for broken tokens — Discord, Stripe, Supabase, GitHub. Never commit secrets, always rotate and re-sync."
+problem_keywords:
+  - token sync
+  - auth broken
+  - env token
+  - fix auth
+  - token debug
+
 ---
 
 **Category:** `dev/`

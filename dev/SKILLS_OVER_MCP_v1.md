@@ -17,6 +17,12 @@ related:
   - HS-128  # PLUGIN FORGE — ships this server inside a plugin
   - HS-073  # PULSE STREAM — adjacent MCP event patterns
 graph_notes: "Exposes each skill as an MCP Resource (skill://ID) per the Skills-over-MCP working group (SEP-2640), so any SEP-2640-aware host discovers and reads skills natively, not via bespoke tools."
+problem_keywords:
+  - mcp resources
+  - expose skills as mcp
+  - sep-2640
+  - skills over mcp
+
 ---
 **Category:** `dev/`
 **Source:** Born-here — modelcontextprotocol.io Skills-over-MCP charter / SEP-2640 (2026)

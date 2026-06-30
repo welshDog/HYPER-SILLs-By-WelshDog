@@ -15,6 +15,12 @@ With ~30 containers and 4 networks, AI without this context will suggest wrong p
 ## ⚙️ How To Use
 1. Paste when working on Docker, networking, or service-to-service communication
 2. AI uses exact ports and networks — no guessing
+problem_keywords:
+  - ports
+  - networks
+  - architecture quick ref
+  - docker networks
+  - grid
 
 ---
 

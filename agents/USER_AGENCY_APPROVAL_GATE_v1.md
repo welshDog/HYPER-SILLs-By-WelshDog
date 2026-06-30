@@ -19,6 +19,13 @@ related:
   - HS-088  # THE MIRROR OATH — check 1 in the completion audit
   - HS-004  # FIVE MANDATORY GUARDRAILS — approval gate is guardrail 1
 graph_notes: "Non-negotiable approval pattern for any state-changing agent action — propose → approve → execute, never silent."
+problem_keywords:
+  - approval
+  - confirm before
+  - human in the loop
+  - ask before acting
+  - consent gate
+
 ---
 **Category:** `agents/`
 **Source:** HyperCode-V2.4 — `agents/HYPER-AGENT-BIBLE.md` §1 Principle 1 + §6 Rule 5

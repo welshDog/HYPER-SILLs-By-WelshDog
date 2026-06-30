@@ -16,6 +16,13 @@ Parallel auto-commits run in the background. Without a close protocol, work gets
 1. Run at the end of EVERY session — no exceptions
 2. Check every item before saying session is complete
 3. Update NEXT_SESSION_HANDOVER with what's next
+problem_keywords:
+  - session end
+  - handover
+  - wrap up
+  - end of session
+  - handoff
+  - close protocol
 
 ---
 

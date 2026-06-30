@@ -21,6 +21,13 @@ related:
   - HS-075  # THE CHOICE MATRIX — decision framework for delegate vs. execute
   - HS-087  # THE BRANCHING PATH — decision tree routes tasks from the orchestrator
 graph_notes: "The BROski Orchestrator is the central brain that receives tasks, routes them to specialist agents, and aggregates results."
+problem_keywords:
+  - route tasks
+  - dispatch
+  - orchestrate
+  - delegate to agents
+  - orchestrator
+
 ---
 
 **Category:** `agents/`

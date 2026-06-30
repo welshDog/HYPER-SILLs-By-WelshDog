@@ -20,6 +20,15 @@ related:
   - HS-006  # FAIL_GRACEFULLY_FALLBACK_CHAIN
   - HS-012  # GUARDIAN_WATCHDOG_MONITOR
 graph_notes: "State machine for agent lifecycle — boot, idle, active, error, healing, retired. Required by orchestrators and guardian agents."
+problem_keywords:
+  - agent stuck
+  - restart agent
+  - agent states
+  - boot sequence
+  - retire agent
+  - lifecycle
+  - state machine
+
 ---
 
 **Category:** `agents/`

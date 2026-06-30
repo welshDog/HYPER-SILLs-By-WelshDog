@@ -21,6 +21,15 @@ related:
   - HS-012  # GUARDIAN_WATCHDOG_MONITOR
   - HS-020  # COST_OPTIMISATION_AUTO_PATTERN
 graph_notes: "Observability layer for all agents — structured logs, Prometheus metrics, trace IDs. Required by the guardian and healer agents."
+problem_keywords:
+  - logs
+  - metrics
+  - tracing
+  - prometheus
+  - debug agent
+  - observability
+  - structured logging
+
 ---
 
 **Category:** `agents/`

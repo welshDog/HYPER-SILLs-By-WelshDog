@@ -1,4 +1,12 @@
 # HS-054 — ⚡ XP SPARK — Dev Action XP Trigger System
+---
+skill_id: HS-054
+problem_keywords:
+  - dev xp
+  - xp trigger
+  - reward dev actions
+  - xp spark
+---
 
 > Catalogued → **RESCUED** 2026-06-19. Source pattern: HyperCode-V2.4 dev-XP
 > hooks + broski_economy. Category: `web3/`.

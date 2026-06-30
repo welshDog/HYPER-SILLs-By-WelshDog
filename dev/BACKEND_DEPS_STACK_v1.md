@@ -20,6 +20,11 @@ slower builds + CVE surface. Vendoring deps into git has burned this repo before
 ## ⚙️ How To Use
 
 Paste before adding any backend dependency — check the group first.
+problem_keywords:
+  - backend deps
+  - dependencies
+  - stack
+  - quartermaster
 
 ---
 

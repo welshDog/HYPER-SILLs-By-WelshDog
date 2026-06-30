@@ -22,6 +22,17 @@ related:
   - HS-050  # WATCHDOG PRIME — prompt-block companion to this code pattern
   - DS-028  # PROGRESSIVE_HEALTH_WAIT — health wait pattern used in restart logic
 graph_notes: "Python implementation of the post-launch watchdog — code companion to HS-050 WATCHDOG PRIME."
+problem_keywords:
+  - crash
+  - crashed
+  - restart crashed service
+  - watchdog
+  - monitor and restart
+  - keeps dying
+  - auto restart
+  - won't stay up
+  - service health loop
+
 ---
 ## What it Does
 Post-launch watchdog monitor that continuously verifies all services remain healthy after startup. Triggers alerts and optionally restarts failing services.

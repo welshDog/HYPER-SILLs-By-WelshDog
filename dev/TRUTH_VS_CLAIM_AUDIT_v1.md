@@ -17,6 +17,12 @@ related:
   - DS-025  # GOVERNANCE_LEDGER_ENTRY_SCHEMA
   - DS-011  # CROSS_REFERENCE_BEFORE_WRITING
 graph_notes: "Audit protocol to verify AI claims against GitHub, Supabase, and WHATS_DONE before acting on them."
+problem_keywords:
+  - verify claims
+  - truth audit
+  - did it actually work
+  - validate ai output
+
 ---
 
 **Category:** `dev/`

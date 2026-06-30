@@ -18,6 +18,12 @@ related:
   - HS-003  # AGENT_LIFECYCLE_STATE_MACHINE
   - HS-011  # TIER_PROTECTION_RULES
 graph_notes: "Core governance layer — six non-negotiable laws applied to every agent in the swarm after anatomy is defined."
+problem_keywords:
+  - agent rules
+  - laws of agents
+  - compliance
+  - agent policy
+
 ---
 
 **Category:** `agents/`

@@ -15,6 +15,11 @@ With 7 connectors active (GitHub, Supabase, Vercel, Discord, Drive, Gmail, Strip
 ## ⚙️ How To Use
 1. Paste at start of any multi-tool AI session
 2. AI follows the priority order and behaviour rules automatically
+problem_keywords:
+  - ai behaviour
+  - tool matrix
+  - which tool to use
+  - protocol prime
 
 ---
 

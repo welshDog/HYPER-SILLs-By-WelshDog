@@ -20,6 +20,13 @@ related:
   - DS-003  # NEW_AGENT_BUILD_CHECKLIST
   - HS-005  # HEALER_CIRCUIT_BREAKER_PROTOCOL
 graph_notes: "Preflight system — validates env vars, dependency health, Docker containers, and secrets before any agent boots."
+problem_keywords:
+  - boot checks
+  - validate env
+  - dependency check
+  - startup validation
+  - preflight
+
 ---
 
 **Category:** `dev/`

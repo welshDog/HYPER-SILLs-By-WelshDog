@@ -67,6 +67,15 @@ _STOP = {
 }
 
 
+def parse_problem_keywords(fm_text: str) -> list[str]:
+    """Curated `problem_keywords` YAML list from frontmatter (phrases may contain
+    spaces, e.g. 'keeps crashing'), preserved verbatim for the dense embed doc."""
+    bm = re.search(r'(?m)^problem_keywords:\s*\n((?:[ \t]*-[ \t]*.+\n?)+)', fm_text)
+    if not bm:
+        return []
+    return [ln.strip() for ln in re.findall(r'(?m)^[ \t]*-[ \t]*(.+?)\s*$', bm.group(1))]
+
+
 def enrich_tags_keywords(fm_text: str, base_tags: list[str]) -> tuple[list[str], list[str]]:
     """Return (display_tags, search_keywords) for one skill.
 
@@ -137,7 +146,7 @@ def parse_vault_index(vault_path: Path) -> list[dict]:
 
         # Prefer richer in-file frontmatter when present (semver + lifecycle),
         # and enrich tags/keywords from the file content for real keyword search.
-        tags, keywords = list(meta["tags"]), []
+        tags, keywords, problem_keywords = list(meta["tags"]), [], []
         skill_fp = (REPO_ROOT / file_path)
         if skill_fp.exists():
             fm = skill_fp.read_text(encoding="utf-8", errors="replace")
@@ -148,6 +157,13 @@ def parse_vault_index(vault_path: Path) -> list[dict]:
             if sm:
                 status = sm.group(1).upper() if sm.group(1).lower() != "rescued" else "rescued"
             tags, keywords = enrich_tags_keywords(fm, meta["tags"])
+            problem_keywords = parse_problem_keywords(fm)
+            # Fold curated phrase tokens into the literal-search keyword bag too.
+            kw = set(keywords)
+            for ph in problem_keywords:
+                kw.update(w for w in re.split(r'[^a-z0-9]+', ph.lower())
+                          if len(w) > 2 and w not in _STOP)
+            keywords = sorted(kw)
 
         skills.append({
             "id":          raw_id,
@@ -160,6 +176,7 @@ def parse_vault_index(vault_path: Path) -> list[dict]:
             "source_repo": raw_source.strip(),
             "tags":        tags,
             "keywords":    keywords,
+            "problem_keywords": problem_keywords,
             "pack":        meta["pack"],
             "status":      status,
         })

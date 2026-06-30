@@ -1,4 +1,12 @@
 # HS-052 — 🐾 PET MASTER — BROskiPets Full Integration Plan
+---
+skill_id: HS-052
+problem_keywords:
+  - broskipets
+  - pet integration
+  - nft pets
+  - pet master plan
+---
 
 > Catalogued → **RESCUED** 2026-06-19. Source pattern: HyperCode-V2.4 +
 > `BROskiPets-LLM-dNFT`. Category: `web3/`.

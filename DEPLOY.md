@@ -36,8 +36,14 @@ healthcheck) and the MCP endpoint at `/mcp`.
 ### Smoke-test the live deploy
 ```bash
 curl https://<your-domain>.up.railway.app/health
-# -> {"status":"ok","service":"hyper-sills-mcp","skills":120,...}
+# -> {"status":"ok","service":"hyper-sills-mcp","skills":120,
+#     "search_backend":{"index":"local:all-MiniLM-L6-v2",
+#                       "query":"local:sentence-transformers","dense_active":true}, ...}
 ```
+`search_backend.dense_active` is the honest tell: `true` = real dense embeddings;
+`false` = the server fell back to TF-IDF (the embedding deps didn't install, or the
+prebuilt index is missing). The model warms on the first `/mcp` semantic call, so
+that one request is slower; everything after is fast.
 
 ## Wire into Perplexity
 
@@ -57,3 +63,12 @@ git push          # if you connect the GitHub repo in the Railway dashboard
 - `--sse` flag falls back to the deprecated SSE transport if a host needs it.
 - The project is developed with `uv` (see `pyproject.toml` + `uv.lock`);
   `requirements.txt` is only a deploy artifact for pip-based hosts.
+- **Dense embeddings on the host:** `requirements.txt` pins CPU-only
+  `torch` + `sentence-transformers` so the deployed server runs real semantic
+  search (not TF-IDF). This makes the build heavier (~1 GB image) and the first
+  semantic query slower (model download + load); trade accepted for sharp search.
+  The prebuilt `vector-store/skill_index.json` is committed (un-ignored) so the
+  host only embeds the live query, never rebuilds all 120 vectors on boot.
+- **Regenerating after editing skills:** edit frontmatter (incl. `problem_keywords`),
+  then `python scripts/generate_registry.py` → `python scripts/embed_skills.py`.
+  Never hand-edit `skills-registry.json` or `skill_index.json` — they're generated.

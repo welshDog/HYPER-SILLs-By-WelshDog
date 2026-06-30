@@ -19,6 +19,14 @@ related:
   - DS-018  # OBSIDIAN_GIT_VAULT
   - DS-016  # SDK_PUBLISH_WORKFLOW
 graph_notes: "Survival guide for parallel work across HyperCode-V2.4, HyperAgent-SDK, and Hyper-Vibe-Coding-Course simultaneously."
+problem_keywords:
+  - merge conflict
+  - git workflow
+  - branches
+  - parallel work
+  - rebase
+  - git survival
+
 ---
 
 **Category:** `dev/`

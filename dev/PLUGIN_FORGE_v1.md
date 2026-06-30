@@ -17,6 +17,12 @@ related:
   - HS-129  # SKILLS-OVER-MCP — expose skills as MCP Resources inside the plugin
   - HS-130  # OCI SKILL SHIP — versioned OCI distribution alongside the marketplace
 graph_notes: "Packages a vault of skills + an MCP server + hooks + commands into one installable Claude Code plugin, distributed via a marketplace.json users add in one command."
+problem_keywords:
+  - claude plugin
+  - plugin marketplace
+  - distribute skills
+  - publish plugin
+
 ---
 **Category:** `dev/`
 **Source:** Born-here — code.claude.com/docs/en/plugin-marketplaces (2026-06)

@@ -17,6 +17,12 @@ related:
   - HS-129  # SKILLS-OVER-MCP — runtime discovery, complements OCI distribution
   - DS-005  # THE GATEKEEPER — gate publishing behind passing checks
 graph_notes: "Packages exported Agent Skills as OCI artifacts pushed to any OCI registry (ghcr.io, Docker Hub, Harbor, Zot) for versioned, immutable, signable distribution — the same plumbing as container images."
+problem_keywords:
+  - oci artifact
+  - distribute skills
+  - signed skills
+  - registry publish
+
 ---
 **Category:** `dev/`
 **Source:** Born-here — skills-oci (salaboy), thomasvitale.com Agent-Skills-as-OCI (2026)

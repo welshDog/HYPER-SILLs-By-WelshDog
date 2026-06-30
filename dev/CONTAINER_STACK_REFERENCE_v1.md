@@ -21,6 +21,11 @@ counted as down services. Knowing daemon vs on-demand prevents false alarms.
 
 Paste before any `up`/`ps`/health work. Always launch via `hyperlaunch.ps1`
 (the canonical 4-file set), never raw compose.
+problem_keywords:
+  - containers
+  - docker stack
+  - container reference
+  - fleet
 
 ---
 

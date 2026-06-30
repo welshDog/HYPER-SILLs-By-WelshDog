@@ -1,4 +1,11 @@
 # HS-058 — 🐣 HATCH PROMPT — BROskiPets Phase 1 Build Prompt
+---
+skill_id: HS-058
+problem_keywords:
+  - broskipets phase 1
+  - hatch prompt
+  - pet hatch
+---
 
 > Catalogued → **RESCUED** 2026-06-19. Source pattern: HyperCode-V2.4 /
 > BROskiPets. Category: `web3/`.

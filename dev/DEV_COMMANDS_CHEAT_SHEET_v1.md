@@ -20,6 +20,11 @@ for the course). One sheet = right first time.
 ## ⚙️ How To Use
 
 Paste at the start of any hands-on session.
+problem_keywords:
+  - dev commands
+  - cheat sheet
+  - commands
+  - quick reference
 
 ---
 

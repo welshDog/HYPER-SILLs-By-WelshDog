@@ -18,6 +18,13 @@ related:
   - DS-009  # PREFLIGHT_CHECKS_SYSTEM
   - HS-019  # OBSERVABLE_AGENT_OPERATIONS
 graph_notes: "Progressive health wait with exponential backoff and jitter — used by healers and preflight checks."
+problem_keywords:
+  - wait for healthy
+  - backoff
+  - retry
+  - health check wait
+  - smart retry
+
 ---
 
 **Category:** `dev/`

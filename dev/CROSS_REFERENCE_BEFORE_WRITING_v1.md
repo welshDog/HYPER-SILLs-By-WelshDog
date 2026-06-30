@@ -18,6 +18,12 @@ related:
   - DS-013  # WIKILINK_KNOWLEDGE_GRAPH
   - HS-009  # HYPER_AGENT_ROSTER
 graph_notes: "Pre-build checklist — always check WHATS_DONE.md and the skill vault before writing new code or skills."
+problem_keywords:
+  - check before building
+  - duplication
+  - grep before write
+  - already exists
+
 ---
 
 **Category:** `dev/`

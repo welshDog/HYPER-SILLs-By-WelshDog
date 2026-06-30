@@ -22,6 +22,12 @@ related:
   - HS-050  # WATCHDOG PRIME — watchdog consumes these metrics
   - HS-073  # PULSE STREAM — SSE events complement Prometheus metrics
 graph_notes: "Standard pattern for wiring any agent into Prometheus/Grafana — apply at agent creation, never retroactively."
+problem_keywords:
+  - prometheus
+  - grafana
+  - metrics wiring
+  - scrape metrics
+
 ---
 > *"Wire any agent to Prometheus metrics in under 10 minutes."*
 

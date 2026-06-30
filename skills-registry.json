@@ -2,7 +2,7 @@
   "_meta": {
     "name": "HYPER-SKILLs Registry",
     "repo": "welshDog/HYPER-SILLs-By-WelshDog",
-    "generated_at": "2026-06-28T21:13:00Z",
+    "generated_at": "2026-06-29T23:38:08Z",
     "total_skills": 120,
     "categories": {
       "youtube": 4,
@@ -169,6 +169,7 @@
         "workflow",
         "youtube"
       ],
+      "problem_keywords": [],
       "pack": "YouTube Growth Pack",
       "status": "ACTIVE"
     },
@@ -217,6 +218,7 @@
         "winner",
         "youtube"
       ],
+      "problem_keywords": [],
       "pack": "YouTube Growth Pack",
       "status": "ACTIVE"
     },
@@ -266,6 +268,7 @@
         "vertical",
         "youtube"
       ],
+      "problem_keywords": [],
       "pack": "YouTube Growth Pack",
       "status": "ACTIVE"
     },
@@ -315,6 +318,7 @@
         "writing",
         "youtube"
       ],
+      "problem_keywords": [],
       "pack": "YouTube Growth Pack",
       "status": "ACTIVE"
     },
@@ -368,6 +372,7 @@
         "welshdog",
         "workflow"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -419,6 +424,7 @@
         "typed",
         "visual"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -446,6 +452,7 @@
         "category",
         "communication",
         "consensus",
+        "coordinate",
         "coordination",
         "core",
         "delegation",
@@ -454,6 +461,7 @@
         "hyperfocus",
         "list",
         "logic",
+        "multiple",
         "orchestration",
         "orchestrator",
         "pattern",
@@ -469,6 +477,12 @@
         "together",
         "version",
         "whole"
+      ],
+      "problem_keywords": [
+        "multiple agents",
+        "agent swarm",
+        "coordinate agents",
+        "swarm core"
       ],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
@@ -523,6 +537,7 @@
         "system",
         "web3"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -575,6 +590,7 @@
         "variance",
         "wins"
       ],
+      "problem_keywords": [],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
     },
@@ -627,6 +643,7 @@
         "webhook",
         "z0ne"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -675,6 +692,7 @@
         "update",
         "vault"
       ],
+      "problem_keywords": [],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
     },
@@ -725,6 +743,7 @@
         "vault",
         "z0ne"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -769,6 +788,7 @@
         "version",
         "without"
       ],
+      "problem_keywords": [],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
     },
@@ -817,6 +837,7 @@
         "vault",
         "zone"
       ],
+      "problem_keywords": [],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
     },
@@ -865,6 +886,7 @@
         "update",
         "whats"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -912,6 +934,7 @@
         "welshdog",
         "z0ne"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -960,6 +983,7 @@
         "welshdog",
         "z0ne"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -1009,6 +1033,7 @@
         "welshdog",
         "z0ne"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -1056,6 +1081,7 @@
         "welshdog",
         "z0ne"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -1108,6 +1134,7 @@
         "workflow",
         "z0ne"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -1150,6 +1177,7 @@
         "tooling",
         "version"
       ],
+      "problem_keywords": [],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
     },
@@ -1195,6 +1223,7 @@
         "type",
         "version"
       ],
+      "problem_keywords": [],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
     },
@@ -1240,6 +1269,7 @@
         "walk",
         "workflow"
       ],
+      "problem_keywords": [],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
     },
@@ -1285,6 +1315,13 @@
         "version",
         "walk",
         "without"
+      ],
+      "problem_keywords": [
+        "token sync",
+        "auth broken",
+        "env token",
+        "fix auth",
+        "token debug"
       ],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
@@ -1332,6 +1369,7 @@
         "tooling",
         "version"
       ],
+      "problem_keywords": [],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
     },
@@ -1377,6 +1415,7 @@
         "version",
         "where"
       ],
+      "problem_keywords": [],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
     },
@@ -1426,6 +1465,7 @@
         "welshdog",
         "write"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -1465,6 +1505,7 @@
         "version",
         "w3lshdog"
       ],
+      "problem_keywords": [],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
     },
@@ -1512,6 +1553,7 @@
         "worker",
         "workers"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -1541,12 +1583,14 @@
         "conductor",
         "decides",
         "decision",
+        "delegate",
         "dispatch",
         "framework",
         "hierarchy",
         "logic",
         "master",
         "matrix",
+        "orchestrate",
         "orchestration",
         "orchestrator",
         "pattern",
@@ -1560,8 +1604,16 @@
         "routing",
         "swarm",
         "task",
+        "tasks",
         "text",
         "version"
+      ],
+      "problem_keywords": [
+        "route tasks",
+        "dispatch",
+        "orchestrate",
+        "delegate to agents",
+        "orchestrator"
       ],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
@@ -1613,6 +1665,7 @@
         "type",
         "why"
       ],
+      "problem_keywords": [],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
     },
@@ -1642,12 +1695,14 @@
         "circuit",
         "context",
         "cost",
+        "debug",
         "failure",
         "fix",
         "guardian",
         "healer",
         "integration",
         "logging",
+        "logs",
         "metrics",
         "monitor",
         "observability",
@@ -1665,8 +1720,18 @@
         "structured",
         "these",
         "trace",
+        "tracing",
         "version",
         "watchdog"
+      ],
+      "problem_keywords": [
+        "logs",
+        "metrics",
+        "tracing",
+        "prometheus",
+        "debug agent",
+        "observability",
+        "structured logging"
       ],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
@@ -1693,6 +1758,7 @@
         "agents",
         "always",
         "breaker",
+        "breaks",
         "category",
         "chain",
         "circuit",
@@ -1716,6 +1782,15 @@
         "related",
         "steps",
         "version"
+      ],
+      "problem_keywords": [
+        "crash",
+        "fail gracefully",
+        "fallback",
+        "error recovery",
+        "graceful degradation",
+        "what to do when it breaks",
+        "fallback chain"
       ],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
@@ -1743,6 +1818,7 @@
         "api",
         "auth",
         "await",
+        "between",
         "confidence",
         "context",
         "create",
@@ -1761,13 +1837,22 @@
         "read",
         "redis",
         "schema",
+        "share",
         "shared",
         "slot",
         "source",
+        "state",
         "store",
         "structure",
         "update",
         "version"
+      ],
+      "problem_keywords": [
+        "shared memory",
+        "redis",
+        "context store",
+        "agents share state",
+        "memory between agents"
       ],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
@@ -1807,11 +1892,15 @@
         "frontend",
         "function",
         "interface",
+        "live",
         "name",
         "orchestration",
         "progress",
         "real",
+        "realtime",
         "schema",
+        "sent",
+        "server",
         "sse",
         "started",
         "streaming",
@@ -1820,7 +1909,15 @@
         "time",
         "timestamp",
         "trace",
-        "typescript"
+        "typescript",
+        "updates"
+      ],
+      "problem_keywords": [
+        "streaming",
+        "server sent events",
+        "sse",
+        "realtime updates",
+        "live agent events"
       ],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
@@ -1865,6 +1962,12 @@
         "tooling",
         "version",
         "way"
+      ],
+      "problem_keywords": [
+        "fastapi route",
+        "api standards",
+        "router registration",
+        "endpoint pattern"
       ],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
@@ -1913,6 +2016,7 @@
         "user",
         "yes"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -1935,16 +2039,20 @@
       ],
       "keywords": [
         "again",
+        "bad",
+        "before",
         "block",
         "broken",
         "category",
         "changed",
         "checklist",
+        "checks",
         "code",
         "coding",
         "commit",
         "dev",
         "files",
+        "gate",
         "gates",
         "never",
         "pre",
@@ -1955,6 +2063,13 @@
         "text",
         "tooling",
         "version"
+      ],
+      "problem_keywords": [
+        "pre commit",
+        "before commit",
+        "ci checks",
+        "block bad commit",
+        "commit gate"
       ],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
@@ -1977,13 +2092,18 @@
         "state-change-guard"
       ],
       "keywords": [
+        "acting",
         "agents",
         "approval",
         "approve",
+        "ask",
         "auth",
         "await",
+        "before",
         "change",
         "changes",
+        "confirm",
+        "consent",
         "content",
         "decision",
         "diff",
@@ -1993,7 +2113,9 @@
         "flow",
         "gate",
         "guard",
+        "human",
         "hypercode",
+        "loop",
         "new",
         "orchestration",
         "path",
@@ -2006,6 +2128,13 @@
         "update",
         "user",
         "yes"
+      ],
+      "problem_keywords": [
+        "approval",
+        "confirm before",
+        "human in the loop",
+        "ask before acting",
+        "consent gate"
       ],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
@@ -2056,6 +2185,7 @@
         "user",
         "version"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -2103,6 +2233,7 @@
         "tests",
         "tools"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -2156,6 +2287,7 @@
         "tools",
         "user"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -2185,6 +2317,7 @@
         "dev",
         "discoverable",
         "discovery",
+        "expose",
         "handler",
         "integration",
         "make",
@@ -2200,7 +2333,15 @@
         "text",
         "tool",
         "tooling",
+        "tools",
         "version"
+      ],
+      "problem_keywords": [
+        "mcp server",
+        "register tools",
+        "expose to claude",
+        "tool discovery",
+        "agent registration"
       ],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
@@ -2245,6 +2386,7 @@
         "tooling",
         "version"
       ],
+      "problem_keywords": [],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
     },
@@ -2294,6 +2436,7 @@
         "timeline",
         "total"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -2339,6 +2482,7 @@
         "way",
         "write"
       ],
+      "problem_keywords": [],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
     },
@@ -2361,10 +2505,12 @@
       ],
       "keywords": [
         "action",
+        "actions",
         "agents",
         "approval",
         "category",
         "contract",
+        "dangerous",
         "enforce",
         "every",
         "five",
@@ -2376,6 +2522,7 @@
         "must",
         "orchestration",
         "patterns",
+        "prevent",
         "protection",
         "related",
         "respect",
@@ -2388,6 +2535,13 @@
         "tier",
         "validation",
         "version"
+      ],
+      "problem_keywords": [
+        "guardrails",
+        "safety",
+        "hard stops",
+        "prevent dangerous actions",
+        "agent guardrails"
       ],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
@@ -2433,6 +2587,7 @@
         "version",
         "write"
       ],
+      "problem_keywords": [],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
     },
@@ -2482,6 +2637,7 @@
         "user",
         "yes"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -2530,6 +2686,7 @@
         "task",
         "user"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -2559,9 +2716,11 @@
         "discovery",
         "entries",
         "every",
+        "exist",
         "full",
         "hyperfocus",
         "inventory",
+        "list",
         "map",
         "orchestration",
         "orchestrator",
@@ -2579,6 +2738,12 @@
         "task",
         "tasks",
         "version"
+      ],
+      "problem_keywords": [
+        "agent roster",
+        "list of agents",
+        "which agents exist",
+        "agent inventory"
       ],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
@@ -2635,6 +2800,7 @@
         "version",
         "yaml"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -2680,6 +2846,7 @@
         "top",
         "version"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -2728,6 +2895,7 @@
         "verify",
         "version"
       ],
+      "problem_keywords": [],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
     },
@@ -2778,6 +2946,7 @@
         "update",
         "version"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -2822,6 +2991,7 @@
         "tooling",
         "version"
       ],
+      "problem_keywords": [],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
     },
@@ -2863,6 +3033,7 @@
         "trail",
         "version"
       ],
+      "problem_keywords": [],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
     },
@@ -2908,6 +3079,7 @@
         "tooling",
         "version"
       ],
+      "problem_keywords": [],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
     },
@@ -2958,6 +3130,7 @@
         "wiring",
         "yaml"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -2999,6 +3172,7 @@
         "must",
         "obey",
         "orchestration",
+        "policy",
         "related",
         "rules",
         "safety",
@@ -3007,6 +3181,12 @@
         "swarm",
         "tier",
         "version"
+      ],
+      "problem_keywords": [
+        "agent rules",
+        "laws of agents",
+        "compliance",
+        "agent policy"
       ],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
@@ -3055,6 +3235,7 @@
         "structure",
         "tools"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -3096,12 +3277,24 @@
         "orchestration",
         "protocol",
         "related",
+        "restart",
         "retire",
         "sequence",
         "state",
+        "states",
+        "stuck",
         "transitions",
         "version",
         "watchdog"
+      ],
+      "problem_keywords": [
+        "agent stuck",
+        "restart agent",
+        "agent states",
+        "boot sequence",
+        "retire agent",
+        "lifecycle",
+        "state machine"
       ],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
@@ -3149,6 +3342,7 @@
         "wake",
         "waking"
       ],
+      "problem_keywords": [],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
     },
@@ -3193,6 +3387,7 @@
         "trend",
         "version"
       ],
+      "problem_keywords": [],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
     },
@@ -3222,11 +3417,19 @@
         "category",
         "check",
         "circuit",
+        "crash",
+        "crashed",
+        "crashing",
+        "down",
+        "dying",
+        "failure",
         "feed",
         "guardian",
+        "heal",
         "healer",
         "healing",
         "health",
+        "keeps",
         "metrics",
         "monitor",
         "observable",
@@ -3234,15 +3437,31 @@
         "orchestration",
         "pattern",
         "protocol",
+        "recover",
         "recovery",
         "related",
+        "restart",
         "self",
         "sequence",
+        "service",
         "state",
         "text",
         "triggers",
+        "unhealthy",
         "version",
         "watchdog"
+      ],
+      "problem_keywords": [
+        "crash",
+        "crashed",
+        "keeps crashing",
+        "agent down",
+        "service unhealthy",
+        "auto recover",
+        "self heal",
+        "restart on failure",
+        "circuit breaker",
+        "keeps dying"
       ],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
@@ -3293,6 +3512,7 @@
         "tiers",
         "walls"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -3325,6 +3545,7 @@
         "health",
         "labels",
         "last",
+        "mandatory",
         "metrics",
         "name",
         "pattern",
@@ -3333,6 +3554,7 @@
         "prometheus",
         "reason",
         "reasons",
+        "required",
         "seconds",
         "signals",
         "startup",
@@ -3341,6 +3563,12 @@
         "total",
         "type",
         "uptime"
+      ],
+      "problem_keywords": [
+        "agent metrics",
+        "required metrics",
+        "prometheus contract",
+        "mandatory metrics"
       ],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
@@ -3386,6 +3614,7 @@
         "version",
         "walk"
       ],
+      "problem_keywords": [],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
     },
@@ -3433,6 +3662,7 @@
         "throttle",
         "uptime"
       ],
+      "problem_keywords": [],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
     },
@@ -3462,10 +3692,12 @@
         "check",
         "checklist",
         "claim",
+        "claims",
         "claude",
         "codebase",
         "coding",
         "dev",
+        "did",
         "output",
         "said",
         "state",
@@ -3473,10 +3705,18 @@
         "tooling",
         "true",
         "truth",
+        "validate",
         "validation",
         "verification",
         "verify",
-        "version"
+        "version",
+        "work"
+      ],
+      "problem_keywords": [
+        "verify claims",
+        "truth audit",
+        "did it actually work",
+        "validate ai output"
       ],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
@@ -3515,6 +3755,7 @@
         "duplication",
         "exists",
         "feature",
+        "grep",
         "pre",
         "prevention",
         "protocol",
@@ -3524,7 +3765,14 @@
         "vault",
         "version",
         "whats",
+        "write",
         "writing"
+      ],
+      "problem_keywords": [
+        "check before building",
+        "duplication",
+        "grep before write",
+        "already exists"
       ],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
@@ -3573,6 +3821,7 @@
         "version",
         "waste"
       ],
+      "problem_keywords": [],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
     },
@@ -3622,6 +3871,7 @@
         "truth",
         "user"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -3661,6 +3911,7 @@
         "version",
         "wikilink"
       ],
+      "problem_keywords": [],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
     },
@@ -3685,6 +3936,7 @@
       "keywords": [
         "across",
         "branch",
+        "branches",
         "category",
         "checklist",
         "coding",
@@ -3694,12 +3946,14 @@
         "git",
         "guide",
         "losing",
+        "merge",
         "mind",
         "multi",
         "parallel",
         "pattern",
         "pre",
         "push",
+        "rebase",
         "repo",
         "repos",
         "resolution",
@@ -3713,6 +3967,14 @@
         "work",
         "workflow",
         "working"
+      ],
+      "problem_keywords": [
+        "merge conflict",
+        "git workflow",
+        "branches",
+        "parallel work",
+        "rebase",
+        "git survival"
       ],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
@@ -3742,6 +4004,7 @@
         "command",
         "commands",
         "dev",
+        "distribute",
         "distribution",
         "forge",
         "hooks",
@@ -3755,6 +4018,7 @@
         "pattern",
         "plugin",
         "plugins",
+        "publish",
         "repo",
         "root",
         "server",
@@ -3762,6 +4026,12 @@
         "tooling",
         "vault",
         "version"
+      ],
+      "problem_keywords": [
+        "claude plugin",
+        "plugin marketplace",
+        "distribute skills",
+        "publish plugin"
       ],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
@@ -3794,6 +4064,7 @@
         "discovery",
         "don",
         "existing",
+        "expose",
         "index",
         "known",
         "markdown",
@@ -3812,6 +4083,12 @@
         "track",
         "well",
         "working"
+      ],
+      "problem_keywords": [
+        "mcp resources",
+        "expose skills as mcp",
+        "sep-2640",
+        "skills over mcp"
       ],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
@@ -3839,6 +4116,7 @@
         "artifacts",
         "coding",
         "dev",
+        "distribute",
         "distribution",
         "don",
         "exported",
@@ -3862,6 +4140,12 @@
         "tooling",
         "type",
         "versioned"
+      ],
+      "problem_keywords": [
+        "oci artifact",
+        "distribute skills",
+        "signed skills",
+        "registry publish"
       ],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
@@ -3892,9 +4176,13 @@
         "delegation",
         "depth",
         "every",
+        "forever",
         "guardrails",
         "hard",
+        "infinite",
         "level",
+        "limit",
+        "many",
         "max",
         "nested",
         "orchestration",
@@ -3903,13 +4191,27 @@
         "recursion",
         "recursive",
         "remaining",
+        "runaway",
         "spawn",
         "spawning",
+        "stop",
         "sub",
+        "subagents",
         "swarm",
         "task",
+        "too",
         "tree",
         "work"
+      ],
+      "problem_keywords": [
+        "agents spawning forever",
+        "infinite spawn",
+        "runaway subagents",
+        "recursion limit",
+        "depth limit",
+        "too many agents",
+        "stop spawning",
+        "bounded delegation"
       ],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
@@ -3960,6 +4262,7 @@
         "win",
         "write"
       ],
+      "problem_keywords": [],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
     },
@@ -4008,6 +4311,7 @@
         "tech",
         "technical"
       ],
+      "problem_keywords": [],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
     },
@@ -4057,6 +4361,7 @@
         "server",
         "veto"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -4086,6 +4391,7 @@
         "gap",
         "goal",
         "goalkeeper",
+        "goals",
         "human",
         "improvement",
         "improving",
@@ -4103,9 +4409,16 @@
         "rate",
         "registry",
         "self",
+        "track",
         "tracking",
         "trigger",
         "without"
+      ],
+      "problem_keywords": [
+        "track goals",
+        "kpi",
+        "self improving",
+        "autonomous improvement"
       ],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
@@ -4158,6 +4471,12 @@
         "time",
         "wiring"
       ],
+      "problem_keywords": [
+        "prometheus",
+        "grafana",
+        "metrics wiring",
+        "scrape metrics"
+      ],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -4184,6 +4503,7 @@
         "capabilities",
         "capability",
         "every",
+        "find",
         "get",
         "hardcode",
         "health",
@@ -4196,6 +4516,7 @@
         "pattern",
         "priority",
         "registry",
+        "right",
         "route",
         "routes",
         "routing",
@@ -4206,6 +4527,12 @@
         "task",
         "tasks",
         "yellow"
+      ],
+      "problem_keywords": [
+        "skill registry",
+        "route to capability",
+        "yellow pages",
+        "find the right agent"
       ],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
@@ -4257,6 +4584,7 @@
         "threshold",
         "update"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -4306,6 +4634,7 @@
         "winner",
         "workflow"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -4335,25 +4664,40 @@
         "before",
         "budget",
         "calls",
+        "cap",
         "container",
         "control",
         "cost",
         "costs",
         "enforcement",
+        "expensive",
         "limit",
         "llm",
         "monitoring",
+        "much",
         "optimisation",
         "orchestration",
         "pattern",
         "reduce",
         "self",
         "spend",
+        "spending",
         "swarm",
         "threshold",
         "throttle",
         "token",
+        "too",
         "tunes"
+      ],
+      "problem_keywords": [
+        "spending too much",
+        "llm cost",
+        "throttle",
+        "budget",
+        "expensive",
+        "token spend",
+        "cap cost",
+        "cost optimisation"
       ],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
@@ -4378,21 +4722,27 @@
       ],
       "keywords": [
         "actions",
+        "after",
         "agents",
         "alert",
         "auto",
         "channel",
         "check",
+        "crash",
         "discord",
+        "down",
         "every",
+        "failing",
         "guardian",
         "heal",
         "health",
         "http",
         "integration",
         "interval",
+        "keeps",
         "launch",
         "localhost",
+        "monitor",
         "monitoring",
         "orchestration",
         "pattern",
@@ -4402,6 +4752,15 @@
         "services",
         "start",
         "watchdog"
+      ],
+      "problem_keywords": [
+        "crash",
+        "monitor after launch",
+        "auto heal",
+        "watchdog",
+        "alert on down",
+        "keeps failing",
+        "post launch monitoring"
       ],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
@@ -4427,6 +4786,7 @@
       "keywords": [
         "brain",
         "briefing",
+        "broken",
         "coding",
         "debug",
         "dev",
@@ -4454,6 +4814,12 @@
         "vault",
         "webhook",
         "welshdog"
+      ],
+      "problem_keywords": [
+        "brain runbook",
+        "docker debug",
+        "github sync broken",
+        "brain infrastructure"
       ],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
@@ -4504,6 +4870,7 @@
         "variant",
         "variants"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -4556,6 +4923,7 @@
         "store",
         "time"
       ],
+      "problem_keywords": [],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
     },
@@ -4580,12 +4948,16 @@
       "keywords": [
         "agents",
         "async",
+        "auto",
         "await",
         "code",
         "consecutive",
         "counter",
+        "crash",
+        "crashed",
         "def",
         "dict",
+        "dying",
         "failure",
         "failures",
         "guardian",
@@ -4593,9 +4965,11 @@
         "healthy",
         "import",
         "interval",
+        "keeps",
         "launch",
         "logic",
         "loop",
+        "monitor",
         "name",
         "orchestration",
         "pattern",
@@ -4604,9 +4978,22 @@
         "self",
         "service",
         "services",
+        "stay",
         "str",
         "svc",
-        "watchdog"
+        "watchdog",
+        "won"
+      ],
+      "problem_keywords": [
+        "crash",
+        "crashed",
+        "restart crashed service",
+        "watchdog",
+        "monitor and restart",
+        "keeps dying",
+        "auto restart",
+        "won't stay up",
+        "service health loop"
       ],
       "pack": "Agent Builder Pack",
       "status": "ACTIVE"
@@ -4648,6 +5035,12 @@
         "tooling",
         "version"
       ],
+      "problem_keywords": [
+        "cli args",
+        "argparse",
+        "command line entrypoint",
+        "launch script"
+      ],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
     },
@@ -4685,12 +5078,21 @@
         "run",
         "runs",
         "sequence",
+        "startup",
         "system",
         "text",
         "tooling",
+        "validate",
         "validation",
         "var",
         "version"
+      ],
+      "problem_keywords": [
+        "boot checks",
+        "validate env",
+        "dependency check",
+        "startup validation",
+        "preflight"
       ],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
@@ -4717,11 +5119,13 @@
         "attempts",
         "backoff",
         "category",
+        "check",
         "coding",
         "dev",
         "exponential",
         "hammering",
         "health",
+        "healthy",
         "jitter",
         "max",
         "pattern",
@@ -4734,6 +5138,13 @@
         "tooling",
         "version",
         "wait"
+      ],
+      "problem_keywords": [
+        "wait for healthy",
+        "backoff",
+        "retry",
+        "health check wait",
+        "smart retry"
       ],
       "pack": "ND-Friendly Coding Pack",
       "status": "ACTIVE"
@@ -4765,6 +5176,7 @@
         "first",
         "hypercode",
         "hyperfocus",
+        "level",
         "lyndz",
         "master",
         "never",
@@ -4774,7 +5186,14 @@
         "session",
         "supabase",
         "system",
+        "top",
         "welshdog"
+      ],
+      "problem_keywords": [
+        "ecosystem rules",
+        "master constitution",
+        "top level rules",
+        "hyperfocus rules"
       ],
       "pack": null,
       "status": "rescued"
@@ -4816,6 +5235,12 @@
         "system",
         "these",
         "webhook"
+      ],
+      "problem_keywords": [
+        "v2.4 rules",
+        "sacred rules",
+        "hypercode rules",
+        "20 rules"
       ],
       "pack": null,
       "status": "rescued"
@@ -4859,6 +5284,10 @@
         "system",
         "vibe"
       ],
+      "problem_keywords": [
+        "course rules",
+        "course sacred rules"
+      ],
       "pack": null,
       "status": "rescued"
     },
@@ -4901,6 +5330,11 @@
         "tokens",
         "user"
       ],
+      "problem_keywords": [
+        "shop rules",
+        "broski shop rules",
+        "shop sacred rules"
+      ],
       "pack": null,
       "status": "rescued"
     },
@@ -4931,9 +5365,12 @@
         "github",
         "hypercode",
         "hyperfocus",
+        "matrix",
         "momentum",
         "must",
         "never",
+        "prime",
+        "protocol",
         "rules",
         "session",
         "student",
@@ -4942,6 +5379,12 @@
         "tool",
         "truth",
         "verification"
+      ],
+      "problem_keywords": [
+        "ai behaviour",
+        "tool matrix",
+        "which tool to use",
+        "protocol prime"
       ],
       "pack": null,
       "status": "rescued"
@@ -4966,6 +5409,7 @@
         "data",
         "docker",
         "grafana",
+        "grid",
         "hypercode",
         "internal",
         "map",
@@ -4979,9 +5423,18 @@
         "ports",
         "postgres",
         "prometheus",
+        "quick",
         "redis",
+        "ref",
         "reference",
         "system"
+      ],
+      "problem_keywords": [
+        "ports",
+        "networks",
+        "architecture quick ref",
+        "docker networks",
+        "grid"
       ],
       "pack": null,
       "status": "rescued"
@@ -5004,18 +5457,21 @@
         "architecture",
         "check",
         "checklist",
+        "close",
         "committed",
         "done",
         "end",
         "fetch",
         "file",
         "git",
+        "handoff",
         "handover",
         "hypercode",
         "hyperfocus",
         "next",
         "nothing",
         "parallel",
+        "protocol",
         "push",
         "run",
         "session",
@@ -5023,7 +5479,16 @@
         "until",
         "update",
         "verify",
-        "was"
+        "was",
+        "wrap"
+      ],
+      "problem_keywords": [
+        "session end",
+        "handover",
+        "wrap up",
+        "end of session",
+        "handoff",
+        "close protocol"
       ],
       "pack": null,
       "status": "rescued"
@@ -5055,16 +5520,25 @@
         "hypercode",
         "hyperlaunch",
         "launch",
+        "launcher",
         "pattern",
         "preflight",
         "python",
         "service",
+        "services",
         "stack",
         "stage",
+        "start",
         "system",
         "time",
         "timeout",
         "unified"
+      ],
+      "problem_keywords": [
+        "hyperlaunch",
+        "launch stack",
+        "start services",
+        "unified launcher"
       ],
       "pack": null,
       "status": "rescued"
@@ -5105,7 +5579,15 @@
         "services",
         "servicespec",
         "system",
-        "tier"
+        "tier",
+        "tiered",
+        "tiers"
+      ],
+      "problem_keywords": [
+        "service tiers",
+        "launch pattern",
+        "servicespec",
+        "tiered launch"
       ],
       "pack": null,
       "status": "rescued"
@@ -5135,7 +5617,10 @@
         "dnft",
         "ecosystem",
         "every",
+        "exist",
+        "full",
         "hypercode",
+        "inventory",
         "llm",
         "map",
         "mission",
@@ -5144,9 +5629,16 @@
         "plane",
         "python",
         "repo",
+        "services",
         "supabase",
         "system",
         "web3"
+      ],
+      "problem_keywords": [
+        "ecosystem inventory",
+        "what services exist",
+        "full map",
+        "cartographer"
       ],
       "pack": null,
       "status": "rescued"
@@ -5169,26 +5661,37 @@
         "actions",
         "architecture",
         "connector",
+        "connectors",
         "course",
         "deploy",
         "external",
         "hypercode",
         "integrations",
         "live",
+        "map",
         "mcp",
         "mode",
         "never",
         "off",
+        "party",
         "prod",
         "push",
         "sacred",
+        "services",
         "sign",
         "stripe",
         "supabase",
         "system",
         "test",
+        "third",
         "webhook",
         "without"
+      ],
+      "problem_keywords": [
+        "external integrations",
+        "third party services",
+        "integrations map",
+        "connectors"
       ],
       "pack": null,
       "status": "rescued"
@@ -5224,13 +5727,21 @@
         "live",
         "migration",
         "milestone",
+        "milestones",
         "next",
+        "progress",
         "reality",
         "session",
         "system",
         "task",
         "template",
+        "track",
         "tracker"
+      ],
+      "problem_keywords": [
+        "milestone tracker",
+        "track progress",
+        "milestones"
       ],
       "pack": null,
       "status": "rescued"
@@ -5264,15 +5775,25 @@
         "integration",
         "into",
         "llm",
+        "master",
         "metadata",
         "mint",
         "never",
         "nft",
         "pet",
+        "pets",
+        "plan",
         "relay",
         "stage",
         "wallet",
         "web3"
+      ],
+      "problem_keywords": [
+        "broskipets",
+        "pet integration",
+        "nft pets",
+        "pet master plan",
+        "--"
       ],
       "pack": null,
       "status": "rescued"
@@ -5303,6 +5824,7 @@
         "mint",
         "must",
         "nft",
+        "odds",
         "pet",
         "rarity",
         "rescued",
@@ -5315,6 +5837,13 @@
         "tiers",
         "web3",
         "weights"
+      ],
+      "problem_keywords": [
+        "pet rarity",
+        "roll formula",
+        "rarity odds",
+        "fate roll",
+        "--"
       ],
       "pack": null,
       "status": "rescued"
@@ -5336,6 +5865,7 @@
       "keywords": [
         "across",
         "action",
+        "actions",
         "award",
         "blockchain",
         "commit",
@@ -5352,11 +5882,20 @@
         "pet",
         "rebase",
         "repo",
+        "reward",
         "source",
+        "spark",
         "stable",
         "system",
         "trigger",
         "web3"
+      ],
+      "problem_keywords": [
+        "dev xp",
+        "xp trigger",
+        "reward dev actions",
+        "xp spark",
+        "--"
       ],
       "pack": null,
       "status": "rescued"
@@ -5381,6 +5920,7 @@
         "cache",
         "chain",
         "dnft",
+        "ledger",
         "never",
         "nft",
         "off",
@@ -5398,6 +5938,13 @@
         "truth",
         "wallet",
         "web3"
+      ],
+      "problem_keywords": [
+        "on chain portfolio",
+        "dnft",
+        "wallet",
+        "chain ledger",
+        "--"
       ],
       "pack": null,
       "status": "rescued"
@@ -5422,12 +5969,14 @@
         "beast",
         "blockchain",
         "build",
+        "codex",
         "config",
         "evolution",
         "focus",
         "guard",
         "heavy",
         "legendary",
+        "mapping",
         "nft",
         "path",
         "pet",
@@ -5440,6 +5989,12 @@
         "stats",
         "web3",
         "wolf"
+      ],
+      "problem_keywords": [
+        "pet species",
+        "power mapping",
+        "beast codex",
+        "--"
       ],
       "pack": null,
       "status": "rescued"
@@ -5468,12 +6023,14 @@
         "deployer",
         "edge",
         "foundry",
+        "genesis",
         "key",
         "mainnet",
         "metadata",
         "mint",
         "nft",
         "path",
+        "pet",
         "phase",
         "relay",
         "sepolia",
@@ -5481,7 +6038,14 @@
         "supabase",
         "testnet",
         "tokenuri",
-        "web3"
+        "web3",
+        "zero"
+      ],
+      "problem_keywords": [
+        "broskipets phase 0",
+        "genesis build prompt",
+        "pet phase zero",
+        "--"
       ],
       "pack": null,
       "status": "rescued"
@@ -5508,6 +6072,7 @@
         "dev",
         "edge",
         "evolution",
+        "hatch",
         "logged",
         "make",
         "metadata",
@@ -5523,6 +6088,12 @@
         "wallet",
         "web3",
         "xpfeed"
+      ],
+      "problem_keywords": [
+        "broskipets phase 1",
+        "hatch prompt",
+        "pet hatch",
+        "--"
       ],
       "pack": null,
       "status": "rescued"
@@ -5547,10 +6118,12 @@
         "coding",
         "compose",
         "container",
+        "containers",
         "core",
         "dashboard",
         "demand",
         "dev",
+        "docker",
         "files",
         "fleet",
         "hypercode",
@@ -5561,9 +6134,17 @@
         "profile",
         "project",
         "ps1",
+        "reference",
         "safety",
         "shepherd",
+        "stack",
         "tooling"
+      ],
+      "problem_keywords": [
+        "containers",
+        "docker stack",
+        "container reference",
+        "fleet"
       ],
       "pack": "ND-Friendly Coding Pack",
       "status": "rescued"
@@ -5595,17 +6176,26 @@
         "grafana",
         "internal",
         "loki",
+        "map",
         "minio",
         "net",
         "network",
         "port",
+        "ports",
         "postgres",
         "prometheus",
         "redis",
         "safety",
         "tempo",
         "tooling",
-        "true"
+        "true",
+        "warden"
+      ],
+      "problem_keywords": [
+        "ports",
+        "network map",
+        "port warden",
+        "which port"
       ],
       "pack": "ND-Friendly Coding Pack",
       "status": "rescued"
@@ -5632,6 +6222,7 @@
         "core",
         "course",
         "current",
+        "database",
         "dev",
         "events",
         "governance",
@@ -5641,13 +6232,20 @@
         "migration",
         "never",
         "new",
+        "reference",
         "revision",
         "schema",
         "table",
+        "tables",
         "tasks",
         "tooling",
         "verify",
         "version"
+      ],
+      "problem_keywords": [
+        "database schema",
+        "db tables",
+        "schema reference"
       ],
       "pack": "ND-Friendly Coding Pack",
       "status": "rescued"
@@ -5675,6 +6273,8 @@
         "before",
         "client",
         "coding",
+        "dependencies",
+        "deps",
         "dev",
         "fastapi",
         "http",
@@ -5682,6 +6282,7 @@
         "prometheus",
         "pytest",
         "python",
+        "quartermaster",
         "redis",
         "requirements",
         "reuse",
@@ -5690,6 +6291,12 @@
         "target",
         "tooling",
         "txt"
+      ],
+      "problem_keywords": [
+        "backend deps",
+        "dependencies",
+        "stack",
+        "quartermaster"
       ],
       "pack": "ND-Friendly Coding Pack",
       "status": "rescued"
@@ -5713,6 +6320,7 @@
         "always",
         "before",
         "build",
+        "cheat",
         "coding",
         "commands",
         "compose",
@@ -5726,11 +6334,20 @@
         "never",
         "npm",
         "ps1",
+        "quick",
+        "reference",
         "run",
+        "sheet",
         "stack",
         "svc",
         "tooling",
         "work"
+      ],
+      "problem_keywords": [
+        "dev commands",
+        "cheat sheet",
+        "commands",
+        "quick reference"
       ],
       "pack": "ND-Friendly Coding Pack",
       "status": "rescued"

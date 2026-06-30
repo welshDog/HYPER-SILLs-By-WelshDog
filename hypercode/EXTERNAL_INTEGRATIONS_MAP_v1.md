@@ -21,6 +21,11 @@ human gate). One map prevents the classic mistakes.
 
 Paste when wiring, debugging, or deploying anything that crosses a system
 boundary.
+problem_keywords:
+  - external integrations
+  - third party services
+  - integrations map
+  - connectors
 
 ---
 

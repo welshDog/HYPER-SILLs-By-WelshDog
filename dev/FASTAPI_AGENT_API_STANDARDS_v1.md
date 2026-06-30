@@ -20,6 +20,12 @@ related:
   - HS-019  # OBSERVABLE_AGENT_OPERATIONS
   - DS-008  # CORE_AGENT_METRICS_CONTRACT
 graph_notes: "FastAPI standards for all agent API routes — response schemas, router registration, error handling."
+problem_keywords:
+  - fastapi route
+  - api standards
+  - router registration
+  - endpoint pattern
+
 ---
 
 **Category:** `dev/`

@@ -1,4 +1,11 @@
 # HS-057 — 🥚 GENESIS PROMPT — BROskiPets Phase 0 Build Prompt
+---
+skill_id: HS-057
+problem_keywords:
+  - broskipets phase 0
+  - genesis build prompt
+  - pet phase zero
+---
 
 > Catalogued → **RESCUED** 2026-06-19. Source pattern: HyperCode-V2.4 /
 > BROskiPets. Category: `web3/`.

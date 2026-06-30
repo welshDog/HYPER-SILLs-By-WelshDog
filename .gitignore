@@ -6,4 +6,10 @@ __pycache__/
 .venv/
 output/
 dist/
-vector-store/
+
+# Ship the prebuilt dense index so the deployed MCP serves real embeddings
+# instead of rebuilding (and silently TF-IDF'ing) on boot — but never the
+# local backup snapshots.
+vector-store/*
+!vector-store/skill_index.json
+*.bak

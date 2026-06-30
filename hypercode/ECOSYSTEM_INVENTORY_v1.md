@@ -21,6 +21,11 @@ feature, or misses that something already exists.
 
 Paste at session start when work touches more than one repo, or when deciding
 *where* a feature belongs.
+problem_keywords:
+  - ecosystem inventory
+  - what services exist
+  - full map
+  - cartographer
 
 ---
 

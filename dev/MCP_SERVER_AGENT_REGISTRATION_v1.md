@@ -20,6 +20,13 @@ related:
   - HS-008  # BROSKI_ORCHESTRATOR_PATTERN
   - HS-007  # HYPERFOCUS_AGENT_SWARM_CORE
 graph_notes: "MCP server setup for making all swarm agents discoverable by Claude Code, Cursor, and Gemini CLI."
+problem_keywords:
+  - mcp server
+  - register tools
+  - expose to claude
+  - tool discovery
+  - agent registration
+
 ---
 
 **Category:** `dev/`

@@ -23,6 +23,7 @@ import re
 import sys
 from pathlib import Path
 
+import httpx
 from mcp.server.fastmcp import FastMCP
 from mcp.server.transport_security import TransportSecuritySettings
 from starlette.requests import Request
@@ -39,7 +40,7 @@ logging.getLogger("uvicorn.error").setLevel(logging.WARNING)
 logging.getLogger("httpx").setLevel(logging.WARNING)
 logger = logging.getLogger("hyper-sills")
 
-SERVER_VERSION = "1.1.1"
+SERVER_VERSION = "1.2.0"
 
 VAULT_ROOT = Path(__file__).parent
 REGISTRY_PATH = VAULT_ROOT / "skills-registry.json"
@@ -53,7 +54,8 @@ mcp = FastMCP(
     "hyper-sills",
     instructions=(
         "HYPER-SILLs — 120-skill AI vault with Graph-of-Skills. "
-        "Tools: search_skills, semantic_search, load_skill, get_skill_graph, recommend_for_task, list_skills_by_category. "
+        "Skill tools: search_skills, semantic_search, load_skill, get_skill_graph, recommend_for_task, list_skills_by_category. "
+        "Action tools: broski_agent (dispatch a task to the BROski orchestrator), brain_core_agent (query the Hyper Brain memory). "
         "Resources (SEP-2640 Skills-over-MCP): skills://index, skill://HS-NNN. "
         "Categories: agents (51), dev (39), hypercode (12), broski (7), web3 (7), youtube (4)."
     ),
@@ -502,6 +504,79 @@ def list_skills_by_category(category: str = "") -> str:
         "count":    len(skills),
         "skills":   skills,
     }, ensure_ascii=False, indent=2)
+
+
+# ── Action tools (folded in from the standalone hyper-mcp-server) ─────────────────────────────
+# The skill tools above return KNOWLEDGE. These two return ACTIONS — they proxy
+# to running HyperCode agents. Set the backend URLs to the agents' reachable
+# hosts; when unset/unreachable they fail soft with a clear message rather than
+# erroring the whole MCP session (Mercy ethos, HS-069). NOTE: the old standalone
+# server's third tool (hyper_skill_agent) is intentionally NOT folded in — it
+# duplicated load_skill, which already returns skill content by ID.
+BROSKI_AGENT_URL = os.environ.get("BROSKI_AGENT_URL", "").strip().rstrip("/")
+BRAIN_CORE_URL = os.environ.get("BRAIN_CORE_URL", "").strip().rstrip("/")
+
+
+def _agent_unconfigured(tool: str, env: str) -> str:
+    return json.dumps({
+        "ok": False,
+        "message": f"No stress — {tool} isn't wired up on this host yet. "
+                   f"Set {env} to the agent's URL to enable it.",
+        "next_step": f"Set env {env}=https://<your-agent-host> and redeploy.",
+    }, ensure_ascii=False, indent=2)
+
+
+async def _call_agent(tool: str, url: str, path: str, payload: dict, result_key: str) -> str:
+    try:
+        async with httpx.AsyncClient(timeout=15.0) as client:
+            resp = await client.post(f"{url}{path}", json=payload)
+            resp.raise_for_status()
+            data = resp.json()
+    except Exception as exc:  # noqa: BLE001 — fail soft, never break the MCP session
+        return json.dumps({
+            "ok": False,
+            "message": f"{tool} couldn't reach its backend: {exc}",
+            "next_step": f"Check the backend URL is reachable from this host.",
+        }, ensure_ascii=False, indent=2)
+    return json.dumps({
+        "ok": True,
+        "tool": tool,
+        "result": data.get(result_key, f"(no '{result_key}' field in response)"),
+    }, ensure_ascii=False, indent=2)
+
+
+@mcp.tool()
+async def broski_agent(task: str) -> str:
+    """Dispatch a task to the BROski orchestrator agent (tasks, Discord events, BROski$ rewards).
+
+    ACTION tool — runs work on the live BROski agent, unlike the skill tools which
+    return knowledge. Requires BROSKI_AGENT_URL to be set on this host.
+
+    Args:
+        task: natural-language task to dispatch, e.g. "award 50 BROski$ to user X"
+    """
+    if not task.strip():
+        return json.dumps({"ok": False, "message": "Describe the task to run."})
+    if not BROSKI_AGENT_URL:
+        return _agent_unconfigured("broski_agent", "BROSKI_AGENT_URL")
+    return await _call_agent("broski_agent", BROSKI_AGENT_URL, "/run", {"task": task}, "result")
+
+
+@mcp.tool()
+async def brain_core_agent(query: str) -> str:
+    """Query the Hyper Brain Core — memory, context, and second-brain lookups.
+
+    ACTION tool — asks the live Brain Core service, unlike the vault skill tools.
+    Requires BRAIN_CORE_URL to be set on this host.
+
+    Args:
+        query: what to look up, e.g. "what did we decide about Stripe live mode?"
+    """
+    if not query.strip():
+        return json.dumps({"ok": False, "message": "Describe what to look up."})
+    if not BRAIN_CORE_URL:
+        return _agent_unconfigured("brain_core_agent", "BRAIN_CORE_URL")
+    return await _call_agent("brain_core_agent", BRAIN_CORE_URL, "/query", {"query": query}, "answer")
 
 
 # ── Resources (Skills-over-MCP / SEP-2640 alignment) ──────────────────────────────────────────

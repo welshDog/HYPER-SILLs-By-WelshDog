@@ -2,6 +2,22 @@
 
 ---
 
+## [v3.3] — 2026-06-30 🤝 AGENT ACTION TOOLS FOLDED IN
+
+### ✨ Added — two action tools (server `1.1.1` → `1.2.0`)
+- **`broski_agent(task)`** — dispatches a task to the BROski orchestrator (`POST $BROSKI_AGENT_URL/run`).
+- **`brain_core_agent(query)`** — queries the Hyper Brain Core memory (`POST $BRAIN_CORE_URL/query`).
+- Both are **async, env-configurable, and fail-soft** (Mercy ethos / HS-069): when the backend URL
+  is unset or unreachable they return a clear `{ok:false, message, next_step}` instead of erroring
+  the MCP session. Verified: tool registry now lists 8 tools; fail-soft + happy-path (mock backend)
+  both proven; `--test` smoke green; plugin bundle rebuilt.
+- **Why:** TRAE free tier allows only 1 MCP server, and the vault already owns that slot. Folding the
+  standalone `hyper-mcp-server`'s action tools in here gives TRAE skills **and** agent-actions from one
+  endpoint. The standalone server's 3rd tool (`hyper_skill_agent`) was intentionally **not** folded —
+  it duplicated `load_skill`.
+- **Wiring:** set `BROSKI_AGENT_URL` / `BRAIN_CORE_URL` in the host env (Railway) to reachable agent
+  URLs to activate; until then the tools advertise themselves but report "not wired up".
+
 ## [v3.2] — 2026-06-28 🌐 LIVE ON THE INTERNET
 
 ### ✨ Added — Deployment & Bridge

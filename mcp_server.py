@@ -17,6 +17,7 @@ Backed by arXiv:2604.05333 — Graph-of-Skills yields +25.55% reward,
 """
 
 import json
+import logging
 import os
 import re
 import sys
@@ -27,7 +28,18 @@ from mcp.server.transport_security import TransportSecuritySettings
 from starlette.requests import Request
 from starlette.responses import JSONResponse
 
-SERVER_VERSION = "1.1.0"
+# ── Logging setup — fix Railway INFO-as-error noise ─────────────────────
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(levelname)s %(name)s %(message)s",
+    stream=sys.stdout,  # stdout = INFO severity in Railway, not error
+)
+logging.getLogger("uvicorn.access").setLevel(logging.WARNING)
+logging.getLogger("uvicorn.error").setLevel(logging.WARNING)
+logging.getLogger("httpx").setLevel(logging.WARNING)
+logger = logging.getLogger("hyper-sills")
+
+SERVER_VERSION = "1.1.1"
 
 VAULT_ROOT = Path(__file__).parent
 REGISTRY_PATH = VAULT_ROOT / "skills-registry.json"
@@ -47,7 +59,7 @@ mcp = FastMCP(
     ),
 )
 
-# ── Registry cache ────────────────────────────────────────────────────────────
+# ── Registry cache ───────────────────────────────────────────────────────────────────────────────
 
 _registry: dict | None = None
 _gos_index: dict | None = None  # skill_id → Path, for vault-only skills
@@ -117,7 +129,7 @@ def find_by_id(skill_id: str) -> dict | None:
         return None
 
 
-# ── GoS frontmatter parser ─────────────────────────────────────────────────────
+# ── GoS frontmatter parser ─────────────────────────────────────────────────────────────────────────
 
 def _parse_list_section(block: str, key: str) -> list[str]:
     """Pull a YAML list section by key name."""
@@ -190,7 +202,7 @@ def parse_gos(content: str) -> dict:
     }
 
 
-# ── Tools ──────────────────────────────────────────────────────────────────────
+# ── Tools ────────────────────────────────────────────────────────────────────────────────────
 
 @mcp.tool()
 def search_skills(
@@ -390,8 +402,6 @@ def recommend_for_task(task: str, limit: int = 5) -> str:
             "example": 'recommend_for_task("build a self-healing agent")',
         })
 
-    # Rank with the same semantic engine search uses — real cosine relevance,
-    # not flat keyword-overlap counts. Degrades to keyword scoring if unavailable.
     backend = "keyword"
     hits: list[dict] = []
     try:
@@ -439,7 +449,7 @@ def recommend_for_task(task: str, limit: int = 5) -> str:
                 "description":      s.get("description", ""),
                 "category":         s.get("category"),
                 "version":          s.get("version", ""),
-                "relevance_score":  round(hitcount / denom, 3),  # normalised 0..1, not flat ints
+                "relevance_score":  round(hitcount / denom, 3),
                 "tags":             s.get("tags", []),
                 "next_step":        f'load_skill("{s["id"]}")',
             }
@@ -494,11 +504,7 @@ def list_skills_by_category(category: str = "") -> str:
     }, ensure_ascii=False, indent=2)
 
 
-# ── Resources (Skills-over-MCP / SEP-2640 alignment) ───────────────────────────
-# The "Skills over MCP" working group (SEP-2640, Extensions Track) standardises
-# exposing skills via MCP *Resources* rather than bespoke tools. We add a
-# Resources surface alongside the existing tools so SEP-2640-aware hosts can
-# discover and read skills natively, while keeping the tools for back-compat.
+# ── Resources (Skills-over-MCP / SEP-2640 alignment) ──────────────────────────────────────────
 
 def _skill_uri(skill_id: str) -> str:
     return f"skill://{skill_id.upper()}"
@@ -534,16 +540,9 @@ def skill_resource(skill_id: str) -> str:
     return content
 
 
-# ── Health check ───────────────────────────────────────────────────────────────
-# The manifest.json declares `health_check: /health`. Served on the HTTP app
-# (streamable-http / sse). Lets Railway/Render and the Perplexity connector probe
-# liveness without speaking MCP.
+# ── Health check ──────────────────────────────────────────────────────────────────────────────────
 
 def _search_backend_report() -> dict:
-    """Cheap, honest backend probe (no model load): what does the cached index use,
-    and can the live query actually be embedded with the same engine? When the
-    query embedder is missing, dense search silently degrades to TF-IDF — surface
-    that here so 'why are my results fuzzy?' is answerable from /health alone."""
     import importlib.util
     report = {"index": "unknown", "query": "tfidf", "dense_active": False}
     try:
@@ -574,13 +573,11 @@ async def health(request: Request) -> JSONResponse:
             "categories": meta.get("categories", {}),
             "search_backend": _search_backend_report(),
         })
-    except Exception as exc:  # never let a probe crash the server
+    except Exception as exc:
         return JSONResponse({"status": "degraded", "error": str(exc)}, status_code=503)
 
 
-# ── Mercy messages (HS-069) ────────────────────────────────────────────────────
-# Apply the vault's own ND-first error ethos to the server: never blame, always
-# offer the next step.
+# ── Mercy messages (HS-069) ──────────────────────────────────────────────────────────────────────
 
 def _mercy_not_found(skill_id: str) -> str:
     near = []
@@ -600,7 +597,7 @@ def _mercy_not_found(skill_id: str) -> str:
     }, ensure_ascii=False, indent=2)
 
 
-# ── Smoke test ─────────────────────────────────────────────────────────────────
+# ── Smoke test ───────────────────────────────────────────────────────────────────────────────────
 
 def _smoke_test():
     print("HYPER-SILLs MCP Server — smoke test\n")
@@ -649,20 +646,15 @@ def _smoke_test():
     print("All tools + resources OK.")
 
 
-# ── Entry point ────────────────────────────────────────────────────────────────
+# ── Entry point ──────────────────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
     if "--test" in sys.argv:
         _smoke_test()
     elif "--http" in sys.argv or os.environ.get("PORT"):
-        # HTTP transport for remote hosts (Railway/Render) + the Perplexity MCP
-        # connector. Streamable-HTTP is the current standard (SSE is deprecated).
         mcp.settings.host = os.environ.get("HOST", "0.0.0.0")
         mcp.settings.port = int(os.environ.get("PORT", "8000"))
 
-        # DNS-rebinding protection rejects any Host header not in allowed_hosts
-        # (default: localhost only) -> "Invalid Host header" / 421 behind a proxy.
-        # Allow this deployment's public host so MCP clients (e.g. Perplexity) connect.
         if os.environ.get("MCP_DISABLE_HOST_CHECK"):
             mcp.settings.transport_security = TransportSecuritySettings(
                 enable_dns_rebinding_protection=False,
@@ -670,13 +662,11 @@ if __name__ == "__main__":
         else:
             hosts = ["localhost", "localhost:*", "127.0.0.1", "127.0.0.1:*"]
             origins: list[str] = []
-            # Railway / Render inject the public hostname automatically.
             domain = (os.environ.get("RAILWAY_PUBLIC_DOMAIN")
                       or os.environ.get("RENDER_EXTERNAL_HOSTNAME") or "").strip()
             if domain:
                 hosts += [domain, f"{domain}:*"]
                 origins += [f"https://{domain}", f"http://{domain}"]
-            # Manual overrides (comma-separated) for any other public host/origin.
             hosts += [h.strip() for h in os.environ.get("MCP_ALLOWED_HOSTS", "").split(",") if h.strip()]
             origins += [o.strip() for o in os.environ.get("MCP_ALLOWED_ORIGINS", "").split(",") if o.strip()]
             mcp.settings.transport_security = TransportSecuritySettings(
@@ -686,12 +676,9 @@ if __name__ == "__main__":
             )
 
         transport = "sse" if "--sse" in sys.argv else "streamable-http"
-        _ts = mcp.settings.transport_security
-        print(
-            f"HYPER-SILLs MCP serving {len(skills_list())} skills over {transport} "
-            f"on {mcp.settings.host}:{mcp.settings.port} (health: /health, "
-            f"allowed_hosts: {_ts.allowed_hosts or 'ALL — host check disabled'})",
-            file=sys.stderr,
+        logger.info(
+            "HYPER-SILLs MCP serving %d skills over %s on %s:%s (health: /health)",
+            len(skills_list()), transport, mcp.settings.host, mcp.settings.port
         )
         mcp.run(transport=transport)
     else:

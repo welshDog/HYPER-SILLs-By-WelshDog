@@ -1,15 +1,17 @@
 ---
 name: "hyper-skills-mega-vault"
-description: "The complete neurodivergent-first AI prompt vault by welshDog. 72 hero-named skills across agents, dev, broski, and youtube categories. Covers agent orchestration, ND-friendly coding, YouTube strategy, and the full BROski ecosystem. Use for any HyperFocus Zone task, agent build, sprint planning, or ND-friendly dev workflow. Every skill is a hero — power baked into the title."
-version: "v1.0"
+description: "The complete neurodivergent-first AI prompt vault by welshDog. 120 hero-named skills across agents, dev, broski, web3, hypercode, and youtube categories. Covers agent orchestration, ND-friendly coding, YouTube strategy, and the full BROski ecosystem. Use for any HyperFocus Zone task, agent build, sprint planning, or ND-friendly dev workflow. Every skill is a hero — power baked into the title."
+version: "v1.1"
 author: "welshDog"
-last_updated: "2026-05-28"
-total_skills: 72
+last_updated: "2026-07-03"
+total_skills: 120
 categories:
-  - agents: 39
-  - dev: 27
-  - broski: 5
-  - youtube: 1
+  - agents: 51
+  - dev: 39
+  - broski: 7
+  - youtube: 4
+  - web3: 7
+  - hypercode: 12
 packs:
   - "YouTube Growth Pack"
   - "Agent Builder Pack"
@@ -18,10 +20,12 @@ packs:
 repo: "github.com/welshDog/HYPER-SILLs-By-WelshDog"
 ---
 
-# 🧠⚡ HYPER-SKILLs MEGA VAULT — All 72 Rescued Skills
+# 🧠⚡ HYPER-SKILLs MEGA VAULT — All 120 Rescued Skills
 
 > *"Skills aren't just prompts — they're superpowers you can call on demand."*
 > Built by welshDog 🐕 Llanelli, Wales 🏴󠁧󠁢󠁷󠁬󠁳󠁧 — Stop apologising for your brain. Start building.
+
+> ⚠️ **Count note (2026-07-03):** the vault now holds **120 rescued skills** on disk (agents 51 · dev 39 · broski 7 · youtube 4 · web3 7 · hypercode 12). The tables below are the classic 72-skill hero roster from May 2026 — for the canonical full list see [`vault-index.md`](vault-index.md) and `skills-registry.json`.
 
 ---
 

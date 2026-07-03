@@ -9,6 +9,7 @@ Master tracking list for every skill in the vault.
 > Last Hunt: 20 May 2026 — 86 repos scanned 🐕💨
 > Last Updated: 21 May 2026 — **FULL HERO REBRAND COMPLETE** 🦸✨ · all **72 rescued skills** now carry Marvel-style hero names · 37 catalogued
 > 2026-06-08 — **GoS RETROFIT COMPLETE** — 36 agents/ + 7 broski/ + 2 agents/ missed files + 4 dev/ new entries. Full Graph-of-Skills frontmatter now on all 90 vault files. 84 total in registry.
+> 2026-07-03 — **COUNT RECONCILE** — the 72/84/90 figures in the dated lines above are historical snapshots. Live truth: **120 rescued skills on disk** (agents 51 · dev 39 · broski 7 · youtube 4 · web3 7 · hypercode 12) — see the RESCUED table below + `skills-registry.json` `_meta`. SKILL.md totals synced to match.
 > *Every skill is a hero. Header convention standardised across the whole vault: `# HS-### — 🎯 HERO NAME — Descriptive Title`. The 25 legacy `Hyper Skill:` headers were migrated to match.*
 
 ---

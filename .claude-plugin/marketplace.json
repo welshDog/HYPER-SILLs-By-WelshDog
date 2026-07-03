@@ -4,13 +4,13 @@
     "name": "welshDog",
     "url": "https://github.com/welshDog"
   },
-  "version": "1.0.0",
-  "description": "HYPER-SILLs — the neurodivergent-first AI skill vault. 89 hero-named skills across agents, dev, broski, and youtube, wired with Graph-of-Skills dependency retrieval and an MCP server. Stop apologising for your brain. Start building.",
+  "version": "1.1.0",
+  "description": "HYPER-SILLs — the neurodivergent-first AI skill vault. 120 hero-named skills across agents, dev, broski, hypercode, web3, and youtube, wired with Graph-of-Skills dependency retrieval and an MCP server. Stop apologising for your brain. Start building.",
   "plugins": [
     {
       "name": "hyper-sills-vault",
       "source": "./plugins/hyper-sills-vault",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "description": "Install the full HYPER-SILLs vault: an MCP server (search/load/recommend skills + Graph-of-Skills dependency graph) plus slash commands to find and load skills by problem, not ID.",
       "author": {
         "name": "welshDog",

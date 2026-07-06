@@ -8,7 +8,7 @@ version: v1.0.0
 status: ACTIVE
 category: dev
 depends_on:
-  - HS-081  # PORTAL FORGE — MCP Server + Agent Registration (upstream pattern)
+  - DS-020  # PORTAL FORGE (MCP SERVER AGENT REGISTRATION) — upstream MCP pattern
   - HS-129  # SKILLS-OVER-MCP — Expose Skills as MCP Resources
 provides:
   - docker-mcp-toolkit-setup
@@ -19,7 +19,6 @@ provides:
 related:
   - HS-136  # AGENT SCRIBE — Docker Agent YAML Pattern (sibling skill)
   - HS-060  # FLEET ADMIRAL — Container Stack Reference
-  - HS-037  # GRID MASTER — Architecture Quick Ref
   - HS-080  # THE TOOL BELT — Universal Agent Tools API
 graph_notes: "Concrete Docker MCP Toolkit implementation for HyperFocus Z0ne. Replaces per-client MCP config hell with one profile, one gateway, all clients. Direct upgrade path from HS-081 PORTAL FORGE."
 problem_keywords:

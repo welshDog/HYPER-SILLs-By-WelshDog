@@ -10,7 +10,7 @@ category: dev
 depends_on:
   - HS-028  # SDK PRIMER — HyperAgent SDK Agents README (interface standard)
   - HS-079  # THE CREW CHARTER — Specialist Agent Role Definitions
-  - HS-089  # THE GRAND ROSTER — 22 Hyper Agents
+  - HS-009  # HYPER AGENT ROSTER — 22 Hyper Agents
 provides:
   - docker-agent-yaml-pattern
   - multi-agent-hierarchy-config
@@ -22,7 +22,7 @@ related:
   - HS-008  # THE CONDUCTOR — BROski Orchestrator Pattern
   - HS-067  # THE THRONE LADDER — Agent Role Hierarchy
   - HS-060  # FLEET ADMIRAL — Container Stack Reference
-  - HS-098  # THE SACRED SIX — 6 Laws of Agents
+  - HS-002  # SIX LAWS OF AGENTS — the 6 laws every agent obeys
 graph_notes: "Maps the HyperFocus Z0ne agent roster + HYPER-SILLs skill interface standard onto Docker Agent YAML. Config-not-code pattern: declare agents in YAML, swap model per profile, wire MCP tools, share via OCI registry."
 problem_keywords:
   - docker agent yaml

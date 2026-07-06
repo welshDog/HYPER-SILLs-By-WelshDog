@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 HYPER-SILLs MCP Server
-Exposes the 120-skill vault via Model Context Protocol.
+Exposes the HYPER-SILLs skill vault via Model Context Protocol.
 Works with Claude Code, Cursor, Gemini CLI, Copilot, and any MCP-compatible IDE,
 plus remote hosts (Railway/Render) and the Perplexity MCP connector over HTTP.
 
@@ -50,14 +50,33 @@ REGISTRY_PATH = VAULT_ROOT / "skills-registry.json"
 # github install (where only the plugin dir is cached). Repo runs fine without it.
 BUNDLE_PATH = VAULT_ROOT / "skills-bundle.json"
 
+
+def _meta_summary() -> tuple[int, str]:
+    """Read total + per-category counts from the bundle/registry `_meta` so the
+    server instructions never go stale when skills are added (counts drift is a
+    recurring papercut — keep this single source of truth)."""
+    order = ["agents", "dev", "hypercode", "broski", "web3", "youtube"]
+    for p in (BUNDLE_PATH, REGISTRY_PATH):
+        try:
+            meta = json.loads(p.read_text(encoding="utf-8"))["_meta"]
+            cats = meta.get("categories", {})
+            cat_str = ", ".join(f"{c} ({cats[c]})" for c in order if c in cats)
+            return int(meta.get("total_skills", 0)), cat_str
+        except Exception:
+            continue
+    return 0, ""
+
+
+_TOTAL_SKILLS, _CATEGORY_SUMMARY = _meta_summary()
+
 mcp = FastMCP(
     "hyper-sills",
     instructions=(
-        "HYPER-SILLs — 120-skill AI vault with Graph-of-Skills. "
+        f"HYPER-SILLs — {_TOTAL_SKILLS}-skill AI vault with Graph-of-Skills. "
         "Skill tools: search_skills, semantic_search, load_skill, get_skill_graph, recommend_for_task, list_skills_by_category. "
         "Action tools: broski_agent (dispatch a task to the BROski orchestrator), brain_core_agent (query the Hyper Brain memory). "
         "Resources (SEP-2640 Skills-over-MCP): skills://index, skill://HS-NNN. "
-        "Categories: agents (51), dev (39), hypercode (12), broski (7), web3 (7), youtube (4)."
+        f"Categories: {_CATEGORY_SUMMARY}."
     ),
 )
 

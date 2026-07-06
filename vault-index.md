@@ -14,7 +14,7 @@ Master tracking list for every skill in the vault.
 
 ---
 
-## ✅ RESCUED SKILLS (file present on disk, 120 total)
+## ✅ RESCUED SKILLS (file present on disk, 122 total)
 
 | ID | Skill Name | File | Source Repo | Category |
 |---|---|---|---|---|
@@ -96,6 +96,8 @@ Master tracking list for every skill in the vault.
 | HS-128 | 🏗️ **PLUGIN FORGE** — Build & Publish a Claude Code Plugin Marketplace | [`dev/PLUGIN_FORGE_v1.md`](dev/PLUGIN_FORGE_v1.md) | Born-here — Claude Code plugin marketplaces 2026 | `dev/` |
 | HS-129 | 🌐 **SKILLS-OVER-MCP** — Expose Skills as MCP Resources (SEP-2640) | [`dev/SKILLS_OVER_MCP_v1.md`](dev/SKILLS_OVER_MCP_v1.md) | Born-here — Skills-over-MCP WG / SEP-2640 | `dev/` |
 | HS-130 | 🚢 **OCI SKILL SHIP** — Distribute Skills as OCI Artifacts | [`dev/OCI_SKILL_SHIP_v1.md`](dev/OCI_SKILL_SHIP_v1.md) | Born-here — skills-oci / Agent-Skills-as-OCI 2026 | `dev/` |
+| HS-135 | 🐳 **GATEWAY SOVEREIGN** — Docker MCP Toolkit Profile + Claude Code Wiring | [`dev/GATEWAY_SOVEREIGN_v1.md`](dev/GATEWAY_SOVEREIGN_v1.md) | Born-here — Docker MCP Toolkit 2026 | `dev/` |
+| HS-136 | 📜 **AGENT SCRIBE** — Docker Agent YAML Declaration Pattern | [`dev/AGENT_SCRIBE_v1.md`](dev/AGENT_SCRIBE_v1.md) | Born-here — Docker Agent config-not-code 2026 | `dev/` |
 | HS-131 | 🪆 **THE NESTED SWARM** — Sub-Agents That Spawn Sub-Agents (Bounded Depth) | [`agents/NESTED_SWARM_v1.md`](agents/NESTED_SWARM_v1.md) | Born-here — subagents spawn subagents, 5 levels 2026 | `agents/` |
 
 | HS-034 | 🎯 **BEAT ARCHITECT** — 7-Beat Module Teaching Structure | [](broski/SEVEN_BEAT_MODULE_STRUCTURE_v1.md) | Original | `broski/` |

@@ -1,15 +1,15 @@
 {
   "name": "hyper-sills-mcp",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "display_name": "HYPER-SILLs Skills Brain",
-  "description": "120-skill AI vault exposed over MCP via Graph-of-Skills architecture. Exposes search, semantic search, skill loading, dependency graphs, task recommendations, and category browsing. Powers all agents in the Hyperfocus Zone ecosystem with shared skill intelligence.",
+  "description": "122-skill AI vault exposed over MCP via Graph-of-Skills architecture. Exposes search, semantic search, skill loading, dependency graphs, task recommendations, and category browsing. Powers all agents in the Hyperfocus Zone ecosystem with shared skill intelligence.",
   "author": "welshDog",
   "runtime": "python",
   "entrypoint": "mcp_server.py",
   "tools": [
     {
       "name": "search_skills",
-      "description": "Search the 120-skill vault by keyword, category (agents/dev/hypercode/broski/web3/youtube), or tag. Returns matching skills with ID, hero name, description, and file path.",
+      "description": "Search the 122-skill vault by keyword, category (agents/dev/hypercode/broski/web3/youtube), or tag. Returns matching skills with ID, hero name, description, and file path.",
       "input_schema": {
         "type": "object",
         "properties": {

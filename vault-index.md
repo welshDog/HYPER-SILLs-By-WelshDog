@@ -10,11 +10,12 @@ Master tracking list for every skill in the vault.
 > Last Updated: 21 May 2026 — **FULL HERO REBRAND COMPLETE** 🦸✨ · all **72 rescued skills** now carry Marvel-style hero names · 37 catalogued
 > 2026-06-08 — **GoS RETROFIT COMPLETE** — 36 agents/ + 7 broski/ + 2 agents/ missed files + 4 dev/ new entries. Full Graph-of-Skills frontmatter now on all 90 vault files. 84 total in registry.
 > 2026-07-03 — **COUNT RECONCILE** — the 72/84/90 figures in the dated lines above are historical snapshots. Live truth: **120 rescued skills on disk** (agents 51 · dev 39 · broski 7 · youtube 4 · web3 7 · hypercode 12) — see the RESCUED table below + `skills-registry.json` `_meta`. SKILL.md totals synced to match.
+> > 2026-07-07 — **HS-137 DOCKER SOVEREIGN** added — `dev/DOCKER_2026_BEST_PRACTICES_v1.md` — Docker 2026 Best Practices (multi-stage BuildKit, non-root, healthcheck, Alpine). **123 total on disk** (agents 51 · dev 42 · broski 7 · youtube 4 · web3 7 · hypercode 12).
 > *Every skill is a hero. Header convention standardised across the whole vault: `# HS-### — 🎯 HERO NAME — Descriptive Title`. The 25 legacy `Hyper Skill:` headers were migrated to match.*
 
 ---
 
-## ✅ RESCUED SKILLS (file present on disk, 122 total)
+## ✅ RESCUED SKILLS (file present on disk, 123 total)
 
 | ID | Skill Name | File | Source Repo | Category |
 |---|---|---|---|---|
@@ -410,13 +411,13 @@ The vault-index previously implied 9+ specialist Bibles were rich raid targets. 
 
 > ⚠️ **Historical snapshot (pre-2026-06-28).** The per-category lists + "Catalogued" column
 > below are out of date — everything catalogued has since been rescued and registered.
-> **Authoritative current counts: 120 skills / 6 categories** — agents 51, dev 39, hypercode 12,
+> **Authoritative current counts: 123 skills / 6 categories** — agents 51, dev 42, hypercode 12,12,12,categories** — agents 51, dev 42, hypercode 12,12,
 > broski 7, web3 7, youtube 4 (see the RESCUED table above + `skills-registry.json` `_meta`).
 
 | Category | Rescued | Catalogued (no file yet) |
 |---|---|---|
 | `agents/` | HS-006 · HS-007 · HS-008 · HS-009 · HS-011 · HS-013 · HS-016 · HS-017 · HS-018 · HS-019 · HS-020 · HS-021 · HS-028 · HS-067 · HS-068 · HS-070 · HS-071 · HS-072 · HS-073 · HS-075 · HS-077 · HS-078 · HS-079 · HS-080 · HS-083 · HS-085 · HS-087 · HS-088 · HS-089 · HS-090 · HS-091 · HS-093 · HS-097 · HS-098 · HS-099 · HS-100 · HS-103 · HS-104 · HS-111 → **39 skills** | HS-038 · HS-040 · HS-041 · HS-042 · HS-043 · HS-044 · HS-045 · HS-050 |
-| `dev/` | HS-014 · HS-022 · HS-023 · HS-024 · HS-025 · HS-026 · HS-027 · HS-029 · HS-074 · HS-076 · HS-081 · HS-082 · HS-084 · HS-086 · HS-092 · HS-094 · HS-095 · HS-096 · HS-101 · HS-102 · HS-105 · HS-106 · HS-108 · HS-109 · HS-110 · HS-112 · HS-113 → **27 skills** | HS-048 · HS-049 · HS-051 · HS-060 · HS-061 · HS-062 · HS-063 · HS-064 |
+| `dev/` | HS-014 · HS-022 · HS-023 · HS-024 · HS-025 · HS-026 · HS-027 · HS-029 · HS-074 · HS-076 · HS-081 · HS-082 · HS-084 · HS-086 · HS-092 · HS-094 · HS-095 · HS-096 · HS-101 · HS-102 · HS-105 · HS-106 · HS-108 · HS-109 · HS-110 · HS-112 · HS-113 → **27 skills** | HS-048 · HS-049 · HS-051 · HS-060 · HS-061 · HS-062 · HS-063  · HS-135 · HS-136 · HS-137 → **30 skills** | HS-048 · HS-049 · HS-051 · HS-060 · HS-061 · HS-062 · HS-063 · HS-064 |
 | `broski/` | HS-010 · HS-012 · HS-015 · HS-069 · HS-107 → **5 skills** | HS-034 · HS-036 |
 | `youtube/` | HS-001 → **1 skill** | — |
 | `hypercode/` | HS-030 · HS-031 · HS-032 · HS-033 · HS-035 · HS-037 · HS-039 · HS-046 · HS-047 · **HS-059 · HS-065 · HS-066** → **12 skills** | — (all reconciled 2026-06-19) |

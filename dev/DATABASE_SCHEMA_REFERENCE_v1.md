@@ -1,5 +1,25 @@
 # HS-062 — 🗄️ THE SCHEMA SCRIBE — Database Schema Reference
 
+---
+skill_id: HS-062
+hero_name: "THE SCHEMA SCRIBE"
+emoji: "🗄️"
+version: v1.0.0
+status: ACTIVE
+category: dev
+depends_on:
+  - none  # foundational reference map — no upstream skill required
+provides:
+  - postgres-table-inventory
+  - alembic-migration-discipline
+  - shared-version-table-safety
+related:
+  - HS-060  # FLEET ADMIRAL — Container Stack Reference (sibling reference map)
+  - HS-061  # PORT WARDEN — Port + Network Map (sibling reference map)
+  - HS-063  # THE QUARTERMASTER — Backend Deps Stack (sibling reference map)
+graph_notes: "Core hypercode Postgres table inventory + Alembic discipline. Foundational reference so migrations don't collide or re-stamp the shared version table."
+---
+
 **Category:** dev
 **Version:** 1.0
 

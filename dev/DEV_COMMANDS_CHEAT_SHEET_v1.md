@@ -1,5 +1,25 @@
 # HS-064 — ⚡ THE QUICK HAND — Dev Commands Cheat Sheet
 
+---
+skill_id: HS-064
+hero_name: "THE QUICK HAND"
+emoji: "⚡"
+version: v1.0.0
+status: ACTIVE
+category: dev
+depends_on:
+  - none  # foundational reference map — no upstream skill required
+provides:
+  - dev-command-reference
+  - verified-working-commands
+  - footgun-flags
+related:
+  - HS-060  # FLEET ADMIRAL — Container Stack Reference (sibling reference map)
+  - HS-061  # PORT WARDEN — Port + Network Map (sibling reference map)
+  - HS-063  # THE QUARTERMASTER — Backend Deps Stack (sibling reference map)
+graph_notes: "Canonical command set for HyperCode V2.4 + Course dev loops — the commands that actually work, with footguns flagged. Foundational reference so an AI copies instead of guessing."
+---
+
 **Category:** dev
 **Version:** 1.0
 

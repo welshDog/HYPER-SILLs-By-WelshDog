@@ -1,5 +1,25 @@
 # HS-063 — 📦 THE QUARTERMASTER — Backend Deps Stack
 
+---
+skill_id: HS-063
+hero_name: "THE QUARTERMASTER"
+emoji: "📦"
+version: v1.0.0
+status: ACTIVE
+category: dev
+depends_on:
+  - none  # foundational reference map — no upstream skill required
+provides:
+  - backend-dependency-map
+  - reuse-before-adding-discipline
+  - requirements-inventory
+related:
+  - HS-062  # SCHEMA SCRIBE — Database Schema Reference (sibling reference map)
+  - HS-064  # THE QUICK HAND — Dev Commands Cheat Sheet (sibling reference map)
+  - HS-060  # FLEET ADMIRAL — Container Stack Reference (sibling reference map)
+graph_notes: "Map of the core backend's ~316-pin dependency stack grouped by purpose. Foundational reference so an AI reuses what's installed instead of bloating requirements.txt."
+---
+
 **Category:** dev
 **Version:** 1.0
 

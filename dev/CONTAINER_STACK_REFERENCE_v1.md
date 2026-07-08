@@ -1,5 +1,25 @@
 # HS-060 — 🐳 FLEET ADMIRAL — Container Stack Reference
 
+---
+skill_id: HS-060
+hero_name: "FLEET ADMIRAL"
+emoji: "🐳"
+version: v1.0.0
+status: ACTIVE
+category: dev
+depends_on:
+  - none  # foundational reference map — no upstream skill required
+provides:
+  - container-fleet-map
+  - compose-profile-reference
+  - daemon-vs-ondemand-classification
+related:
+  - HS-061  # PORT WARDEN — Port + Network Map (sibling reference map)
+  - HS-062  # SCHEMA SCRIBE — Database Schema Reference (sibling reference map)
+  - HS-135  # GATEWAY SOVEREIGN — Docker MCP Toolkit (consumes this fleet map)
+graph_notes: "Canonical HyperCode V2.4 container inventory grouped by compose profile. Foundational reference the Docker/ops skills lean on to know what's a daemon vs an on-demand one-off."
+---
+
 **Category:** dev
 **Version:** 1.0
 

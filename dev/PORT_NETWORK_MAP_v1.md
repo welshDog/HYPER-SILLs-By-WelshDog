@@ -1,5 +1,25 @@
 # HS-061 — 🔌 THE PORT WARDEN — Port + Network Map
 
+---
+skill_id: HS-061
+hero_name: "THE PORT WARDEN"
+emoji: "🔌"
+version: v1.0.0
+status: ACTIVE
+category: dev
+depends_on:
+  - none  # foundational reference map — no upstream skill required
+provides:
+  - host-port-map
+  - docker-network-map
+  - service-to-service-wiring-reference
+related:
+  - HS-060  # FLEET ADMIRAL — Container Stack Reference (sibling reference map)
+  - HS-062  # SCHEMA SCRIBE — Database Schema Reference (sibling reference map)
+  - HS-064  # THE QUICK HAND — Dev Commands Cheat Sheet (sibling reference map)
+graph_notes: "Canonical host-port + Docker-network map for HyperCode V2.4 (all bound to 127.0.0.1). Foundational reference so AIs wire service-to-service calls without guessing or colliding."
+---
+
 **Category:** dev
 **Version:** 1.0
 

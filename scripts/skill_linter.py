@@ -383,7 +383,10 @@ def lint_file(filepath: Path, known_ids: set[str]) -> dict:
     else:
         result = lint_legacy_file(content, lines, known_ids, skill_id)
 
-    if not re.match(r"^[A-Z0-9_]+v\d+\.md$", filepath.name):
+    # 'SKILL.md' is the canonical entrypoint for a packaged Claude Agent Skill
+    # (a NAME_vN/ directory with SKILL.md + scripts/), so it's exempt from the
+    # flat NAME_v1.md filename convention — its version lives on the folder.
+    if filepath.name != "SKILL.md" and not re.match(r"^[A-Z0-9_]+v\d+\.md$", filepath.name):
         result["warnings"].append(
             f"File name '{filepath.name}' doesn't match pattern NAME_v1.md"
         )

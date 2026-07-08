@@ -1,7 +1,7 @@
 {
   "name": "hyper-sills-vault",
-  "version": "1.1.1",
-  "description": "The neurodivergent-first AI skill vault — 122 hero-named skills with Graph-of-Skills retrieval, exposed via MCP plus find/load/recommend slash commands.",
+  "version": "1.1.2",
+  "description": "The neurodivergent-first AI skill vault — 123 hero-named skills with Graph-of-Skills retrieval, exposed via MCP plus find/load/recommend slash commands.",
   "author": {
     "name": "welshDog",
     "url": "https://github.com/welshDog"

@@ -2,7 +2,7 @@
   "_meta": {
     "name": "HYPER-SKILLs Registry",
     "repo": "welshDog/HYPER-SILLs-By-WelshDog",
-    "generated_at": "2026-07-08T22:29:40Z",
+    "generated_at": "2026-07-14T07:29:50Z",
     "total_skills": 123,
     "categories": {
       "youtube": 4,
@@ -6337,39 +6337,42 @@
       "emoji": "🐳",
       "description": "Container Stack Reference",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/CONTAINER_STACK_REFERENCE_v1.md",
       "source_repo": "HyperCode-V2.4 / docker-compose.agents.yml",
       "tags": [
         "coding",
         "dev",
-        "tooling"
+        "tooling",
+        "container-fleet-map",
+        "compose-profile-reference",
+        "daemon-vs-ondemand-classification"
       ],
       "keywords": [
         "always",
-        "brain",
+        "classification",
         "coding",
         "compose",
         "container",
         "containers",
-        "core",
-        "dashboard",
+        "daemon",
         "demand",
         "dev",
         "docker",
-        "files",
+        "down",
         "fleet",
+        "grouped",
         "hypercode",
         "hyperlaunch",
-        "mcp",
-        "nemoclaw",
-        "orchestrator",
+        "map",
+        "never",
+        "ondemand",
+        "orphans",
         "profile",
         "project",
         "ps1",
         "reference",
-        "safety",
-        "shepherd",
+        "set",
         "stack",
         "tooling"
       ],
@@ -6380,7 +6383,7 @@
         "fleet"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-061",
@@ -6388,41 +6391,43 @@
       "emoji": "🔌",
       "description": "Port + Network Map",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/PORT_NETWORK_MAP_v1.md",
       "source_repo": "HyperCode-V2.4 / docker-compose.agents.yml",
       "tags": [
         "coding",
         "dev",
-        "tooling"
+        "tooling",
+        "host-port-map",
+        "docker-network-map",
+        "service-to-service-wiring-reference"
       ],
       "keywords": [
-        "brain",
         "coding",
-        "core",
-        "dashboard",
         "data",
         "dev",
         "docker",
         "every",
-        "exporter",
         "grafana",
+        "host",
+        "hypercode",
         "internal",
-        "loki",
         "map",
-        "minio",
         "net",
         "network",
+        "networks",
+        "never",
         "port",
         "ports",
         "postgres",
         "prometheus",
-        "redis",
-        "safety",
-        "tempo",
+        "published",
+        "reference",
+        "service",
         "tooling",
-        "true",
-        "warden"
+        "warden",
+        "why",
+        "wiring"
       ],
       "problem_keywords": [
         "ports",
@@ -6431,7 +6436,7 @@
         "which port"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-062",
@@ -6439,41 +6444,45 @@
       "emoji": "🗄️",
       "description": "Database Schema Reference",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/DATABASE_SCHEMA_REFERENCE_v1.md",
       "source_repo": "HyperCode-V2.4 / backend",
       "tags": [
         "coding",
         "dev",
-        "tooling"
+        "tooling",
+        "postgres-table-inventory",
+        "alembic-migration-discipline",
+        "shared-version-table-safety"
       ],
       "keywords": [
-        "achievements",
         "add",
         "alembic",
+        "before",
         "coding",
         "core",
-        "course",
         "current",
         "database",
         "dev",
+        "discipline",
         "events",
-        "governance",
         "head",
         "hypercode",
-        "ledger",
+        "inventory",
         "migration",
-        "never",
-        "new",
+        "postgres",
         "reference",
         "revision",
+        "safety",
         "schema",
+        "shared",
+        "stamp",
         "table",
         "tables",
-        "tasks",
         "tooling",
         "verify",
-        "version"
+        "version",
+        "work"
       ],
       "problem_keywords": [
         "database schema",
@@ -6481,7 +6490,7 @@
         "schema reference"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-063",
@@ -6489,31 +6498,36 @@
       "emoji": "📦",
       "description": "Backend Deps Stack",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/BACKEND_DEPS_STACK_v1.md",
       "source_repo": "HyperCode-V2.4 / backend",
       "tags": [
         "coding",
         "dev",
-        "tooling"
+        "tooling",
+        "backend-dependency-map",
+        "reuse-before-adding-discipline",
+        "requirements-inventory"
       ],
       "keywords": [
-        "add",
         "adding",
-        "aiohttp",
         "already",
         "backend",
         "before",
         "client",
         "coding",
         "dependencies",
+        "dependency",
         "deps",
         "dev",
+        "discipline",
         "fastapi",
+        "git",
         "http",
         "httpx",
+        "inventory",
+        "map",
         "prometheus",
-        "pytest",
         "python",
         "quartermaster",
         "redis",
@@ -6521,7 +6535,6 @@
         "reuse",
         "sqlalchemy",
         "stack",
-        "target",
         "tooling",
         "txt"
       ],
@@ -6532,7 +6545,7 @@
         "quartermaster"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     },
     {
       "id": "HS-064",
@@ -6540,13 +6553,16 @@
       "emoji": "⚡",
       "description": "Dev Commands Cheat Sheet",
       "category": "dev",
-      "version": "v1.0",
+      "version": "v1.0.0",
       "file": "dev/DEV_COMMANDS_CHEAT_SHEET_v1.md",
       "source_repo": "HyperCode-V2.4",
       "tags": [
         "coding",
         "dev",
-        "tooling"
+        "tooling",
+        "dev-command-reference",
+        "verified-working-commands",
+        "footgun-flags"
       ],
       "keywords": [
         "alembic",
@@ -6555,13 +6571,14 @@
         "build",
         "cheat",
         "coding",
+        "command",
         "commands",
         "compose",
         "core",
         "course",
         "dev",
-        "docker",
-        "env",
+        "flags",
+        "footgun",
         "hypercode",
         "hyperlaunch",
         "never",
@@ -6571,10 +6588,11 @@
         "reference",
         "run",
         "sheet",
-        "stack",
         "svc",
         "tooling",
-        "work"
+        "verified",
+        "work",
+        "working"
       ],
       "problem_keywords": [
         "dev commands",
@@ -6583,7 +6601,7 @@
         "quick reference"
       ],
       "pack": "ND-Friendly Coding Pack",
-      "status": "rescued"
+      "status": "ACTIVE"
     }
   ]
 }

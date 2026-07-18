@@ -1,0 +1,12 @@
+# HyperFocus Z0ne repo manifest - read by scripts/gen_repo_map.py
+# Edit this file, then re-run the generator. Never hand-edit the map.
+
+name: "HYPER-SILLs-By-WelshDog"
+emoji: "🦸"
+tagline: "Skills vault — 123 hero-named skills / 6 categories, served to ALL agents"
+category: "infra"
+stack: "Markdown + Python"
+first_doc: "vault-index.md"
+tier: "LIVE"
+url: ""
+notes: "MCP plugin v1.1.2 — never rename a hero skill"

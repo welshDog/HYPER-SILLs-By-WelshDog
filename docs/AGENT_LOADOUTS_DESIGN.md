@@ -103,8 +103,8 @@ Course's rules. Guardrails stop being aspirational and become enforced.
 - [x] Starter `agent-loadouts.json` (validated against the registry)
 - [x] This design doc
 - [x] `scripts/validate_loadouts.py` + wired into the pre-push lint gate (via `skill_linter.py`) — catches unknown ids, dead-status refs, and required/forbidden clashes
-- [ ] Boot-check helper (shared lib the agents import)  ← next
-- [ ] Orchestrator injection extension
+- [x] Boot-check helper (`scripts/agent_boot.py` + `tests/test_agent_boot.py`, 9 tests) — `boot_check("<agent>")` resolves the loadout, refuses full boot (strict) when a required skill is missing/dead, and never resolves a forbidden skill. Registry-based (self-contained, no live-MCP dependency at container start). CLI: `python scripts/agent_boot.py <agent> [root] [--soft]`.
+- [ ] Orchestrator injection extension (prepend `loadout.resolved` to the `/route` set)  ← next
 - [ ] Extend loadouts to the full 25-agent roster
 
 ---

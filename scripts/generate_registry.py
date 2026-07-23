@@ -142,7 +142,9 @@ def parse_vault_index(vault_path: Path) -> list[dict]:
         # Derive version from filename (e.g. _v1.md → v1.0)
         ver_match = re.search(r'_v(\d+)\.md$', file_path)
         version = f"v{ver_match.group(1)}.0" if ver_match else "v1.0"
-        status = "rescued"
+        # Lifecycle enum matches skill_linter.py VALID_STATUSES (lowercase). Every
+        # registered + served skill is 'active' by default; provenance lives in source_repo.
+        status = "active"
 
         # Prefer richer in-file frontmatter when present (semver + lifecycle),
         # and enrich tags/keywords from the file content for real keyword search.
@@ -155,7 +157,10 @@ def parse_vault_index(vault_path: Path) -> list[dict]:
                 version = vm.group(1)
             sm = re.search(r'^status:\s*["\']?([A-Za-z]+)', fm, re.MULTILINE)
             if sm:
-                status = sm.group(1).upper() if sm.group(1).lower() != "rescued" else "rescued"
+                raw = sm.group(1).lower()
+                # Legacy 'rescued' is provenance (kept in source_repo), not a lifecycle
+                # state → fold to 'active'. Real lifecycle values pass through lowercased.
+                status = "active" if raw == "rescued" else raw
             tags, keywords = enrich_tags_keywords(fm, meta["tags"])
             problem_keywords = parse_problem_keywords(fm)
             # Fold curated phrase tokens into the literal-search keyword bag too.

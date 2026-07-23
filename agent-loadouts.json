@@ -1,0 +1,70 @@
+{
+  "_meta": {
+    "name": "HYPER-SKILLs Agent Loadouts",
+    "repo": "welshDog/HYPER-SILLs-By-WelshDog",
+    "purpose": "Declares which skills each agent MUST / MAY / MUST-NOT load. Every id is validated against skills-registry.json.",
+    "enforcement": "validate_loadouts.py (pre-push gate) + agent boot-check + crew-orchestrator injection",
+    "resolution": "effective set per agent = _defaults merged with the agent's own entry (required = union, forbidden = union)",
+    "status": "STARTER — covers the confirmed core + brain agents; extend as the roster grows"
+  },
+  "_defaults": {
+    "required": ["HS-098", "HS-085", "HS-105", "HS-088", "HS-083"],
+    "optional": ["HS-069", "HS-108"],
+    "forbidden": [],
+    "notes": "Every agent: SACRED SIX (6 laws), FIVE WARDS (guardrails), METRICS OATH, MIRROR OATH (self-audit), THREE VOICES (comms). Optional: MERCY MESSAGE (ND error copy), REALITY ANCHOR (truth-vs-claim)."
+  },
+  "agents": {
+    "crew-orchestrator": {
+      "required": ["HS-075", "HS-067", "HS-089", "HS-077", "HS-031"],
+      "optional": ["HS-080"],
+      "notes": "Orchestrates AND executes -> CHOICE MATRIX (decisions) + CONSENT GUARDIAN (approval gate) mandatory."
+    },
+    "broski-bot": {
+      "required": ["HS-077", "HS-038", "HS-031"],
+      "forbidden": ["HS-032"],
+      "notes": "Moderation is consent-gated (V2.4 rule: ban/kick never fully autonomous). Course rules are wrong-repo -> forbidden."
+    },
+    "nemoclaw-agent": {
+      "required": ["HS-041", "HS-031"],
+      "notes": "Code-health sidecar (:8099) -> Prometheus/Grafana metrics integration (METRICS FORGE)."
+    },
+    "healer-agent": {
+      "required": ["HS-108", "HS-031"],
+      "optional": ["HS-080"],
+      "notes": "Self-healing -> REALITY ANCHOR so it fixes real failures, not reported ones."
+    },
+    "agent-factory": {
+      "required": ["HS-106", "HS-100", "HS-031"],
+      "notes": "Builds agents -> BIRTH RITE (10-point checklist) + CRADLE-TO-GRAVE (lifecycle)."
+    },
+    "agent-spawner": {
+      "required": ["HS-100", "HS-031"],
+      "notes": "Spawns/retires agents -> lifecycle state machine."
+    },
+    "agent-registry": {
+      "required": ["HS-089", "HS-031"],
+      "notes": "Owns the roster -> GRAND ROSTER is its source of truth."
+    },
+    "agent-focus-tracker": {
+      "required": ["HS-124", "HS-078"],
+      "notes": "Brain agent (:3303). FOCUS HAWK is literally its manifest; FLOW KEEPER for anti-interrupt. Brain-repo agent -> no V2.4 rules."
+    },
+    "agent-morning-briefing": {
+      "required": ["HS-069", "HS-078"],
+      "notes": "Brain agent (:3304). User-facing daily DM -> MERCY MESSAGE promoted to required."
+    },
+    "agent-hyper-brain-core": {
+      "required": ["HS-078", "HS-108"],
+      "notes": "Brain memory hub (:3301) -> context retention + truth audit on recall."
+    },
+    "agent-mcp-bridge": {
+      "required": ["HS-080", "HS-061"],
+      "notes": "Brain bridge (:3302) -> TOOL BELT (tools API) + PORT WARDEN (network map)."
+    },
+    "broski-pets-bridge": {
+      "required": ["HS-069"],
+      "optional": ["HS-077"],
+      "notes": "Pets companion (:8098), user-facing -> ND-first copy required."
+    }
+  }
+}

@@ -105,8 +105,9 @@ Course's rules. Guardrails stop being aspirational and become enforced.
 - [x] `scripts/validate_loadouts.py` + wired into the pre-push lint gate (via `skill_linter.py`) — catches unknown ids, dead-status refs, and required/forbidden clashes
 - [x] Boot-check helper (`scripts/agent_boot.py` + `tests/test_agent_boot.py`, 9 tests) — `boot_check("<agent>")` resolves the loadout, refuses full boot (strict) when a required skill is missing/dead, and never resolves a forbidden skill. Registry-based (self-contained, no live-MCP dependency at container start). CLI: `python scripts/agent_boot.py <agent> [root] [--soft]`.
 - [x] Orchestrator injection — `crew-orchestrator` (HyperCode-V2.4) `loadout.py` prepends the agent's mandatory skills to every plan, before the routed skills, at both `/execute` and the route-dispatch path. Fail-open; JSON files mounted read-only at `/skills`. 7 tests, full suite green (32). *(V2.4-local resolve per decision — mirrors `agent_boot.resolve_loadout`.)*
-- [x] Startup boot-check wired — `crew-orchestrator` calls `boot_check("crew-orchestrator")` in its FastAPI lifespan (strict via `LOADOUT_STRICT`, fail-open on missing mount). Pattern established; other agents adopt the same one-line call.
-- [ ] Roll the startup call out to the remaining agents (broski-bot, nemoclaw, healer, factory, spawner, registry, brain agents)  ← next
+- [x] Startup boot-check wired — `crew-orchestrator` + `nemoclaw-agent` call `boot_check("<name>")` on startup (lifespan / on_event). strict via `LOADOUT_STRICT`, fail-open on missing mount.
+- [x] Single shared module — logic lives in `agents/shared/loadout.py` (one impl, no per-agent copies). crew-orchestrator migrated onto it; its local copy deleted. Agents import via `from shared.loadout import ...` (shared mounted `:ro` at `/app/shared`) + the two HYPER-SILLs JSON at `/skills`.
+- [ ] Roll the startup call to the remaining agents  ← next. Recipe = 3 lines (`import boot_check` + call on startup) + 3 compose mounts (shared + 2 skills). Blockers found: `healer`/`agent-factory` aren't in the canonical `docker-compose.agents.yml`; `agent-registry`/`agent-spawner` have no `main.py`; `broski-bot` is discord.py (no FastAPI startup); the 4 brain agents live in the BROski-Obsidian-Brain repo.
 - [ ] Extend loadouts to the full 25-agent roster
 
 ---

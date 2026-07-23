@@ -102,8 +102,8 @@ Course's rules. Guardrails stop being aspirational and become enforced.
 
 - [x] Starter `agent-loadouts.json` (validated against the registry)
 - [x] This design doc
-- [ ] `validate_loadouts.py` + wire into the pre-push lint gate  ← next
-- [ ] Boot-check helper (shared lib the agents import)
+- [x] `scripts/validate_loadouts.py` + wired into the pre-push lint gate (via `skill_linter.py`) — catches unknown ids, dead-status refs, and required/forbidden clashes
+- [ ] Boot-check helper (shared lib the agents import)  ← next
 - [ ] Orchestrator injection extension
 - [ ] Extend loadouts to the full 25-agent roster
 

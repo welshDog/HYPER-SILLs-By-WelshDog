@@ -508,4 +508,11 @@ def run_linter(root: Path = Path(".")) -> int:
 
 if __name__ == "__main__":
     repo_root = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(".")
-    sys.exit(run_linter(repo_root))
+    rc = run_linter(repo_root)
+    # Also gate on agent-loadouts.json integrity (no-op if the file is absent).
+    try:
+        from validate_loadouts import validate_loadouts
+        rc = max(rc, validate_loadouts(repo_root))
+    except Exception as exc:  # never let a validator import error mask lint results
+        print(f"  loadout validation skipped: {exc}")
+    sys.exit(rc)

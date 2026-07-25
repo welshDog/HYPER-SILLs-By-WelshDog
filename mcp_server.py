@@ -26,8 +26,9 @@ from pathlib import Path
 import httpx
 from mcp.server.fastmcp import FastMCP
 from mcp.server.transport_security import TransportSecuritySettings
+from prometheus_client import CONTENT_TYPE_LATEST, generate_latest
 from starlette.requests import Request
-from starlette.responses import JSONResponse
+from starlette.responses import JSONResponse, Response
 
 # ── Logging setup — fix Railway INFO-as-error noise ─────────────────────
 logging.basicConfig(
@@ -669,6 +670,15 @@ async def health(request: Request) -> JSONResponse:
         })
     except Exception as exc:
         return JSONResponse({"status": "degraded", "error": str(exc)}, status_code=503)
+
+
+@mcp.custom_route("/metrics", methods=["GET"])
+async def metrics(request: Request) -> Response:
+    """Prometheus scrape endpoint. Exposes prometheus_client's default process/platform/GC
+    collectors (registered automatically on import) — enough for a real, non-fake target.
+    No auth: this is only reachable over Railway's private network, same trust boundary as
+    any other internal-only service-to-service call."""
+    return Response(generate_latest(), media_type=CONTENT_TYPE_LATEST)
 
 
 # ── Mercy messages (HS-069) ──────────────────────────────────────────────────────────────────────

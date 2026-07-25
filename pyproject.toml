@@ -5,6 +5,7 @@ requires-python = ">=3.11"
 dependencies = [
     "python-dotenv",
     "mcp>=1.0.0",
+    "prometheus-client>=0.20.0",
 ]
 
 # Optional — semantic search auto-upgrades to real dense embeddings when these

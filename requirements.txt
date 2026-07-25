@@ -4,6 +4,7 @@
 # sse-starlette + httpx transitively (the streamable-http server needs them).
 python-dotenv
 mcp>=1.0.0
+prometheus-client>=0.20.0
 
 # Dense semantic search on the host. Without these the server silently falls back
 # to the TF-IDF backend at query time (it can't embed the live query). CPU-only

@@ -1,10 +1,22 @@
 # Deploying HYPER-SILLs MCP Server
 
-Serves all **120 skills** over **streamable-HTTP** so remote hosts (Railway/Render)
+Serves all **123 skills** over **streamable-HTTP** so remote hosts (Railway/Render)
 and the **Perplexity MCP connector** can discover + call them live.
 
 Verified in a clean venv: `pip install -r requirements.txt` → `python mcp_server.py --http`
 → `GET /health` 200, MCP endpoint at `/mcp`.
+
+## Current Production Deployment (verified 2026-07-25)
+
+- **Target**: Railway, project `sincere-strength`, service `HYPER-SILLs-By-WelshDog`.
+- **Region**: `sfo` only, 1 replica (`multiRegionConfig: {"sfo": {"numReplicas": 1}}`). No second region is configured — treat any note about `sfo`+`iad` multi-region as an in-progress goal, not a shipped state, until `get-service-config` shows both.
+- **Health check path**: `/health` — confirmed live, returns 200 with skill/category counts and search-backend status.
+- **Restart policy**: `ON_FAILURE`, max 3 retries (per `railway.json`).
+- **HTTPS/TLS**: enabled (standard Railway `*.up.railway.app` domain, `hyper-sills-by-welshdog-production.up.railway.app`).
+- **Auto-deploy from `main`**: enabled (service source is `welshDog/HYPER-SILLs-By-WelshDog` on branch `main`).
+- **Statelessness**: **not yet true** — the service still has a volume mounted at `/data`. If/when multi-region is actually rolled out, that volume needs to come off first (Railway won't run a region-locked attached volume across multiple regions); if a shared cache is still needed at that point, move it to S3-compatible object storage instead of an attached volume.
+- **IPv6 egress**: currently disabled on the service config.
+- **Observability**: `Prometheus` and `grafana` services exist in the same Railway project but have never been deployed (`latestDeployment: null`) — set up is pending, not live.
 
 ## Files that make this work
 - `requirements.txt` — runtime deps (`mcp` pulls starlette + uvicorn + sse-starlette + httpx)
@@ -36,7 +48,7 @@ healthcheck) and the MCP endpoint at `/mcp`.
 ### Smoke-test the live deploy
 ```bash
 curl https://<your-domain>.up.railway.app/health
-# -> {"status":"ok","service":"hyper-sills-mcp","skills":120,
+# -> {"status":"ok","service":"hyper-sills-mcp","skills":123,
 #     "search_backend":{"index":"local:all-MiniLM-L6-v2",
 #                       "query":"local:sentence-transformers","dense_active":true}, ...}
 ```

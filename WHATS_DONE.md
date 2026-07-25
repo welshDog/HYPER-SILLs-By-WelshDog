@@ -1,7 +1,31 @@
 # WHATS_DONE.md -- HYPER-SILLs-By-WelshDog
 
 > Single source of truth. Check this before building ANYTHING.
-> Last updated: 2026-06-28
+> Last updated: 2026-07-25
+
+## 2026-07-25 — Live health verified, registry at 123 skills; multi-region attempted but NOT live
+
+**Verified against the live Railway service (`sincere-strength` project) and its `/health` endpoint — not just claimed:**
+
+- `GET https://hyper-sills-by-welshdog-production.up.railway.app/health` → **200**, `{"status":"ok","service":"hyper-sills-mcp","version":"1.2.0","skills":123,"categories":{"agents":51,"dev":42,"hypercode":12,"broski":7,"web3":7,"youtube":4},"search_backend":{"index":"local:all-MiniLM-L6-v2","dense_active":true}}`.
+- Registry is now **123 skills / 6 categories** (dev grew 39→42 since the v3.1 count). Dense MiniLM embeddings confirmed active in production, not TF-IDF fallback.
+
+**A handover report claimed a completed multi-region (sfo+iad) production-hardening pass with the volume removed, IPv6 egress enabled, and Grafana+Prometheus deployed. Checked the live Railway config via MCP (`get-service-config`, `get-status`, `list-domains`) and it does NOT match:**
+
+- **Region**: `multiRegionConfig` shows only `{"sfo": {"numReplicas": 1}}` — **one region, one replica**. No `iad`, no failover, no geographic redundancy configured.
+- **Volume**: a volume is still mounted at `/data` on the service — **not removed**, service is not stateless yet.
+- **IPv6 egress**: `ipv6EgressEnabled: false` — not enabled.
+- **Observability**: `Prometheus` and `grafana` services exist in the `sincere-strength` project but both show `latestDeployment: null` — created, **never actually deployed**.
+- Only one service domain exists (`hyper-sills-by-welshdog-production.up.railway.app`); there's no second regional domain.
+
+**Status:** treat the multi-region/stateless/IPv6/observability work as **not yet done** — an open item, not a shipped milestone. Do not repeat the "production ready, multi-region validated" claim until the above are actually visible in `get-service-config` / `get-status`. The health-endpoint and registry-count claims above ARE real and confirmed live.
+
+**Next steps (if this work is picked back up):**
+1. Add an `iad` (or other) region to `multiRegionConfig` and confirm both regions show `numReplicas` in `get-status`.
+2. Detach the `/data` volume before enabling multi-region (Railway blocks multi-region on services with a region-locked attached volume — if a shared cache is still needed, move it to S3-compatible object storage first).
+3. Enable IPv6 egress on the service if actually required.
+4. Deploy the `Prometheus` and `grafana` services (they exist but have never shipped a deployment) and wire dashboards.
+5. Re-verify with `get-service-config` + `get-status` before writing this up as complete again.
 
 ## v3.3 Search & Recommend Quality (2026-06-28) -- DONE, do not redo
 

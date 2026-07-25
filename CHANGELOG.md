@@ -2,6 +2,14 @@
 
 ---
 
+## [2026-07-25] 🩺 Production health verified; multi-region attempt not yet live
+
+- Confirmed live: `/health` on Railway returns 123 skills / 6 categories, dense MiniLM embeddings active.
+- A multi-region (sfo+iad) hardening pass was attempted; verified against `get-service-config` that it
+  did **not** land — service is still single-region (`sfo`, 1 replica), still has an attached volume at
+  `/data`, IPv6 egress is off, and the `Prometheus`/`grafana` services in the project have never deployed.
+  See `WHATS_DONE.md` 2026-07-25 entry for the full verification and next steps.
+
 ## [v3.3] — 2026-06-30 🤝 AGENT ACTION TOOLS FOLDED IN
 
 ### ✨ Added — two action tools (server `1.1.1` → `1.2.0`)

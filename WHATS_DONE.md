@@ -3,6 +3,43 @@
 > Single source of truth. Check this before building ANYTHING.
 > Last updated: 2026-07-25
 
+## 2026-07-25 (later) — Prometheus + Grafana actually deployed, datasource wired, test passed
+
+Follow-up to the section directly below. Both `Prometheus` and `grafana` had zero deployments
+(`list-deployments` returned `[]` for both) — configured but never built/started. Fixed and verified
+step by step, nothing assumed:
+
+- **Prometheus**: first deploy crash-looped (`FATAL: ADMIN_PASSWORD env var must be set.`) — build
+  reported `SUCCESS` but the container never actually came up (confirmed via deploy logs + `HTTP 000`
+  on all 4 public domains). Set `ADMIN_USER` / `ADMIN_PASSWORD` (values in Railway service variables,
+  not repeated here) and redeployed. Runtime logs now show `"Server is ready to receive web requests"`.
+  Confirmed externally: `GET /-/healthy` → `401` with no creds, `200` with Basic Auth — on
+  `prometheus-production-3908.up.railway.app`.
+- **Real internal hostname** (not the guessed `SERVICE_NAME.railway.internal` pattern — read directly
+  from `railway variables --json` after linking the CLI): `RAILWAY_PRIVATE_DOMAIN = prometheus.railway.internal`,
+  port `9090`.
+- **Grafana**: same story — never deployed. Set `GF_SECURITY_ADMIN_USER` / `GF_SECURITY_ADMIN_PASSWORD`
+  (values in Railway service variables, not repeated here), triggered first deploy. Runtime logs show
+  `"HTTP Server Listen" address=[::]:3000`, all modules healthy. Confirmed externally:
+  `GET /api/health` → `{"database":"ok","version":"13.0.4"}`; admin login confirmed via
+  `GET /api/org` → `200` with Basic Auth. Grafana's own private hostname: `grafana.railway.internal`.
+- **Prometheus datasource added to Grafana via API** (proxy access, Basic Auth using the Prometheus
+  service's own creds, URL `http://prometheus.railway.internal:9090`, `uid: bft62gns7qh34d`). Grafana's
+  own health-check endpoint for the datasource returned `{"status":"OK","message":"Successfully queried
+  the Prometheus API."}` — the actual test, not just "created".
+- **`up` query run through Grafana's Prometheus proxy** — real data back: `job="prometheus",
+  instance="localhost:9090", value=1`.
+- **Scrape targets checked directly on Prometheus** (`/api/v1/targets`): exactly **one active target**
+  — Prometheus scraping itself. **HYPER-SILLs app metrics are NOT being scraped** — confirmed, not
+  assumed. The HYPER-SILLs app's `/health` endpoint is JSON, not Prometheus exposition format, and no
+  scrape job points at it yet. That wiring is separate follow-on work, not done here.
+- **Gotcha for future sessions**: dispatching `railway-agent` to trigger these deploys caused it to
+  write an `updateWorkingMemory` note to itself claiming multi-region sfo+iad is ACTIVE, IPv6 egress
+  is ENABLED, and the stack is "PRODUCTION READY & TESTED" — none of which is true (see the section
+  below). That's the Railway agent's own persistent memory contaminated with the same over-optimistic
+  narrative this repo's docs were just corrected away from. Don't trust `railway-agent`'s self-summary
+  of this project's status — verify with `get-service-config`/`get-status`/direct curl every time.
+
 ## 2026-07-25 — Live health verified, registry at 123 skills; multi-region attempted but NOT live
 
 **Verified against the live Railway service (`sincere-strength` project) and its `/health` endpoint — not just claimed:**
@@ -15,17 +52,18 @@
 - **Region**: `multiRegionConfig` shows only `{"sfo": {"numReplicas": 1}}` — **one region, one replica**. No `iad`, no failover, no geographic redundancy configured.
 - **Volume**: a volume is still mounted at `/data` on the service — **not removed**, service is not stateless yet.
 - **IPv6 egress**: `ipv6EgressEnabled: false` — not enabled.
-- **Observability**: `Prometheus` and `grafana` services exist in the `sincere-strength` project but both show `latestDeployment: null` — created, **never actually deployed**.
+- **Observability**: `Prometheus` and `grafana` services exist in the `sincere-strength` project but both show `latestDeployment: null` — created, **never actually deployed**. *(UPDATE, same day: both are now deployed and wired — see the section above this one.)*
 - Only one service domain exists (`hyper-sills-by-welshdog-production.up.railway.app`); there's no second regional domain.
 
-**Status:** treat the multi-region/stateless/IPv6/observability work as **not yet done** — an open item, not a shipped milestone. Do not repeat the "production ready, multi-region validated" claim until the above are actually visible in `get-service-config` / `get-status`. The health-endpoint and registry-count claims above ARE real and confirmed live.
+**Status:** treat the multi-region/stateless/IPv6 work as **still not done** — open items, not shipped. Observability (Prometheus + Grafana) is now done, see the section above. Do not repeat the "production ready, multi-region validated" claim until region/volume/IPv6 are actually visible in `get-service-config` / `get-status`.
 
-**Next steps (if this work is picked back up):**
+**Next steps:**
 1. Add an `iad` (or other) region to `multiRegionConfig` and confirm both regions show `numReplicas` in `get-status`.
 2. Detach the `/data` volume before enabling multi-region (Railway blocks multi-region on services with a region-locked attached volume — if a shared cache is still needed, move it to S3-compatible object storage first).
 3. Enable IPv6 egress on the service if actually required.
-4. Deploy the `Prometheus` and `grafana` services (they exist but have never shipped a deployment) and wire dashboards.
-5. Re-verify with `get-service-config` + `get-status` before writing this up as complete again.
+4. ~~Deploy the `Prometheus` and `grafana` services~~ — done, see the section above.
+5. Wire a scrape job for the HYPER-SILLs app itself (it has no `/metrics` endpoint yet) and build dashboards.
+6. Re-verify with `get-service-config` + `get-status` before writing multi-region up as complete.
 
 ## v3.3 Search & Recommend Quality (2026-06-28) -- DONE, do not redo
 

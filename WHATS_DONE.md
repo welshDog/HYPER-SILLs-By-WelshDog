@@ -3,6 +3,53 @@
 > Single source of truth. Check this before building ANYTHING.
 > Last updated: 2026-07-25
 
+## 2026-07-25 (latest) — HYPER-SILLs instrumented; Prometheus now actually scrapes it
+
+Follow-up to the section directly below, which left HYPER-SILLs unscraped on purpose (its
+`/health` endpoint is JSON, not Prometheus exposition format, and no scrape job pointed at it).
+Closed that gap end to end, verified at every step rather than assumed:
+
+- **`mcp_server.py` is not FastAPI** — corrected assumption from the task brief. It builds a
+  `mcp.server.fastmcp.FastMCP` instance (Starlette-based ASGI under HTTP transport), not a
+  `FastAPI()` app. `prometheus-fastapi-instrumentator` needs an actual `FastAPI` object, so it
+  wouldn't attach here. Used `prometheus_client` directly instead, matching the existing
+  `@mcp.custom_route("/health")` pattern exactly.
+- **Added `GET /metrics`** (`mcp_server.py`) — returns `prometheus_client.generate_latest()`,
+  i.e. the real default process/platform/GC collectors registered on import. No auth (intended
+  for Railway private-network scraping only, per the mission's instruction). `/health` untouched
+  — confirmed unchanged by direct call before and after (`200`, 123 skills both times).
+- **New dependency**: `prometheus-client>=0.20.0` added to `requirements.txt` and
+  `pyproject.toml` `dependencies`.
+- **Local smoke test before deploying**: installed the project's own `.venv` deps via `uv`,
+  called the `/metrics` and `/health` handlers directly in-process — `/metrics` returned real
+  Prometheus-format text (1028 bytes), `/health` returned `200`/123 skills. (The `--test` smoke
+  suite's item 6 crashed on a pre-existing Windows-console emoji-encoding bug unrelated to this
+  change — not a regression.)
+- **Committed (`e4b45f0`) and pushed to `main`** — auto-deploy picked it up, build `SUCCESS`,
+  confirmed live: `curl .../metrics` → real Prometheus text, `curl .../health` → unchanged `200`.
+- **Prometheus scrape config**: found the actual mechanism by reading the Prometheus image's
+  `entrypoint.sh` (`praveen-ks-2001/prometheus-railway`) instead of guessing — it supports a
+  `PROMETHEUS_CONFIG_B64` env var that fully replaces the auto-generated (self-scrape-only)
+  `prometheus.yml` when set. Built a new config that keeps the existing self-scrape job and adds:
+  ```yaml
+  - job_name: hyper-sills
+    metrics_path: /metrics
+    static_configs:
+      - targets: ["hyper-sills-by-welshdog.railway.internal:8080"]
+  ```
+  (Target address + port confirmed via `railway variables --json` on the HYPER-SILLs service —
+  `RAILWAY_PRIVATE_DOMAIN` + the port logged at boot — not the guessed default of 8000.) Set
+  `PROMETHEUS_CONFIG_B64` on the Prometheus service, which auto-redeployed it; build `SUCCESS`.
+- **Full verification, all four steps actually passed**:
+  1. `curl /metrics` on HYPER-SILLs → real Prometheus text, no auth.
+  2. `GET /api/v1/targets` on Prometheus → `job="hyper-sills"` present alongside `job="prometheus"`.
+  3. That target's `health: "up"`, `lastError: ""`.
+  4. `up` queried through Grafana's Prometheus datasource proxy → returns **both** series
+     (`job="prometheus"` and `job="hyper-sills"`, both value `1`).
+- **Still open**: only the default process/platform/GC metrics are exposed — no custom
+  application metrics (tool-call counts, latency, etc.) are instrumented yet. That would need
+  actual code inside the MCP tool functions, not done here (kept the change minimal per the brief).
+
 ## 2026-07-25 (later) — Prometheus + Grafana actually deployed, datasource wired, test passed
 
 Follow-up to the section directly below. Both `Prometheus` and `grafana` had zero deployments
@@ -33,6 +80,8 @@ step by step, nothing assumed:
   — Prometheus scraping itself. **HYPER-SILLs app metrics are NOT being scraped** — confirmed, not
   assumed. The HYPER-SILLs app's `/health` endpoint is JSON, not Prometheus exposition format, and no
   scrape job points at it yet. That wiring is separate follow-on work, not done here.
+  *(UPDATE, same day: this gap is now closed — see the section above this one. HYPER-SILLs got a
+  real `/metrics` endpoint and is now an active, healthy Prometheus scrape target.)*
 - **Gotcha for future sessions**: dispatching `railway-agent` to trigger these deploys caused it to
   write an `updateWorkingMemory` note to itself claiming multi-region sfo+iad is ACTIVE, IPv6 egress
   is ENABLED, and the stack is "PRODUCTION READY & TESTED" — none of which is true (see the section

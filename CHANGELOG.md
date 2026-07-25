@@ -2,6 +2,24 @@
 
 ---
 
+## [2026-07-25] 📈 HYPER-SILLs is now a live, verified Prometheus scrape target
+
+- Added `GET /metrics` to `mcp_server.py` (`prometheus_client`, no auth — private-network scrape
+  only), same route pattern as `/health`. `/health` unchanged. New dep: `prometheus-client>=0.20.0`.
+- Prometheus's scrape config updated via its `PROMETHEUS_CONFIG_B64` env var to add a `hyper-sills`
+  job (`hyper-sills-by-welshdog.railway.internal:8080`), alongside its existing self-scrape job.
+- Verified, not assumed: `curl /metrics` returns real Prometheus text; the `hyper-sills` target in
+  Prometheus shows `health: "up"`; `up{job="hyper-sills"}` is queryable from Grafana Explore through
+  the already-wired Prometheus datasource. See `WHATS_DONE.md` 2026-07-25 (latest) entry for full detail.
+- Still open: only default process/platform/GC metrics are exposed — no custom app metrics yet.
+
+## [2026-07-25] 🔭 Prometheus + Grafana actually deployed and wired (were configured, never running)
+
+- Both services had zero deployments; fixed missing `ADMIN_PASSWORD`/`GF_SECURITY_ADMIN_PASSWORD`
+  crash-loops, redeployed both, confirmed live via direct curl (not just Railway's build status).
+- Prometheus datasource added to Grafana via API; connection test passed
+  (`"Successfully queried the Prometheus API."`). See `WHATS_DONE.md` for the full trail.
+
 ## [2026-07-25] 🩺 Production health verified; multi-region attempt not yet live
 
 - Confirmed live: `/health` on Railway returns 123 skills / 6 categories, dense MiniLM embeddings active.

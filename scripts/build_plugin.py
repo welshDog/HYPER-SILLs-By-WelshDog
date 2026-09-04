@@ -23,7 +23,13 @@ from __future__ import annotations
 
 import json
 import shutil
+import sys
 from pathlib import Path
+
+try:  # Windows consoles default to cp1252 and choke on the ✅ in output.
+    sys.stdout.reconfigure(encoding="utf-8")
+except Exception:
+    pass
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 REGISTRY_PATH = REPO_ROOT / "skills-registry.json"

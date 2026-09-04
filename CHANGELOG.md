@@ -2,6 +2,26 @@
 
 ---
 
+## [2026-09-04] 🚑 Live service revived after a 10-day outage + repo hygiene pass
+
+- **Outage fix:** the live MCP service was `502` for 10 days (2026-08-19 → 09-04).
+  `requirements.txt` had `mcp>=1.0.0`; a rebuild resolved `mcp 2.0.0`, which
+  removed `mcp.server.fastmcp` → crash on import → healthcheck failed 6/6.
+- `requirements.txt` is now a **complete 62-pin exact freeze** of the last good
+  build (`mcp==1.28.1`). `scripts/smoke_test.py` (py_compile + `import
+  mcp_server`) runs in the pre-push hook and a `workflow_dispatch` CI job.
+- Verified live end-to-end: `/health` 200 / 123 skills, `/metrics`, and a full
+  MCP `initialize` → `tools/list` → `tools/call` over HTTP against production.
+- **Docs truth pass:** README / plugin README / `manifest.json` corrected to
+  123 skills, 6 categories, 6 tools. `manifest.json` `1.1.1` → `1.2.0` and
+  `pyproject.toml` `1.1.0` → `1.2.0` (catching up to the v3.3 decision);
+  `pyproject.toml` `mcp` pinned `>=1.28.1,<2`; `uv.lock` regenerated.
+  `railway.json` `builder` `NIXPACKS` → `RAILPACK` (matches the live service).
+- **Housekeeping:** 7 `NEXT_SESSION_HANDOVER_*` files → `docs/handovers/`;
+  masterplan + breakdown.html → `docs/`; `SKILL.zip` removed from HEAD; stale
+  plugin bundle (`plugins/hyper-sills-vault/vault/`) resynced via
+  `build_plugin.py` + a pinned `vault/requirements.txt`.
+
 ## [2026-07-25] 📈 HYPER-SILLs is now a live, verified Prometheus scrape target
 
 - Added `GET /metrics` to `mcp_server.py` (`prometheus_client`, no auth — private-network scrape

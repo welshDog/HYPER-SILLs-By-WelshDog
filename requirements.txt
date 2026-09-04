@@ -1,18 +1,98 @@
-# Deploy artifact for Railway/Render (NIXPACKS pip install). The project itself
-# is developed with uv (see pyproject.toml + uv.lock) — this just pins the
-# runtime deps for hosts that don't speak uv. mcp pulls starlette + uvicorn +
-# sse-starlette + httpx transitively (the streamable-http server needs them).
-python-dotenv
-mcp>=1.0.0
-prometheus-client>=0.20.0
+# ─────────────────────────────────────────────────────────────────────────────
+# HYPER-SILLs MCP server — runtime dependency freeze (Railway / Render deploy).
+#
+# This file is the DEPLOY ARTIFACT. Railpack/Nixpacks installs it verbatim.
+# The project is developed locally with uv (pyproject.toml); this exists for
+# hosts that don't speak uv — and it is now a COMPLETE, EXACT freeze, not a
+# loose spec.
+#
+# WHY EXACT PINS (incident 2026-08-19 → 2026-09-04, service down 10 days):
+#   requirements.txt had `mcp>=1.0.0` with no upper bound. Between the last good
+#   build (2026-07-25) and a routine rebuild (2026-08-19), `mcp 2.0.0` shipped
+#   and removed `mcp.server.fastmcp` entirely. pip resolved 2.0.0, the server
+#   crashed on import before binding a port, the healthcheck failed 6/6, and
+#   Railway had already torn down the good deployment → hard 502.
+#
+# Every version below is the EXACT set from the successful 2026-07-25 Railway
+# build (deployment 1b2677d5-6117-440e-aea3-58109b745bee), read straight from
+# that build log. Verified 2026-09-04: this set resolves cleanly for CPython
+# 3.12 with zero conflicts, and `import mcp_server` loads all 123 skills.
+#
+# TO UPGRADE ANYTHING: bump it here, run the pre-push smoke test
+# (scripts/git_pre_push_lint.sh — installs `import mcp_server` check), confirm
+# it still imports, then deploy. Never widen a pin to `>=` without a ceiling.
+# ─────────────────────────────────────────────────────────────────────────────
 
-# Dense semantic search on the host. Without these the server silently falls back
-# to the TF-IDF backend at query time (it can't embed the live query). CPU-only
-# torch keeps the image lean — there's no GPU on these hosts anyway. The prebuilt
-# vector-store/skill_index.json ships alongside, so only the query is embedded at
-# runtime (the model warms on first /mcp call). If the torch pin ever fails to
-# resolve for the host's Python, bump it to the latest +cpu wheel for that version.
 --extra-index-url https://download.pytorch.org/whl/cpu
+
+# ── Load-bearing direct dependencies ────────────────────────────────────────
+mcp==1.28.1                   # last 1.x before 2.0.0 removed mcp.server.fastmcp
+python-dotenv==1.2.2
+prometheus-client==0.26.0     # /metrics endpoint (Prometheus scrape target)
+starlette==1.3.1              # ASGI layer under FastMCP's streamable-http
+uvicorn==0.51.0
+sse-starlette==3.4.6
+
+# ── Dense semantic search (host-side query embedding) ───────────────────────
+# Without these the server silently falls back to the TF-IDF backend at query
+# time. CPU-only torch keeps the image lean (no GPU on these hosts). The
+# prebuilt vector-store/skill_index.json ships alongside, so only the live
+# query is embedded at runtime (model warms on first /mcp call).
 torch==2.4.1+cpu
-sentence-transformers>=2.2
-numpy
+sentence-transformers==5.6.1
+transformers==5.14.1
+tokenizers==0.22.2
+safetensors==0.8.0
+huggingface-hub==1.24.0
+hf-xet==1.5.2
+scikit-learn==1.9.0
+scipy==1.18.0
+numpy==2.5.1
+joblib==1.5.3
+threadpoolctl==3.6.0
+networkx==3.6.1
+sympy==1.14.0
+mpmath==1.3.0
+regex==2026.7.19
+filelock==3.32.0
+fsspec==2026.6.0
+
+# ── Transitive freeze (pinned so a rebuild can never drift) ─────────────────
+annotated-doc==0.0.4
+annotated-types==0.8.0
+anyio==4.14.2
+attrs==26.1.0
+certifi==2026.7.22
+cffi==2.1.0
+click==8.4.2
+cryptography==49.0.0
+h11==0.16.0
+httpcore==1.0.9
+httpx==0.28.1
+httpx-sse==0.4.3
+idna==3.18
+jinja2==3.1.6
+jsonschema==4.26.0
+jsonschema-specifications==2025.9.1
+markdown-it-py==4.2.0
+MarkupSafe==3.0.3
+mdurl==0.1.2
+narwhals==2.24.0
+packaging==26.2
+pycparser==3.0
+pydantic==2.13.4
+pydantic-core==2.46.4
+pydantic-settings==2.14.2
+pygments==2.20.0
+pyjwt==2.13.0
+python-multipart==0.0.32
+pyyaml==6.0.3
+referencing==0.37.0
+rich==15.0.0
+rpds-py==2026.6.3
+setuptools==83.0.0
+shellingham==1.5.4
+tqdm==4.69.1
+typer==0.27.0
+typing-extensions==4.16.0
+typing-inspection==0.4.2

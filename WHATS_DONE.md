@@ -29,14 +29,28 @@
     `skill-lint.yml`). Flip the `push` trigger when billing is restored.
   - `scripts/install_git_hooks.py` — fixed a pre-existing cp1252
     `UnicodeEncodeError` on the ✅ in its output (Windows console).
-- **Live-verified after redeploy (`bb0c6dc8`, SUCCESS):** `/health` → 200,
-  `"skills":123`, `dense_active:true` (MiniLM, not TF-IDF); `/metrics` → real
-  Prometheus exposition; `/mcp` → 406 to bare GET (correct).
+- **Live-verified after redeploy (`bb0c6dc8`, SUCCESS):**
+  - `/health` → 200, `"skills":123`, `dense_active:true`; `/metrics` → real
+    Prometheus exposition.
+  - **Full MCP protocol over HTTP against production:** `initialize` → 200 +
+    `mcp-session-id`, `serverInfo.version:"1.28.1"` (the pinned SDK is what's
+    running); `tools/list` → 8 tools; `tools/call semantic_search "prometheus
+    metrics"` → `isError:false`, backend `local:all-MiniLM-L6-v2`, 3 real hits
+    (HS-041, HS-105, HS-019). The transport-security host check did not reject
+    the request despite the service having zero env vars set.
 - **Housekeeping:** closed stale draft PRs #9 (logging_config only; observability
   shipped on main) and #16 (parallel `prometheus_metrics.py`; superseded by
   `e4b45f0`/`6e6972b`). #17 (Railway-agent's own fix draft) closed — superseded
   by #18.
 - **Still open (deferred to a repo-hygiene pass, NOT done here):**
+  - **Plugin bundle is stale + unpinned.** `plugins/hyper-sills-vault/vault/
+    mcp_server.py` is an OLDER copy (779 lines vs root's 849 — missing the
+    `/metrics` instrumentation and more). `plugin.json` runs it with bare
+    `python`, no dependency file anywhere in the bundle — so a marketplace user
+    whose env has `mcp>=2.0` hits the exact same `mcp.server.fastmcp` crash.
+    Needs `scripts/build_plugin.py` re-run to resync, plus a decision on how the
+    bundled server declares/constrains its `mcp` version. Bundle version is
+    1.1.3.
   - `pyproject.toml` still has `mcp>=1.0.0`; `uv.lock` is stale (names the
     project `hyper-brain-ops`, tracks only `python-dotenv`). Local-dev parity
     (requirements.txt vs pyproject) is an undecided design question.

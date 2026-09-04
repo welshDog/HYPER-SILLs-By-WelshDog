@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """
-install_git_hooks.py — Install the HYPER-SILLs local pre-push lint gate.
+install_git_hooks.py — Install the HYPER-SILLs local pre-push gate.
 
-GitHub Actions is billing-locked for this account, so the skill linter runs as a
-LOCAL pre-push hook instead (mirrors the evo_harness gate on HyperCode). This
+GitHub Actions is billing-locked for this account, so the checks run as a LOCAL
+pre-push hook instead (mirrors the evo_harness gate on HyperCode). The hook runs
+scripts/skill_linter.py (vault integrity) then scripts/smoke_test.py (py_compile
++ `import mcp_server` — guards the 2026-08-19 unpinned-dependency outage). This
 installs scripts/git_pre_push_lint.sh into .git/hooks/pre-push WITHOUT clobbering
 the existing XP post-commit hook.
 
@@ -18,7 +20,13 @@ from __future__ import annotations
 import argparse
 import shutil
 import stat
+import sys
 from pathlib import Path
+
+try:  # Windows consoles default to cp1252 and choke on the ✅ in output.
+    sys.stdout.reconfigure(encoding="utf-8")
+except Exception:
+    pass
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 HOOK_SRC = REPO_ROOT / "scripts" / "git_pre_push_lint.sh"
@@ -54,8 +62,8 @@ def main() -> int:
 
     shutil.copyfile(HOOK_SRC, dest)
     dest.chmod(dest.stat().st_mode | stat.S_IEXEC | stat.S_IXGRP | stat.S_IXOTH)
-    print(f"✅ installed pre-push lint gate -> {dest}")
-    print("   Every push now runs scripts/skill_linter.py first.")
+    print(f"✅ installed pre-push gate -> {dest}")
+    print("   Every push now runs scripts/skill_linter.py + scripts/smoke_test.py first.")
     print("   Override a single push with: git push --no-verify")
     return 0
 

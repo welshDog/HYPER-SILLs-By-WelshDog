@@ -1,0 +1,41 @@
+name: 🚬 MCP Server Smoke Test
+
+# NOTE: GitHub Actions is billing-locked for this account, so hosted runs fail at
+# job-startup (zero steps executed) regardless of code — NOT a code bug. The REAL
+# gate is the LOCAL pre-push hook (scripts/git_pre_push_lint.sh, install via
+# scripts/install_git_hooks.py), which runs this same import check before every
+# push. This workflow is kept manual-only so it never posts a false-red check;
+# re-enable the push trigger below once Actions billing is restored.
+#
+# What it guards against (the 2026-08-19 incident): an unpinned dependency
+# resolving to a breaking major (`mcp` 1.x → 2.0.0 removed mcp.server.fastmcp),
+# so `import mcp_server` crashes and the container never binds a port.
+on:
+  workflow_dispatch:
+  # push:
+  #   branches: [main]
+
+jobs:
+  smoke-test:
+    name: Import mcp_server against the pinned freeze
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"   # matches .python-version / the Railway build
+
+      - name: Install the exact deploy freeze
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Compile (syntax / indentation)
+        run: |
+          python -m py_compile mcp_server.py
+          python -m py_compile plugins/hyper-sills-vault/vault/mcp_server.py
+
+      - name: Import smoke test
+        run: |
+          python -c "import mcp_server; n = len(mcp_server.skills_list()); print(f'OK — mcp_server imported, {n} skills'); assert n >= 100, f'expected >=100 skills, got {n}'"

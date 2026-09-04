@@ -1,9 +1,54 @@
 # WHATS_DONE.md -- HYPER-SILLs-By-WelshDog
 
 > Single source of truth. Check this before building ANYTHING.
-> Last updated: 2026-07-25
+> Last updated: 2026-09-04
 
-## 2026-07-25 (latest) — HYPER-SILLs instrumented; Prometheus now actually scrapes it
+## 2026-09-04 (latest) — Live MCP service revived after 10-day outage; full dependency freeze
+
+**The service was 502 from 2026-08-19 21:15 UTC to 2026-09-04 00:49 UTC (10 days).**
+
+- **Root cause:** `requirements.txt` had `mcp>=1.0.0` with no ceiling. A routine
+  rebuild (triggered by a docs-only commit, `4f8c4a0`) resolved `mcp 2.0.0`,
+  which removed `mcp.server.fastmcp`. `mcp_server.py` crashed at
+  `from mcp.server.fastmcp import FastMCP` before binding a port → healthcheck
+  failed 6/6 → Railway had already torn down the last good deployment
+  (`1b2677d5`, 2026-07-25) to promote the new one → hard 502. Verified via
+  build logs, `get-service-config`, and the July-25 success build log.
+- **Fix — PR #18, merged `eaa7ca8`:**
+  - `requirements.txt` is now a **complete exact freeze** — all 62 packages at
+    the versions from the last successful build (`1b2677d5`), read from that
+    build log. `mcp==1.28.1` (last 1.x before 2.0.0). This is the file Railpack
+    installs, so what deploys == what's pinned. **No `requirements-lock.txt`** —
+    one file, or drift comes back.
+  - `scripts/smoke_test.py` (new) — `py_compile` + `import mcp_server` asserting
+    the 123-skill vault loads. Self-skips on a bare checkout (no runtime deps),
+    so it never blocks a docs push.
+  - `scripts/git_pre_push_lint.sh` now runs the smoke test after the linter.
+  - `.github/workflows/smoke-test.yml` (new) — same check, but
+    `workflow_dispatch`-only (Actions still billing-locked; same as
+    `skill-lint.yml`). Flip the `push` trigger when billing is restored.
+  - `scripts/install_git_hooks.py` — fixed a pre-existing cp1252
+    `UnicodeEncodeError` on the ✅ in its output (Windows console).
+- **Live-verified after redeploy (`bb0c6dc8`, SUCCESS):** `/health` → 200,
+  `"skills":123`, `dense_active:true` (MiniLM, not TF-IDF); `/metrics` → real
+  Prometheus exposition; `/mcp` → 406 to bare GET (correct).
+- **Housekeeping:** closed stale draft PRs #9 (logging_config only; observability
+  shipped on main) and #16 (parallel `prometheus_metrics.py`; superseded by
+  `e4b45f0`/`6e6972b`). #17 (Railway-agent's own fix draft) closed — superseded
+  by #18.
+- **Still open (deferred to a repo-hygiene pass, NOT done here):**
+  - `pyproject.toml` still has `mcp>=1.0.0`; `uv.lock` is stale (names the
+    project `hyper-brain-ops`, tracks only `python-dotenv`). Local-dev parity
+    (requirements.txt vs pyproject) is an undecided design question.
+  - Railway deploy/crash **notifications are not yet configured** — dashboard
+    task (account email + a `sincere-strength` project webhook to Discord).
+  - `docs/FULL STATUS REPORT HYPER-SILLs MCP Service Recovery` — loose incident
+    note (no extension, spaces in name); fold into `docs/` properly or delete.
+  - README still says "120 skills" (actual 123); committed `.zip` artifacts;
+    7 `NEXT_SESSION_HANDOVER_*` files; `railway.json` says NIXPACKS but the
+    service is on RAILPACK V3.
+
+## 2026-07-25 — HYPER-SILLs instrumented; Prometheus now actually scrapes it
 
 Follow-up to the section directly below, which left HYPER-SILLs unscraped on purpose (its
 `/health` endpoint is JSON, not Prometheus exposition format, and no scrape job pointed at it).

@@ -13,3 +13,7 @@ dist/
 vector-store/*
 !vector-store/skill_index.json
 *.bak
+
+# committed-artifact guard (Phase 2 hygiene)
+SKILL.zip
+.pytest_cache/

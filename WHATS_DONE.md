@@ -245,14 +245,18 @@ Fixed the three search/recommend weaknesses (Perplexity review + live testing):
 
 ## Core Files (ALL EXIST -- do not rebuild)
 
-| File | Size | What it is |
+> Sizes below are the *pre-v3.0 baseline* snapshot — informational only, not kept
+> current. `HYPER_SKILLs_POWER_UPGRADE_MASTERPLAN_v1.md` moved to `docs/` in the
+> 2026-09-04 hygiene pass.
+
+| File | Size (baseline) | What it is |
 |---|---|---|
-| `skills-registry.json` | 23KB | Full skills registry -- the crown jewel |
-| `vault-index.md` | 33KB | Complete vault index |
-| `HYPER_SKILLs_POWER_UPGRADE_MASTERPLAN_v1.md` | 30KB | Full upgrade masterplan |
-| `SKILL.md` | 8.6KB | Core skill definition format |
+| `skills-registry.json` | ~150KB (was 23KB) | Full skills registry -- the crown jewel |
+| `vault-index.md` | ~47KB (was 33KB) | Complete vault index |
+| `docs/HYPER_SKILLs_POWER_UPGRADE_MASTERPLAN_v1.md` | 30KB | Full upgrade masterplan |
+| `SKILL.md` | ~9.6KB | Core skill definition format |
 | `AGENT-START.md` | 6.9KB | Agent onboarding instructions |
-| `CHANGELOG.md` | 1.4KB | Change history |
+| `CHANGELOG.md` | -- | Change history |
 | `pyproject.toml` + `uv.lock` | -- | Python project (uses uv) |
 
 ## Folder Structure (ALL EXIST)

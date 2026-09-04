@@ -16,18 +16,22 @@ Backed by arXiv:2604.05333 — Graph-of-Skills yields +25.55% reward,
 -56.72% tokens vs flat skill loading.
 """
 
+import asyncio
+import functools
 import json
 import logging
 import os
 import re
 import sys
+import time
 from pathlib import Path
 
 import httpx
 from mcp.server.fastmcp import FastMCP
 from mcp.server.transport_security import TransportSecuritySettings
+from prometheus_client import CONTENT_TYPE_LATEST, Counter, Histogram, generate_latest
 from starlette.requests import Request
-from starlette.responses import JSONResponse
+from starlette.responses import JSONResponse, Response
 
 # ── Logging setup — fix Railway INFO-as-error noise ─────────────────────
 logging.basicConfig(
@@ -223,9 +227,59 @@ def parse_gos(content: str) -> dict:
     }
 
 
+# ── Tool call metrics ────────────────────────────────────────────────────────────────────────
+# Scraped via /metrics (see below). Labeled by tool name + outcome so `mcp_tool_calls_total`
+# and `mcp_tool_call_duration_seconds` show which tools are used and whether they're failing.
+
+TOOL_CALLS_TOTAL = Counter(
+    "mcp_tool_calls_total", "Total MCP tool invocations", ["tool", "status"]
+)
+TOOL_CALL_DURATION = Histogram(
+    "mcp_tool_call_duration_seconds", "MCP tool call duration in seconds", ["tool"]
+)
+
+
+def instrument_tool(func):
+    """Wrap an MCP tool function with call-count + latency metrics. Uses functools.wraps so
+    FastMCP's schema introspection (inspect.signature + __name__/__doc__) still sees the real
+    function, not this wrapper — verified against mcp.server.fastmcp.utilities.func_metadata,
+    which calls inspect.signature(func, eval_str=True) (follows __wrapped__ by default)."""
+    name = func.__name__
+
+    if asyncio.iscoroutinefunction(func):
+        @functools.wraps(func)
+        async def async_wrapper(*args, **kwargs):
+            start = time.perf_counter()
+            status = "success"
+            try:
+                return await func(*args, **kwargs)
+            except Exception:
+                status = "error"
+                raise
+            finally:
+                TOOL_CALL_DURATION.labels(tool=name).observe(time.perf_counter() - start)
+                TOOL_CALLS_TOTAL.labels(tool=name, status=status).inc()
+        return async_wrapper
+
+    @functools.wraps(func)
+    def sync_wrapper(*args, **kwargs):
+        start = time.perf_counter()
+        status = "success"
+        try:
+            return func(*args, **kwargs)
+        except Exception:
+            status = "error"
+            raise
+        finally:
+            TOOL_CALL_DURATION.labels(tool=name).observe(time.perf_counter() - start)
+            TOOL_CALLS_TOTAL.labels(tool=name, status=status).inc()
+    return sync_wrapper
+
+
 # ── Tools ────────────────────────────────────────────────────────────────────────────────────
 
 @mcp.tool()
+@instrument_tool
 def search_skills(
     query: str = "",
     category: str = "",
@@ -281,6 +335,7 @@ def search_skills(
 
 
 @mcp.tool()
+@instrument_tool
 def semantic_search(query: str, limit: int = 5) -> str:
     """Find skills by describing the problem in natural language (meaning, not keywords).
 
@@ -325,6 +380,7 @@ def _content_and_gos(meta: dict) -> tuple[str | None, dict]:
 
 
 @mcp.tool()
+@instrument_tool
 def load_skill(skill_id: str) -> str:
     """Load the full content of a skill file by its ID (e.g. 'HS-042' or 'DS-028').
 
@@ -355,6 +411,7 @@ def load_skill(skill_id: str) -> str:
 
 
 @mcp.tool()
+@instrument_tool
 def get_skill_graph(skill_id: str) -> str:
     """Return the Graph-of-Skills dependency graph for a skill.
 
@@ -403,6 +460,7 @@ def get_skill_graph(skill_id: str) -> str:
 
 
 @mcp.tool()
+@instrument_tool
 def recommend_for_task(task: str, limit: int = 5) -> str:
     """Recommend the best skills for a given task description.
 
@@ -490,6 +548,7 @@ def recommend_for_task(task: str, limit: int = 5) -> str:
 
 
 @mcp.tool()
+@instrument_tool
 def list_skills_by_category(category: str = "") -> str:
     """List all skills in a category, or show category overview if none given.
 
@@ -565,6 +624,7 @@ async def _call_agent(tool: str, url: str, path: str, payload: dict, result_key:
 
 
 @mcp.tool()
+@instrument_tool
 async def broski_agent(task: str) -> str:
     """Dispatch a task to the BROski orchestrator agent (tasks, Discord events, BROski$ rewards).
 
@@ -582,6 +642,7 @@ async def broski_agent(task: str) -> str:
 
 
 @mcp.tool()
+@instrument_tool
 async def brain_core_agent(query: str) -> str:
     """Query the Hyper Brain Core — memory, context, and second-brain lookups.
 
@@ -669,6 +730,15 @@ async def health(request: Request) -> JSONResponse:
         })
     except Exception as exc:
         return JSONResponse({"status": "degraded", "error": str(exc)}, status_code=503)
+
+
+@mcp.custom_route("/metrics", methods=["GET"])
+async def metrics(request: Request) -> Response:
+    """Prometheus scrape endpoint. Exposes prometheus_client's default process/platform/GC
+    collectors (registered automatically on import) — enough for a real, non-fake target.
+    No auth: this is only reachable over Railway's private network, same trust boundary as
+    any other internal-only service-to-service call."""
+    return Response(generate_latest(), media_type=CONTENT_TYPE_LATEST)
 
 
 # ── Mercy messages (HS-069) ──────────────────────────────────────────────────────────────────────

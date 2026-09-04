@@ -2,9 +2,9 @@
 
 > The neurodivergent-first AI skill vault, installable in one command.
 
-This plugin bundles the **HYPER-SILLs** skill vault — 89 hero-named skills across
-`agents`, `dev`, `broski`, and `youtube` — with **Graph-of-Skills** dependency retrieval
-(arXiv:2604.05333: +25.55% reward, -56.72% tokens vs flat loading).
+This plugin bundles the **HYPER-SILLs** skill vault — 123 hero-named skills across
+`agents`, `dev`, `broski`, `web3`, `hypercode`, and `youtube` — with **Graph-of-Skills**
+dependency retrieval (arXiv:2604.05333: +25.55% reward, -56.72% tokens vs flat loading).
 
 ## Install
 
@@ -15,15 +15,16 @@ This plugin bundles the **HYPER-SILLs** skill vault — 89 hero-named skills acr
 
 ## What you get
 
-**MCP server** (`hyper-sills`) with 5 tools:
+**MCP server** (`hyper-sills`) with 6 skill tools:
 
 | Tool | What it does |
 |---|---|
 | `search_skills` | Keyword / category / tag search |
+| `semantic_search` | Dense (MiniLM) semantic search over the vault |
 | `load_skill` | Load a skill's full content + GoS metadata by ID |
 | `get_skill_graph` | `depends_on` / `provides` / `related` for load-order |
 | `recommend_for_task` | Best skills for a natural-language task |
-| `list_skills_by_category` | Browse `agents` / `dev` / `broski` / `youtube` |
+| `list_skills_by_category` | Browse `agents` / `dev` / `broski` / `web3` / `hypercode` / `youtube` |
 
 **Slash commands:**
 
@@ -35,7 +36,9 @@ This plugin bundles the **HYPER-SILLs** skill vault — 89 hero-named skills acr
 
 ## Requirements
 
-- Python 3.11+ with the `mcp` package (`pip install "mcp>=1.0.0"`), or run via `uv`.
+- Python 3.11+ with the `mcp` package — **`pip install "mcp>=1.28.1,<2"`**, or run via `uv`.
+  > ⚠️ `mcp` 2.0.0 removed `mcp.server.fastmcp`; the bundled server needs a 1.x
+  > release. `vault/requirements.txt` pins the full known-good set.
 
 ---
 

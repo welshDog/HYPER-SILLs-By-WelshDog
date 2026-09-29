@@ -44,7 +44,7 @@ logging.getLogger("uvicorn.error").setLevel(logging.WARNING)
 logging.getLogger("httpx").setLevel(logging.WARNING)
 logger = logging.getLogger("hyper-sills")
 
-SERVER_VERSION = "1.2.0"
+SERVER_VERSION = "1.3.0"
 
 VAULT_ROOT = Path(__file__).parent
 REGISTRY_PATH = VAULT_ROOT / "skills-registry.json"
@@ -227,9 +227,10 @@ mcp = FastMCP(
     "hyper-sills",
     instructions=(
         f"HYPER-SILLs — {_TOTAL_SKILLS}-skill AI vault with Graph-of-Skills. "
-        "Skill tools: search_skills, semantic_search, load_skill, get_skill_graph, recommend_for_task, list_skills_by_category. "
-        "Model adaptation tools: get_model_profile, get_model_optimized_skill. "
-        "Action tools: broski_agent (dispatch a task to the BROski orchestrator), brain_core_agent (query the Hyper Brain memory). "
+        "Knowledge tools: search_skills, semantic_search, load_skill, get_skill_graph, recommend_for_task, list_skills_by_category, "
+        "get_model_profile, get_model_optimized_skill. "
+        "Execution tools: get_skill_execution_schema, execute_skill_template. "
+        "Action tools: broski_agent, brain_core_agent. "
         "Resources (SEP-2640 Skills-over-MCP): skills://index, skill://HS-NNN. "
         f"Categories: {_CATEGORY_SUMMARY}."
     ),
@@ -254,6 +255,9 @@ def skills_list() -> list[dict]:
 
 
 def _build_gos_index() -> dict:
+    """Build a lazy index of skill_id → file path from GoS blocks in vault files.
+    Used as fallback for skills that are in files but not in the registry.
+    """
     global _gos_index
     if _gos_index is not None:
         return _gos_index
@@ -703,6 +707,15 @@ async def brain_core_agent(query: str) -> str:
     if not BRAIN_CORE_URL:
         return _agent_unconfigured("brain_core_agent", "BRAIN_CORE_URL")
     return await _call_agent("brain_core_agent", BRAIN_CORE_URL, "/query", {"query": query}, "answer")
+
+
+# ── Register execution tools ─────────────────────────────────────────────────────────────────────
+# Wire in the runnable skill execution layer via the MCP registration helper.
+try:
+    from mcp_execution import register_execution_tools
+    register_execution_tools(mcp, find_by_id, _content_and_gos, _mercy_not_found)
+except ImportError:
+    logger.warning("mcp_execution module not found; skill execution tools disabled.")
 
 
 # ── Resources (Skills-over-MCP / SEP-2640 alignment) ──────────────────────────────────────────

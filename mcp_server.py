@@ -73,18 +73,169 @@ def _meta_summary() -> tuple[int, str]:
 
 _TOTAL_SKILLS, _CATEGORY_SUMMARY = _meta_summary()
 
+MODEL_PROFILES = {
+    "claude": {
+        "description": "Anthropic-style long-context, markdown-first, high-detail output.",
+        "response_style": "markdown",
+        "include_examples": True,
+        "include_graph": True,
+        "max_summary_chars": 1800,
+        "max_payload_chars": 12000,
+        "trim_content": False,
+    },
+    "gpt": {
+        "description": "OpenAI-style concise, structured, action-first output.",
+        "response_style": "json",
+        "include_examples": True,
+        "include_graph": True,
+        "max_summary_chars": 900,
+        "max_payload_chars": 8000,
+        "trim_content": True,
+    },
+    "gemini": {
+        "description": "Google-style structured reasoning blocks with clear sections.",
+        "response_style": "structured_blocks",
+        "include_examples": True,
+        "include_graph": True,
+        "max_summary_chars": 1200,
+        "max_payload_chars": 9000,
+        "trim_content": True,
+    },
+    "local": {
+        "description": "Compact, low-token output for local or small open models.",
+        "response_style": "minimal_json",
+        "include_examples": False,
+        "include_graph": False,
+        "max_summary_chars": 600,
+        "max_payload_chars": 5000,
+        "trim_content": True,
+    },
+    "generic": {
+        "description": "Safe default for unknown or mixed-model contexts.",
+        "response_style": "balanced_json",
+        "include_examples": True,
+        "include_graph": True,
+        "max_summary_chars": 1200,
+        "max_payload_chars": 8000,
+        "trim_content": True,
+    },
+}
+
+
+def detect_model_profile(model_hint: str | None) -> str:
+    """Map a user-provided model hint to a stable persona profile."""
+    hint = (model_hint or "").lower()
+    if not hint:
+        return "generic"
+
+    if any(token in hint for token in ("claude", "sonnet", "opus", "anthropic")):
+        return "claude"
+    if any(token in hint for token in ("gpt", "chatgpt", "openai", "o1", "o3", "4o", "4.1")):
+        return "gpt"
+    if any(token in hint for token in ("gemini", "google")):
+        return "gemini"
+    if any(token in hint for token in ("llama", "mistral", "qwen", "deepseek", "ollama", "local", "small-model")):
+        return "local"
+    return "generic"
+
+
+def _truncate(text: str, limit: int) -> str:
+    if limit <= 0 or len(text) <= limit:
+        return text
+    return text[: limit - 1].rstrip() + "…"
+
+
+def _build_model_optimized_payload(skill_meta: dict, gos: dict, content: str, profile_name: str, task_context: str = "") -> dict:
+    profile = MODEL_PROFILES.get(profile_name, MODEL_PROFILES["generic"])
+    parts = {
+        "id": skill_meta.get("id"),
+        "hero_name": skill_meta.get("hero_name"),
+        "category": skill_meta.get("category"),
+        "description": skill_meta.get("description", ""),
+        "summary": _truncate((skill_meta.get("description") or "").strip() or (gos.get("graph_notes") or ""), profile["max_summary_chars"]),
+        "depends_on": [ref.get("id") for ref in gos.get("depends_on", [])],
+        "provides": gos.get("provides", []),
+        "related": [ref.get("id") for ref in gos.get("related", [])],
+        "profile": profile_name,
+        "response_style": profile["response_style"],
+    }
+
+    excerpt = ""
+    if content:
+        excerpt = _truncate(content.strip(), profile["max_payload_chars"])
+
+    if profile_name == "claude":
+        parts["payload"] = {
+            "role": "system",
+            "format": "markdown",
+            "use_when": "When this skill is the best fit for the task.",
+            "what_it_does": parts["summary"],
+            "prerequisites": parts["depends_on"],
+            "related": parts["related"],
+            "task_context": task_context,
+            "content_excerpt": excerpt,
+        }
+    elif profile_name == "gpt":
+        parts["payload"] = {
+            "role": "assistant",
+            "format": "json",
+            "objective": parts["summary"],
+            "prerequisites": parts["depends_on"],
+            "next_steps": [
+                f"load_skill(\"{skill_meta.get('id')}\")",
+                "get_skill_graph(\"{skill_meta.get('id')}\")",
+            ],
+            "task_context": task_context,
+            "content_excerpt": excerpt,
+        }
+    elif profile_name == "gemini":
+        parts["payload"] = {
+            "role": "reasoner",
+            "format": "structured_blocks",
+            "context": parts["summary"],
+            "sections": {
+                "why_this_skill": parts["summary"],
+                "prerequisites": parts["depends_on"],
+                "related": parts["related"],
+                "task_context": task_context,
+            },
+            "content_excerpt": excerpt,
+        }
+    elif profile_name == "local":
+        parts["payload"] = {
+            "role": "tool",
+            "format": "minimal_json",
+            "goal": parts["summary"],
+            "requires": parts["depends_on"],
+            "task_context": task_context,
+            "content_excerpt": excerpt,
+        }
+    else:
+        parts["payload"] = {
+            "role": "assistant",
+            "format": "balanced_json",
+            "summary": parts["summary"],
+            "prerequisites": parts["depends_on"],
+            "content_excerpt": excerpt,
+            "task_context": task_context,
+        }
+
+    return parts
+
+
 mcp = FastMCP(
     "hyper-sills",
     instructions=(
         f"HYPER-SILLs — {_TOTAL_SKILLS}-skill AI vault with Graph-of-Skills. "
         "Skill tools: search_skills, semantic_search, load_skill, get_skill_graph, recommend_for_task, list_skills_by_category. "
+        "Model adaptation tools: get_model_profile, get_model_optimized_skill. "
         "Action tools: broski_agent (dispatch a task to the BROski orchestrator), brain_core_agent (query the Hyper Brain memory). "
         "Resources (SEP-2640 Skills-over-MCP): skills://index, skill://HS-NNN. "
         f"Categories: {_CATEGORY_SUMMARY}."
     ),
 )
 
-# ── Registry cache ───────────────────────────────────────────────────────────────────────────────
+# ── Registry cache ──────────────────────────────────────────────────────────
 
 _registry: dict | None = None
 _gos_index: dict | None = None  # skill_id → Path, for vault-only skills
@@ -93,7 +244,6 @@ _gos_index: dict | None = None  # skill_id → Path, for vault-only skills
 def get_registry() -> dict:
     global _registry
     if _registry is None:
-        # Prefer the self-contained bundle (skills carry embedded content + gos).
         src = BUNDLE_PATH if BUNDLE_PATH.exists() else REGISTRY_PATH
         _registry = json.loads(src.read_text(encoding="utf-8"))
     return _registry
@@ -104,9 +254,6 @@ def skills_list() -> list[dict]:
 
 
 def _build_gos_index() -> dict:
-    """Build a lazy index of skill_id → file path from GoS blocks in vault files.
-    Used as fallback for skills that are in files but not in the registry.
-    """
     global _gos_index
     if _gos_index is not None:
         return _gos_index
@@ -125,11 +272,9 @@ def _build_gos_index() -> dict:
 
 def find_by_id(skill_id: str) -> dict | None:
     sid = skill_id.upper().strip()
-    # Registry lookup first (fast path)
     result = next((s for s in skills_list() if s.get("id", "").upper() == sid), None)
     if result:
         return result
-    # Fallback: scan GoS blocks in vault files (handles registry/file ID mismatches)
     idx = _build_gos_index()
     fp = idx.get(sid)
     if fp is None:
@@ -154,14 +299,10 @@ def find_by_id(skill_id: str) -> dict | None:
         return None
 
 
-# ── GoS frontmatter parser ─────────────────────────────────────────────────────────────────────────
+# ── GoS frontmatter parser ──────────────────────────────────────────────────────
 
 def _parse_list_section(block: str, key: str) -> list[str]:
-    """Pull a YAML list section by key name."""
-    m = re.search(
-        rf'^{key}:(.*?)(?=^\w|\Z)',
-        block, re.MULTILINE | re.DOTALL
-    )
+    m = re.search(rf'^{key}:(.*?)(?=^\w|\Z)', block, re.MULTILINE | re.DOTALL)
     if not m:
         return []
     items = []
@@ -173,11 +314,7 @@ def _parse_list_section(block: str, key: str) -> list[str]:
 
 
 def _parse_ref_list(block: str, key: str) -> list[dict]:
-    """Pull depends_on / related — list of '- HS-NNN  # comment' items."""
-    m = re.search(
-        rf'^{key}:(.*?)(?=^\w|\Z)',
-        block, re.MULTILINE | re.DOTALL
-    )
+    m = re.search(rf'^{key}:(.*?)(?=^\w|\Z)', block, re.MULTILINE | re.DOTALL)
     if not m:
         return []
     refs = []
@@ -192,22 +329,13 @@ def _parse_ref_list(block: str, key: str) -> list[dict]:
 
 
 def parse_gos(content: str) -> dict:
-    """Extract GoS YAML block from the first --- ... --- pair in a skill file."""
     lines = content.splitlines()
-
-    # Find opening ---
     start = next((i for i, l in enumerate(lines) if l.strip() == "---"), None)
     if start is None:
         return {}
-
-    # Find closing ---
-    end = next(
-        (i for i in range(start + 1, len(lines)) if lines[i].strip() == "---"),
-        None,
-    )
+    end = next((i for i in range(start + 1, len(lines)) if lines[i].strip() == "---"), None)
     if end is None:
         return {}
-
     block = "\n".join(lines[start + 1 : end])
 
     def scalar(pattern: str) -> str:
@@ -227,23 +355,12 @@ def parse_gos(content: str) -> dict:
     }
 
 
-# ── Tool call metrics ────────────────────────────────────────────────────────────────────────
-# Scraped via /metrics (see below). Labeled by tool name + outcome so `mcp_tool_calls_total`
-# and `mcp_tool_call_duration_seconds` show which tools are used and whether they're failing.
-
-TOOL_CALLS_TOTAL = Counter(
-    "mcp_tool_calls_total", "Total MCP tool invocations", ["tool", "status"]
-)
-TOOL_CALL_DURATION = Histogram(
-    "mcp_tool_call_duration_seconds", "MCP tool call duration in seconds", ["tool"]
-)
+# ── Tool call metrics ────────────────────────────────────────────────────────
+TOOL_CALLS_TOTAL = Counter("mcp_tool_calls_total", "Total MCP tool invocations", ["tool", "status"])
+TOOL_CALL_DURATION = Histogram("mcp_tool_call_duration_seconds", "MCP tool call duration in seconds", ["tool"])
 
 
 def instrument_tool(func):
-    """Wrap an MCP tool function with call-count + latency metrics. Uses functools.wraps so
-    FastMCP's schema introspection (inspect.signature + __name__/__doc__) still sees the real
-    function, not this wrapper — verified against mcp.server.fastmcp.utilities.func_metadata,
-    which calls inspect.signature(func, eval_str=True) (follows __wrapped__ by default)."""
     name = func.__name__
 
     if asyncio.iscoroutinefunction(func):
@@ -276,7 +393,45 @@ def instrument_tool(func):
     return sync_wrapper
 
 
-# ── Tools ────────────────────────────────────────────────────────────────────────────────────
+# ── Tools ────────────────────────────────────────────────────────────
+
+@mcp.tool()
+@instrument_tool
+def get_model_profile(model_hint: str = "") -> str:
+    """Return the active model persona profile used to format a skill for a specific LLM."""
+    profile_name = detect_model_profile(model_hint)
+    profile = MODEL_PROFILES.get(profile_name, MODEL_PROFILES["generic"]).copy()
+    return json.dumps({
+        "requested_hint": model_hint or "",
+        "resolved_profile": profile_name,
+        "settings": profile,
+        "note": "Use this profile to choose the best skill payload format for the caller.",
+    }, ensure_ascii=False, indent=2)
+
+
+@mcp.tool()
+@instrument_tool
+def get_model_optimized_skill(skill_id: str, model_hint: str = "", task_context: str = "") -> str:
+    """Return a skill payload optimized for the caller's model persona.
+
+    This adapts the same skill for Claude, GPT, Gemini, local models, and unknown callers
+    without changing the underlying skill content or graph metadata.
+    """
+    meta = find_by_id(skill_id)
+    if not meta:
+        return _mercy_not_found(skill_id)
+
+    content, gos = _content_and_gos(meta)
+    if content is None:
+        return json.dumps({"error": f"Content unavailable for {meta.get('file')}"})
+
+    profile_name = detect_model_profile(model_hint)
+    payload = _build_model_optimized_payload(meta, gos, content, profile_name, task_context)
+    payload["requested_hint"] = model_hint or ""
+    payload["profile_description"] = MODEL_PROFILES.get(profile_name, MODEL_PROFILES["generic"])["description"]
+
+    return json.dumps(payload, ensure_ascii=False, indent=2)
+
 
 @mcp.tool()
 @instrument_tool
@@ -286,16 +441,6 @@ def search_skills(
     tag: str = "",
     limit: int = 10,
 ) -> str:
-    """Search the HYPER-SILLs vault by keyword, category, or tag.
-
-    Args:
-        query: keyword matched against skill ID, hero name, description, and tags
-        category: filter to one of: agents, dev, hypercode, broski, web3, youtube
-        tag: filter by a specific tag (e.g. 'coding', 'orchestration', 'ND-friendly')
-        limit: max results to return (default 10)
-
-    Returns JSON with count and list of matching skills.
-    """
     q = query.lower()
     cat = category.lower().rstrip("/")
     tg = tag.lower()
@@ -330,27 +475,12 @@ def search_skills(
         if len(results) >= limit:
             break
 
-    return json.dumps({"count": len(results), "results": results},
-                      ensure_ascii=False, indent=2)
+    return json.dumps({"count": len(results), "results": results}, ensure_ascii=False, indent=2)
 
 
 @mcp.tool()
 @instrument_tool
 def semantic_search(query: str, limit: int = 5) -> str:
-    """Find skills by describing the problem in natural language (meaning, not keywords).
-
-    Ranks skills by semantic similarity to your description — use this when you
-    don't know the hero name or ID. Falls back to keyword search if the vector
-    index is unavailable.
-
-    Args:
-        query: natural-language description, e.g. "auto-restart a crashed agent"
-        limit: max results (default 5)
-
-    Examples:
-        semantic_search("publish my skills so other tools can use them")
-        semantic_search("stop my agents spawning forever")
-    """
     if not query.strip():
         return json.dumps({"error": "Describe what you need in a sentence."})
     try:
@@ -358,18 +488,13 @@ def semantic_search(query: str, limit: int = 5) -> str:
         from search_skills import semantic_search as _ss, active_backend  # type: ignore
         hits = _ss(query, limit=limit)
         if hits:
-            return json.dumps({"query": query, "backend": active_backend(),
-                               "count": len(hits), "results": hits},
-                              ensure_ascii=False, indent=2)
-    except Exception as e:  # noqa: BLE001 — degrade gracefully to keyword search
+            return json.dumps({"query": query, "backend": active_backend(), "count": len(hits), "results": hits}, ensure_ascii=False, indent=2)
+    except Exception:
         pass
-    # Fallback: keyword search never leaves the user stuck (Mercy Message ethos).
     return search_skills(query=query, limit=limit)
 
 
 def _content_and_gos(meta: dict) -> tuple[str | None, dict]:
-    """Return (content, gos) for a skill — preferring the bundle's embedded
-    fields, else reading the loose .md file. content is None if neither exists."""
     if meta.get("content"):
         return meta["content"], (meta.get("gos") or parse_gos(meta["content"]))
     fp = VAULT_ROOT / meta.get("file", "")
@@ -382,14 +507,6 @@ def _content_and_gos(meta: dict) -> tuple[str | None, dict]:
 @mcp.tool()
 @instrument_tool
 def load_skill(skill_id: str) -> str:
-    """Load the full content of a skill file by its ID (e.g. 'HS-042' or 'DS-028').
-
-    Returns the complete markdown content plus parsed GoS metadata
-    (depends_on, provides, related, graph_notes).
-
-    Args:
-        skill_id: the skill ID, e.g. 'HS-042', 'DS-009', 'HS-001'
-    """
     meta = find_by_id(skill_id)
     if not meta:
         return _mercy_not_found(skill_id)
@@ -413,19 +530,6 @@ def load_skill(skill_id: str) -> str:
 @mcp.tool()
 @instrument_tool
 def get_skill_graph(skill_id: str) -> str:
-    """Return the Graph-of-Skills dependency graph for a skill.
-
-    Shows:
-    - depends_on: skills to load BEFORE this one (prerequisites)
-    - provides:   capability slugs this skill unlocks
-    - related:    adjacent skills worth loading together
-
-    Hero names are resolved for all referenced skills so you can
-    chain-load the right pack without looking up IDs manually.
-
-    Args:
-        skill_id: the skill ID, e.g. 'HS-008', 'HS-042'
-    """
     meta = find_by_id(skill_id)
     if not meta:
         return _mercy_not_found(skill_id)
@@ -452,29 +556,13 @@ def get_skill_graph(skill_id: str) -> str:
         "depends_on":  resolve(gos.get("depends_on", [])),
         "provides":    gos.get("provides", []),
         "related":     resolve(gos.get("related", [])),
-        "load_order_hint": (
-            "Load depends_on skills first, then this skill, "
-            "then optionally load related skills for context."
-        ),
+        "load_order_hint": "Load depends_on skills first, then this skill, then optionally load related skills for context.",
     }, ensure_ascii=False, indent=2)
 
 
 @mcp.tool()
 @instrument_tool
 def recommend_for_task(task: str, limit: int = 5) -> str:
-    """Recommend the best skills for a given task description.
-
-    Examples:
-      "build a new agent from scratch"
-      "add prometheus metrics to my FastAPI service"
-      "write ND-friendly error messages"
-      "set up a nightly self-improvement loop"
-      "design an A/B test for agent behaviour"
-
-    Args:
-        task: natural-language description of what you're trying to do
-        limit: max skills to return (default 5)
-    """
     if not task.strip():
         return json.dumps({
             "error": "Provide a task description.",
@@ -489,7 +577,7 @@ def recommend_for_task(task: str, limit: int = 5) -> str:
         hits = _ss(task, limit=limit)
         if hits:
             backend = active_backend()
-    except Exception:  # noqa: BLE001 — fall through to keyword scoring
+    except Exception:
         hits = []
 
     if hits:
@@ -507,7 +595,6 @@ def recommend_for_task(task: str, limit: int = 5) -> str:
                 "next_step":        f'load_skill("{h["id"]}")',
             })
     else:
-        backend = "keyword"
         keywords = [w for w in re.split(r'\W+', task.lower()) if len(w) > 2]
         scored = []
         for s in skills_list():
@@ -540,21 +627,13 @@ def recommend_for_task(task: str, limit: int = 5) -> str:
         "backend":     backend,
         "count":       len(results),
         "recommended": results,
-        "tip": (
-            "Run get_skill_graph(id) on the top result to find "
-            "prerequisite skills to load first (GoS load-order)."
-        ),
+        "tip": "Run get_skill_graph(id) on the top result to find prerequisite skills to load first (GoS load-order).",
     }, ensure_ascii=False, indent=2)
 
 
 @mcp.tool()
 @instrument_tool
 def list_skills_by_category(category: str = "") -> str:
-    """List all skills in a category, or show category overview if none given.
-
-    Args:
-        category: 'agents', 'dev', 'hypercode', 'broski', 'web3', or 'youtube'. Leave blank for overview.
-    """
     if not category:
         meta = get_registry().get("_meta", {})
         packs = get_registry().get("packs", {})
@@ -567,30 +646,14 @@ def list_skills_by_category(category: str = "") -> str:
 
     cat = category.lower().rstrip("/")
     skills = [
-        {
-            "id":          s["id"],
-            "hero_name":   s["hero_name"],
-            "description": s.get("description", ""),
-            "tags":        s.get("tags", []),
-        }
+        {"id": s["id"], "hero_name": s["hero_name"], "description": s.get("description", ""), "tags": s.get("tags", [])}
         for s in skills_list()
         if s.get("category", "").lower().rstrip("/") == cat
     ]
 
-    return json.dumps({
-        "category": category,
-        "count":    len(skills),
-        "skills":   skills,
-    }, ensure_ascii=False, indent=2)
+    return json.dumps({"category": category, "count": len(skills), "skills": skills}, ensure_ascii=False, indent=2)
 
 
-# ── Action tools (folded in from the standalone hyper-mcp-server) ─────────────────────────────
-# The skill tools above return KNOWLEDGE. These two return ACTIONS — they proxy
-# to running HyperCode agents. Set the backend URLs to the agents' reachable
-# hosts; when unset/unreachable they fail soft with a clear message rather than
-# erroring the whole MCP session (Mercy ethos, HS-069). NOTE: the old standalone
-# server's third tool (hyper_skill_agent) is intentionally NOT folded in — it
-# duplicated load_skill, which already returns skill content by ID.
 BROSKI_AGENT_URL = os.environ.get("BROSKI_AGENT_URL", "").strip().rstrip("/")
 BRAIN_CORE_URL = os.environ.get("BRAIN_CORE_URL", "").strip().rstrip("/")
 
@@ -598,8 +661,7 @@ BRAIN_CORE_URL = os.environ.get("BRAIN_CORE_URL", "").strip().rstrip("/")
 def _agent_unconfigured(tool: str, env: str) -> str:
     return json.dumps({
         "ok": False,
-        "message": f"No stress — {tool} isn't wired up on this host yet. "
-                   f"Set {env} to the agent's URL to enable it.",
+        "message": f"No stress — {tool} isn't wired up on this host yet. Set {env} to the agent's URL to enable it.",
         "next_step": f"Set env {env}=https://<your-agent-host> and redeploy.",
     }, ensure_ascii=False, indent=2)
 
@@ -610,11 +672,11 @@ async def _call_agent(tool: str, url: str, path: str, payload: dict, result_key:
             resp = await client.post(f"{url}{path}", json=payload)
             resp.raise_for_status()
             data = resp.json()
-    except Exception as exc:  # noqa: BLE001 — fail soft, never break the MCP session
+    except Exception as exc:
         return json.dumps({
             "ok": False,
             "message": f"{tool} couldn't reach its backend: {exc}",
-            "next_step": f"Check the backend URL is reachable from this host.",
+            "next_step": "Check the backend URL is reachable from this host.",
         }, ensure_ascii=False, indent=2)
     return json.dumps({
         "ok": True,
@@ -626,14 +688,6 @@ async def _call_agent(tool: str, url: str, path: str, payload: dict, result_key:
 @mcp.tool()
 @instrument_tool
 async def broski_agent(task: str) -> str:
-    """Dispatch a task to the BROski orchestrator agent (tasks, Discord events, BROski$ rewards).
-
-    ACTION tool — runs work on the live BROski agent, unlike the skill tools which
-    return knowledge. Requires BROSKI_AGENT_URL to be set on this host.
-
-    Args:
-        task: natural-language task to dispatch, e.g. "award 50 BROski$ to user X"
-    """
     if not task.strip():
         return json.dumps({"ok": False, "message": "Describe the task to run."})
     if not BROSKI_AGENT_URL:
@@ -644,14 +698,6 @@ async def broski_agent(task: str) -> str:
 @mcp.tool()
 @instrument_tool
 async def brain_core_agent(query: str) -> str:
-    """Query the Hyper Brain Core — memory, context, and second-brain lookups.
-
-    ACTION tool — asks the live Brain Core service, unlike the vault skill tools.
-    Requires BRAIN_CORE_URL to be set on this host.
-
-    Args:
-        query: what to look up, e.g. "what did we decide about Stripe live mode?"
-    """
     if not query.strip():
         return json.dumps({"ok": False, "message": "Describe what to look up."})
     if not BRAIN_CORE_URL:
@@ -667,7 +713,6 @@ def _skill_uri(skill_id: str) -> str:
 
 @mcp.resource("skills://index")
 def skills_index() -> str:
-    """Browseable index of every skill as a Resource (skill://HS-NNN)."""
     items = [
         {
             "uri":       _skill_uri(s["id"]),
@@ -679,13 +724,11 @@ def skills_index() -> str:
         for s in skills_list()
         if s.get("status", "").lower() != "archived"
     ]
-    return json.dumps({"count": len(items), "skills": items},
-                      ensure_ascii=False, indent=2)
+    return json.dumps({"count": len(items), "skills": items}, ensure_ascii=False, indent=2)
 
 
 @mcp.resource("skill://{skill_id}")
 def skill_resource(skill_id: str) -> str:
-    """Read a single skill's full markdown by ID, e.g. resource skill://HS-100."""
     meta = find_by_id(skill_id)
     if not meta:
         return _mercy_not_found(skill_id)
@@ -694,8 +737,6 @@ def skill_resource(skill_id: str) -> str:
         return f"# {skill_id}\n\nNo stress — this skill is registered but its content isn't bundled yet ({meta.get('file')})."
     return content
 
-
-# ── Health check ──────────────────────────────────────────────────────────────────────────────────
 
 def _search_backend_report() -> dict:
     import importlib.util
@@ -710,8 +751,7 @@ def _search_backend_report() -> dict:
         report["query"] = "local:sentence-transformers"
     elif os.environ.get("OPENAI_API_KEY"):
         report["query"] = "openai"
-    report["dense_active"] = (report["index"] != "tfidf"
-                              and report["query"] != "tfidf")
+    report["dense_active"] = (report["index"] != "tfidf" and report["query"] != "tfidf")
     return report
 
 
@@ -734,14 +774,8 @@ async def health(request: Request) -> JSONResponse:
 
 @mcp.custom_route("/metrics", methods=["GET"])
 async def metrics(request: Request) -> Response:
-    """Prometheus scrape endpoint. Exposes prometheus_client's default process/platform/GC
-    collectors (registered automatically on import) — enough for a real, non-fake target.
-    No auth: this is only reachable over Railway's private network, same trust boundary as
-    any other internal-only service-to-service call."""
     return Response(generate_latest(), media_type=CONTENT_TYPE_LATEST)
 
-
-# ── Mercy messages (HS-069) ──────────────────────────────────────────────────────────────────────
 
 def _mercy_not_found(skill_id: str) -> str:
     near = []
@@ -749,19 +783,16 @@ def _mercy_not_found(skill_id: str) -> str:
     digits = re.sub(r"\D", "", sid)
     for s in skills_list():
         if digits and digits in re.sub(r"\D", "", s.get("id", "")):
-            near.append(f'{s["id"]} {s.get("hero_name","")}')
+            near.append(f'{s["id"]} {s.get("hero_name", "")}')
         if len(near) >= 3:
             break
-    hint = ("Closest matches: " + "; ".join(near)) if near else \
-        'Try search_skills("<keywords>") to find it by topic.'
+    hint = ("Closest matches: " + "; ".join(near)) if near else 'Try search_skills("<keywords>") to find it by topic.'
     return json.dumps({
         "ok": False,
         "message": f"No stress — '{skill_id}' isn't in the vault yet. {hint}",
         "next_step": 'search_skills(query="...") or recommend_for_task(task="...")',
     }, ensure_ascii=False, indent=2)
 
-
-# ── Smoke test ───────────────────────────────────────────────────────────────────────────────────
 
 def _smoke_test():
     print("HYPER-SILLs MCP Server — smoke test\n")
@@ -810,8 +841,6 @@ def _smoke_test():
     print("All tools + resources OK.")
 
 
-# ── Entry point ──────────────────────────────────────────────────────────────────────────────────
-
 if __name__ == "__main__":
     if "--test" in sys.argv:
         _smoke_test()
@@ -826,8 +855,7 @@ if __name__ == "__main__":
         else:
             hosts = ["localhost", "localhost:*", "127.0.0.1", "127.0.0.1:*"]
             origins: list[str] = []
-            domain = (os.environ.get("RAILWAY_PUBLIC_DOMAIN")
-                      or os.environ.get("RENDER_EXTERNAL_HOSTNAME") or "").strip()
+            domain = (os.environ.get("RAILWAY_PUBLIC_DOMAIN") or os.environ.get("RENDER_EXTERNAL_HOSTNAME") or "").strip()
             if domain:
                 hosts += [domain, f"{domain}:*"]
                 origins += [f"https://{domain}", f"http://{domain}"]

@@ -1,6 +1,6 @@
 {
   "name": "hyper-sills-mcp",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "display_name": "HYPER-SILLs Skills Brain",
   "description": "123-skill AI vault exposed over MCP via Graph-of-Skills architecture. Exposes search, semantic search, skill loading, dependency graphs, task recommendations, and category browsing. Powers all agents in the Hyperfocus Zone ecosystem with shared skill intelligence.",
   "author": "welshDog",

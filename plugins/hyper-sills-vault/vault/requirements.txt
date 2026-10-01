@@ -12,6 +12,7 @@ prometheus-client==0.26.0
 starlette==1.3.1
 uvicorn==0.51.0
 sse-starlette==3.4.6
+pyyaml==6.0.3
 
 # Optional — dense query embedding. Without these, semantic_search falls back to
 # the built-in TF-IDF backend (the prebuilt vector-store/skill_index.json still

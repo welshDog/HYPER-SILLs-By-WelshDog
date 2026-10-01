@@ -15,7 +15,7 @@ dependency retrieval (arXiv:2604.05333: +25.55% reward, -56.72% tokens vs flat l
 
 ## What you get
 
-**MCP server** (`hyper-sills`) with 6 skill tools:
+**MCP server** (`hyper-sills`) with 12 tools:
 
 | Tool | What it does |
 |---|---|
@@ -25,6 +25,12 @@ dependency retrieval (arXiv:2604.05333: +25.55% reward, -56.72% tokens vs flat l
 | `get_skill_graph` | `depends_on` / `provides` / `related` for load-order |
 | `recommend_for_task` | Best skills for a natural-language task |
 | `list_skills_by_category` | Browse `agents` / `dev` / `broski` / `web3` / `hypercode` / `youtube` |
+| `get_model_profile` | Active model persona profile used to format a skill for a specific LLM |
+| `get_model_optimized_skill` | A skill adapted for the caller's model (Claude, GPT, Gemini, local) |
+| `get_skill_execution_schema` | Runnable variables + examples declared by a skill's execution block |
+| `execute_skill_template` | Render a skill's execution block into a runnable model prompt payload |
+| `broski_agent` | Dispatch a task to the BROski orchestrator (needs `BROSKI_AGENT_URL`) |
+| `brain_core_agent` | Query the Hyper Brain Core memory (needs `BRAIN_CORE_URL`) |
 
 **Slash commands:**
 
@@ -38,7 +44,8 @@ dependency retrieval (arXiv:2604.05333: +25.55% reward, -56.72% tokens vs flat l
 
 - Python 3.11+ with the `mcp` package — **`pip install "mcp>=1.28.1,<2"`**, or run via `uv`.
   > ⚠️ `mcp` 2.0.0 removed `mcp.server.fastmcp`; the bundled server needs a 1.x
-  > release. `vault/requirements.txt` pins the full known-good set.
+  > release. `vault/requirements.txt` pins the full known-good set (including
+  > `pyyaml`, needed to parse skill execution-template blocks).
 
 ---
 

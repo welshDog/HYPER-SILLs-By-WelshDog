@@ -2,6 +2,19 @@
 
 ---
 
+## [2026-10-01] 🚑 Live service revived after a 2-day outage — PR #20 import-order NameError
+
+- **Outage fix:** `mcp_server.py` crashed on import (`NameError: _mercy_not_found`) because
+  PR #20's `register_execution_tools(...)` wiring call sat above the helper's definition.
+  Service was `502` 2026-09-29 12:22 UTC → 2026-10-01 ~11:18 UTC. Same failure shape as the
+  Aug/Sep outage, introduced via a GitHub PR merge this time.
+- Also fixed `tests/test_mcp_execution.py`'s fixture (unclosed ` ```execution ` fence) —
+  3 of its own tests were silently failing on `main`.
+- Verified live end-to-end before and after: local boot matching Railway's start command,
+  full MCP `initialize` → `tools/list` over HTTP (12 tools), then production `/health` →
+  `200`, `"version":"1.3.0"`, 123 skills.
+- Plugin bundle (`plugins/hyper-sills-vault/vault/`) is stale again — PR #20 didn't resync it.
+
 ## [2026-09-04] 🚑 Live service revived after a 10-day outage + repo hygiene pass
 
 - **Outage fix:** the live MCP service was `502` for 10 days (2026-08-19 → 09-04).

@@ -1,9 +1,48 @@
 # WHATS_DONE.md -- HYPER-SILLs-By-WelshDog
 
 > Single source of truth. Check this before building ANYTHING.
-> Last updated: 2026-09-04
+> Last updated: 2026-10-01
 
-## 2026-09-04 (latest) — Live MCP service revived after 10-day outage; full dependency freeze
+## 2026-10-01 (latest) — Live MCP service revived after 2-day outage; PR #20 NameError
+
+**The service was 502 from 2026-09-29 12:22 UTC to 2026-10-01 ~11:18 UTC (~2 days).**
+
+- **Root cause:** PR #20 ("Feat/llm personas adaptation", merged `d4fc1a2`) added two new
+  MCP tools — `get_skill_execution_schema` / `execute_skill_template` (run a skill as a
+  runnable prompt template) — via a new `mcp_execution.py` + `skill_execution.py`. The
+  wiring call `register_execution_tools(mcp, find_by_id, _content_and_gos, _mercy_not_found)`
+  was placed at module scope at line 716, **before** `_mercy_not_found` is defined at line
+  793. Module-level code runs top-to-bottom at import time (unlike function bodies), so
+  this raised `NameError: name '_mercy_not_found' is not defined` immediately on import —
+  before the server ever bound a port — so the healthcheck failed 6/6 and Railway marked the
+  deploy `FAILED`. Same failure shape as the August outage (see entry below), just introduced
+  via a GitHub PR merge rather than a local push, so the pre-push smoke-test hook never saw it.
+  Confirmed via `get-deployment-diagnosis` (full traceback) before touching any code.
+- **Also found (same PR, unrelated to the outage):** the new `tests/test_mcp_execution.py`
+  fixture's `SKILL` constant never closed its ` ```execution ` fence, so 3 of its own tests
+  were failing against real YAML parsing (`parse_execution_block` returned `{}`). `main` was
+  not actually green when it looked green.
+- **Fix (`cf2fcd0`, pushed straight to `main` after Lyndz approved the ship method):**
+  - Moved the `register_execution_tools(...)` call in `mcp_server.py` to after
+    `_mercy_not_found`'s definition (right before `_smoke_test`).
+  - Closed the fence in the `tests/test_mcp_execution.py` fixture.
+- **Verified before pushing (not just imported):**
+  - `pytest` → 14/14 (was 11/14).
+  - `scripts/smoke_test.py` → clean, 123 skills.
+  - Booted the real server locally exactly as Railway does (`python mcp_server.py --http`):
+    `/health` → 200/123 skills/dense MiniLM active; a real MCP `initialize` → `tools/list`
+    over HTTP showed **12 tools**, including both new execution tools correctly wired.
+- **Verified live after redeploy** (`b89a049e`, SUCCESS): production `/health` → 200,
+  `"version":"1.3.0"`, `"skills":123`, dense backend active.
+- **Confirmed PyYAML is pinned** (`pyyaml==6.0.3` in `requirements.txt`), so prod uses the
+  real `yaml.safe_load` path in `skill_execution.py`, not the untested hand-rolled fallback
+  parser.
+- **Not done here (noted, not blocking):** the plugin bundle
+  (`plugins/hyper-sills-vault/vault/`) was not resynced by PR #20 and is stale again relative
+  to root `mcp_server.py` — same open item as the 2026-09-04 entry below, still needs
+  `scripts/build_plugin.py`.
+
+## 2026-09-04 — Live MCP service revived after 10-day outage; full dependency freeze
 
 **The service was 502 from 2026-08-19 21:15 UTC to 2026-09-04 00:49 UTC (10 days).**
 

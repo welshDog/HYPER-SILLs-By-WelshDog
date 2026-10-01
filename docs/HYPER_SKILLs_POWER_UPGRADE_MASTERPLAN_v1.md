@@ -3,8 +3,17 @@
 
 > *"A skill unused is a skill wasted. A skill undiscoverable is a skill that doesn't exist."*
 >
-> **Target**: `welshDog/HYPER-SILLs-By-WelshDog` | **120 rescued skills · 6 categories** *(reconciled 2026-06-28; was 72 rescued · 37 catalogued at research time)*
+> **Target**: `welshDog/HYPER-SILLs-By-WelshDog` | **123 rescued skills · 6 categories** *(current as of 2026-10-01; was 120 at 2026-06-28 reconcile, 72 rescued · 37 catalogued at research time)*
 > **Research Date**: 2026-06-01 | **Sources**: 25+ papers, repos, protocols, frameworks
+
+> ### 📍 STATUS UPDATE — 2026-10-01
+> Most of this plan has since been built. **Still outstanding:** `scripts/gos_retrieve.py`
+> (standalone GoS retrieval pipeline — `get_skill_graph` in `mcp_server.py` covers the
+> single-skill case, but not the budget-bounded multi-hop retrieval this doc describes) and
+> `scripts/obsidian_sync.py` (bidirectional Obsidian vault sync, §8 — not started). Everything
+> else referenced in the roadmap (§11) below has a real file on disk; see the inline ✅ marks.
+> This doc is kept as architectural reference, not a live TODO list — check `WHATS_DONE.md`
+> for actual current state before planning new work from here.
 
 ---
 
@@ -646,34 +655,39 @@ DRAFT → REVIEW → ACTIVE → DEPRECATED → ARCHIVED
 ## 11. Implementation Roadmap
 
 ### Phase 1: Foundation (Weeks 1-2) — Skill Graph
-- [ ] Add `depends_on`, `provides`, `related` to skill template
-- [ ] Retrofit top 20 most-used skills with dependency metadata
-- [ ] Build `scripts/gos_retrieve.py` — graph retrieval engine
-- [ ] Update linter to validate dependency fields
+- [x] Add `depends_on`, `provides`, `related` to skill template — `templates/SKILL_TEMPLATE.md`
+- [x] Retrofit top skills with dependency metadata — present across the vault (e.g. HS-114)
+- [ ] Build `scripts/gos_retrieve.py` — graph retrieval engine — **not built**; `get_skill_graph`
+      MCP tool covers single-skill lookup, not budget-bounded multi-hop retrieval
+- [x] Update linter to validate dependency fields — `scripts/skill_linter.py` ("Graph-of-Skills
+      validation: ON" in pre-push output)
 
 ### Phase 2: Integration (Weeks 3-4) — MCP + Search
-- [ ] Build `mcp/server.py` — FastMCP skill server
-- [ ] Implement `search_skills` with vector embeddings
-- [ ] Add `scripts/export_claude_skills.py` — format bridge
-- [ ] Integrate semantic search into Brain Ops CLI
+- [x] Build an MCP skill server — `mcp_server.py` (root-level, not under a `mcp/` subdir as
+      originally sketched)
+- [x] Implement `search_skills` with vector embeddings — `semantic_search` tool, dense
+      MiniLM backend, `scripts/embed_skills.py`
+- [x] Add `scripts/export_claude_skills.py` — format bridge
+- [x] Integrate semantic search into Brain Ops CLI — `skill-search` subcommand in
+      `scripts/hyper_brain_ops.py`
 
 ### Phase 3: Intelligence (Weeks 5-6) — Auto-Load + Memory
-- [ ] Build trigger engine for skill packs
-- [ ] Implement `.skill-memory/` learning loop
-- [ ] Add Obsidian bidirectional sync
-- [ ] Generate visual skill map (Mermaid + Obsidian)
+- [x] Build trigger engine for skill packs — `scripts/trigger_engine.py`
+- [x] Implement `.skill-memory/` learning loop — `.skill-memory/README.md` + `usage-log.jsonl`
+- [ ] Add Obsidian bidirectional sync — **not built**
+- [x] Generate visual skill map — `scripts/generate_skill_map.py`, `docs/skill-map.md`
 
 ### Phase 4: Experience (Weeks 7-8) — ND-First Polish
-- [ ] Build progress tracker + dopamine hooks
-- [ ] Implement Body Double mode
-- [ ] Polish Mercy Message integration
-- [ ] Create skill constellation visualization
+- [x] Build progress tracker — `progress-tracker.yaml`
+- [x] Implement Body Double mode — `scripts/body_double.py`
+- [x] Polish Mercy Message integration — `_mercy_not_found()` in `mcp_server.py` + HS-069
+- [x] Create skill constellation visualization — covered by `generate_skill_map.py`
 
 ### Phase 5: Distribution (Week 9+) — Ecosystem
-- [ ] OCI artifact publishing
-- [ ] Semantic versioning rollout
-- [ ] Community contribution workflow
-- [ ] Documentation + tutorial videos
+- [x] OCI artifact publishing — `.github/workflows/publish-skills.yml`
+- [~] Semantic versioning rollout — skills carry `version: vX.Y.Z`; not yet enforced/audited
+- [ ] Community contribution workflow — not verified, likely not started
+- [ ] Documentation + tutorial videos — not started
 
 ---
 

@@ -2,7 +2,7 @@
   "name": "hyper-sills-mcp",
   "version": "1.3.0",
   "display_name": "HYPER-SILLs Skills Brain",
-  "description": "123-skill AI vault exposed over MCP via Graph-of-Skills architecture. Exposes search, semantic search, skill loading, dependency graphs, task recommendations, and category browsing. Powers all agents in the Hyperfocus Zone ecosystem with shared skill intelligence.",
+  "description": "123-skill AI vault exposed over MCP via Graph-of-Skills architecture. Exposes search, semantic search, skill loading, dependency graphs, task recommendations, category browsing, model-persona adaptation, runnable execution templates, and BROski/Brain-Core agent dispatch. Powers all agents in the Hyperfocus Zone ecosystem with shared skill intelligence.",
   "author": "welshDog",
   "runtime": "python",
   "entrypoint": "mcp_server.py",
@@ -129,6 +129,132 @@
           "category": { "type": "string" },
           "count":    { "type": "integer" },
           "skills":   { "type": "array" }
+        }
+      }
+    },
+    {
+      "name": "get_model_profile",
+      "description": "Return the active model persona profile (response style, summary/payload length limits) used to format a skill for a specific caller LLM — Claude, GPT, Gemini, local, or generic.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "model_hint": { "type": "string", "description": "claude, gpt, gemini, local, or blank for generic" }
+        },
+        "required": []
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "requested_hint":   { "type": "string" },
+          "resolved_profile": { "type": "string" },
+          "settings":         { "type": "object" },
+          "note":             { "type": "string" }
+        }
+      }
+    },
+    {
+      "name": "get_model_optimized_skill",
+      "description": "Return a skill payload adapted for the caller's model persona (Claude, GPT, Gemini, local, or generic) without changing the skill's underlying content or graph metadata — truncated summaries, response-style hints, and a persona-shaped payload block.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "skill_id":     { "type": "string", "description": "The skill ID e.g. HS-042" },
+          "model_hint":   { "type": "string", "description": "claude, gpt, gemini, local, or blank for generic" },
+          "task_context": { "type": "string", "description": "Optional free-text context about the current task" }
+        },
+        "required": ["skill_id"]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "id":          { "type": "string" },
+          "hero_name":   { "type": "string" },
+          "category":    { "type": "string" },
+          "summary":     { "type": "string" },
+          "depends_on":  { "type": "array" },
+          "provides":    { "type": "array" },
+          "related":     { "type": "array" },
+          "profile":     { "type": "string" },
+          "payload":     { "type": "object" }
+        }
+      }
+    },
+    {
+      "name": "get_skill_execution_schema",
+      "description": "Return the runnable variables and examples declared by a skill's fenced ```execution YAML block, if it has one. Returns ok:false with a next_step hint if the skill has no execution block.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "skill_id": { "type": "string", "description": "The skill ID e.g. HS-042" }
+        },
+        "required": ["skill_id"]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "ok":         { "type": "boolean" },
+          "skill_id":   { "type": "string" },
+          "execution":  { "type": "object" },
+          "variables":  { "type": "array" },
+          "examples":   { "type": "array" }
+        }
+      }
+    },
+    {
+      "name": "execute_skill_template",
+      "description": "Render a skill's ```execution block into a runnable model prompt payload (system/user prompt with variables substituted, model, temperature, max_tokens). Returns ok:false with the error and a schema_tool hint if required variables are missing or the JSON is invalid.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "skill_id":   { "type": "string", "description": "The skill ID e.g. HS-042" },
+          "variables":  { "type": "string", "description": "JSON object (as a string) of template values, default '{}'" },
+          "model_hint": { "type": "string", "description": "Optional model/persona hint e.g. claude, gpt, gemini, local" }
+        },
+        "required": ["skill_id"]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "ok":         { "type": "boolean" },
+          "skill_id":   { "type": "string" },
+          "model_hint": { "type": "string" },
+          "payload":    { "type": "object" }
+        }
+      }
+    },
+    {
+      "name": "broski_agent",
+      "description": "Dispatch a task to the BROski orchestrator. Fail-soft: returns ok:false with a clear message if BROSKI_AGENT_URL isn't configured on the host, instead of erroring the MCP session.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "task": { "type": "string", "description": "The task to dispatch" }
+        },
+        "required": ["task"]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "ok":      { "type": "boolean" },
+          "message": { "type": "string" }
+        }
+      }
+    },
+    {
+      "name": "brain_core_agent",
+      "description": "Query the Hyper Brain Core memory. Fail-soft: returns ok:false with a clear message if BRAIN_CORE_URL isn't configured on the host, instead of erroring the MCP session.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "query": { "type": "string", "description": "What to look up in Brain Core memory" }
+        },
+        "required": ["query"]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "ok":      { "type": "boolean" },
+          "message": { "type": "string" }
         }
       }
     }

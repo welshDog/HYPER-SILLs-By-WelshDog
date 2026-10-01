@@ -1,14 +1,16 @@
 # 🦸 AGENT-START.md — HYPER-SILLs Skills Vault Boot File
 > **For ANY AI, agent, or human working with the HYPER-SILLs skills vault.**
 > Read this FIRST. Every session. No exceptions.
-> Built by @welshDog — 2026-06-01 · v1.0
+> Built by @welshDog — 2026-06-01 · last corrected 2026-10-01
 
 ---
 
 ## ⚡ WHAT THIS REPO IS
 
 This is the **skills vault** for the entire HyperFocus Z0ne ecosystem.
-- **72+ hero-named skills** (Marvel naming convention — never rename them)
+- **123 hero-named skills, 6 categories** (Marvel naming convention — never rename them)
+- Live over MCP at `hyper-sills-by-welshdog-production.up.railway.app/mcp`, and installable
+  as a Claude Code plugin (`/plugin install hyper-sills-vault`) — 12 tools either way
 - Used by: Claude Code, Cursor, Gemini CLI, custom agents, Perplexity
 - Acts as the **6th core infrastructure repo** — treat it like a service, not docs
 - Skills are loaded by agents at runtime to gain domain expertise
@@ -18,10 +20,11 @@ This is the **skills vault** for the entire HyperFocus Z0ne ecosystem.
 ## 📋 STEP 1 — READ THESE FILES FIRST
 
 ```
-1. NEXT_SESSION_HANDOVER_[latest date].md   ← live state, ALWAYS wins
-2. vault-index.md                           ← full skills map, every folder
-3. SKILL.md                                 ← how to write + load a skill
-4. skills-registry.json                     ← machine-readable registry
+1. WHATS_DONE.md                                     ← single source of truth, always wins
+2. docs/handovers/NEXT_SESSION_HANDOVER_[latest].md   ← live state from the last session
+3. vault-index.md                                     ← full skills map, every folder
+4. SKILL.md                                           ← how to write + load a skill
+5. skills-registry.json                               ← machine-readable registry
 ```
 
 ---
@@ -30,16 +33,24 @@ This is the **skills vault** for the entire HyperFocus Z0ne ecosystem.
 
 | Folder | What lives here | Load when... |
 |---|---|---|
-| `agents/` | AI agent orchestration, swarms, MCP, tool use | Building/debugging agents |
-| `broski/` | BROski$ economy, Discord bot, token rewards | Working on BROski$ or Discord |
-| `content/` | Course scripts, YouTube, storytelling, ND-first writing | Writing content or course modules |
-| `dev/` | Docker, FastAPI, React/Vite, Python, infra | Building any dev feature |
-| `hypercode/` | HyperCode-V2.4 specific skills — services, runbooks | Working on core platform |
-| `youtube/` | YouTube strategy, scripts, thumbnails, shorts | Creating YouTube content |
+| `agents/` (51) | AI agent orchestration, swarms, MCP, tool use | Building/debugging agents |
+| `dev/` (42) | Docker, FastAPI, React/Vite, Python, infra | Building any dev feature |
+| `hypercode/` (12) | HyperCode-V2.4 specific skills — services, runbooks | Working on core platform |
+| `broski/` (7) | BROski$ economy, Discord bot, token rewards, ND-first UX | Working on BROski$ or Discord |
+| `web3/` (7) | BROskiPets, dNFT, on-chain skills | Working on web3/BROskiPets |
+| `youtube/` (4) | YouTube strategy, scripts, thumbnails, shorts | Creating YouTube content |
+| `content/` | Placeholder — empty (`.gitkeep` only), not a live category | — |
 | `scripts/` | Python automation tools for the vault itself | Vault maintenance |
 | `templates/` | Skill templates, YAML frontmatter specs | Creating new skills |
-| `docs/` | Internal vault documentation | Understanding vault architecture |
+| `packs/` | Curated skill-pack manifests with auto-load triggers | Bundling skills for a goal |
+| `.skill-memory/` | Usage logging / learning loop | Vault maintenance |
+| `plugins/` | Claude Code plugin bundle (self-contained MCP server copy) | Publishing the plugin |
+| `docs/` | Internal vault documentation + session handovers | Understanding vault architecture |
 | `output/` | Generated outputs from scripts | Reference only |
+
+> The 6 **live** categories are `agents`, `dev`, `hypercode`, `broski`, `web3`, `youtube` —
+> these match `category:` in skill frontmatter and the MCP server's `/health` response exactly.
+> `content/` exists on disk but holds no skills; don't file new skills there.
 
 ---
 
@@ -60,9 +71,8 @@ This is the **skills vault** for the entire HyperFocus Z0ne ecosystem.
 4. Follow the STOP → WHY → HOW → WIN → NEXT structure
 ```
 
-### For export to Claude Code
+### For export to Claude Code / Agent Skills format
 ```bash
-# Run the export script (when built)
 python scripts/export_claude_skills.py --output ./output/claude_skills/
 ```
 
@@ -96,34 +106,31 @@ python scripts/export_claude_skills.py --output ./output/claude_skills/
 
 ---
 
-## 🔬 SKILL YAML FRONTMATTER (v2.0 — Skill Graph Ready)
+## 🔬 SKILL YAML FRONTMATTER (Graph-of-Skills schema — matches `templates/SKILL_TEMPLATE.md`)
 
-Every skill MUST include this at the top:
+Every skill MUST include this at the top (this is the real schema the linter and MCP
+server parse — copy `templates/SKILL_TEMPLATE.md`, don't hand-roll it):
 
 ```yaml
 ---
-name: "HERO-NAME-HERE"
-version: 2
-description: "One sentence. What does this skill teach an agent to do?"
-category: "agents | broski | content | dev | hypercode | youtube"
-author: "welshDog"
-created: "YYYY-MM-DD"
-updated: "YYYY-MM-DD"
-depends_on:   # Skills that must be loaded BEFORE this one
-  - "SKILL-NAME-A"
-  - "SKILL-NAME-B"
-provides:     # Capabilities this skill unlocks
-  - "capability-one"
-  - "capability-two"
-related:      # Skills that complement this one (no hard dependency)
-  - "SKILL-NAME-C"
-tags:
-  - "docker"
-  - "fastapi"
+skill_id: HS-NNN
+hero_name: "HERO NAME"
+emoji: "🦸"
+version: v1.0.0  # semver vMAJOR.MINOR.PATCH
+status: ACTIVE   # DRAFT | REVIEW | ACTIVE | DEPRECATED | ARCHIVED
+category: agents  # agents | dev | hypercode | broski | web3 | youtube
+depends_on:
+  - HS-XXX  # Skill this one builds on, with a reason comment
+provides:
+  - feature-slug-one
+related:
+  - HS-YYY  # Lateral reference — not a hard dependency
+graph_notes: "One sentence: where this skill sits in the graph and what it connects."
 ---
 ```
 
-> 💡 The `depends_on`, `provides`, `related` fields power the **Skill Graph** — the #1 upgrade from MASTERPLAN v1. Add them to ALL new skills and retrofit the top 10 priority skills first.
+> 💡 The `depends_on`, `provides`, `related` fields power the **Skill Graph** (GoS). The
+> pre-push linter validates them — see `scripts/skill_linter.py`.
 
 ---
 
@@ -158,16 +165,18 @@ These 10 are highest-traffic — retrofit `depends_on` / `provides` / `related` 
 | 9 | Course Content Skill | `content/` |
 | 10 | YouTube Strategy | `youtube/` |
 
-> After retrofitting, run: `python scripts/validate_skills.py` to check all frontmatter is valid.
+> After retrofitting, run: `python scripts/skill_linter.py` to check all frontmatter is valid.
 
 ---
 
 ## 📈 VAULT HEALTH METRICS (Check Monthly)
 
-- Total skills: Check `skills-registry.json` entry count
-- Skills with graph metadata: Run `python scripts/validate_skills.py --check-graph`
-- Broken skill links: Run `python scripts/vault_linter.py`
-- Skills missing from registry: Run `python scripts/sync_registry.py --dry-run`
+- Total skills + dependency graph validity: `python scripts/skill_linter.py` (also runs on
+  every pre-push via `scripts/git_pre_push_lint.sh`)
+- Server import smoke test: `python scripts/smoke_test.py`
+- Registry drift (skill files vs `skills-registry.json`): `python scripts/generate_registry.py`
+  regenerates it from disk — diff before committing
+- Vault index drift: `python scripts/update_vault_index.py`
 
 ---
 
@@ -176,8 +185,12 @@ These 10 are highest-traffic — retrofit `depends_on` / `provides` / `related` 
 - [ ] New skills added to `skills-registry.json` ✔️
 - [ ] `vault-index.md` updated ✔️
 - [ ] All new skills have `depends_on` / `provides` / `related` frontmatter ✔️
-- [ ] `NEXT_SESSION_HANDOVER_[DATE].md` created + pushed ✔️
-- [ ] All changes committed + pushed ✔️
+- [ ] If `mcp_server.py` changed: ran `python scripts/build_plugin.py` and committed
+      `plugins/hyper-sills-vault/vault/` so the marketplace plugin isn't left stale ✔️
+- [ ] `WHATS_DONE.md` updated with what actually shipped ✔️
+- [ ] `docs/handovers/NEXT_SESSION_HANDOVER_[DATE].md` created + pushed ✔️
+- [ ] All changes committed + pushed, **and the Railway deploy confirmed SUCCESS +
+      `/health` checked live** (a merged PR is not a live PR — see DEPLOY.md) ✔️
 - [ ] Tell Lyndz the ONE next task (one sentence) ✔️
 - [ ] 🎉 Celebrate the wins — "Nice one BROski♾️!"
 

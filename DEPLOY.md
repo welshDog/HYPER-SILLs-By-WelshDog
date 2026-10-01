@@ -6,7 +6,13 @@ and the **Perplexity MCP connector** can discover + call them live.
 Verified in a clean venv: `pip install -r requirements.txt` → `python mcp_server.py --http`
 → `GET /health` 200, MCP endpoint at `/mcp`.
 
-## Current Production Deployment (verified 2026-07-25)
+## Current Production Deployment (verified 2026-07-25; `/health`/version re-verified 2026-10-01)
+
+> ⚠️ This service has had two import-crash outages: 2026-08-19→09-04 (10 days, unpinned
+> `mcp` dependency) and 2026-09-29→10-01 (~2 days, a `NameError` merged via PR #20). Both are
+> post-mortemed in `WHATS_DONE.md`. The failure mode both times: a crash at import time, before
+> the server binds a port, so the healthcheck fails 6/6 and Railway marks the deploy FAILED —
+> watch Railway deploy status after any merge, don't assume a merged PR is a live PR.
 
 - **Target**: Railway, project `sincere-strength`, service `HYPER-SILLs-By-WelshDog`.
 - **Region**: `sfo` only, 1 replica (`multiRegionConfig: {"sfo": {"numReplicas": 1}}`). No second region is configured — treat any note about `sfo`+`iad` multi-region as an in-progress goal, not a shipped state, until `get-service-config` shows both.
@@ -22,7 +28,7 @@ Verified in a clean venv: `pip install -r requirements.txt` → `python mcp_serv
 ## Files that make this work
 - `requirements.txt` — runtime deps (`mcp` pulls starlette + uvicorn + sse-starlette + httpx)
 - `Procfile` — `web: python mcp_server.py --http`
-- `railway.json` — NIXPACKS builder, start command, `healthcheckPath: /health`
+- `railway.json` — RAILPACK builder, start command, `healthcheckPath: /health`
 - `.python-version` — pins Python 3.12
 - `mcp_server.py --http` — reads `$PORT` (Railway injects it) + `$HOST` (default 0.0.0.0)
 
@@ -69,8 +75,10 @@ see the Observability line above). If this 404s, the deploy predates the `/metri
 
 1. Go to **perplexity.ai/computer/connectors** → add a custom MCP connector.
 2. URL: `https://<your-domain>.up.railway.app/mcp`
-3. Save. All 6 tools (`search_skills`, `semantic_search`, `load_skill`,
-   `get_skill_graph`, `recommend_for_task`, `list_skills_by_category`) are now
+3. Save. All 12 tools — `search_skills`, `semantic_search`, `load_skill`,
+   `get_skill_graph`, `recommend_for_task`, `list_skills_by_category`,
+   `get_model_profile`, `get_model_optimized_skill`, `get_skill_execution_schema`,
+   `execute_skill_template`, `broski_agent`, `brain_core_agent` — are now
    callable from every Perplexity chat.
 
 ## Redeploy after changes

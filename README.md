@@ -27,7 +27,7 @@ https://hyper-sills-by-welshdog-production.up.railway.app/mcp   ← MCP endpoint
 https://hyper-sills-by-welshdog-production.up.railway.app/health ← {"status":"ok","skills":123,...}
 ```
 
-Add the `/mcp` URL to the **Perplexity MCP connector** (or any HTTP MCP client) and all 6 tools
+Add the `/mcp` URL to the **Perplexity MCP connector** (or any HTTP MCP client) and all 12 tools
 are callable from every chat. See [`DEPLOY.md`](DEPLOY.md) to deploy your own.
 
 ---
@@ -179,7 +179,9 @@ python scripts/export_claude_skills.py --pack focus-toolkit
 
 | Version | Date | What Dropped |
 |---|---|---|
-| **v3.4** | 2026-09-04 | Live MCP service revived after a 10-day outage (unpinned `mcp` → 2.0.0); full dependency freeze + pre-push import smoke gate; repo hygiene + docs truth pass. **123 skills, 6 categories** |
+| **v3.6** | 2026-10-01 | Live MCP service revived after a 2nd outage (PR #20 import-order `NameError`, ~2 days down); marketplace plugin bundle resynced for the first time since v3.5 — was missing the execution-tools feature entirely |
+| v3.5 | 2026-09-29 | LLM persona adaptation (`get_model_profile`, `get_model_optimized_skill`) + runnable skill execution templates (`get_skill_execution_schema`, `execute_skill_template`) — **12 tools total** |
+| v3.4 | 2026-09-04 | Live MCP service revived after a 10-day outage (unpinned `mcp` → 2.0.0); full dependency freeze + pre-push import smoke gate; repo hygiene + docs truth pass. **123 skills, 6 categories** |
 | v3.3 | 2026-06-28 | Search & recommend quality — `recommend_for_task` on the semantic engine, enriched tags/keywords, honest backend labels |
 | v3.2 | 2026-06-28 | Streamable-HTTP transport + `/health`; Railway/Render one-command deploy; SDK bridge |
 | v3.1 | 2026-06-28 | Registry reconciliation — promoted 24 stranded `hypercode/` + `web3/` + `dev/` skills into the registry, +2 categories → **120 skills, 6 categories** |

@@ -65,10 +65,16 @@ def main() -> int:
         json.dumps(reg, ensure_ascii=False), encoding="utf-8")
     # 2. Plain registry (search_skills reads this)
     shutil.copyfile(REGISTRY_PATH, VAULT_OUT / "skills-registry.json")
-    # 3. Server + semantic search module
+    # 3. Server + semantic search module + execution-template engine
     shutil.copyfile(REPO_ROOT / "mcp_server.py", VAULT_OUT / "mcp_server.py")
     shutil.copyfile(REPO_ROOT / "scripts" / "search_skills.py",
                     VAULT_OUT / "scripts" / "search_skills.py")
+    for module in ("mcp_execution.py", "skill_execution.py"):
+        src = REPO_ROOT / module
+        if src.exists():
+            shutil.copyfile(src, VAULT_OUT / module)
+        else:
+            print(f"   ! {module} missing at repo root — execution tools will be disabled in the bundle")
     # 4. Prebuilt dense index — so the plugin serves real embeddings immediately
     #    (only the live query is embedded) instead of rebuilding all 120 vectors on
     #    the first search. search_skills resolves it at vault/vector-store/.

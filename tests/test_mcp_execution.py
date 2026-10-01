@@ -37,6 +37,7 @@ variables:
     type: choice
     choices: [fast, deep]
     default: fast
+```
 '''
 
 

@@ -709,15 +709,6 @@ async def brain_core_agent(query: str) -> str:
     return await _call_agent("brain_core_agent", BRAIN_CORE_URL, "/query", {"query": query}, "answer")
 
 
-# ── Register execution tools ─────────────────────────────────────────────────────────────────────
-# Wire in the runnable skill execution layer via the MCP registration helper.
-try:
-    from mcp_execution import register_execution_tools
-    register_execution_tools(mcp, find_by_id, _content_and_gos, _mercy_not_found)
-except ImportError:
-    logger.warning("mcp_execution module not found; skill execution tools disabled.")
-
-
 # ── Resources (Skills-over-MCP / SEP-2640 alignment) ──────────────────────────────────────────
 
 def _skill_uri(skill_id: str) -> str:
@@ -805,6 +796,15 @@ def _mercy_not_found(skill_id: str) -> str:
         "message": f"No stress — '{skill_id}' isn't in the vault yet. {hint}",
         "next_step": 'search_skills(query="...") or recommend_for_task(task="...")',
     }, ensure_ascii=False, indent=2)
+
+
+# ── Register execution tools ─────────────────────────────────────────────────────────────────────
+# Wire in the runnable skill execution layer via the MCP registration helper.
+try:
+    from mcp_execution import register_execution_tools
+    register_execution_tools(mcp, find_by_id, _content_and_gos, _mercy_not_found)
+except ImportError:
+    logger.warning("mcp_execution module not found; skill execution tools disabled.")
 
 
 def _smoke_test():

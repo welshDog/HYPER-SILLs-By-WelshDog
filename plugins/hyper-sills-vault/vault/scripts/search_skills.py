@@ -188,6 +188,42 @@ def _load_skills() -> list[dict]:
     return [s for s in reg.get("skills", []) if s.get("status", "").lower() != "archived"]
 
 
+def docs_hash(skills: list[dict] | None = None) -> str | None:
+    """Fingerprint of everything the index embeds (id + skill_document per skill).
+
+    Returns None if a skill's source file is missing on this machine (e.g. the
+    plugin bundle), because the hash would be meaningless there.
+    """
+    import hashlib
+    skills = _load_skills() if skills is None else skills
+    h = hashlib.sha256()
+    for s in sorted(skills, key=lambda x: x["id"]):
+        if s.get("file") and not (VAULT_ROOT / s["file"]).exists():
+            return None
+        h.update(s["id"].encode("utf-8") + b"\0" + skill_document(s).encode("utf-8") + b"\0")
+    return h.hexdigest()
+
+
+def index_status(index: dict | None = None) -> dict:
+    """Is the committed index in sync with the registry + skill files?
+
+    state: fresh | stale | unknown (no hash stored, or sources unavailable).
+    """
+    try:
+        idx = index or json.loads(INDEX_PATH.read_text(encoding="utf-8"))
+    except Exception as e:  # noqa: BLE001
+        return {"state": "unknown", "reason": f"index unreadable: {type(e).__name__}"}
+    stored = idx.get("docs_hash")
+    if not stored:
+        return {"state": "unknown", "reason": "index has no docs_hash; rebuild it"}
+    current = docs_hash()
+    if current is None:
+        return {"state": "unknown", "reason": "skill files not on disk here"}
+    if current != stored:
+        return {"state": "stale", "reason": "registry/skill text changed since the index was built"}
+    return {"state": "fresh"}
+
+
 def _build_tfidf(skills: list[dict]) -> dict:
     tokenized, df = [], {}
     for s in skills:
@@ -223,12 +259,15 @@ def build_index(backend: str = "auto") -> dict:
     skills = _load_skills()
     embedder = resolve_embedder(backend)
     if embedder is None:
-        return _build_tfidf(skills)
-    try:
-        return _build_dense(skills, embedder)
-    except Exception as e:  # noqa: BLE001
-        print(f"(dense embedding failed: {type(e).__name__}; using TF-IDF)", file=sys.stderr)
-        return _build_tfidf(skills)
+        idx = _build_tfidf(skills)
+    else:
+        try:
+            idx = _build_dense(skills, embedder)
+        except Exception as e:  # noqa: BLE001
+            print(f"(dense embedding failed: {type(e).__name__}; using TF-IDF)", file=sys.stderr)
+            idx = _build_tfidf(skills)
+    idx["docs_hash"] = docs_hash(skills)
+    return idx
 
 
 def load_index(rebuild: bool = False, backend: str = "auto") -> dict:

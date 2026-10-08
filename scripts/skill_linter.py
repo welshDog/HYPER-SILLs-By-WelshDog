@@ -33,7 +33,7 @@ except Exception:
     pass
 
 # ── Config ─────────────────────────────────────────────────────────────────
-SKILL_DIRS    = ["agents", "content", "dev", "youtube", "broski"]
+SKILL_DIRS    = ["agents", "content", "dev", "youtube", "broski", "hypercode", "web3"]
 EXCLUDED_FILES = {"SKILL_TEMPLATE.md", "README.md"}
 
 REQUIRED_FRONTMATTER = [
@@ -48,7 +48,7 @@ REQUIRED_HEADINGS = [
     "## 🔗 Related Skills",
 ]
 
-VALID_CATEGORIES   = {"coding", "content", "design", "agents", "youtube", "automation", "ND-friendly", "broski"}
+VALID_CATEGORIES   = {"coding", "content", "design", "agents", "youtube", "automation", "ND-friendly", "broski", "dev", "hypercode", "web3"}
 VALID_DIFFICULTIES = {"beginner", "intermediate", "advanced"}
 # Skill lifecycle (optional `status:` frontmatter field). DRAFT→REVIEW→ACTIVE
 # →DEPRECATED→ARCHIVED. Legacy rescued skills use the implicit "rescued" status.

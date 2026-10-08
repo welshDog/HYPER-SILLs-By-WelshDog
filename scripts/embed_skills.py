@@ -22,14 +22,24 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from search_skills import INDEX_PATH, build_index  # noqa: E402
+from search_skills import INDEX_PATH, build_index, index_status  # noqa: E402
 
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Build the HYPER-SILLs vector index.")
     ap.add_argument("--backend", default="auto", choices=["auto", "local", "openai", "tfidf"])
     ap.add_argument("--stats", action="store_true", help="Print index stats after building")
+    ap.add_argument("--check", action="store_true",
+                    help="Don't build; exit 1 if the committed index is stale/unverifiable")
     args = ap.parse_args()
+
+    if args.check:
+        st = index_status()
+        print(f"skill index: {st['state']}" + (f" - {st['reason']}" if st.get("reason") else ""))
+        if st["state"] != "fresh":
+            print("  fix: python scripts/embed_skills.py   (then commit vector-store/skill_index.json)")
+            return 1
+        return 0
 
     print(f"Building skill index (backend: {args.backend})...")
     idx = build_index(args.backend)

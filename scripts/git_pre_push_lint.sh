@@ -21,7 +21,7 @@ ROOT="$(git rev-parse --show-toplevel 2>/dev/null)"
 # Prefer python, fall back to python3.
 if command -v python >/dev/null 2>&1; then PY=python; else PY=python3; fi
 
-echo "[HYPER-SILLs] pre-push (1/2): skill linter…"
+echo "[HYPER-SILLs] pre-push (1/5): skill linter…"
 PYTHONIOENCODING=utf-8 "$PY" scripts/skill_linter.py
 if [ "$?" -ne 0 ]; then
   echo ""
@@ -30,7 +30,7 @@ if [ "$?" -ne 0 ]; then
   exit 1
 fi
 
-echo "[HYPER-SILLs] pre-push (2/2): MCP server smoke test…"
+echo "[HYPER-SILLs] pre-push (2/5): MCP server smoke test…"
 PYTHONIOENCODING=utf-8 PYTHONUTF8=1 "$PY" scripts/smoke_test.py
 if [ "$?" -ne 0 ]; then
   echo ""
@@ -40,5 +40,33 @@ if [ "$?" -ne 0 ]; then
   exit 1
 fi
 
-echo "[HYPER-SILLs] ✅ Lint clean + smoke test passed — push allowed."
+echo "[HYPER-SILLs] pre-push (3/5): registry <-> disk sync…"
+PYTHONIOENCODING=utf-8 PYTHONUTF8=1 "$PY" scripts/check_registry_sync.py
+if [ "$?" -ne 0 ]; then
+  echo ""
+  echo "[HYPER-SILLs] ❌ Registry drift — push blocked (a skill file would be invisible to the MCP)."
+  exit 1
+fi
+
+echo "[HYPER-SILLs] pre-push (4/5): search index freshness…"
+PYTHONIOENCODING=utf-8 PYTHONUTF8=1 "$PY" scripts/embed_skills.py --check
+if [ "$?" -ne 0 ]; then
+  echo ""
+  echo "[HYPER-SILLs] ❌ Search index is stale — rebuild it and commit vector-store/skill_index.json."
+  exit 1
+fi
+
+echo "[HYPER-SILLs] pre-push (5/5): pytest (server surface + search quality, ~1 min)…"
+if "$PY" -c "import pytest" >/dev/null 2>&1; then
+  PYTHONIOENCODING=utf-8 PYTHONUTF8=1 "$PY" -m pytest -q -x
+  if [ "$?" -ne 0 ]; then
+    echo ""
+    echo "[HYPER-SILLs] ❌ Tests FAILED — push blocked."
+    exit 1
+  fi
+else
+  echo "              (pytest not installed here — skipped)"
+fi
+
+echo "[HYPER-SILLs] ✅ Lint clean + smoke test + sync + index + tests passed — push allowed."
 exit 0

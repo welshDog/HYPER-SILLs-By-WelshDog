@@ -14,14 +14,19 @@ def register_execution_tools(
     find_by_id: Callable[[str], dict | None],
     content_and_gos: Callable[[dict], tuple[str | None, dict]],
     mercy_not_found: Callable[[str], str],
+    instrument: Callable[[Callable], Callable] | None = None,
 ) -> None:
     """Register execution tools on an existing FastMCP server.
 
     Kept separate from the server so the bundled plugin and root server can share
     the exact same execution behavior without duplicating the renderer.
+    `instrument` is the server's metrics decorator (optional, so tests and other
+    hosts can register the tools without Prometheus).
     """
+    wrap = instrument or (lambda f: f)
 
     @mcp.tool()
+    @wrap
     def get_skill_execution_schema(skill_id: str) -> str:
         """Return the runnable variables and examples declared by a skill."""
         meta = find_by_id(skill_id)
@@ -48,6 +53,7 @@ def register_execution_tools(
         }, ensure_ascii=False, indent=2)
 
     @mcp.tool()
+    @wrap
     def execute_skill_template(
         skill_id: str,
         variables: str = "{}",

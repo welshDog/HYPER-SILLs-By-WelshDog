@@ -23,6 +23,7 @@ import logging
 import os
 import re
 import sys
+import threading
 import time
 from pathlib import Path
 
@@ -183,7 +184,7 @@ def _build_model_optimized_payload(skill_meta: dict, gos: dict, content: str, pr
             "prerequisites": parts["depends_on"],
             "next_steps": [
                 f"load_skill(\"{skill_meta.get('id')}\")",
-                "get_skill_graph(\"{skill_meta.get('id')}\")",
+                f"get_skill_graph(\"{skill_meta.get('id')}\")",
             ],
             "task_context": task_context,
             "content_excerpt": excerpt,
@@ -252,6 +253,57 @@ def get_registry() -> dict:
 
 def skills_list() -> list[dict]:
     return get_registry().get("skills", [])
+
+
+# ── Keyword ranking (search_skills) ───────────────────────────────────────────
+_KW_STOP = {
+    "the", "a", "an", "and", "or", "to", "of", "in", "on", "for", "with", "is",
+    "are", "be", "this", "that", "it", "as", "at", "by", "my", "your", "how",
+    "do", "i", "you", "when", "what", "which", "use", "using", "via", "from",
+    "into", "before", "after", "does", "can", "should", "make", "get",
+}
+# (field, weight): a hit in a curated field outranks one in prose.
+_KW_FIELDS = (
+    ("id", 5.0), ("hero_name", 4.0), ("keywords", 3.0), ("problem_keywords", 3.0),
+    ("tags", 2.5), ("description", 2.0),
+)
+
+
+def _stem(w: str) -> str:
+    for suf in ("ing", "ers", "er", "ed", "es", "s"):
+        if len(w) > len(suf) + 3 and w.endswith(suf):
+            return w[: -len(suf)]
+    return w
+
+
+def _query_tokens(query: str) -> list[str]:
+    seen, out = set(), []
+    for w in re.split(r"[^a-z0-9$]+", (query or "").lower()):
+        if len(w) > 1 and w not in _KW_STOP:
+            st = _stem(w)
+            if st not in seen:
+                seen.add(st)
+                out.append(st)
+    return out
+
+
+def _keyword_score(skill: dict, tokens: list[str]) -> float:
+    """Weighted token coverage. Every token that lands somewhere adds its best
+    field weight, so skills matching MORE of the query rank first (OR semantics
+    with AND-like ordering) instead of the old all-or-nothing substring match."""
+    fields = []
+    for name, weight in _KW_FIELDS:
+        val = skill.get(name, "")
+        text = " ".join(val) if isinstance(val, list) else str(val)
+        fields.append((weight, text.lower().replace("-", " ")))
+    total = 0.0
+    for t in tokens:
+        best = 0.0
+        for weight, text in fields:
+            if t in text and weight > best:
+                best = weight
+        total += best
+    return total
 
 
 def _build_gos_index() -> dict:
@@ -445,57 +497,56 @@ def search_skills(
     tag: str = "",
     limit: int = 10,
 ) -> str:
-    q = query.lower()
     cat = category.lower().rstrip("/")
     tg = tag.lower()
 
-    tokens = q.split() if q else []
-    results = []
-    for s in skills_list():
-        if tokens:
-            haystack = " ".join([
-                s.get("id", ""),
-                s.get("hero_name", ""),
-                s.get("description", ""),
-                " ".join(s.get("tags", [])),
-                " ".join(s.get("keywords", [])),
-            ]).lower()
-            if not all(t in haystack for t in tokens):
-                continue
+    tokens = _query_tokens(query)
+    scored = []
+    for order, s in enumerate(skills_list()):
         if cat and s.get("category", "").lower().rstrip("/") != cat:
             continue
         if tg and tg not in [t.lower() for t in s.get("tags", [])]:
             continue
-        results.append({
-            "id":          s.get("id"),
-            "hero_name":   s.get("hero_name"),
-            "description": s.get("description"),
-            "version":     s.get("version", ""),
-            "category":    s.get("category"),
-            "file":        s.get("file"),
-            "tags":        s.get("tags", []),
-            "pack":        s.get("pack"),
-        })
-        if len(results) >= limit:
-            break
+        score = _keyword_score(s, tokens) if tokens else 0.0
+        if tokens and score <= 0:
+            continue
+        scored.append((-score, order, s))
+
+    # Best match first; registry order breaks ties (and is the only order for
+    # filter-only calls with no query).
+    scored.sort(key=lambda x: (x[0], x[1]))
+    results = [{
+        "id":          s.get("id"),
+        "hero_name":   s.get("hero_name"),
+        "description": s.get("description"),
+        "version":     s.get("version", ""),
+        "category":    s.get("category"),
+        "file":        s.get("file"),
+        "tags":        s.get("tags", []),
+        "pack":        s.get("pack"),
+    } for _, _, s in scored[:limit]]
 
     return json.dumps({"count": len(results), "results": results}, ensure_ascii=False, indent=2)
 
 
 @mcp.tool()
 @instrument_tool
-def semantic_search(query: str, limit: int = 5) -> str:
+def semantic_search(query: str, limit: int = 5, category: str = "") -> str:
     if not query.strip():
         return json.dumps({"error": "Describe what you need in a sentence."})
+    cat = category.lower().rstrip("/")
     try:
         sys.path.insert(0, str(VAULT_ROOT / "scripts"))
         from search_skills import semantic_search as _ss, active_backend  # type: ignore
-        hits = _ss(query, limit=limit)
+        # Rank the whole index when filtering so the category can still fill `limit`.
+        hits = _ss(query, limit=max(limit, len(skills_list())) if cat else limit)
+        if cat:
+            hits = [h for h in hits if h.get("category", "").lower().rstrip("/") == cat][:limit]
         if hits:
             return json.dumps({"query": query, "backend": active_backend(), "count": len(hits), "results": hits}, ensure_ascii=False, indent=2)
-    except Exception:
-        pass
-    return search_skills(query=query, limit=limit)
+    except Exception as e:  # noqa: BLE001 - never fail the tool, but never hide why
+        logger.warning("semantic_search fell back to keyword: %s: %s", type(e).__name__, e)
+    return search_skills(query=query, category=category, limit=limit)
 
 
 def _content_and_gos(meta: dict) -> tuple[str | None, dict]:
@@ -759,11 +810,29 @@ def _search_backend_report() -> dict:
     return report
 
 
+_INDEX_STATUS_CACHE: dict = {"at": 0.0, "value": None}
+
+
+def _index_status_cached(ttl: float = 60.0) -> dict:
+    """Index freshness for /health. Hashing reads every skill file, so cache it."""
+    now = time.monotonic()
+    if _INDEX_STATUS_CACHE["value"] is None or now - _INDEX_STATUS_CACHE["at"] > ttl:
+        try:
+            sys.path.insert(0, str(VAULT_ROOT / "scripts"))
+            from search_skills import index_status  # type: ignore
+            _INDEX_STATUS_CACHE["value"] = index_status()
+        except Exception as e:  # noqa: BLE001
+            _INDEX_STATUS_CACHE["value"] = {"state": "unknown", "reason": f"{type(e).__name__}"}
+        _INDEX_STATUS_CACHE["at"] = now
+    return _INDEX_STATUS_CACHE["value"]
+
+
 @mcp.custom_route("/health", methods=["GET"])
 async def health(request: Request) -> JSONResponse:
     try:
         skills = len(skills_list())
         meta = get_registry().get("_meta", {})
+        idx = _index_status_cached()
         return JSONResponse({
             "status": "ok",
             "service": "hyper-sills-mcp",
@@ -771,6 +840,8 @@ async def health(request: Request) -> JSONResponse:
             "skills": skills,
             "categories": meta.get("categories", {}),
             "search_backend": _search_backend_report(),
+            "index": idx,
+            "index_stale": idx.get("state") == "stale",
         })
     except Exception as exc:
         return JSONResponse({"status": "degraded", "error": str(exc)}, status_code=503)
@@ -800,11 +871,23 @@ def _mercy_not_found(skill_id: str) -> str:
 
 # ── Register execution tools ─────────────────────────────────────────────────────────────────────
 # Wire in the runnable skill execution layer via the MCP registration helper.
-try:
-    from mcp_execution import register_execution_tools
-    register_execution_tools(mcp, find_by_id, _content_and_gos, _mercy_not_found)
-except ImportError:
-    logger.warning("mcp_execution module not found; skill execution tools disabled.")
+# Deliberately NOT wrapped in try/except: a missing module here is a broken deploy
+# (PR #20 shipped a swallowed failure and the server was down for two days), so it
+# must fail loudly at import time, where the smoke test and CI catch it.
+from mcp_execution import register_execution_tools  # noqa: E402
+
+register_execution_tools(mcp, find_by_id, _content_and_gos, _mercy_not_found, instrument_tool)
+
+
+def _warm_semantic() -> None:
+    """Load the embedder once at boot so the first real query isn't a cold start."""
+    try:
+        sys.path.insert(0, str(VAULT_ROOT / "scripts"))
+        from search_skills import semantic_search as _ss  # type: ignore
+        _ss("warm up", limit=1)
+        logger.info("semantic search warmed")
+    except Exception as e:  # noqa: BLE001 - warm-up is best effort
+        logger.warning("semantic warm-up skipped: %s: %s", type(e).__name__, e)
 
 
 def _smoke_test():
@@ -881,6 +964,7 @@ if __name__ == "__main__":
             )
 
         transport = "sse" if "--sse" in sys.argv else "streamable-http"
+        threading.Thread(target=_warm_semantic, daemon=True).start()
         logger.info(
             "HYPER-SILLs MCP serving %d skills over %s on %s:%s (health: /health)",
             len(skills_list()), transport, mcp.settings.host, mcp.settings.port

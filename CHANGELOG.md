@@ -2,6 +2,31 @@
 
 ---
 
+## [2026-10-08] 🔬 Measurable search + outage-proof gate (branch `feat/v1.4-search-eval-and-gates`)
+
+- **Search eval harness:** `scripts/eval_search.py` + 66 golden queries (`tests/golden_queries.json`)
+  report recall@1/3/5 and MRR per retriever. Baseline before changes: semantic R@1 0.955 /
+  R@3 0.970 / MRR 0.966; **keyword (`search_skills`) R@1 0.242 / MRR 0.242**.
+- **`search_skills` is now ranked:** weighted token coverage (id/hero/keywords/tags/description)
+  with light stemming and stopwords, replacing the all-tokens-must-substring-match, first-N-in-registry-order
+  behaviour. Keyword R@1 0.242 → **0.864**, R@5 0.97, MRR 0.907. Caveat: golden queries were written from
+  skill descriptions, so absolute numbers flatter both retrievers; use them to catch regressions.
+- **`semantic_search(query, limit, category="")`** now takes the `category` filter the README documents;
+  fallback to keyword is logged instead of silently swallowed. Embedder is warmed at HTTP boot.
+- **Index staleness:** `skill_index.json` stores a `docs_hash`; `/health` reports `index` + `index_stale`;
+  `python scripts/embed_skills.py --check` exits 1 when stale (index was rebuilt with the hash).
+- **Outage loop closed:** the swallowed `ImportError` around `register_execution_tools` is gone (it now
+  fails loudly at import); new `tests/test_mcp_server.py` asserts the 12-tool surface, `/health`, and the
+  search behaviour; execution tools are now Prometheus-instrumented; fixed the missing `f` prefix in the
+  GPT payload's `get_skill_graph(...)` hint.
+- **Pre-push hook is now 5 steps:** lint, smoke, `scripts/check_registry_sync.py` (registry ⇄ disk),
+  index freshness, pytest (25 tests, ~1 min). `generate_registry.py` exits 1 on stranded skill files.
+- **Linter** now also scans `hypercode/` and `web3/` (19 skills; warnings only, no new errors) and accepts the
+  real category names.
+- Plugin bundle rebuilt (`scripts/build_plugin.py`). Version number intentionally NOT bumped yet.
+
+---
+
 ## [2026-10-01] 🚑 Live service revived after a 2-day outage — PR #20 import-order NameError
 
 - **Outage fix:** `mcp_server.py` crashed on import (`NameError: _mercy_not_found`) because

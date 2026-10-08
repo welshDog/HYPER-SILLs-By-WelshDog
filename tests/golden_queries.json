@@ -1,0 +1,408 @@
+{
+  "_note": "Golden task->skill pairs. 'expect' = acceptable ids; a hit on any counts. Keep queries in natural user language.",
+  "queries": [
+    {
+      "query": "my agent keeps crashing and should restart itself with a circuit breaker",
+      "expect": [
+        "HS-103"
+      ]
+    },
+    {
+      "query": "fail gracefully with a fallback chain when a service is down",
+      "expect": [
+        "HS-071"
+      ]
+    },
+    {
+      "query": "friendly error messages for neurodivergent users",
+      "expect": [
+        "HS-069"
+      ]
+    },
+    {
+      "query": "what guardrails must every agent have",
+      "expect": [
+        "HS-085"
+      ]
+    },
+    {
+      "query": "the core laws every agent must follow",
+      "expect": [
+        "HS-098"
+      ]
+    },
+    {
+      "query": "checklist for building a brand new agent",
+      "expect": [
+        "HS-106"
+      ]
+    },
+    {
+      "query": "self audit checklist before an agent finishes a task",
+      "expect": [
+        "HS-088"
+      ]
+    },
+    {
+      "query": "required metrics every agent must expose",
+      "expect": [
+        "HS-105"
+      ]
+    },
+    {
+      "query": "agent lifecycle states from birth to death",
+      "expect": [
+        "HS-100"
+      ]
+    },
+    {
+      "query": "anatomy of an agent and its parts",
+      "expect": [
+        "HS-099"
+      ]
+    },
+    {
+      "query": "how agents should communicate request response and streaming",
+      "expect": [
+        "HS-083"
+      ]
+    },
+    {
+      "query": "server sent events schema for agent events",
+      "expect": [
+        "HS-073"
+      ]
+    },
+    {
+      "query": "store agent context in redis",
+      "expect": [
+        "HS-072",
+        "HS-082"
+      ]
+    },
+    {
+      "query": "naming convention for context keys",
+      "expect": [
+        "HS-082"
+      ]
+    },
+    {
+      "query": "get user approval before a risky agent action",
+      "expect": [
+        "HS-077"
+      ]
+    },
+    {
+      "query": "keep an agent from losing context when interrupted",
+      "expect": [
+        "HS-078"
+      ]
+    },
+    {
+      "query": "orchestrator pattern for coordinating agents",
+      "expect": [
+        "HS-008"
+      ]
+    },
+    {
+      "query": "sub agents that spawn their own sub agents with a depth limit",
+      "expect": [
+        "HS-131"
+      ]
+    },
+    {
+      "query": "agent swarm core design",
+      "expect": [
+        "HS-007"
+      ]
+    },
+    {
+      "query": "decision framework for choosing between agent options",
+      "expect": [
+        "HS-075",
+        "HS-087"
+      ]
+    },
+    {
+      "query": "nightly learning loop for agents",
+      "expect": [
+        "HS-093"
+      ]
+    },
+    {
+      "query": "self improvement loop python implementation",
+      "expect": [
+        "HS-121",
+        "HS-043"
+      ]
+    },
+    {
+      "query": "ab testing framework in python",
+      "expect": [
+        "HS-120"
+      ]
+    },
+    {
+      "query": "optimise cost of llm calls automatically",
+      "expect": [
+        "HS-045"
+      ]
+    },
+    {
+      "query": "watchdog that monitors a service after launch",
+      "expect": [
+        "HS-050",
+        "HS-122"
+      ]
+    },
+    {
+      "query": "prometheus and grafana metrics for agents",
+      "expect": [
+        "HS-041"
+      ]
+    },
+    {
+      "query": "observability for agent operations",
+      "expect": [
+        "HS-019"
+      ]
+    },
+    {
+      "query": "predict a trend with linear regression",
+      "expect": [
+        "HS-102"
+      ]
+    },
+    {
+      "query": "prevent thrashing with a sleep cycle hold",
+      "expect": [
+        "HS-101"
+      ]
+    },
+    {
+      "query": "verify claims against reality before reporting",
+      "expect": [
+        "HS-108"
+      ]
+    },
+    {
+      "query": "search the codebase before writing new code",
+      "expect": [
+        "HS-109"
+      ]
+    },
+    {
+      "query": "surface contradictions in documents instead of picking a side",
+      "expect": [
+        "HS-111"
+      ]
+    },
+    {
+      "query": "avoid bloated inflated documentation",
+      "expect": [
+        "HS-110"
+      ]
+    },
+    {
+      "query": "link docs together with wikilinks",
+      "expect": [
+        "HS-112"
+      ]
+    },
+    {
+      "query": "git workflow when many parallel branches are running",
+      "expect": [
+        "HS-113"
+      ]
+    },
+    {
+      "query": "pre commit testing checklist",
+      "expect": [
+        "HS-076"
+      ]
+    },
+    {
+      "query": "test pyramid levels",
+      "expect": [
+        "HS-086"
+      ]
+    },
+    {
+      "query": "contract tests for agents",
+      "expect": [
+        "HS-092"
+      ]
+    },
+    {
+      "query": "code style standards for python and typescript",
+      "expect": [
+        "HS-084"
+      ]
+    },
+    {
+      "query": "fastapi api standards",
+      "expect": [
+        "HS-074"
+      ]
+    },
+    {
+      "query": "register an mcp server and agent",
+      "expect": [
+        "HS-081"
+      ]
+    },
+    {
+      "query": "publish a claude code plugin marketplace",
+      "expect": [
+        "HS-128"
+      ]
+    },
+    {
+      "query": "expose skills as mcp resources",
+      "expect": [
+        "HS-129"
+      ]
+    },
+    {
+      "query": "distribute skills as oci artifacts",
+      "expect": [
+        "HS-130"
+      ]
+    },
+    {
+      "query": "docker best practices for production dockerfiles",
+      "expect": [
+        "HS-137"
+      ]
+    },
+    {
+      "query": "docker mcp toolkit gateway profile",
+      "expect": [
+        "HS-135"
+      ]
+    },
+    {
+      "query": "declare a docker agent in yaml",
+      "expect": [
+        "HS-136"
+      ]
+    },
+    {
+      "query": "which ports and networks do the containers use",
+      "expect": [
+        "HS-061",
+        "HS-037"
+      ]
+    },
+    {
+      "query": "database schema reference",
+      "expect": [
+        "HS-062"
+      ]
+    },
+    {
+      "query": "list of all running containers in the stack",
+      "expect": [
+        "HS-060"
+      ]
+    },
+    {
+      "query": "rules for the course project",
+      "expect": [
+        "HS-032"
+      ]
+    },
+    {
+      "query": "rules for the broski shop",
+      "expect": [
+        "HS-033"
+      ]
+    },
+    {
+      "query": "how do i end a session cleanly",
+      "expect": [
+        "HS-039"
+      ]
+    },
+    {
+      "query": "complete inventory of the whole ecosystem",
+      "expect": [
+        "HS-059"
+      ]
+    },
+    {
+      "query": "pet rarity roll formula",
+      "expect": [
+        "HS-053"
+      ]
+    },
+    {
+      "query": "give xp for developer actions",
+      "expect": [
+        "HS-054"
+      ]
+    },
+    {
+      "query": "dnft on chain portfolio pattern",
+      "expect": [
+        "HS-055"
+      ]
+    },
+    {
+      "query": "analyse youtube analytics to find why a video flopped",
+      "expect": [
+        "HS-127",
+        "HS-134"
+      ]
+    },
+    {
+      "query": "turn a long video into shorts",
+      "expect": [
+        "HS-133"
+      ]
+    },
+    {
+      "query": "test two thumbnails and titles against each other",
+      "expect": [
+        "HS-132"
+      ]
+    },
+    {
+      "query": "progressive health wait with backoff at boot",
+      "expect": [
+        "DS-028"
+      ]
+    },
+    {
+      "query": "preflight validation before the system boots",
+      "expect": [
+        "DS-009"
+      ]
+    },
+    {
+      "query": "fix token sync bug",
+      "expect": [
+        "HS-025"
+      ]
+    },
+    {
+      "query": "morning briefing",
+      "expect": [
+        "HS-013",
+        "HS-020"
+      ]
+    },
+    {
+      "query": "teach a module in seven beats",
+      "expect": [
+        "HS-034"
+      ]
+    },
+    {
+      "query": "analogies that make concepts easy for adhd learners",
+      "expect": [
+        "HS-036"
+      ]
+    }
+  ]
+}

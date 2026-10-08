@@ -275,6 +275,7 @@ def main():
         for s in stranded:
             print(f"     - {s}")
         print("   Add a RESCUED row for each in vault-index.md, then re-run.")
+        sys.exit(1)  # hard failure: callers (hooks, auto-rescue) must not ship drift
     else:
         print("\n✅ Disk reconciliation clean — every skill file on disk is registered.")
 

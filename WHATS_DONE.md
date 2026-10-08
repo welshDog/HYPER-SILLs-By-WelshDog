@@ -1,9 +1,46 @@
 # WHATS_DONE.md -- HYPER-SILLs-By-WelshDog
 
 > Single source of truth. Check this before building ANYTHING.
-> Last updated: 2026-10-01
+> Last updated: 2026-10-08
 
-## 2026-10-01 (latest) — Live MCP service revived after 2-day outage; PR #20 NameError
+## 2026-10-08 (latest) — v1.4 search eval + outage-proof gate MERGED, **NOT DEPLOYED**
+
+**PR #21 is merged to `main` (`ff6804c`) but production still runs the 2026-10-01 build (`03ace43`).**
+Railway rejected the deploy: `railway up` says *"Your trial has expired. Please select a plan"*, which
+is also why the merge never auto-deployed. Production `/health` still answered 200/1.3.0/123 skills on
+2026-10-08 but could stop at any time. **Next session, first thing:**
+
+1. Lyndz adds a plan/funds on Railway (billing = their call).
+2. Deploy `main`: `railway up --ci --project 4346550d-d349-4482-bec8-99d477da28c5 --environment d64b2880-64fd-4c81-9a22-ff3f709974a2 --service f2724717-58bf-4b62-9e7c-c7355ac11f6a`
+   (the Railway MCP `redeploy` only re-runs the OLD build and `create-deployment` builds a NEW service; neither works here).
+3. Confirm: new deployment says commit `ff6804c`, and `/health` has `index` + `index_stale: false`.
+
+What shipped (details in CHANGELOG 2026-10-08):
+- `scripts/eval_search.py` + `tests/golden_queries.json` (66 queries): recall@k / MRR. Baseline semantic
+  R@1 0.955 / MRR 0.966; keyword went 0.242 -> 0.864 R@1 (MRR 0.907) after ranking `search_skills`.
+  Golden queries were written from descriptions, so scores flatter both: a regression guard, not a quality claim.
+- `semantic_search(query, limit, category)`; logged fallback; embedder warm-up at HTTP boot.
+- Index carries `docs_hash`; `/health` reports `index_stale`; `python scripts/embed_skills.py --check`.
+  **After editing any skill or the registry, run `python scripts/embed_skills.py` and commit
+  `vector-store/skill_index.json` (plus `scripts/build_plugin.py` for the plugin copy) or pre-push blocks.**
+- `register_execution_tools` import no longer swallowed; execution tools instrumented; GPT payload f-string fixed.
+- Pre-push hook is 5 steps (lint, smoke, `check_registry_sync.py`, index freshness, pytest ~1 min).
+  `.git/hooks/pre-push` is a COPY: re-run `python scripts/install_git_hooks.py` after pulling hook changes
+  (its closing message still says "linter + smoke" — stale wording, hook is fine).
+- Linter now scans `hypercode/` + `web3/` (19 skills, warnings only: no GoS metadata yet).
+
+Corrections to earlier assumptions: `pack: null` on the 12 hypercode + 7 web3 skills is by design
+(`CATEGORY_META`); `dev/HYPER_BRAIN_OPS_v2/SKILL.md` is not a stranded skill; frontmatter semver is
+already compliant (the 19 registry `v1.0` values come from vault-index).
+
+Not done / ideas: version still 1.3.0 (bump `SERVER_VERSION`, `pyproject.toml`, plugin manifest together);
+usage telemetry (`.skill-memory` log is empty); loadout MCP tools; `resolve_skill_load_order`;
+prune merged remote branches + 33 `auto-rescue/*` branches; GoS metadata for hypercode/web3 skills.
+Security note: a repo webhook URL (Discord) was printed to chat on 2026-10-08, so rotate it.
+
+---
+
+## 2026-10-01 — Live MCP service revived after 2-day outage; PR #20 NameError
 
 **The service was 502 from 2026-09-29 12:22 UTC to 2026-10-01 ~11:18 UTC (~2 days).**
 

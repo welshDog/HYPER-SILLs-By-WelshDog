@@ -13,6 +13,7 @@ Verified in a clean venv: `pip install -r requirements.txt` → `python mcp_serv
 > post-mortemed in `WHATS_DONE.md`. The failure mode both times: a crash at import time, before
 > the server binds a port, so the healthcheck fails 6/6 and Railway marks the deploy FAILED —
 > watch Railway deploy status after any merge, don't assume a merged PR is a live PR.
+> 🅿️ **2026-10-08:** Railway trial expired — new deploys are rejected (`railway up` / GitHub auto-deploy) until a plan is added. PR #21 (`ff6804c`) is merged but NOT live. See WHATS_DONE.md for the exact redeploy command.
 
 - **Target**: Railway, project `sincere-strength`, service `HYPER-SILLs-By-WelshDog`.
 - **Region**: `sfo` only, 1 replica (`multiRegionConfig: {"sfo": {"numReplicas": 1}}`). No second region is configured — treat any note about `sfo`+`iad` multi-region as an in-progress goal, not a shipped state, until `get-service-config` shows both.
